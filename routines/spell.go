@@ -46,7 +46,10 @@ func (c *Class) GetSlots() []int {
 	spellSlots := make([]int, len(slots[c.Level]))
 	copy(spellSlots, slots[c.Level])
 	for i := range spellSlots {
-		spellSlots[i] = int(tiers[c.ClassName] * float64(spellSlots[i]))
+		spellSlot := int(tiers[c.ClassName] * float64(spellSlots[i]))
+		if spellSlot != 0 {
+			spellSlots[i] = spellSlot
+		}
 	}
 	return spellSlots
 }
