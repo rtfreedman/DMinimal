@@ -22,19 +22,22 @@
       </v-layout>
     </v-card-text>
     <v-card-actions>
-      <v-btn flat color="green">Cast Spell</v-btn>
+      <v-btn flat color="green" @click="$refs.spellsearch.dialog=true">Cast Spell</v-btn>
       <v-btn flat color="blue">Long Rest</v-btn>
     </v-card-actions>
+    <searchDialog ref="spellsearch"></searchDialog>
   </v-card>
 </template>
 
 <script>
 import Counter from '@/components/Counter'
 import Multiclass from '@/components/Multiclass'
+import SearchDialog from '@/components/SearchDialog'
 export default {
   data () {
     return {
       characterName: '',
+      dialogOpen: false,
       spellLevels: [...Array(9).keys()],
       numClasses: 1,
       classes: [0]
@@ -52,6 +55,7 @@ export default {
   },
   components: {
     Counter,
+    SearchDialog,
     Multiclass
   },
   methods: {
