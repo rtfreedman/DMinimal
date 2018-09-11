@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
-import Tracker from '@/components/Tracker'
+import TrackerList from '@/components/TrackerList'
 
 Vue.use(Router)
 
@@ -15,7 +15,7 @@ export default new Router({
     {
       path: '/spelltracker',
       name: 'Spell Tracker',
-      component: Tracker
+      component: TrackerList
     }
   ]
 })
