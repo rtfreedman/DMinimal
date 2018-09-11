@@ -15,6 +15,12 @@ func ReadJSONRequestBody(r *http.Request, v interface{}) error {
 	return json.Unmarshal(requestContent, v)
 }
 
+// WriteError writes an error back to responsewriter
+func WriteError(trace string, w http.ResponseWriter) {
+	w.WriteHeader(http.StatusBadRequest)
+	w.Write([]byte(trace))
+}
+
 // WriteJSONResponse writes a response to the response writer and sets the header as json
 func WriteJSONResponse(trace string, resp interface{}, w http.ResponseWriter) {
 	bytes, err := json.Marshal(resp)

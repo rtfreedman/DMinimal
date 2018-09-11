@@ -33,8 +33,8 @@ var slots = map[int][]int{
 
 // Class is a representation of the class of a character with level and classname populated
 type Class struct {
-	Level     int
-	ClassName string
+	Level     int    `json:"level"`
+	ClassName string `json:"class"`
 }
 
 // GetSlots return spell slots for class class at level level
