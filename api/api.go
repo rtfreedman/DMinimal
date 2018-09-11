@@ -11,9 +11,11 @@ import (
 )
 
 // RunAPI starts the API
-func RunAPI(port int, dev bool) {
+func RunAPI(port int, external bool) {
+	// if we aren't running an internal instance we want to bind 0.0.0.0 so the API is
+	// externally accessible
 	loc := "0.0.0.0:%d"
-	if dev {
+	if !external {
 		loc = "127.0.0.1:%d"
 	}
 	r := mux.NewRouter()

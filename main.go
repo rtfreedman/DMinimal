@@ -7,10 +7,10 @@ import (
 )
 
 var port int
-var dev bool
+var external bool
 
 func main() {
 	flag.IntVar(&port, "port", 8010, "Port to run API on")
-	flag.BoolVar(&dev, "dev", false, "Run as dev/testing")
-	api.RunAPI(port, dev)
+	flag.BoolVar(&external, "external", false, "Run as externally accessible API")
+	api.RunAPI(port, external)
 }
