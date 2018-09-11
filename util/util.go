@@ -45,7 +45,8 @@ func AddIntSlices(a []int, b []int) []int {
 	for i = range b {
 		ret[i] = a[i] + b[i]
 	}
-	for ; i < len(a); i++ {
+	// because we need to increment by 1 prior to checking for same-length lists
+	for i++; i < len(a); i++ {
 		ret[i] = a[i]
 	}
 	return ret
