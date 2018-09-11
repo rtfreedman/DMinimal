@@ -3,7 +3,7 @@
     <v-flex xs6>
     <v-card-text>
       <div>
-        <v-text-field placeholder=Name></v-text-field>
+        <v-text-field v-model="name" placeholder="Name..."></v-text-field>
         <div v-for="c in classes" :key="c">
           <v-layout row>
             <multiclass> </multiclass>
@@ -34,10 +34,20 @@ import Multiclass from '@/components/Multiclass'
 export default {
   data () {
     return {
-      name: 'Rorik Ironforge',
+      characterName: '',
       spellLevels: [...Array(9).keys()],
       numClasses: 1,
       classes: [0]
+    }
+  },
+  computed: {
+    name: {
+      get () {
+        return this.characterName
+      },
+      set (val) {
+        this.characterName = val
+      }
     }
   },
   components: {
