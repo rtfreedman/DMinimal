@@ -2,11 +2,10 @@
   <v-app dark>
     <v-navigation-drawer
       persistent
-      :mini-variant="miniVariant"
+      mini-variant
       :clipped="clipped"
       v-model="drawer"
       disable-resize-watcher
-      fixed
       app
     >
       <v-list>
@@ -16,11 +15,13 @@
           :key="i"
         >
           <v-list-tile-action>
-            <v-icon v-html="item.icon"></v-icon>
+            <v-tooltip right>
+              <v-btn slot="activator" flat icon>
+                <v-icon v-html="item.icon"></v-icon>
+              </v-btn>
+              <span>{{item.title}}</span>
+            </v-tooltip>
           </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"></v-list-tile-title>
-          </v-list-tile-content>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
@@ -50,10 +51,10 @@ export default {
       fixed: false,
       items: [{
         icon: 'bubble_chart',
-        title: 'Inspire'
+        title: 'Spelltracker'
       }],
       miniVariant: false,
-      title: 'Vuetify.js'
+      title: 'TitlePending'
     }
   },
   methods: {
