@@ -7,7 +7,7 @@
         <div v-for="c in classes" :key="c">
           <v-layout row>
             <multiclass v-bind:classOpts='classOpts'> </multiclass>
-            <v-btn flat color="red" @click="deleteClass(c)"> x </v-btn>
+            <v-btn v-if="classes.length > 1" icon flat color="grey" @click="deleteClass(c)"> <v-icon>cancel</v-icon> </v-btn>
           </v-layout>
         </div>
         <v-btn @click="multiclass()">+ Multiclass</v-btn>
@@ -61,7 +61,9 @@ export default {
   },
   methods: {
     multiclass () {
-      this.classes.push(Math.random() * (10 ** 10))
+      if (this.classes.length < 10) {
+        this.classes.push(Math.random() * (10 ** 10))
+      }
     },
     deleteClass (item) {
       let index = this.classes.findIndex(function (element) {

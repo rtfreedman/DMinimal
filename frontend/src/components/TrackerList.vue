@@ -4,7 +4,7 @@
       <v-btn flat @click="addCharacter()"> +Character </v-btn>
     </v-card-actions>
     <div v-for="c in characters" :key="c">
-      <p class="text-lg-right"><v-btn @click='removeCharacter(c)' flat>X</v-btn></p>
+      <p class="text-lg-right"><v-btn v-if="characters.length > 1" @click='removeCharacter(c)' icon flat color="red"> <v-icon>cancel</v-icon> </v-btn></p>
       <tracker v-bind:classOpts='classOpts'></tracker>
     </div>
   </v-card>
@@ -26,7 +26,9 @@ export default {
   },
   methods: {
     addCharacter: function () {
-      this.characters.push(Math.random() * (10 ** 10))
+      if (this.characters.length < 10) {
+        this.characters.push(Math.random() * (10 ** 10))
+      }
     },
     removeCharacter: function (c) {
       let index = this.characters.findIndex(function (element) {
