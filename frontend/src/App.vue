@@ -56,12 +56,10 @@ export default {
       title: 'Vuetify.js'
     }
   },
-  methods () {
-    return {
-      newpage: function () {
-        this.drawer = !this.drawer
-        this.title = 'asdf'
-      }
+  methods: {
+    newpage: function () {
+      this.drawer = !this.drawer
+      this.title = 'asdf'
     }
   },
   name: 'App'

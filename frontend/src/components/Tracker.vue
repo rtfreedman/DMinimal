@@ -6,7 +6,7 @@
         <v-text-field v-model="name" placeholder="Name..."></v-text-field>
         <div v-for="c in classes" :key="c">
           <v-layout row>
-            <multiclass> </multiclass>
+            <multiclass v-bind:classOpts='classOpts'> </multiclass>
             <v-btn flat color="red" @click="deleteClass(c)"> x </v-btn>
           </v-layout>
         </div>
@@ -34,6 +34,7 @@ import Counter from '@/components/Counter'
 import Multiclass from '@/components/Multiclass'
 import SearchDialog from '@/components/SearchDialog'
 export default {
+  props: ['classOpts'],
   data () {
     return {
       characterName: '',

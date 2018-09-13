@@ -1,5 +1,7 @@
 package routines
 
+import "sort"
+
 type empty struct{}
 
 var tiers = map[string]float64{
@@ -60,5 +62,6 @@ func GetClassNames() []string {
 	for key := range tiers {
 		classes = append(classes, key)
 	}
+	sort.Strings(classes)
 	return classes
 }

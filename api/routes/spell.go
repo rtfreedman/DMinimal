@@ -8,6 +8,10 @@ import (
 	"github.com/rtfreedman/SpellTracker/util"
 )
 
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+}
+
 // SetupSpells sets up the handler funcs for API requests for the /magic/ location
 func SetupSpells(r *mux.Router) {
 	r.HandleFunc("/magic/slots/", getSpellSlots).Methods("POST")
@@ -15,6 +19,7 @@ func SetupSpells(r *mux.Router) {
 }
 
 func getSpellSlots(w http.ResponseWriter, r *http.Request) {
+	enableCors(&w)
 	// we won't need this struct anywhere else so we'll define it here
 	req := map[string][]routines.Class{}
 	util.ReadJSONRequestBody(r, &req)
@@ -33,5 +38,6 @@ func getSpellSlots(w http.ResponseWriter, r *http.Request) {
 func getMagicClasses(w http.ResponseWriter, r *http.Request) {
 	classes := map[string][]string{}
 	classes["Classes"] = routines.GetClassNames()
+	enableCors(&w)
 	util.WriteJSONResponse("getMagicClasses", classes, w)
 }
