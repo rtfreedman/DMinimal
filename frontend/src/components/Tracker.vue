@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     multiclass () {
-      this.classes.push(this.classes.length)
+      this.classes.push(Math.random() * (10 ** 10))
     },
     deleteClass (item) {
       let index = this.classes.findIndex(function (element) {
