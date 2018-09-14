@@ -18,7 +18,7 @@
           <v-spacer></v-spacer>
 
           <v-btn
-            color="red darken-1"
+            color="red lighten-1"
             flat="flat"
             @click="dialog = false"
           >
@@ -26,7 +26,7 @@
           </v-btn>
 
           <v-btn
-            color="green darken-1"
+            color="green lighten-1"
             flat="flat"
             @click="dialog = false"
           >

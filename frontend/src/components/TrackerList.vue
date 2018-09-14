@@ -2,9 +2,12 @@
   <v-card>
     <v-card-actions>
       <v-btn flat @click="addCharacter()"> +Character </v-btn>
+      <v-btn v-if="characters.length > 1" flat color="blue">Long Rest All</v-btn>
     </v-card-actions>
     <div v-for="c in characters" :key="c">
-      <p class="text-lg-right"><v-btn v-if="characters.length > 1" @click='removeCharacter(c)' icon flat color="red"> <v-icon>cancel</v-icon> </v-btn></p>
+      <p class="text-lg-right">
+        <v-btn v-if="characters.length > 1" @click='removeCharacter(c)' icon flat color="red"> <v-icon>cancel</v-icon> </v-btn>
+      </p>
       <tracker v-bind:classOpts='classOpts'></tracker>
     </div>
   </v-card>
