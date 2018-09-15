@@ -34,20 +34,18 @@ func WriteJSONResponse(trace string, resp interface{}, w http.ResponseWriter) {
 }
 
 // AddIntSlices adds two int slices and returns the result
-func AddIntSlices(a []int, b []int) []int {
+func AddIntSlices(a []int, b []int) (ret []int) {
 	if len(a) < len(b) {
-		c := a
-		a = b
-		b = c
+		c := b
+		b = a
+		a = c
 	}
-	ret := make([]int, len(a))
-	var i int
-	for i = range b {
-		ret[i] = a[i] + b[i]
+	for i := range a {
+		if i < len(b) {
+			ret = append(ret, a[i]+b[i])
+		} else {
+			ret = append(ret, a[i])
+		}
 	}
-	// because we need to increment by 1 prior to checking for same-length lists
-	for i++; i < len(a); i++ {
-		ret[i] = a[i]
-	}
-	return ret
+	return
 }

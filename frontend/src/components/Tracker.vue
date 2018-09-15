@@ -31,13 +31,19 @@
           </v-btn>
           <span>Multiclass</span>
         </v-tooltip>
+        <v-tooltip right>
+          <v-btn flat slot="activator" icon @click="getSpellSlots()">
+            <v-icon> autorenew </v-icon>
+          </v-btn>
+          <span>Update Slots</span>
+        </v-tooltip>
       </div>
     </v-card-text>
     </v-flex>
     <v-card-text>
       <v-layout row grid-list-xs>
-        <div v-for="level in spellLevels" :key="level">
-          <counter v-bind:level=level+1 v-bind:value=9-level ref="'counter' + level"></counter>
+        <div v-for="level in spellSlotLevels" :key="level">
+          <counter v-bind:level=level+1 v-bind:value=spellSlots[level] ref="'counter' + level"></counter>
         </div>
       </v-layout>
     </v-card-text>
@@ -56,11 +62,11 @@ export default {
   props: ['classOpts'],
   data () {
     return {
-      spellSlots: [],
+      spellSlots: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      spellSlotLevels: [...Array(9).keys()],
       levels: [...Array(21).keys()],
       characterName: '',
       dialogOpen: false,
-      spellLevels: [...Array(9).keys()],
       numClasses: 1,
       classes: [{
         class: 'Wizard',
@@ -85,21 +91,25 @@ export default {
   },
   methods: {
     getSpellSlots: function () {
-      // let r = new Request('http://localhost:8010/magic/slots/', {method: 'POST', body: '{"foo":"bar"}'})
-      // fetch(r)
-      // .then(response => {
-      //   if (response.status === 200) {
-      //     return response.json()
-      //   } else {
-      //     throw new Error('Something went wrong on api server!')
-      //   }
-      // })
-      // .then(response => {
-      //   this.classOpts = response.Classes
-      // })
-      // .catch(error => {
-      //   console.error(error)
-      // })
+      let strBody = JSON.stringify({
+        classes: this.classes
+      })
+      let r = new Request('http://localhost:8010/magic/slots/', {method: 'POST', body: strBody})
+      fetch(r)
+      .then(response => {
+        if (response.status === 200) {
+          return response.json()
+        } else {
+          throw new Error('Something went wrong on api server!')
+        }
+      })
+      .then(response => {
+        this.spellSlots = response.Slots
+        this.spellSlotLevels = [...Array(this.spellSlots.length).keys()]
+      })
+      .catch(error => {
+        console.error(error)
+      })
     },
     multiclass () {
       if (this.classes.length < 10) {
@@ -109,7 +119,6 @@ export default {
           id: Math.random() * (10 ** 10)
         })
       }
-      this.getSpellSlots()
     },
     deleteClass (item) {
       let index = this.classes.findIndex(function (element) {
