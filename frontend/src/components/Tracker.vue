@@ -43,7 +43,7 @@
     <v-card-text>
       <v-layout row grid-list-xs>
         <div v-for="(slot, index) in spellSlots" :key="slot">
-          <counter v-bind:level=index v-bind:value=slot[index] ref="'counter' + level"></counter>
+          <counter v-bind:level=index+1 v-bind:value=slot[index] ref="'counter' + level"></counter>
         </div>
       </v-layout>
     </v-card-text>
