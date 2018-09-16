@@ -6,11 +6,11 @@
     >
       <v-card>
         <v-card-title class="headline">Find spell</v-card-title>
-
         <v-card-text>
           <v-autocomplete 
             placeholder='Spell...'
-            :items="spells"
+            :search-input.sync="input"
+            :items="spellOpts"
           />
         </v-card-text>
 
@@ -43,7 +43,33 @@
     data () {
       return {
         dialog: false,
-        spells: ['1', '2', '3']
+        classes: [],
+        input: '',
+        spellOpts: []
+      }
+    },
+    watch: {
+      input () {
+        let strBody = JSON.stringify({
+          classes: this.classes,
+          spellName: this.input
+        })
+        let r = new Request('http://localhost:8010/magic/search/', {method: 'Post', body: strBody})
+        fetch(r)
+        .then(response => {
+          if (response.status === 200) {
+            return response.json()
+          } else {
+            throw new Error('Something went wrong on api server!')
+          }
+        })
+        .then(response => {
+          this.spellOpts = response.spellOpts
+          return response.spellOpts
+        })
+        .catch(error => {
+          console.error(error)
+        })
       }
     }
   }

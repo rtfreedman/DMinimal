@@ -14,25 +14,45 @@ func enableCors(w *http.ResponseWriter) {
 
 // SetupSpells sets up the handler funcs for API requests for the /magic/ location
 func SetupSpells(r *mux.Router) {
+	r.HandleFunc("/magic/search/", getSearch).Methods("POST")
 	r.HandleFunc("/magic/slots/", getSpellSlots).Methods("POST")
 	r.HandleFunc("/magic/classes/", getMagicClasses).Methods("GET")
 }
 
+func getSearch(w http.ResponseWriter, r *http.Request) {
+	enableCors(&w)
+	req := struct {
+		Classes       []string `json:"classes"`
+		SpellNamePart string   `json:"spellName"`
+	}{}
+	err := util.ReadJSONRequestBody(r, &req)
+	if err != nil {
+		util.WriteError("Malformed JSON input into getSearch API endpoint", w)
+	}
+	spellOpts, err := routines.SpellSearch(req.SpellNamePart, req.Classes)
+	if err != nil {
+		util.WriteError(err.Error(), w)
+	}
+	util.WriteJSONResponse("getSearch", map[string][]string{
+		"spellOpts": spellOpts,
+	}, w)
+	return
+}
+
 func getSpellSlots(w http.ResponseWriter, r *http.Request) {
 	enableCors(&w)
-	// we won't need this struct anywhere else so we'll define it here
 	req := map[string][]routines.Class{}
-	util.ReadJSONRequestBody(r, &req)
-	resp := map[string]interface{}{}
-	if _, ok := req["classes"]; !ok {
+	err := util.ReadJSONRequestBody(r, &req)
+	if err != nil {
 		util.WriteError("Malformed JSON input into getSpellSlots API endpoint", w)
 	}
 	slots := []int{}
 	for c := range req["classes"] {
 		slots = util.AddIntSlices(slots, req["classes"][c].GetSlots())
 	}
-	resp["Slots"] = util.TransformToMapSlice(slots)
-	util.WriteJSONResponse("getSpellSlots", resp, w)
+	util.WriteJSONResponse("getSpellSlots", map[string][]map[string]int{
+		"Slots": util.TransformToMapSlice(slots),
+	}, w)
 	return
 }
 

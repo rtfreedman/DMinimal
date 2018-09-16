@@ -1,14 +1,29 @@
 package routines
 
-import "sort"
+import (
+	"database/sql"
+	"log"
+	"sort"
+	"strings"
 
-type empty struct{}
+	// required for postgres driver
+	_ "github.com/lib/pq"
+)
 
 var tiers = map[string]float64{
 	"Bard": 1.0, "Cleric": 1.0, "Sorcerer": 1.0,
 	"Wizard": 1.0, "Druid": 1.0, "Paladin": 0.5, "Ranger": 0.5,
 	"Fighter (Eldritch Knight)": 0.333, "Rogue (Arcane Trickster)": 0.333,
 }
+
+var db = func() *sql.DB {
+	connStr := "user=ryan dbname=dnd sslmode=disable"
+	db, err := sql.Open("postgres", connStr)
+	if err != nil {
+		log.Fatal("Could not connect to Postgres DB : " + err.Error())
+	}
+	return db
+}()
 
 var slots = map[int][]int{
 	1:  []int{2, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -65,7 +80,29 @@ func GetClassNames() []string {
 }
 
 // SpellSearch performs a search on the partial spell name name and in spell school for classes
-func SpellSearch(name string, classes []string) []string {
-	// TODO
-	return []string{}
+func SpellSearch(name string, classes []string) ([]string, error) {
+	// form query
+	query := "SELECT name FROM spells WHERE name LIKE '%" + name + "%'"
+	if len(classes) > 0 {
+		classqueries := []string{}
+		for _, class := range classes {
+			classqueries = append(classqueries, "(classes @> ARRAY['"+class+"']::varchar[])")
+		}
+		query = query + " AND (" + strings.Join(classqueries, " OR ") + ")"
+	}
+	query += ";"
+	// search db with constructed query
+	rows, err := db.Query(query)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	// gather names from returned data
+	names := []string{}
+	for rows.Next() {
+		var name string
+		rows.Scan(&name)
+		names = append(names, name)
+	}
+	return names, nil
 }
