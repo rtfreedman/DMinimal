@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 )
 
 // ReadJSONRequestBody reads a http Request body and attempts to unmarshal it the object at v
@@ -31,6 +32,17 @@ func WriteJSONResponse(trace string, resp interface{}, w http.ResponseWriter) {
 	}
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(bytes)
+}
+
+// TransformToMapSlice transforms a slice to a []map[string]type with each element being {$index : value}
+func TransformToMapSlice(s []int) []map[string]int {
+	ret := []map[string]int{}
+	for index, value := range s {
+		ret = append(ret, map[string]int{
+			strconv.Itoa(index): value,
+		})
+	}
+	return ret
 }
 
 // AddIntSlices adds two int slices and returns the result

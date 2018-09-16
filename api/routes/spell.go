@@ -23,14 +23,15 @@ func getSpellSlots(w http.ResponseWriter, r *http.Request) {
 	// we won't need this struct anywhere else so we'll define it here
 	req := map[string][]routines.Class{}
 	util.ReadJSONRequestBody(r, &req)
-	resp := map[string][]int{}
+	resp := map[string]interface{}{}
 	if _, ok := req["classes"]; !ok {
 		util.WriteError("Malformed JSON input into getSpellSlots API endpoint", w)
 	}
-	resp["Slots"] = []int{}
+	slots := []int{}
 	for c := range req["classes"] {
-		resp["Slots"] = util.AddIntSlices(resp["Slots"], req["classes"][c].GetSlots())
+		slots = util.AddIntSlices(slots, req["classes"][c].GetSlots())
 	}
+	resp["Slots"] = util.TransformToMapSlice(slots)
 	util.WriteJSONResponse("getSpellSlots", resp, w)
 	return
 }

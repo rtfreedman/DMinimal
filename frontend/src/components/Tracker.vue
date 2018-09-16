@@ -42,8 +42,8 @@
     </v-flex>
     <v-card-text>
       <v-layout row grid-list-xs>
-        <div v-for="level in spellSlotLevels" :key="level">
-          <counter v-bind:level=level+1 v-bind:value=spellSlots[level] ref="'counter' + level"></counter>
+        <div v-for="(slot, index) in spellSlots" :key="slot">
+          <counter v-bind:level=index v-bind:value=slot[index] ref="'counter' + level"></counter>
         </div>
       </v-layout>
     </v-card-text>
@@ -62,8 +62,8 @@ export default {
   props: ['classOpts'],
   data () {
     return {
-      spellSlots: [0, 0, 0, 0, 0, 0, 0, 0, 0],
-      spellSlotLevels: [...Array(9).keys()],
+      spellSlots: [],
+      spellSlotLevels: [],
       levels: [...Array(21).keys()],
       characterName: '',
       dialogOpen: false,
