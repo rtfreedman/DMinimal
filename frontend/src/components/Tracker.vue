@@ -4,7 +4,7 @@
     <v-card-text>
       <div>
         <v-text-field v-model="name" placeholder="Name..."></v-text-field>
-        <div v-for="c in classes" :key="c">
+        <div v-for="(c, index) in classes" :key="index">
           <v-layout row>
             <v-card-title>
               <v-autocomplete
@@ -42,28 +42,33 @@
     </v-flex>
     <v-card-text>
       <v-layout row grid-list-xs>
-        <div v-for="(slot, index) in spellSlots" :key="slot">
-          <counter v-bind:level=index+1 v-bind:value=slot[index] ref="'counter' + level"></counter>
+        <div v-for="(slot, index) in spellSlots" :key="index">
+          <v-flex xs2>
+              <v-btn flat @click="increment(slot)" color="yellow">+</v-btn>
+              <v-btn flat @click="launchOffsetter" color="white"> {{slot.slot}} </v-btn>
+              <v-btn flat @click="decrement(slot)" color="yellow">-</v-btn>
+              <v-btn flat disabled color="red"> Lv {{slot.level}} </v-btn>
+          </v-flex>
         </div>
       </v-layout>
     </v-card-text>
     <v-card-actions>
       <v-btn flat color="green lighten-1" @click="$refs.spellsearch.dialog=true">Cast Spell</v-btn>
-      <v-btn @click="getSpellSlots" flat color="blue lighten-2">Long Rest</v-btn>
+      <v-btn @click="longRest" flat color="blue lighten-2">Long Rest</v-btn>
     </v-card-actions>
     <searchDialog ref="spellsearch"></searchDialog>
+    {{spellSlots}}
   </v-card>
 </template>
 
 <script>
-import Counter from '@/components/Counter'
 import SearchDialog from '@/components/SearchDialog'
 export default {
   props: ['classOpts'],
   data () {
     return {
       spellSlots: [],
-      spellSlotLevels: [],
+      spellSlotsFull: [],
       levels: [...Array(21).keys()],
       characterName: '',
       dialogOpen: false,
@@ -86,10 +91,17 @@ export default {
     }
   },
   components: {
-    Counter,
     SearchDialog
   },
   methods: {
+    increment (slot) {
+      slot.slot++
+    },
+    decrement (slot) {
+      slot.slot--
+    },
+    launchOffsetter () {
+    },
     getSpellSlots () {
       let strBody = JSON.stringify({
         classes: this.classes
@@ -105,11 +117,15 @@ export default {
       })
       .then(response => {
         this.spellSlots = response.Slots
-        this.spellSlotLevels = [...Array(this.spellSlots.length).keys()]
+        // make a deep copy for long rests without need to re-access backend
+        this.spellSlotsFull = JSON.parse(JSON.stringify(response.Slots))
       })
       .catch(error => {
         console.error(error)
       })
+    },
+    longRest () {
+      this.spellSlots = JSON.parse(JSON.stringify(this.spellSlotsFull))
     },
     multiclass () {
       if (this.classes.length < 10) {

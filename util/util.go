@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
-	"strconv"
 )
 
 // ReadJSONRequestBody reads a http Request body and attempts to unmarshal it the object at v
@@ -39,7 +38,8 @@ func TransformToMapSlice(s []int) []map[string]int {
 	ret := []map[string]int{}
 	for index, value := range s {
 		ret = append(ret, map[string]int{
-			strconv.Itoa(index): value,
+			"level": index + 1,
+			"slot":  value,
 		})
 	}
 	return ret

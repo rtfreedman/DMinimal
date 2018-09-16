@@ -63,3 +63,9 @@ func GetClassNames() []string {
 	sort.Strings(classes)
 	return classes
 }
+
+// SpellSearch performs a search on the partial spell name name and in spell school for classes
+func SpellSearch(name string, classes []string) []string {
+	// TODO
+	return []string{}
+}

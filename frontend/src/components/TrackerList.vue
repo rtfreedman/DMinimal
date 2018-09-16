@@ -17,7 +17,7 @@ import Tracker from '@/components/Tracker'
 export default {
   data () {
     return {
-      characters: [''],
+      characters: [0],
       classOpts: []
     }
   },
