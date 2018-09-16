@@ -58,7 +58,7 @@ export default {
     }
   },
   methods: {
-    newpage: function () {
+    newpage () {
       this.drawer = !this.drawer
       this.title = 'asdf'
     }

@@ -32,7 +32,7 @@
           <span>Multiclass</span>
         </v-tooltip>
         <v-tooltip right>
-          <v-btn flat slot="activator" icon @click="getSpellSlots()">
+          <v-btn flat slot="activator" icon @click="getSpellSlots">
             <v-icon> autorenew </v-icon>
           </v-btn>
           <span>Update Slots</span>
@@ -49,7 +49,7 @@
     </v-card-text>
     <v-card-actions>
       <v-btn flat color="green lighten-1" @click="$refs.spellsearch.dialog=true">Cast Spell</v-btn>
-      <v-btn flat color="blue lighten-2">Long Rest</v-btn>
+      <v-btn @click="getSpellSlots" flat color="blue lighten-2">Long Rest</v-btn>
     </v-card-actions>
     <searchDialog ref="spellsearch"></searchDialog>
   </v-card>
@@ -90,7 +90,7 @@ export default {
     SearchDialog
   },
   methods: {
-    getSpellSlots: function () {
+    getSpellSlots () {
       let strBody = JSON.stringify({
         classes: this.classes
       })

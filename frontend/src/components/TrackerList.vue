@@ -28,12 +28,12 @@ export default {
     Tracker
   },
   methods: {
-    addCharacter: function () {
+    addCharacter () {
       if (this.characters.length < 10) {
         this.characters.push(Math.random() * (10 ** 10))
       }
     },
-    removeCharacter: function (c) {
+    removeCharacter (c) {
       let index = this.characters.findIndex(function (element) {
         return element === c
       })
@@ -42,7 +42,7 @@ export default {
       }
       this.characters.splice(index, 1)
     },
-    getClassOpts: function () {
+    getClassOpts () {
       let r = new Request('http://localhost:8010/magic/classes/')
       fetch(r)
       .then(response => {
