@@ -2,6 +2,7 @@ package routines
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 	"sort"
 	"strings"
@@ -77,6 +78,43 @@ func GetClassNames() []string {
 	}
 	sort.Strings(classes)
 	return classes
+}
+
+// SpellInfo contains information about spells
+type SpellInfo struct {
+	AtHigherLevels string `json:"AtHigherLevels"`
+	classString    string
+	Classes        []string `json:"Classes"`
+	Level          int      `json:"Level"`
+	Name           string   `json:"Name"`
+	School         string   `json:"School"`
+	SpellRange     string   `json:"SpellRange"`
+	Components     string   `json:"Components"`
+	CastingTime    string   `json:"CastingTime"`
+	Description    string   `json:"Description"`
+	Duration       string   `json:"Duration"`
+}
+
+// GetSpellInfo returns spell info on spell
+func GetSpellInfo(spell string) (si SpellInfo, err error) {
+	keys := []string{"classes", "athigherlevels", "level", "name", "range", "components", "school", "castingtime", "description", "duration"}
+	// string,[]string,int,string,string,string,string,string,string
+	query := "SELECT " + strings.Join(keys, ",") + " FROM spells WHERE name='" + spell + "';"
+	fmt.Println(query)
+	si = SpellInfo{}
+	rows, err := db.Query(query)
+	if err != nil {
+		return
+	}
+	defer rows.Close()
+	for rows.Next() {
+		rows.Scan(&si.classString, &si.AtHigherLevels, &si.Level, &si.Name, &si.SpellRange, &si.Components, &si.School, &si.CastingTime, &si.Description, &si.Duration)
+	}
+	// because our db is kind of messed up for now
+	si.classString = strings.Replace(si.classString, "{", "", -1)
+	si.classString = strings.Replace(si.classString, "}", "", -1)
+	si.Classes = strings.Split(si.classString, ",")
+	return
 }
 
 // SpellSearch performs a search on the partial spell name name and in spell school for classes

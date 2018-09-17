@@ -79,12 +79,14 @@
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="red lighten-1" flat @click="dialog = false"> Close </v-btn>
+            <v-btn color="red lighten-1" flat @click="getSpellInfo(input)"> Info </v-btn>
             <v-btn color="green lighten-1" flat @click="castSpell(input)"> Cast </v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
       <!--End Search Dialog-->
     </v-layout>
+    {{currSpellInfo}}
   </v-card>
 </template>
 
@@ -99,6 +101,7 @@ export default {
       characterName: '',
       dialogOpen: false,
       numClasses: 1,
+      currSpellInfo: {},
       classes: [{
         class: 'Wizard',
         level: 1,
@@ -153,12 +156,36 @@ export default {
       slot.slot++
     },
     decrement (slot) {
-      slot.slot--
+      if (slot.slot > 0) {
+        slot.slot--
+      } else {
+        // Show snackbar
+      }
     },
     launchOffsetter () {
     },
-    castSpell (spell) {
-      
+    getSpellInfo (spellName) {
+      let r = new Request('http://localhost:8010/magic/spell/' + spellName, {method: 'GET'})
+      fetch(r)
+      .then(response => {
+        if (response.status === 200) {
+          return response.json()
+        } else {
+          throw new Error('Something went wrong on api server!')
+        }
+      })
+      .then(spellInfo => {
+        this.currSpellInfo = spellInfo
+      })
+      .catch(error => {
+        console.error(error)
+      })
+    },
+    castSpell (spellName) {
+      if (this.currSpellInfo.Name !== spellName) {
+        this.getSpellInfo(spellName)
+      }
+      this.decrement(this.spellSlots[this.currSpellInfo.Level])
     },
     getSpellSlots () {
       let strBody = JSON.stringify({

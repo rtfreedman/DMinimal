@@ -14,9 +14,25 @@ func enableCors(w *http.ResponseWriter) {
 
 // SetupSpells sets up the handler funcs for API requests for the /magic/ location
 func SetupSpells(r *mux.Router) {
+	r.HandleFunc("/magic/spell/{spellname}", getSpellInformation).Methods("GET")
 	r.HandleFunc("/magic/search/", getSearch).Methods("POST")
 	r.HandleFunc("/magic/slots/", getSpellSlots).Methods("POST")
 	r.HandleFunc("/magic/classes/", getMagicClasses).Methods("GET")
+}
+
+func getSpellInformation(w http.ResponseWriter, r *http.Request) {
+	enableCors(&w)
+	vars := mux.Vars(r)
+	if _, ok := vars["spellname"]; !ok {
+		util.WriteError("No spellname supplied", w)
+		return
+	}
+	si, err := routines.GetSpellInfo(vars["spellname"])
+	if err != nil {
+		util.WriteError(err.Error(), w)
+		return
+	}
+	util.WriteJSONResponse("getSpellInformation", si, w)
 }
 
 func getSearch(w http.ResponseWriter, r *http.Request) {
@@ -28,10 +44,12 @@ func getSearch(w http.ResponseWriter, r *http.Request) {
 	err := util.ReadJSONRequestBody(r, &req)
 	if err != nil {
 		util.WriteError("Malformed JSON input into getSearch API endpoint", w)
+		return
 	}
 	spellOpts, err := routines.SpellSearch(req.SpellNamePart, req.Classes)
 	if err != nil {
 		util.WriteError(err.Error(), w)
+		return
 	}
 	util.WriteJSONResponse("getSearch", map[string][]string{
 		"spellOpts": spellOpts,
@@ -45,6 +63,7 @@ func getSpellSlots(w http.ResponseWriter, r *http.Request) {
 	err := util.ReadJSONRequestBody(r, &req)
 	if err != nil {
 		util.WriteError("Malformed JSON input into getSpellSlots API endpoint", w)
+		return
 	}
 	slots := []int{}
 	for c := range req["classes"] {
