@@ -122,6 +122,14 @@ func GetSpellInfo(spell string) (si SpellInfo, err error) {
 
 // SpellSearch performs a search on the partial spell name name and in spell school for classes
 func SpellSearch(name string, classes []string) ([]string, error) {
+	for i := range classes {
+		// arcane trickster and eldritch knight learn from the wizard school of magic
+		// although there are some restrictions to which schools the spells must come, ultimately there is no
+		// broad restriction preventin them from learning any wizard spell
+		if classes[i] == "Rogue (Arcane Trickster)" || classes[i] == "Fighter (Eldritch Knight)" {
+			classes[i] = "Wizard"
+		}
+	}
 	// form query
 	query := "SELECT name FROM spells WHERE name LIKE '%" + name + "%'"
 	if len(classes) > 0 {
