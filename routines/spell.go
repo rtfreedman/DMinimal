@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"math"
 	"sort"
 	"strings"
 
@@ -63,11 +64,8 @@ func (c *Class) GetSlots() []int {
 	}
 	spellSlots := make([]int, len(slots[c.Level]))
 	copy(spellSlots, slots[c.Level])
-	for i := range spellSlots {
-		spellSlot := int(tiers[c.ClassName] * float64(spellSlots[i]))
-		spellSlots[i] = spellSlot
-	}
-	return spellSlots
+	level := int(math.Ceil(float64(c.Level) * tiers[c.ClassName]))
+	return slots[level]
 }
 
 // GetClassNames returns all classes that can use magic

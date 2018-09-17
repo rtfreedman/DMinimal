@@ -66,7 +66,7 @@
     <!--End Character Slot Utilities-->
     <v-layout row justify-center>
       <!--Search Dialog-->
-      <v-dialog v-model="dialog" max-width="300">
+      <v-dialog v-model="dialog" max-width="800">
         <v-card>
           <v-card-title class="headline">Find spell</v-card-title>
           <v-card-text>
@@ -75,6 +75,50 @@
               :search-input.sync="input"
               :items="spellOpts"
             />
+          </v-card-text>
+          <v-card-text>
+            <v-list dense>
+              <v-list-title>
+                <v-list-tile>
+                  <v-list-tile-content><h3>Level:</h3></v-list-tile-content>
+                  <v-list-tile-content class="align-end">{{ currSpellInfo.Level }}</v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile>
+                  <v-list-tile-content><h3>Name:</h3></v-list-tile-content>
+                  <v-list-tile-content class="align-end">{{ currSpellInfo.Name }}</v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile>
+                  <v-list-tile-content><h3>School:</h3></v-list-tile-content>
+                  <v-list-tile-content class="align-end">{{ currSpellInfo.School }}</v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile>
+                  <v-list-tile-content><h3>Range:</h3></v-list-tile-content>
+                  <v-list-tile-content class="align-end">{{ currSpellInfo.SpellRange }}</v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile>
+                  <v-list-tile-content><h3>Duration:</h3></v-list-tile-content>
+                  <v-list-tile-content class="align-end">{{ currSpellInfo.Duration }}</v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile>
+                  <v-list-tile-content><h3>Components:</h3></v-list-tile-content>
+                  <v-list-tile-content class="align-end">{{ currSpellInfo.Components }}</v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile>
+                  <v-list-tile-content><h3>Classes:</h3></v-list-tile-content>
+                  <v-list-tile-content v-if="currSpellInfo.Classes" class="align-end">{{ currSpellInfo.Classes.join(", ") }}</v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile v-if="currSpellInfo.AtHigherLevels != ''">
+                  <v-list-tile-content><h3>At Higher Levels:</h3></v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile v-if="currSpellInfo.AtHigherLevels != ''">
+                  <v-list-tile-content>{{ currSpellInfo.AtHigherLevels }}</v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile>
+                  <v-list-tile-content><h3>Description:</h3></v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile-content>{{ currSpellInfo.Description }}</v-list-tile-content>
+              </v-list-title>
+            </v-list>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
@@ -86,7 +130,6 @@
       </v-dialog>
       <!--End Search Dialog-->
     </v-layout>
-    {{currSpellInfo}}
   </v-card>
 </template>
 
@@ -177,6 +220,7 @@ export default {
         this.currSpellInfo = spellInfo
         if (decrement) {
           this.decrement(this.spellSlots[this.currSpellInfo.Level - 1])
+          this.dialog = false
         }
       })
       .catch(error => {
@@ -188,6 +232,7 @@ export default {
         this.getSpellInfo(spellName, true)
       } else {
         this.decrement(this.spellSlots[this.currSpellInfo.Level - 1])
+        this.dialog = false
       }
       // - 1 because 0 indexing
     },
