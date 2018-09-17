@@ -218,7 +218,7 @@ export default {
       })
       .then(spellInfo => {
         this.currSpellInfo = spellInfo
-        if (decrement) {
+        if (decrement && this.currSpellInfo.Level !== 0) {
           this.decrement(this.spellSlots[this.currSpellInfo.Level - 1])
           this.dialog = false
         }
@@ -231,6 +231,10 @@ export default {
       if (this.currSpellInfo.Name !== spellName) {
         this.getSpellInfo(spellName, true)
       } else {
+        if (this.currSpellInfo.Level === 0) {
+          this.dialog = false
+          return
+        }
         this.decrement(this.spellSlots[this.currSpellInfo.Level - 1])
         this.dialog = false
       }
