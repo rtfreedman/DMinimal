@@ -79,7 +79,7 @@
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="red lighten-1" flat @click="dialog = false"> Close </v-btn>
-            <v-btn color="red lighten-1" flat @click="getSpellInfo(input)"> Info </v-btn>
+            <v-btn color="red lighten-1" flat @click="getSpellInfo(input, false)"> Info </v-btn>
             <v-btn color="green lighten-1" flat @click="castSpell(input)"> Cast </v-btn>
           </v-card-actions>
         </v-card>
@@ -118,7 +118,6 @@ export default {
       for (let i = 0; i < this.classes.length; i++) {
         classList.push(this.classes[i].class)
       }
-      console.log(classList)
       let strBody = JSON.stringify({
         classes: classList,
         spellName: this.input
@@ -164,7 +163,7 @@ export default {
     },
     launchOffsetter () {
     },
-    getSpellInfo (spellName) {
+    getSpellInfo (spellName, decrement) {
       let r = new Request('http://localhost:8010/magic/spell/' + spellName, {method: 'GET'})
       fetch(r)
       .then(response => {
@@ -176,6 +175,9 @@ export default {
       })
       .then(spellInfo => {
         this.currSpellInfo = spellInfo
+        if (decrement) {
+          this.decrement(this.spellSlots[this.currSpellInfo.Level - 1])
+        }
       })
       .catch(error => {
         console.error(error)
@@ -183,9 +185,11 @@ export default {
     },
     castSpell (spellName) {
       if (this.currSpellInfo.Name !== spellName) {
-        this.getSpellInfo(spellName)
+        this.getSpellInfo(spellName, true)
+      } else {
+        this.decrement(this.spellSlots[this.currSpellInfo.Level - 1])
       }
-      this.decrement(this.spellSlots[this.currSpellInfo.Level])
+      // - 1 because 0 indexing
     },
     getSpellSlots () {
       let strBody = JSON.stringify({
