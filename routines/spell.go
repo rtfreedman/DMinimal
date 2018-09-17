@@ -28,6 +28,7 @@ var db = func() *sql.DB {
 }()
 
 var slots = map[int][]int{
+	0:  []int{0, 0, 0, 0, 0, 0, 0, 0, 0},
 	1:  []int{2, 0, 0, 0, 0, 0, 0, 0, 0},
 	2:  []int{3, 0, 0, 0, 0, 0, 0, 0, 0},
 	3:  []int{4, 2, 0, 0, 0, 0, 0, 0, 0},
@@ -64,7 +65,11 @@ func (c *Class) GetSlots() []int {
 	}
 	spellSlots := make([]int, len(slots[c.Level]))
 	copy(spellSlots, slots[c.Level])
+	f := 1.0 / tiers[c.ClassName]
 	level := int(math.Ceil(float64(c.Level) * tiers[c.ClassName]))
+	if c.Level < int(f) {
+		level = 0
+	}
 	return slots[level]
 }
 
