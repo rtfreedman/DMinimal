@@ -16,6 +16,7 @@ var tiers = map[string]float64{
 	"Bard": 1.0, "Cleric": 1.0, "Sorcerer": 1.0,
 	"Wizard": 1.0, "Druid": 1.0, "Paladin": 0.5, "Ranger": 0.5,
 	"Fighter (Eldritch Knight)": 0.333, "Rogue (Arcane Trickster)": 0.333,
+	"Warlock": 0.1,
 }
 
 var db = func() *sql.DB {
@@ -51,6 +52,35 @@ var slots = map[int][]int{
 	20: []int{4, 3, 3, 3, 3, 2, 2, 1, 1},
 }
 
+type warlockSlot struct {
+	num int
+	lvl int
+}
+
+var warlockSlots = map[int]warlockSlot{
+	0:  warlockSlot{0, 0},
+	1:  warlockSlot{1, 1},
+	2:  warlockSlot{2, 1},
+	3:  warlockSlot{2, 2},
+	4:  warlockSlot{2, 2},
+	5:  warlockSlot{2, 3},
+	6:  warlockSlot{2, 3},
+	7:  warlockSlot{2, 4},
+	8:  warlockSlot{2, 4},
+	9:  warlockSlot{2, 5},
+	10: warlockSlot{2, 5},
+	11: warlockSlot{3, 5},
+	12: warlockSlot{3, 5},
+	13: warlockSlot{3, 5},
+	14: warlockSlot{3, 5},
+	15: warlockSlot{3, 5},
+	16: warlockSlot{3, 5},
+	17: warlockSlot{4, 5},
+	18: warlockSlot{4, 5},
+	19: warlockSlot{4, 5},
+	20: warlockSlot{4, 5},
+}
+
 // Class is a representation of the class of a character with level and classname populated
 type Class struct {
 	Level     int    `json:"level"`
@@ -62,6 +92,15 @@ func (c *Class) GetSlots() []int {
 	_, classExists := tiers[c.ClassName]
 	if _, levelExists := slots[c.Level]; !levelExists || !classExists {
 		return []int{}
+	}
+	if c.Level == 0 {
+		return []int{0, 0, 0, 0, 0, 0, 0, 0, 0}
+	}
+	if c.ClassName == "Warlock" {
+		ret := []int{0, 0, 0, 0, 0, 0, 0, 0, 0}
+		slots := warlockSlots[c.Level]
+		ret[slots.lvl-1] += slots.num
+		return ret
 	}
 	spellSlots := make([]int, len(slots[c.Level]))
 	copy(spellSlots, slots[c.Level])
