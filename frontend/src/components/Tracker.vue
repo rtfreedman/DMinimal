@@ -51,7 +51,7 @@
           <div v-for="(slot, index) in spellSlots" :key="index">
             <v-flex xs2>
                 <v-btn flat @click="increment(slot)" color="yellow">+</v-btn>
-                <v-btn flat @click="launchOffsetter" color="white"> {{slot.slot}} </v-btn>
+                <v-btn flat @click="launchOffsetter(slot)" color="white"> {{slot.slot}} </v-btn>
                 <v-btn flat @click="decrement(slot)" color="yellow">-</v-btn>
                 <v-btn flat disabled color="red"> Lv {{slot.level}} </v-btn>
             </v-flex>
@@ -156,6 +156,25 @@
       </v-card>
     </v-dialog>
     <!--End CastAtHigherLevel Dialog-->
+    <!--Start Offset Dialog-->
+    <v-dialog v-model="offsetDialog" max-width=200>
+      <v-card>
+        <v-card-text>
+          <h2>Offset</h2>
+        </v-card-text>
+        <v-card-text>
+        <v-layout column justify-center>
+          <v-btn @click="incrementFull(offsetSlot)">+</v-btn>
+          <v-btn flat :disabled="true">{{offsetSlot.slot}}</v-btn>
+          <v-btn @click="decrementFull(offsetSlot)">-</v-btn>
+        </v-layout>
+        </v-card-text>
+        <v-card-action>
+          <v-btn @click="offsetDialog=false" flat> Close </v-btn>
+        </v-card-action>
+      </v-card>
+    </v-dialog>
+    <!--End Offset Dialog-->
   </div>
 </template>
 
@@ -165,6 +184,9 @@ export default {
   data () {
     return {
       levelOpts: [],
+      offsetDialog: false,
+      offsetSlot: 0,
+      offsetIndex: 0,
       highlvldialog: false,
       slotLevelInput: 9,
       spellSlots: [],
@@ -228,10 +250,14 @@ export default {
     increment (slot) {
       slot.slot++
     },
-    castSpellAtHigherLevel (slot) {
-      this.decrement(slot)
-      this.highlvldialog = false
-      this.snackbar = false
+    incrementFull (slot) {
+      for (let i = 0; i < this.spellSlotsFull.length; i++) {
+        if (this.spellSlotsFull[i].level === slot.level) {
+          this.spellSlotsFull[i].slot ++
+          slot.slot ++
+          return
+        }
+      }
     },
     decrement (slot) {
       if (slot.slot > 0) {
@@ -240,7 +266,23 @@ export default {
         // Show snackbar
       }
     },
-    launchOffsetter () {
+    decrementFull (slot) {
+      for (let i = 0; i < this.spellSlotsFull.length; i++) {
+        if (this.spellSlotsFull[i].level === slot.level) {
+          this.spellSlotsFull[i].slot --
+          slot.slot --
+          return
+        }
+      }
+    },
+    castSpellAtHigherLevel (slot) {
+      this.decrement(slot)
+      this.highlvldialog = false
+      this.snackbar = false
+    },
+    launchOffsetter (slot) {
+      this.offsetSlot = slot
+      this.offsetDialog = true
     },
     getSpellInfo (spellName, decrement) {
       let r = new Request('http://localhost:8010/magic/spell/' + spellName, {method: 'GET'})
