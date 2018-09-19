@@ -160,7 +160,7 @@
     <v-dialog v-model="offsetDialog" max-width=200>
       <v-card>
         <v-card-text>
-          <h2>Offset</h2>
+          <h2>Add Offset</h2>
         </v-card-text>
         <v-card-text>
         <v-layout column justify-center>
@@ -169,9 +169,9 @@
           <v-btn @click="decrementFull(offsetSlot)">-</v-btn>
         </v-layout>
         </v-card-text>
-        <v-card-action>
+        <v-card-actions>
           <v-btn @click="offsetDialog=false" flat> Close </v-btn>
-        </v-card-action>
+        </v-card-actions>
       </v-card>
     </v-dialog>
     <!--End Offset Dialog-->
