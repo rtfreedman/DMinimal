@@ -1,141 +1,118 @@
 <template>
-  <div>
-    <v-card>
-      <v-flex xs4>
-        <v-card-text>
-          <div>
-            <!--Character Details-->
-            <v-text-field v-model="name" placeholder="Name..."></v-text-field>
-            <div v-for="(c, index) in classes" :key="index">
-              <v-layout row>
-                <v-card-title>
-                  <v-autocomplete
-                    placeholder='Class'
-                    :items="classOpts"
-                    :search-input.sync="c.class"
-                    flat
-                  />
-                  <v-flex xs3>
-                  <v-autocomplete 
-                    placeholder='Level'
-                    :items="levels"
-                    :search-input.sync="c.level"
-                    flat
-                  />
-                  </v-flex>
-                </v-card-title>
-                <v-btn v-if="classes.length > 1" icon flat color="grey" @click="deleteClass(c.id)"> <v-icon>cancel</v-icon> </v-btn>
-              </v-layout>
-            </div>
-            <!--End Character Details-->
-            <!--Multiclass-->
-            <v-tooltip right>
-              <v-btn icon slot="activator" @click="multiclass()">
-                <v-icon>add_circle_outline</v-icon>
-              </v-btn>
-              <span>Multiclass</span>
-            </v-tooltip>
-            <v-tooltip right>
-              <v-btn flat slot="activator" icon @click="getSpellSlots">
-                <v-icon> autorenew </v-icon>
-              </v-btn>
-              <span>Update Slots</span>
-            </v-tooltip>
-            <!--End Multiclass-->
-          </div>
-        </v-card-text>
-      </v-flex>
+  <v-card>
+    <v-flex xs4>
       <v-card-text>
-        <!--Slot Counters-->
-        <v-layout row grid-list-xs>
-          <div v-for="(slot, index) in spellSlots" :key="index">
-            <v-flex xs2>
-                <v-btn flat @click="increment(slot)" color="yellow">+</v-btn>
-                <v-btn flat @click="launchOffsetter(slot)" color="white"> {{slot.slot}} </v-btn>
-                <v-btn flat @click="decrement(slot)" color="yellow">-</v-btn>
-                <v-btn flat disabled color="red"> Lv {{slot.level}} </v-btn>
-            </v-flex>
+        <div>
+          <!--Character Details-->
+          <v-text-field v-model="name" placeholder="Name..."></v-text-field>
+          <div v-for="(c, index) in classes" :key="index">
+            <v-layout row>
+              <v-card-title>
+                <v-autocomplete
+                  placeholder='Class'
+                  :items="classOpts"
+                  :search-input.sync="c.class"
+                  flat
+                />
+                <v-flex xs3>
+                <v-autocomplete 
+                  placeholder='Level'
+                  :items="levels"
+                  :search-input.sync="c.level"
+                  flat
+                />
+                </v-flex>
+              </v-card-title>
+              <v-btn v-if="classes.length > 1" icon flat color="grey" @click="deleteClass(c.id)"> <v-icon>cancel</v-icon> </v-btn>
+            </v-layout>
           </div>
-        </v-layout>
-        <!--End Slot Counters-->
-      <!--Character Slot Utilities-->
+          <!--End Character Details-->
+          <!--Multiclass-->
+          <v-tooltip right>
+            <v-btn icon slot="activator" @click="multiclass()">
+              <v-icon>add_circle_outline</v-icon>
+            </v-btn>
+            <span>Multiclass</span>
+          </v-tooltip>
+          <v-tooltip right>
+            <v-btn flat slot="activator" icon @click="getSpellSlots">
+              <v-icon> autorenew </v-icon>
+            </v-btn>
+            <span>Update Slots</span>
+          </v-tooltip>
+          <!--End Multiclass-->
+        </div>
       </v-card-text>
-      <v-card-actions>
-        <v-btn flat color="green lighten-1" @click="dialog=true">Cast Spell</v-btn>
-        <v-btn @click="longRest" flat color="blue lighten-2">Long Rest</v-btn>
-      </v-card-actions>
-      <!--End Character Slot Utilities-->
-      <v-layout row justify-center>
-        <!--Search Dialog-->
-        <v-dialog v-model="dialog" max-width="800">
-          <v-card>
-            <v-card-title class="headline">Find spell</v-card-title>
-            <v-card-text>
-              <v-autocomplete 
-                placeholder='Spell...'
-                :search-input.sync="input"
-                :items="spellOpts"
-              />
-            </v-card-text>
-            <v-card-text>
-              <v-list dense>
-                  <v-list-tile>
-                    <v-list-tile-content><h3>Level:</h3></v-list-tile-content>
-                    <v-list-tile-content class="align-end">{{ currSpellInfo.Level }}</v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-content><h3>Name:</h3></v-list-tile-content>
-                    <v-list-tile-content class="align-end">{{ currSpellInfo.Name }}</v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-content><h3>School:</h3></v-list-tile-content>
-                    <v-list-tile-content class="align-end">{{ currSpellInfo.School }}</v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-content><h3>Range:</h3></v-list-tile-content>
-                    <v-list-tile-content class="align-end">{{ currSpellInfo.SpellRange }}</v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-content><h3>Duration:</h3></v-list-tile-content>
-                    <v-list-tile-content class="align-end">{{ currSpellInfo.Duration }}</v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-content><h3>Components:</h3></v-list-tile-content>
-                    <v-list-tile-content class="align-end">{{ currSpellInfo.Components }}</v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-content><h3>Classes:</h3></v-list-tile-content>
-                    <v-list-tile-content v-if="currSpellInfo.Classes" class="align-end">{{ currSpellInfo.Classes.join(", ") }}</v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile v-if="currSpellInfo.AtHigherLevels != ''">
-                    <v-list-tile-content><h3>At Higher Levels:</h3></v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile v-if="currSpellInfo.AtHigherLevels != ''">
-                    <v-list-tile-content>{{ currSpellInfo.AtHigherLevels }}</v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-content><h3>Description:</h3></v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile-content>{{ currSpellInfo.Description }}</v-list-tile-content>
-              </v-list>
-            </v-card-text>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="red lighten-1" flat @click="dialog = false"> Close </v-btn>
-              <v-btn color="yellow lighten-1" flat @click="getSpellInfo(input, false)"> Info </v-btn>
-              <v-btn color="green lighten-1" flat @click="castSpell(input)"> Cast </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-        <!--End Search Dialog-->
+    </v-flex>
+    <v-card-text>
+      <!--Slot Counters-->
+      <v-layout row grid-list-xs>
+        <div v-for="(slot, index) in spellSlots" :key="index">
+          <v-flex xs2>
+              <v-btn flat @click="increment(slot)" color="yellow">+</v-btn>
+              <v-btn flat @click="launchOffsetter(slot)" color="white"> {{slot.slot}} </v-btn>
+              <v-btn flat @click="decrement(slot)" color="yellow">-</v-btn>
+              <v-btn flat disabled color="red"> Lv {{slot.level}} </v-btn>
+          </v-flex>
+        </div>
       </v-layout>
-    </v-card>
+      <!--End Slot Counters-->
+    <!--Character Slot Utilities-->
+    </v-card-text>
+    <v-card-actions>
+      <v-btn flat color="green lighten-1" @click="dialog=true">Cast Spell</v-btn>
+      <v-btn @click="longRest" flat color="blue lighten-2">Long Rest</v-btn>
+    </v-card-actions>
+    <!--End Character Slot Utilities-->
+    <v-layout row justify-center>
+      <!--Search Dialog-->
+      <v-dialog v-model="dialog" max-width="800">
+        <v-card>
+          <v-card-title class="headline">Find spell</v-card-title>
+          <v-card-text>
+            <v-autocomplete
+              v-model="spellInput"
+              placeholder='Spell...'
+              :search-input.sync="input"
+              :items="spellOpts"
+            />
+          </v-card-text>
+          <v-card-text>
+            <v-list dense>
+              <v-list-tile v-for="(elem, text) in spellSearchDialogOpts" :key="elem">
+                <v-list-tile-content><h3>{{text}}:</h3></v-list-tile-content>
+                <v-list-tile-content class="align-end">{{ currSpellInfo[elem] }}</v-list-tile-content>
+              </v-list-tile>
+              <v-list-tile>
+                <v-list-tile-content><h3>Classes:</h3></v-list-tile-content>
+                <v-list-tile-content v-if="currSpellInfo.Classes" class="align-end">{{ currSpellInfo.Classes.join(", ") }}</v-list-tile-content>
+              </v-list-tile>
+              <v-list-tile v-if="currSpellInfo.AtHigherLevels != ''">
+                <v-list-tile-content><h3>At Higher Levels:</h3></v-list-tile-content>
+              </v-list-tile>
+              <v-list-tile v-if="currSpellInfo.AtHigherLevels != ''">
+                <v-list-tile-content>{{ currSpellInfo.AtHigherLevels }}</v-list-tile-content>
+              </v-list-tile>
+              <v-list-tile>
+                <v-list-tile-content><h3>Description:</h3></v-list-tile-content>
+              </v-list-tile>
+              <v-list-tile-content>{{ currSpellInfo.Description }}</v-list-tile-content>
+            </v-list>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="red lighten-1" flat @click="dialog = false"> Close </v-btn>
+            <v-btn color="green lighten-1" flat @click="castSpell(input)"> Cast </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+      <!--End Search Dialog-->
+    </v-layout>
     <!--Start Snackbar-->
     <v-snackbar
       color="red darken-3"
       v-model="snackbar"
-      :timeout="snackbarTimeout"
-    > Not enough slots
+      :timeout="snackbarTimeout"> Not enough slots
       <v-btn flat @click="highlvldialog=true">Cast at higher level</v-btn>
     </v-snackbar>
     <!--End Snackbar-->
@@ -175,7 +152,7 @@
       </v-card>
     </v-dialog>
     <!--End Offset Dialog-->
-  </div>
+  </v-card>
 </template>
 
 <script>
@@ -184,6 +161,9 @@ export default {
   data () {
     return {
       levelOpts: [],
+      currSpellClasses: [],
+      spellSearchDialogOpts: {Level: 'Level', Name: 'Name', School: 'School', SpellRange: 'Range', Duration: 'Duration', Components: 'Components'},
+      spellInput: '',
       offsetDialog: false,
       offsetSlot: 0,
       offsetIndex: 0,
@@ -197,7 +177,7 @@ export default {
       numClasses: 1,
       currSpellInfo: {},
       classes: [{
-        class: 'Wizard',
+        class: '',
         level: 1,
         id: 0
       }],
@@ -209,14 +189,30 @@ export default {
     }
   },
   watch: {
+    spellInput (state) {
+      this.getSpellInfo(state, false)
+    },
     input () {
       let classList = []
       for (let i = 0; i < this.classes.length; i++) {
         classList.push(this.classes[i].class)
       }
+      let sameList = true
+      if (classList.length === this.currSpellClasses.length) {
+        for (let i = 0; i < classList.length; i++) {
+          if (!this.currSpellClasses.includes(classList[i])) {
+            sameList = false
+            break
+          }
+        }
+        if (sameList) {
+          return
+        }
+      }
+      this.currSpellClasses = classList
       let strBody = JSON.stringify({
         classes: classList,
-        spellName: this.input
+        spellName: ''
       })
       let r = new Request('http://localhost:8010/magic/search/', {method: 'Post', body: strBody})
       fetch(r)
@@ -350,7 +346,7 @@ export default {
     multiclass () {
       if (this.classes.length < 10) {
         this.classes.push({
-          class: 'Wizard',
+          class: '',
           level: 1,
           id: Math.random() * (10 ** 10)
         })
