@@ -2,20 +2,21 @@
   <v-container>
     <v-btn flat @click="addCharacter()"> +Character </v-btn>
     <v-btn @click="longRestAll()" v-if="characters.length > 1" flat color="blue">Long Rest All</v-btn>
-    <v-tabs>
+    <v-tabs v-model="tabs">
       <v-tab v-for="c in characters" :key="c">
             asdf
             <v-btn v-if="characters.length > 1" @click='removeCharacter(c)' icon flat color="grey"> <v-icon>cancel</v-icon> </v-btn>
       </v-tab>
-      <v-tabs-slider color="yellow"></v-tabs-slider>
-      <v-tabs-items>
-        <v-tab-item v-for="c in characters" :key="c">
-          <v-card flat>
-            <tracker :ref="'character' + c" v-bind:classOpts='classOpts'></tracker>
-          </v-card>
-        </v-tab-item>
-      </v-tabs-items>
+      <v-tabs-slider v-model="tabs" color="yellow"></v-tabs-slider>
     </v-tabs>
+    <v-tabs-items v-model="tabs">
+      <v-tab-item v-for="c in characters" :key="c">
+        <v-card flat>
+          <tracker :ref="'character' + c" v-bind:classOpts='classOpts'></tracker>
+        </v-card>
+      </v-tab-item>
+    </v-tabs-items>
+    {{tabs}}
   </v-container>
 </template>
 <script>
@@ -23,6 +24,7 @@ import Tracker from '@/components/Tracker'
 export default {
   data () {
     return {
+      tabs: 0,
       characters: [0],
       classOpts: []
     }
@@ -53,6 +55,9 @@ export default {
         return
       }
       this.characters.splice(index, 1)
+      if (this.tabs === index) {
+        this.tabs = 0
+      }
     },
     getClassOpts () {
       let r = new Request('http://localhost:8010/magic/classes/')
