@@ -5,7 +5,7 @@
     <v-tabs v-model="tabs">
       <v-tab v-for="c in characters" :key="c">
             asdf
-            <v-btn v-if="characters.length > 1" @click='removeCharacter(c)' icon flat color="grey"> <v-icon>cancel</v-icon> </v-btn>
+            <v-btn v-if="characters.length > 1 && c !== 0" @click='removeCharacter(c)' icon flat color="grey"> <v-icon>cancel</v-icon> </v-btn>
       </v-tab>
       <v-tabs-slider v-model="tabs" color="yellow"></v-tabs-slider>
     </v-tabs>

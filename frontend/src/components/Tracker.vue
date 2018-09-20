@@ -4,7 +4,7 @@
       <v-card-text>
         <div>
           <!--Character Details-->
-          <v-text-field v-model="name" placeholder="Name..."></v-text-field>
+          <v-text-field v-model="characterName" placeholder="Name..."></v-text-field>
           <div v-for="(c, index) in classes" :key="index">
             <v-layout row>
               <v-card-title>
@@ -230,16 +230,6 @@ export default {
       .catch(error => {
         console.error(error)
       })
-    }
-  },
-  computed: {
-    name: {
-      get () {
-        return this.characterName
-      },
-      set (val) {
-        this.characterName = val
-      }
     }
   },
   methods: {
