@@ -16,7 +16,8 @@
         </v-card>
       </v-tab-item>
     </v-tabs-items>
-    {{tabs}}
+    {{currentTab}}
+    {{allowTabChange}}
   </v-container>
 </template>
 <script>
@@ -24,9 +25,27 @@ import Tracker from '@/components/Tracker'
 export default {
   data () {
     return {
-      tabs: 0,
+      currentTab: 0,
+      allowTabChange: true,
       characters: [0],
       classOpts: []
+    }
+  },
+  computed: {
+    tabs: {
+      get: function () {
+        if (!this.allowTabChange) {
+          this.allowTabChange = true
+        }
+        return this.currentTab
+      },
+      set: function (value) {
+        if (this.allowTabChange) {
+          this.currentTab = value
+        } else {
+          this.allowTabChange = true
+        }
+      }
     }
   },
   beforeMount () {
@@ -55,9 +74,8 @@ export default {
         return
       }
       this.characters.splice(index, 1)
-      if (this.tabs === index) {
-        this.tabs = 0
-      }
+      this.allowTabChange = false
+      this.currentTab = 0
     },
     getClassOpts () {
       let r = new Request('http://localhost:8010/magic/classes/')
