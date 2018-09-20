@@ -16,8 +16,6 @@
         </v-card>
       </v-tab-item>
     </v-tabs-items>
-    {{currentTab}}
-    {{allowTabChange}}
   </v-container>
 </template>
 <script>
