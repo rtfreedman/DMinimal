@@ -124,22 +124,35 @@ func GetClassNames() []string {
 
 // SpellInfo contains information about spells
 type SpellInfo struct {
-	AtHigherLevels string `json:"AtHigherLevels"`
+	AtHigherLevels string `json:"AtHigherLevels,omitempty"`
 	classString    string
-	Classes        []string `json:"Classes"`
+	Classes        []string `json:"Classes,omitempty"`
+	Concentration  string   `json:"Concentration,omitempty"`
 	Level          int      `json:"Level"`
 	Name           string   `json:"Name"`
-	School         string   `json:"School"`
-	SpellRange     string   `json:"SpellRange"`
-	Components     string   `json:"Components"`
-	CastingTime    string   `json:"CastingTime"`
-	Description    string   `json:"Description"`
-	Duration       string   `json:"Duration"`
+	School         string   `json:"School,omitempty"`
+	SpellRange     string   `json:"SpellRange,omitempty"`
+	Components     string   `json:"Components,omitempty"`
+	CastingTime    string   `json:"CastingTime,omitempty"`
+	Description    string   `json:"Description,omitempty"`
+	Duration       string   `json:"Duration,omitempty"`
+}
+
+func (si *SpellInfo) clean() {
+	si.AtHigherLevels = strings.TrimSpace(si.AtHigherLevels)
+	si.Concentration = strings.TrimSpace(si.Concentration)
+	si.Name = strings.TrimSpace(si.Name)
+	si.School = strings.TrimSpace(si.School)
+	si.SpellRange = strings.TrimSpace(si.SpellRange)
+	si.Components = strings.TrimSpace(si.Components)
+	si.CastingTime = strings.TrimSpace(si.CastingTime)
+	si.Description = strings.TrimSpace(si.Description)
+	si.Duration = strings.TrimSpace(si.Duration)
 }
 
 // GetSpellInfo returns spell info on spell
 func GetSpellInfo(spell string) (si SpellInfo, err error) {
-	keys := []string{"classes", "athigherlevels", "level", "name", "range", "components", "school", "castingtime", "description", "duration"}
+	keys := []string{"classes", "athigherlevels", "level", "name", "range", "components", "school", "castingtime", "description", "duration", "concentration"}
 	// string,[]string,int,string,string,string,string,string,string
 	query := "SELECT " + strings.Join(keys, ",") + " FROM spells WHERE name='" + spell + "';"
 	fmt.Println(query)
@@ -150,12 +163,13 @@ func GetSpellInfo(spell string) (si SpellInfo, err error) {
 	}
 	defer rows.Close()
 	for rows.Next() {
-		rows.Scan(&si.classString, &si.AtHigherLevels, &si.Level, &si.Name, &si.SpellRange, &si.Components, &si.School, &si.CastingTime, &si.Description, &si.Duration)
+		rows.Scan(&si.classString, &si.AtHigherLevels, &si.Level, &si.Name, &si.SpellRange, &si.Components, &si.School, &si.CastingTime, &si.Description, &si.Duration, &si.Concentration)
 	}
 	// because our db is kind of messed up for now
 	si.classString = strings.Replace(si.classString, "{", "", -1)
 	si.classString = strings.Replace(si.classString, "}", "", -1)
 	si.Classes = strings.Split(si.classString, ",")
+	si.clean()
 	return
 }
 
