@@ -79,24 +79,24 @@
           </v-card-text>
           <v-card-text>
             <v-list dense>
-              <v-list-tile v-for="(elem, text) in spellSearchDialogOpts" :key="elem">
+              <v-list-tile v-if="currSpellInfo.hasOwnProperty(elem)" v-for="(elem, text) in spellSearchDialogOpts" :key="elem">
                 <v-list-tile-content><h3>{{text}}:</h3></v-list-tile-content>
                 <v-list-tile-content class="align-end">{{ currSpellInfo[elem] }}</v-list-tile-content>
               </v-list-tile>
-              <v-list-tile>
+              <v-list-tile v-if="currSpellInfo.hasOwnProperty('Classes')">
                 <v-list-tile-content><h3>Classes:</h3></v-list-tile-content>
                 <v-list-tile-content v-if="currSpellInfo.Classes" class="align-end">{{ currSpellInfo.Classes.join(", ") }}</v-list-tile-content>
               </v-list-tile>
-              <v-list-tile v-if="currSpellInfo.AtHigherLevels != ''">
+              <v-list-tile v-if="currSpellInfo.hasOwnProperty('AtHigherLevels') && currSpellInfo.AtHigherLevels !== ''">
                 <v-list-tile-content><h3>At Higher Levels:</h3></v-list-tile-content>
               </v-list-tile>
-              <v-list-tile v-if="currSpellInfo.AtHigherLevels != ''">
+              <v-list-tile v-if="currSpellInfo.hasOwnProperty('AtHigherLevels') && currSpellInfo.AtHigherLevels !== ''">
                 <v-list-tile-content>{{ currSpellInfo.AtHigherLevels }}</v-list-tile-content>
               </v-list-tile>
-              <v-list-tile>
+              <v-list-tile v-if="currSpellInfo.hasOwnProperty('Description')">
                 <v-list-tile-content><h3>Description:</h3></v-list-tile-content>
               </v-list-tile>
-              <v-list-tile-content>{{ currSpellInfo.Description }}</v-list-tile-content>
+              <v-list-tile-content v-if="currSpellInfo.hasOwnProperty('Description')">{{ currSpellInfo.Description }}</v-list-tile-content>
             </v-list>
           </v-card-text>
           <v-card-actions>
@@ -162,7 +162,7 @@ export default {
     return {
       levelOpts: [],
       currSpellClasses: [],
-      spellSearchDialogOpts: {Level: 'Level', Name: 'Name', School: 'School', SpellRange: 'Range', Duration: 'Duration', Components: 'Components'},
+      spellSearchDialogOpts: {Level: 'Level', Name: 'Name', School: 'School', Duration: 'Duration', SpellRange: 'Range', Concentration: 'Concentration', Components: 'Components'},
       spellInput: '',
       offsetDialog: false,
       offsetSlot: 0,
