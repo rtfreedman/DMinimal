@@ -6,6 +6,7 @@ from selenium import webdriver
 browser = webdriver.Chrome()
 browser.get('https://roll20.net/compendium/dnd5e/Spells%20List#content')
 time.sleep(10)
+cont=input('Continue?')
 openers = browser.find_elements_by_css_selector('.dropdown-toggle')[1:-1]
 for opener in openers:
 	if opener.is_displayed() and opener.text == '':
