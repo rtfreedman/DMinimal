@@ -2,13 +2,12 @@
   <v-container>
     <v-btn flat @click="addCharacter()"> +Character </v-btn>
     <v-btn @click="longRestAll()" v-if="characters.length > 1" flat color="blue">Long Rest All</v-btn>
-    <v-tabs v-model="tabs">
+    <v-tabs hide-slider v-model="tabs">
       <v-tab v-for="c in characters" :key="c">
             <span v-if="c.name !== ''">{{shortenName(c.name)}}</span>
             <span v-if="c.name === ''">Name</span>
             <v-btn v-if="characters.length > 1 && c.id !== 0" @click='removeCharacter(c)' icon flat color="grey"> <v-icon>cancel</v-icon> </v-btn>
       </v-tab>
-      <v-tabs-slider v-model="tabs" color="yellow"></v-tabs-slider>
     </v-tabs>
     <v-tabs-items v-model="tabs">
       <v-tab-item v-for="c in characters" :key="c">
