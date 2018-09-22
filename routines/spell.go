@@ -127,7 +127,7 @@ type SpellInfo struct {
 	AtHigherLevels string `json:"AtHigherLevels,omitempty"`
 	classString    string
 	Classes        []string `json:"Classes,omitempty"`
-	Concentration  string   `json:"Concentration,omitempty"`
+	Concentration  bool     `json:"Concentration,omitempty"`
 	Level          int      `json:"Level"`
 	Name           string   `json:"Name"`
 	School         string   `json:"School,omitempty"`
@@ -140,7 +140,6 @@ type SpellInfo struct {
 
 func (si *SpellInfo) clean() {
 	si.AtHigherLevels = strings.TrimSpace(si.AtHigherLevels)
-	si.Concentration = strings.TrimSpace(si.Concentration)
 	si.Name = strings.TrimSpace(si.Name)
 	si.School = strings.TrimSpace(si.School)
 	si.SpellRange = strings.TrimSpace(si.SpellRange)

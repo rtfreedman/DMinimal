@@ -19,6 +19,8 @@ def get_type_string(content):
 						keys[key] = 'integer'
 					elif t is list:
 						keys[key] = 'varchar[]'
+					elif t is bool:
+						keys[key] = 'boolean'
 	# string construction
 	return ', '.join([k.replace(' ','') + ' ' + v for k,v in keys.items()])
 

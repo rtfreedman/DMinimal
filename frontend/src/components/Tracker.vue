@@ -41,6 +41,10 @@
             <span>Update Slots</span>
           </v-tooltip>
           <!--End Multiclass-->
+          <v-tooltip right>
+            <v-btn v-if="concentrating" flat icon slot="activator"><v-icon>remove_red_eye</v-icon></v-btn>
+            <span>Concentrating on {{concentrationSpell}}</span>
+          </v-tooltip>
         </div>
       </v-card-text>
     </v-flex>
@@ -78,6 +82,8 @@
             />
           </v-card-text>
           <v-card-text>
+            <h1>{{currSpellInfo.Name}}</h1>
+            <div v-if="currSpellInfo.Concentration">Concentration</div>
             <v-list dense>
               <v-list-tile v-if="currSpellInfo.hasOwnProperty(elem)" v-for="(elem, text) in spellSearchDialogOpts" :key="elem">
                 <v-list-tile-content><h3>{{text}}:</h3></v-list-tile-content>
@@ -102,20 +108,28 @@
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="red lighten-1" flat @click="dialog = false"> Close </v-btn>
-            <v-btn color="green lighten-1" flat @click="castSpell(input)"> Cast </v-btn>
+            <v-btn color="green lighten-1" flat @click="castSpell()"> Cast </v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
       <!--End Search Dialog-->
     </v-layout>
-    <!--Start Snackbar-->
+    <!--Start Out of Slots Snackbar-->
     <v-snackbar
       color="red darken-3"
-      v-model="snackbar"
+      v-model="outOfSlotsSnackbar"
       :timeout="snackbarTimeout"> Not enough slots
       <v-btn flat @click="highlvldialog=true">Cast at higher level</v-btn>
     </v-snackbar>
-    <!--End Snackbar-->
+    <!--End Out of Slots Snackbar-->
+    <!--Start Concentrating Snackbar-->
+    <v-snackbar
+      color="red darken-3"
+      v-model="concentrationSnackbar"
+      :timeout="snackbarTimeout"> Concentrating on {{concentrationSpell}}
+      <v-btn flat @click="concentrating=false; concentrationSpell=''; castSpell(); concentrationSnackbar=false">Cast Anyway</v-btn>
+    </v-snackbar>
+    <!--End Concentrating Snackbar-->
     <!--Start CastAtHigherLevel Dialog-->
     <v-dialog v-model="highlvldialog" max-width=300>
       <v-card>
@@ -128,7 +142,7 @@
           </v-radio-group>
         </v-card-text>
         <v-card-actions>
-          <v-btn @click="castSpellAtHigherLevel(atHigherLevelSlot); snackbar=false" flat> Cast </v-btn>
+          <v-btn @click="castSpellAtHigherLevel(atHigherLevelSlot); highlvldialog=false" flat> Cast </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -162,10 +176,13 @@ export default {
     return {
       levelOpts: [],
       currSpellClasses: [],
-      spellSearchDialogOpts: {Level: 'Level', Name: 'Name', School: 'School', Duration: 'Duration', SpellRange: 'Range', Concentration: 'Concentration', Components: 'Components'},
+      spellSearchDialogOpts: {Level: 'Level', School: 'School', Duration: 'Duration', SpellRange: 'Range', Components: 'Components'},
       spellInput: '',
       offsetDialog: false,
       offsetSlot: 0,
+      concentrationSnackbar: false,
+      concentrating: false,
+      concentrationSpell: '',
       offsetIndex: 0,
       highlvldialog: false,
       slotLevelInput: 9,
@@ -181,7 +198,7 @@ export default {
         level: 1,
         id: 0
       }],
-      snackbar: false,
+      outOfSlotsSnackbar: false,
       snackbarTimeout: 8000,
       dialog: false,
       input: '',
@@ -248,8 +265,6 @@ export default {
     decrement (slot) {
       if (slot.slot > 0) {
         slot.slot--
-      } else {
-        // Show snackbar
       }
     },
     decrementFull (slot) {
@@ -260,11 +275,6 @@ export default {
           return
         }
       }
-    },
-    castSpellAtHigherLevel (slot) {
-      this.decrement(slot)
-      this.highlvldialog = false
-      this.snackbar = false
     },
     launchOffsetter (slot) {
       this.offsetSlot = slot
@@ -291,21 +301,34 @@ export default {
         console.error(error)
       })
     },
-    castSpell (spellName) {
-      if (this.currSpellInfo.Name !== spellName) {
-        this.getSpellInfo(spellName, true)
-      } else {
-        if (this.currSpellInfo.Level === 0) {
-          this.dialog = false
-          return
-        }
-        if (this.spellSlots[this.currSpellInfo.Level - 1].slot === 0) {
-          this.snackbar = true
-          return
-        }
-        this.decrement(this.spellSlots[this.currSpellInfo.Level - 1])
-        this.dialog = false
+    castSpellAtHigherLevel (slot) {
+      if (this.spellInfo.Concentration) {
+        this.concentrating = true
+        this.concentrationSpell = this.spellInfo.Name
       }
+      this.decrement(slot)
+      this.highlvldialog = false
+      this.outOfSlotsSnackbar = false
+    },
+    castSpell () {
+      if (this.currSpellInfo.Concentration) {
+        if (this.concentrating) {
+          this.concentrationSnackbar = true
+          return
+        }
+        this.concentrating = true
+        this.concentrationSpell = this.currSpellInfo.Name
+      }
+      if (this.currSpellInfo.Level === 0) {
+        this.dialog = false
+        return
+      }
+      if (this.spellSlots[this.currSpellInfo.Level - 1].slot === 0) {
+        this.outOfSlotsSnackbar = true
+        return
+      }
+      this.decrement(this.spellSlots[this.currSpellInfo.Level - 1])
+      this.dialog = false
       // - 1 because 0 indexing
     },
     getSpellSlots () {
