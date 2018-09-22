@@ -4,15 +4,21 @@
     <v-btn @click="longRestAll()" v-if="characters.length > 1" flat color="blue">Long Rest All</v-btn>
     <v-tabs v-model="tabs">
       <v-tab v-for="c in characters" :key="c">
-            asdf
-            <v-btn v-if="characters.length > 1 && c !== 0" @click='removeCharacter(c)' icon flat color="grey"> <v-icon>cancel</v-icon> </v-btn>
+            <span v-if="c.name !== ''">{{shortenName(c.name)}}</span>
+            <span v-if="c.name === ''">Name</span>
+            <v-btn v-if="characters.length > 1 && c.id !== 0" @click='removeCharacter(c)' icon flat color="grey"> <v-icon>cancel</v-icon> </v-btn>
       </v-tab>
       <v-tabs-slider v-model="tabs" color="yellow"></v-tabs-slider>
     </v-tabs>
     <v-tabs-items v-model="tabs">
       <v-tab-item v-for="c in characters" :key="c">
         <v-card flat>
-          <tracker :ref="'character' + c" v-bind:classOpts='classOpts'></tracker>
+          <v-card-text>
+            <v-flex xs6>
+              <v-text-field v-model="c.name" placeholder="Name..."></v-text-field>
+            </v-flex>
+          </v-card-text>
+          <tracker :ref="'character' + c.id" v-bind:classOpts='classOpts'></tracker>
         </v-card>
       </v-tab-item>
     </v-tabs-items>
@@ -25,7 +31,10 @@ export default {
     return {
       currentTab: 0,
       allowTabChange: true,
-      characters: [0],
+      characters: [{
+        id: 0,
+        name: ''
+      }],
       classOpts: []
     }
   },
@@ -53,20 +62,26 @@ export default {
     Tracker
   },
   methods: {
+    shortenName(name) {
+      return name.split(" ")[0]
+    },
     longRestAll () {
       for (let i in this.characters) {
         // if someone could explain to me why the ['0'] is needed that would be awesome
-        this.$refs['character' + this.characters[i]]['0'].longRest()
+        this.$refs['character' + this.characters[i].id]['0'].longRest()
       }
     },
     addCharacter () {
       if (this.characters.length < 10) {
-        this.characters.push(Math.random() * (10 ** 10))
+        this.characters.push({
+          id: Math.random() * (10 ** 10),
+          name: ''
+        })
       }
     },
     removeCharacter (c) {
       let index = this.characters.findIndex(function (element) {
-        return element === c
+        return element.id === c.id
       })
       if (index === -1) {
         return

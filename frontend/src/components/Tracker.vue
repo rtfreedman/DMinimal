@@ -2,50 +2,47 @@
   <v-card>
     <v-flex xs4>
       <v-card-text>
-        <div>
-          <!--Character Details-->
-          <v-text-field v-model="characterName" placeholder="Name..."></v-text-field>
-          <div v-for="(c, index) in classes" :key="index">
-            <v-layout row>
-              <v-card-title>
-                <v-autocomplete
-                  placeholder='Class'
-                  :items="classOpts"
-                  :search-input.sync="c.class"
-                  flat
-                />
-                <v-flex xs3>
-                <v-autocomplete 
-                  placeholder='Level'
-                  :items="levels"
-                  :search-input.sync="c.level"
-                  flat
-                />
-                </v-flex>
-              </v-card-title>
-              <v-btn v-if="classes.length > 1" icon flat color="grey" @click="deleteClass(c.id)"> <v-icon>cancel</v-icon> </v-btn>
-            </v-layout>
-          </div>
-          <!--End Character Details-->
-          <!--Multiclass-->
-          <v-tooltip right>
-            <v-btn icon slot="activator" @click="multiclass()">
-              <v-icon>add_circle_outline</v-icon>
-            </v-btn>
-            <span>Multiclass</span>
-          </v-tooltip>
-          <v-tooltip right>
-            <v-btn flat slot="activator" icon @click="getSpellSlots">
-              <v-icon> autorenew </v-icon>
-            </v-btn>
-            <span>Update Slots</span>
-          </v-tooltip>
-          <!--End Multiclass-->
-          <v-tooltip right>
-            <v-btn v-if="concentrating" @click="concentrationDialog=true" flat icon slot="activator"><v-icon>remove_red_eye</v-icon></v-btn>
-            <span>Concentrating on {{concentrationSpell}}</span>
-          </v-tooltip>
-        </div>
+        <!--Character Details-->
+        <span v-for="(c, index) in classes" :key="index">
+          <v-layout row>
+            <v-card-title>
+              <v-autocomplete
+                placeholder='Class'
+                :items="classOpts"
+                :search-input.sync="c.class"
+                flat
+              />
+              <v-flex xs3>
+              <v-autocomplete 
+                placeholder='Level'
+                :items="levels"
+                :search-input.sync="c.level"
+                flat
+              />
+              </v-flex>
+            </v-card-title>
+            <v-btn v-if="classes.length > 1" icon flat color="grey" @click="deleteClass(c.id)"> <v-icon>cancel</v-icon> </v-btn>
+          </v-layout>
+        </span>
+        <!--End Character Details-->
+        <!--Multiclass-->
+        <v-tooltip right>
+          <v-btn icon slot="activator" @click="multiclass()">
+            <v-icon>add_circle_outline</v-icon>
+          </v-btn>
+          <span>Multiclass</span>
+        </v-tooltip>
+        <v-tooltip right>
+          <v-btn flat slot="activator" icon @click="getSpellSlots">
+            <v-icon> autorenew </v-icon>
+          </v-btn>
+          <span>Update Slots</span>
+        </v-tooltip>
+        <!--End Multiclass-->
+        <v-tooltip right>
+          <v-btn v-if="concentrating" @click="concentrationDialog=true" flat icon slot="activator"><v-icon>remove_red_eye</v-icon></v-btn>
+          <span>Concentrating on {{concentrationSpell}}</span>
+        </v-tooltip>
       </v-card-text>
     </v-flex>
     <v-card-text>
