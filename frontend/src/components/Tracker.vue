@@ -42,7 +42,7 @@
           </v-tooltip>
           <!--End Multiclass-->
           <v-tooltip right>
-            <v-btn v-if="concentrating" flat icon slot="activator"><v-icon>remove_red_eye</v-icon></v-btn>
+            <v-btn v-if="concentrating" @click="concentrationDialog=true" flat icon slot="activator"><v-icon>remove_red_eye</v-icon></v-btn>
             <span>Concentrating on {{concentrationSpell}}</span>
           </v-tooltip>
         </div>
@@ -147,6 +147,19 @@
       </v-card>
     </v-dialog>
     <!--End CastAtHigherLevel Dialog-->
+    <!--Start Concentration Dialog-->
+    <v-dialog v-model="concentrationDialog" max-width=300>
+      <v-card>
+        <v-card-text>
+          <h2>Stop Concentrating on {{concentrationSpell}}?</h2>
+        </v-card-text>
+        <v-layout column>
+        <v-btn @click="concentrationDialog = false; concentrating = false; concentrationSpell = '';" flat> Yes </v-btn>
+        <v-btn @click="concentrationDialog = false;" flat> No </v-btn>
+        </v-layout>
+      </v-card>
+    </v-dialog>
+    <!--End CastAtHigherLevel Dialog-->
     <!--Start Offset Dialog-->
     <v-dialog v-model="offsetDialog" max-width=200>
       <v-card>
@@ -183,6 +196,7 @@ export default {
       concentrationSnackbar: false,
       concentrating: false,
       concentrationSpell: '',
+      concentrationDialog: false,
       offsetIndex: 0,
       highlvldialog: false,
       slotLevelInput: 9,
