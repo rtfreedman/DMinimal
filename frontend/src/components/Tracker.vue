@@ -40,8 +40,9 @@
         </v-tooltip>
         <!--End Multiclass-->
         <v-tooltip right>
-          <v-btn v-if="concentrating" @click="concentrationDialog=true" flat icon slot="activator"><v-icon>remove_red_eye</v-icon></v-btn>
-          <span>Concentrating on {{concentrationSpell}}</span>
+          <v-btn disabled=false @click="concentrationDialog=true" flat icon slot="activator"><v-icon>remove_red_eye</v-icon></v-btn>
+          <span v-if="concentrating">Concentrating on {{concentrationSpell}}</span>
+          <span v-f="!concentrating">Not currently concentrating</span>
         </v-tooltip>
       </v-card-text>
     </v-flex>
@@ -49,12 +50,10 @@
       <!--Slot Counters-->
       <v-layout row grid-list-xs>
         <div v-for="(slot, index) in spellSlots" :key="index">
-          <v-flex xs2>
-              <v-btn flat @click="increment(slot)" color="yellow">+</v-btn>
-              <v-btn flat @click="launchOffsetter(slot)" color="white"> {{slot.slot}} </v-btn>
-              <v-btn flat @click="decrement(slot)" color="yellow">-</v-btn>
-              <v-btn flat disabled color="red"> Lv {{slot.level}} </v-btn>
-          </v-flex>
+          <v-btn flat @click="increment(slot)" color="yellow">+</v-btn>
+          <v-btn flat @click="launchOffsetter(slot)" color="white"> {{slot.slot}} </v-btn>
+          <v-btn flat @click="decrement(slot)" color="yellow">-</v-btn>
+          <v-btn flat disabled color="red"> Lv {{slot.level}} </v-btn>
         </div>
       </v-layout>
       <!--End Slot Counters-->

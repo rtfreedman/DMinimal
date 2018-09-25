@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <div>
     <v-btn flat @click="addCharacter()"> +Character </v-btn>
     <v-btn @click="longRestAll()" v-if="characters.length > 1" flat color="blue">Long Rest All</v-btn>
     <v-tabs hide-slider v-model="tabs">
@@ -21,7 +21,7 @@
         </v-card>
       </v-tab-item>
     </v-tabs-items>
-  </v-container>
+  </div>
 </template>
 <script>
 import Tracker from '@/components/Tracker'
@@ -61,8 +61,8 @@ export default {
     Tracker
   },
   methods: {
-    shortenName(name) {
-      return name.split(" ")[0]
+    shortenName (name) {
+      return name.split(' ')[0]
     },
     longRestAll () {
       for (let i in this.characters) {

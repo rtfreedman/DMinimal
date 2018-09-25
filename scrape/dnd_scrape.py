@@ -4,7 +4,8 @@ import json
 from selenium import webdriver
 
 browser = webdriver.Chrome()
-browser.get('https://roll20.net/compendium/dnd5e/Spells%20List#content')
+url = '' # fill in url here
+browser.get(url)
 time.sleep(10)
 cont=input('Continue?')
 openers = browser.find_elements_by_css_selector('.dropdown-toggle')[1:-1]
