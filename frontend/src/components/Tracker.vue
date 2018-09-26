@@ -3,8 +3,8 @@
     <!--Character Stats-->
     <v-layout align-center justify-start row>
       <v-layout v-for="(statVal, statName) in stats" :key="statName" align-center justify-start column>
-        <v-btn flat @click="selectedStat=statName; statsDialog=true;"> <h3> {{statName}} </h3> </v-btn>
-        <span>{{statVal}}</span>
+        <span><h3> {{statName}} </h3> </span>
+        <v-btn flat @click="selectedStat=statName; statsDialog=true;">{{statVal}}</v-btn>
       </v-layout>
     </v-layout>
     <!--End Character Stats-->
@@ -14,7 +14,7 @@
         <v-layout align-center justify-start column>
           <v-btn flat @click="stats[selectedStat]++">+</v-btn>
           <span>{{stats[selectedStat]}}</span>
-          <v-btn flat @click="stats[selectedStat]--">-</v-btn>
+          <v-btn flat @click="stats[selectedStat] = Math.max(0, stats[selectedStat]-1)">-</v-btn>
           <v-btn flat @click="stats[selectedStat]=rollStat()">Roll</v-btn>
         </v-layout>
       </v-card>
