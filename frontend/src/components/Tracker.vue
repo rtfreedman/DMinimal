@@ -1,5 +1,25 @@
 <template>
   <v-card>
+    <!--Character Stats-->
+    <v-layout align-center justify-start row>
+      <v-layout v-for="(statVal, statName) in stats" :key="statName" align-center justify-start column>
+        <v-btn flat @click="selectedStat=statName; statsDialog=true;"> <h3> {{statName}} </h3> </v-btn>
+        <span>{{statVal}}</span>
+      </v-layout>
+    </v-layout>
+    <!--End Character Stats-->
+    <!--Character Stats Dialog-->
+    <v-dialog v-model="statsDialog" max-width=200>
+      <v-card>
+        <v-layout align-center justify-start column>
+          <v-btn flat @click="stats[selectedStat]++">+</v-btn>
+          <span>{{stats[selectedStat]}}</span>
+          <v-btn flat @click="stats[selectedStat]--">-</v-btn>
+          <v-btn flat @click="stats[selectedStat]=rollStat()">Roll</v-btn>
+        </v-layout>
+      </v-card>
+    </v-dialog>
+    <!--End Character Stats Dialog-->
     <v-flex xs4>
       <v-card-text>
         <!--Character Details-->
@@ -40,9 +60,9 @@
         </v-tooltip>
         <!--End Multiclass-->
         <v-tooltip right>
-          <v-btn disabled=false @click="concentrationDialog=true" flat icon slot="activator"><v-icon>remove_red_eye</v-icon></v-btn>
+          <v-btn :disabled="!concentrating" @click="concentrationDialog=true" flat icon slot="activator"><v-icon>remove_red_eye</v-icon></v-btn>
           <span v-if="concentrating">Concentrating on {{concentrationSpell}}</span>
-          <span v-f="!concentrating">Not currently concentrating</span>
+          <span v-if="!concentrating">Not currently concentrating</span>
         </v-tooltip>
       </v-card-text>
     </v-flex>
@@ -183,6 +203,16 @@ export default {
   props: ['classOpts'],
   data () {
     return {
+      stats: {
+        STR: 10,
+        DEX: 10,
+        CON: 10,
+        INT: 10,
+        WIS: 10,
+        CHR: 10
+      },
+      selectedStat: '',
+      statsDialog: false,
       levelOpts: [],
       currSpellClasses: [],
       spellSearchDialogOpts: {Level: 'Level', School: 'School', Duration: 'Duration', SpellRange: 'Range', Components: 'Components'},
@@ -260,6 +290,16 @@ export default {
     }
   },
   methods: {
+    rollStat () {
+      let rolls = []
+      for (let i = 0; i < 4; i++) {
+        rolls.push(Math.floor(Math.random() * 6) + 1)
+      }
+      rolls.splice(rolls.indexOf(Math.min(rolls)), 1)
+      let getsum = (total, num) => { return total + num }
+      console.log(rolls)
+      return rolls.reduce(getsum)
+    },
     increment (slot) {
       slot.slot++
     },
