@@ -90,11 +90,8 @@ type Class struct {
 // GetSlots return spell slots for class class at level level
 func (c *Class) GetSlots() []int {
 	_, classExists := tiers[c.ClassName]
-	if _, levelExists := slots[c.Level]; !levelExists || !classExists {
-		return []int{}
-	}
-	if c.Level == 0 {
-		return []int{0, 0, 0, 0, 0, 0, 0, 0, 0}
+	if _, levelExists := slots[c.Level]; !levelExists || !classExists || c.Level == 0 {
+		return slots[0]
 	}
 	if c.ClassName == "Warlock" {
 		ret := []int{0, 0, 0, 0, 0, 0, 0, 0, 0}
@@ -114,7 +111,8 @@ func (c *Class) GetSlots() []int {
 
 // GetClassNames returns all classes that can use magic
 func GetClassNames() []string {
-	var classes []string
+	// add non-magic classes
+	classes := []string{"Barbarian", "Fighter", "Rogue", "Monk"}
 	for key := range tiers {
 		classes = append(classes, key)
 	}

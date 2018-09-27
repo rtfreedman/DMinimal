@@ -1,14 +1,14 @@
 <template>
   <v-card>
-    <!--Character Stats-->
+    <!--Ability Scores-->
     <v-layout align-center justify-start row>
       <v-layout v-for="(statVal, statName) in stats" :key="statName" align-center justify-start column>
         <span><h3> {{statName}} </h3> </span>
         <v-btn flat @click="selectedStat=statName; statsDialog=true;">{{statVal}}</v-btn>
       </v-layout>
     </v-layout>
-    <!--End Character Stats-->
-    <!--Character Stats Dialog-->
+    <!--End Ability Scores-->
+    <!--Ability Scores Dialog-->
     <v-dialog v-model="statsDialog" max-width=200>
       <v-card>
         <v-layout align-center justify-start column>
@@ -19,7 +19,7 @@
         </v-layout>
       </v-card>
     </v-dialog>
-    <!--End Character Stats Dialog-->
+    <!--End Ability Scores Dialog-->
     <v-flex xs4>
       <v-card-text>
         <!--Character Details-->
@@ -66,6 +66,22 @@
         </v-tooltip>
       </v-card-text>
     </v-flex>
+    <v-flex xs6>
+      <v-layout align-center justify-start row>
+        <v-layout align-center justify-start column>
+          <h3>Proficiency Bonus</h3>
+          <span>+{{proficiencyBonus()}}</span>
+        </v-layout>
+        <v-layout align-center justify-start column>
+          <h3>Spell Save DC</h3>
+          <span>{{spellStat(true)}}</span>
+        </v-layout>
+        <v-layout align-center justify-start column>
+          <h3>Spell Attack Modifier</h3>
+          <span>{{spellStat(false)}} + d20</span>
+        </v-layout>
+      </v-layout>
+    </v-flex>
     <v-card-text>
       <!--Slot Counters-->
       <v-layout row grid-list-xs>
@@ -99,7 +115,7 @@
           </v-card-text>
           <v-card-text>
             <h1>{{currSpellInfo.Name}}</h1>
-            <div v-if="currSpellInfo.Concentration">Concentration</div>
+            <div v-if="currSpellInfo.hasOwnProperty('Concentration')">Concentration</div>
             <v-list dense>
               <v-list-tile v-if="currSpellInfo.hasOwnProperty(elem)" v-for="(elem, text) in spellSearchDialogOpts" :key="elem">
                 <v-list-tile-content><h3>{{text}}:</h3></v-list-tile-content>
@@ -134,8 +150,8 @@
     <v-snackbar
       color="red darken-3"
       v-model="outOfSlotsSnackbar"
-      :timeout="snackbarTimeout"> Not enough slots
-      <v-btn flat @click="highlvldialog=true">Cast at higher level</v-btn>
+      :timeout="snackbarTimeout"> <h3>Not enough slots</h3>
+      <v-btn v-if="haveSlotsAboveLevel()" flat @click="highlvldialog=true">Cast at higher level</v-btn>
     </v-snackbar>
     <!--End Out of Slots Snackbar-->
     <!--Start Concentrating Snackbar-->
@@ -290,6 +306,30 @@ export default {
     }
   },
   methods: {
+    spellStat (dc) {
+      let stat = this.proficiencyBonus()
+      if (this.classes.length === 1 && this.classes[0].class === 'Sorcerer') {
+        stat += Math.floor(((this.stats.CHR) - 10) / 2) + 8
+      } else {
+        stat += Math.floor(((this.stats.INT) - 10) / 2) + 8
+      }
+      return stat
+    },
+    proficiencyBonus () {
+      let totalLevel = 0
+      for (let c in this.classes) {
+        totalLevel += this.classes[c].level
+      }
+      return Math.floor(totalLevel / 5) + 2
+    },
+    haveSlotsAboveLevel () {
+      for (let i = this.currSpellInfo.Level; i < this.spellSlots.length; i++) {
+        if (this.spellSlots[i].slot > 0) {
+          return true
+        }
+      }
+      return false
+    },
     rollStat () {
       let rolls = []
       for (let i = 0; i < 4; i++) {
@@ -297,7 +337,6 @@ export default {
       }
       rolls.splice(rolls.indexOf(Math.min(rolls)), 1)
       let getsum = (total, num) => { return total + num }
-      console.log(rolls)
       return rolls.reduce(getsum)
     },
     increment (slot) {
@@ -331,6 +370,13 @@ export default {
       this.offsetDialog = true
     },
     getSpellInfo (spellName, decrement) {
+      if (spellName === this.currSpellInfo.Name) {
+        if (decrement) {
+          this.decrement(this.spellSlots[this.currSpellInfo.Level - 1])
+          this.dialog = false
+        }
+        return
+      }
       let r = new Request('http://localhost:8010/magic/spell/' + spellName, {method: 'GET'})
       fetch(r)
       .then(response => {
@@ -352,16 +398,20 @@ export default {
       })
     },
     castSpellAtHigherLevel (slot) {
-      if (this.spellInfo.Concentration) {
+      if (this.currSpellInfo.hasOwnProperty('Concentration') && this.currSpellInfo.Concentration) {
         this.concentrating = true
-        this.concentrationSpell = this.spellInfo.Name
+        this.concentrationSpell = this.currSpellInfo.Name
       }
       this.decrement(slot)
       this.highlvldialog = false
       this.outOfSlotsSnackbar = false
     },
     castSpell () {
-      if (this.currSpellInfo.Concentration) {
+      if (this.spellSlots[this.currSpellInfo.Level - 1].slot === 0) {
+        this.outOfSlotsSnackbar = true
+        return
+      }
+      if (this.currSpellInfo.hasOwnProperty('Concentration') && this.currSpellInfo.Concentration) {
         if (this.concentrating) {
           this.concentrationSnackbar = true
           return
@@ -371,10 +421,6 @@ export default {
       }
       if (this.currSpellInfo.Level === 0) {
         this.dialog = false
-        return
-      }
-      if (this.spellSlots[this.currSpellInfo.Level - 1].slot === 0) {
-        this.outOfSlotsSnackbar = true
         return
       }
       this.decrement(this.spellSlots[this.currSpellInfo.Level - 1])
