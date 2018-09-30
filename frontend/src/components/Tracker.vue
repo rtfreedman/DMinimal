@@ -3,8 +3,9 @@
     <!--Ability Scores-->
     <v-layout align-center justify-start row>
       <v-layout v-for="(statVal, statName) in stats" :key="statName" align-center justify-start column>
-        <span><h3> {{statName}} </h3> </span>
         <v-btn flat @click="selectedStat=statName; statsDialog=true;">{{statVal}}</v-btn>
+        <span><h3> {{statName}} </h3> </span>
+        <span> {{getMod(statVal)}} </span>
       </v-layout>
     </v-layout>
     <!--End Ability Scores-->
@@ -306,6 +307,14 @@ export default {
     }
   },
   methods: {
+    getMod (val) {
+      let modifier = Math.floor((val - 10) / 2)
+      if (modifier > 0) {
+        return '+' + modifier
+      } else {
+        return '' + modifier
+      }
+    },
     spellStat (dc) {
       let stat = this.proficiencyBonus()
       if (this.classes.length === 1 && this.classes[0].class === 'Sorcerer') {
