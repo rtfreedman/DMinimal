@@ -4,11 +4,11 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 let defaultCharacter = {
-  ID: '',
-  Name: '',
-  Concentrating: '',
-  Class: {},
-  AbilityScores: {
+  id: '',
+  name: '',
+  concentrating: '',
+  classes: [],
+  abilityScores: {
     STR: 10,
     INT: 10,
     WIS: 10,
@@ -23,13 +23,14 @@ export default new Vuex.Store(
     state: {
       characters: [
         {
-          ID: '0',
-          Name: 'Rorik Ironforge',
-          Concentrating: 'Animate Objects',
-          Class: {
-            Warlock: {
-              Level: 1,
-              Slots: {
+          id: '0',
+          name: 'Rorik Ironforge',
+          concentrating: 'Animate Objects',
+          classes: [
+            {
+              classname: 'Warlock',
+              level: 1,
+              slots: {
                 1: 4,
                 2: 0,
                 3: 0,
@@ -40,13 +41,13 @@ export default new Vuex.Store(
                 8: 0,
                 9: 0
               },
-              SpellOpts: [
+              spellOpts: [
                 'Eldritch Blast',
                 'Anger'
               ]
             }
-          },
-          AbilityScores: {
+          ],
+          abilityScores: {
             STR: 20,
             INT: 1,
             WIS: 10,
@@ -62,6 +63,17 @@ export default new Vuex.Store(
         let newChar = JSON.parse(JSON.stringify(defaultCharacter))
         newChar.ID = Math.random() * (10 ** 10).toString()
         this.state.characters.push(newChar)
+      },
+      removeCharacter (state, identifier) {
+        console.log('rmchar')
+        let index = this.state.characters.findIndex(function (element) {
+          return element.id === identifier
+        })
+        if (index === -1) {
+          console.log(JSON.stringify(identifier))
+          return
+        }
+        this.state.characters.splice(index, 1)
       }
     }
   }

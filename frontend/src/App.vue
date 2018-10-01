@@ -54,7 +54,7 @@ export default {
         title: 'Spelltracker'
       }],
       miniVariant: false,
-      title: 'TitlePending'
+      title: 'DM Tracker'
     }
   },
   methods: {
