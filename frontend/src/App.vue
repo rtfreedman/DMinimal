@@ -60,7 +60,6 @@ export default {
   methods: {
     newpage () {
       this.drawer = !this.drawer
-      this.title = 'asdf'
     }
   },
   name: 'App'

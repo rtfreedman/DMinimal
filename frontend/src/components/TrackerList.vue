@@ -4,40 +4,38 @@
     <v-btn @click="longRestAll()" v-if="characters.length > 1" flat color="blue">Long Rest All</v-btn>
     <v-tabs hide-slider v-model="tabs">
       <v-tab v-for="c in characters" :key="c.id">
-            <span v-if="c.name !== ''">{{shortenName(c.name)}}</span>
-            <span v-if="c.name === ''">Name</span>
-            <v-btn v-if="characters.length > 1 && c.id !== 0" @click='removeCharacter(c)' icon flat color="grey"> <v-icon>cancel</v-icon> </v-btn>
+        <span v-if="c.name !== ''">{{shortenName(c.name)}}</span>
+        <span v-if="c.name === ''">Name</span>
+        <v-btn v-if="characters.length > 1 && c.id !== '0'" @click='removeCharacter(c)' icon flat color="grey"> <v-icon>cancel</v-icon> </v-btn>
       </v-tab>
     </v-tabs>
     <v-tabs-items v-model="tabs">
       <v-tab-item v-for="c in characters" :key="c.id">
         <v-card flat>
           <v-card-text>
-            <v-flex xs6>
-              <v-text-field v-model="c.name" placeholder="Name..."></v-text-field>
-            </v-flex>
+            <v-text-field v-model="c.name" placeholder="Name..."></v-text-field>
           </v-card-text>
-          <tracker :ref="'character' + c.id" v-bind:classOpts='classOpts'></tracker>
+          <tracker :ref="'character' + c.id" v-bind:classOpts='classOpts'></tracker>          
         </v-card>
       </v-tab-item>
     </v-tabs-items>
   </v-container>
 </template>
+
 <script>
 import Tracker from '@/components/Tracker'
 export default {
-  data () {
-    return {
-      currentTab: 0,
-      allowTabChange: true,
-      characters: [{
-        id: 0,
-        name: ''
-      }],
-      classOpts: []
-    }
+  name: 'TrackerList',
+  beforeMount () {
+    this.getClassOpts()
+  },
+  components: {
+    Tracker
   },
   computed: {
+    characters () {
+      return this.$store.state.characters
+    },
     tabs: {
       get: function () {
         if (!this.allowTabChange) {
@@ -54,13 +52,17 @@ export default {
       }
     }
   },
-  beforeMount () {
-    this.getClassOpts()
-  },
-  components: {
-    Tracker
+  data () {
+    return {
+      classOpts: [],
+      currentTab: 0,
+      allowTabChange: true
+    }
   },
   methods: {
+    addCharacter () {
+      this.$store.commit('addCharacter')
+    },
     shortenName (name) {
       return name.split(' ')[0]
     },
@@ -70,24 +72,9 @@ export default {
         this.$refs['character' + this.characters[i].id]['0'].longRest()
       }
     },
-    addCharacter () {
-      if (this.characters.length < 10) {
-        this.characters.push({
-          id: Math.random() * (10 ** 10),
-          name: ''
-        })
-      }
-    },
     removeCharacter (c) {
-      let index = this.characters.findIndex(function (element) {
-        return element.id === c.id
-      })
-      if (index === -1) {
-        return
-      }
-      this.characters.splice(index, 1)
-      this.allowTabChange = false
-      this.currentTab = 0
+      console.log('method')
+      this.$store.commit('removeCharacter', c.id)
     },
     getClassOpts () {
       let r = new Request('http://localhost:8010/magic/classes/')
