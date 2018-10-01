@@ -1,14 +1,30 @@
 <template>
-  <div>
-  </div>
+  <v-container>
+    <v-btn flat @click="addCharacter()"> +Character </v-btn>
+    <div v-for="(char, id) in $store.state.characters" v-bind:key=id>
+    {{'character'}}
+    {{char}}
+    </div>
+  </v-container>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
+  computed: {
+    characters () {
+      return this.$store.state.characters
+    }
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    addCharacter () {
+      console.log(this.characters)
+      this.$store.commit('addCharacter')
     }
   }
 }
@@ -28,6 +44,6 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: #ffff00;
 }
 </style>
