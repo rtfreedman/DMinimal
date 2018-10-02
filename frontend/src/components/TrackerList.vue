@@ -10,12 +10,9 @@
       </v-tab>
     </v-tabs>
     <v-tabs-items v-model="tabs">
-      <v-tab-item v-for="c in characters" :key="c.id">
+      <v-tab-item v-for="(c, index) in characters" :key="c.id">
         <v-card flat>
-          <v-card-text>
-            <v-text-field v-model="c.name" placeholder="Name..."></v-text-field>
-          </v-card-text>
-          <tracker :ref="'character' + c.id" v-bind:classOpts='classOpts'></tracker>          
+          <tracker1 :ref="'character' + c.id" :id="c.id" :index="index"></tracker1>
         </v-card>
       </v-tab-item>
     </v-tabs-items>
@@ -23,14 +20,11 @@
 </template>
 
 <script>
-import Tracker from '@/components/Tracker'
+import Tracker1 from '@/components/Tracker1'
 export default {
   name: 'TrackerList',
-  beforeMount () {
-    this.getClassOpts()
-  },
   components: {
-    Tracker
+    Tracker1
   },
   computed: {
     characters () {
@@ -67,31 +61,10 @@ export default {
       return name.split(' ')[0]
     },
     longRestAll () {
-      for (let i in this.characters) {
-        // if someone could explain to me why the ['0'] is needed that would be awesome
-        this.$refs['character' + this.characters[i].id]['0'].longRest()
-      }
+      this.$store.commit('longRestAll')
     },
     removeCharacter (c) {
-      console.log('method')
       this.$store.commit('removeCharacter', c.id)
-    },
-    getClassOpts () {
-      let r = new Request('http://localhost:8010/magic/classes/')
-      fetch(r)
-      .then(response => {
-        if (response.status === 200) {
-          return response.json()
-        } else {
-          throw new Error('Something went wrong on api server!')
-        }
-      })
-      .then(response => {
-        this.classOpts = response.Classes
-      })
-      .catch(error => {
-        console.error(error)
-      })
     }
   }
 }

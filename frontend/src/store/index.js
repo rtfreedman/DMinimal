@@ -61,8 +61,15 @@ export default new Vuex.Store(
     mutations: {
       addCharacter () {
         let newChar = JSON.parse(JSON.stringify(defaultCharacter))
-        newChar.ID = Math.random() * (10 ** 10).toString()
+        newChar.id = Math.floor(Math.random() * (10 ** 10)).toString()
         this.state.characters.push(newChar)
+      },
+      changeName (state, payload) {
+        this.state.characters[payload.index].name = payload.name
+      },
+      offsetStat (state, payload) {
+        // stat, index, offset
+        this.state.characters[payload.index].abilityScores[payload.stat] += payload.offset
       },
       removeCharacter (state, identifier) {
         console.log('rmchar')
