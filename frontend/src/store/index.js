@@ -81,6 +81,9 @@ export default new Vuex.Store(
           return
         }
         this.state.characters.splice(index, 1)
+      },
+      stopConcentrating (state, index) {
+        this.state.characters[index].concentrating = ''
       }
     }
   }
