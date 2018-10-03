@@ -1,23 +1,29 @@
 <template>
     <v-card>
       <!-- "Buttons" -->
-      <v-tooltip right>
+      <v-layout row align-center>
+      <v-tooltip top>
         <v-btn icon slot="activator" @click="multiclass()">
           <v-icon>add_circle_outline</v-icon>
         </v-btn>
         <span>Multiclass</span>
       </v-tooltip>
-      <v-tooltip right>
+      <v-tooltip top>
         <v-btn flat slot="activator" icon @click="getSpellSlots">
           <v-icon> autorenew </v-icon>
         </v-btn>
         <span>Update Slots</span>
       </v-tooltip>
-      <v-tooltip right>
+      <v-tooltip top>
         <v-btn :disabled="!character.concentrating" @click="concentrationDialog=true" flat icon slot="activator"><v-icon>remove_red_eye</v-icon></v-btn>
         <span v-if="character.concentrating">Concentrating on {{character.concentrating}}</span>
         <span v-if="!character.concentrating || character.concentrating === ''">Not currently concentrating</span>
       </v-tooltip>
+      <v-tooltip top>
+        <h3 slot="activator">{{proficiencyBonus}}</h3>
+        <span>Proficiency Bonus</span>
+      </v-tooltip>
+      </v-layout>
       <v-dialog v-model="concentrationDialog" max-width=300>
         <v-card>
           <v-card-text>
@@ -62,6 +68,9 @@ export default {
     character () {
       return this.$store.state.characters[this.index]
     },
+    proficiencyBonus () {
+      return this.character.proficiency
+    },
     name: {
       get () {
         return this.character.name
@@ -77,7 +86,6 @@ export default {
   methods: {
     multiclass () {
       this.$store.commit('multiclass', {'index': this.index, 'classname': ''})
-      // TODO
     },
     getSpellSlots () {
       // TODO

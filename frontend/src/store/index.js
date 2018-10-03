@@ -42,6 +42,7 @@ export default new Vuex.Store(
         {
           id: '0',
           name: 'Rorik Ironforge',
+          proficiency: '+0',
           concentrating: 'Animate Objects',
           classes: [
             {
@@ -86,6 +87,7 @@ export default new Vuex.Store(
       },
       changeClassLevel (state, payload) { // payload has charIndex classIndex newLevel
         this.state.characters[payload.charIndex].classes[payload.classIndex].level = payload.newLevel
+        this.commit('proficiencyBonus', payload.charIndex)
       },
       changeName (state, payload) {
         this.state.characters[payload.index].name = payload.name
@@ -107,6 +109,15 @@ export default new Vuex.Store(
       offsetStat (state, payload) {
         // stat, index, offset
         this.state.characters[payload.index].abilityScores[payload.stat] += payload.offset
+      },
+      proficiencyBonus (state, characterIndex) {
+        let totalLevel = 0
+        for (let c in this.state.characters[characterIndex].classes) {
+          if (this.state.characters[characterIndex].classes[c].hasOwnProperty('level')) {
+            totalLevel += this.state.characters[characterIndex].classes[c].level
+          }
+        }
+        this.state.characters[characterIndex].proficiency = '+' + (Math.floor(totalLevel / 5) + 2).toString()
       },
       removeCharacter (state, identifier) {
         console.log('rmchar')
