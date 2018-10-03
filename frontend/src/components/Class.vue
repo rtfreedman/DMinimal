@@ -18,7 +18,6 @@
         dense
       />
     </v-flex>
-    {{className}}
   </div>
 </template>
 

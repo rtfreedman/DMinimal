@@ -40,10 +40,10 @@
       <!-- Ability Scores -->
       <ability-scores :scores="character.abilityScores" :index="index"></ability-scores>
       <!-- End Ability Scores -->
-      <span v-for="(characterClass, classindex) in character.classes" :key="classindex">
+      <v-card-text v-for="(characterClass, classindex) in character.classes" :key="classindex">
         <!-- TODO Class stuff -->
-        <charcter-class :characterIndex="index" :classIndex="classindex" :classOpts="classOpts"> </charcter-class>
-      </span>
+        <character-class :characterIndex="index" :classIndex="classindex" :classOpts="classOpts"> </character-class>
+      </v-card-text>
     </v-card>
 </template>
 
@@ -88,7 +88,7 @@ export default {
   },
   components: {
     'ability-scores': AbilityScores,
-    'charcter-class': Class
+    'character-class': Class
   }
 }
 </script>
