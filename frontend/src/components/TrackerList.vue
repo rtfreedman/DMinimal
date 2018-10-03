@@ -65,6 +65,8 @@ export default {
     },
     removeCharacter (c) {
       this.$store.commit('removeCharacter', c.id)
+      this.tabs = 0
+      this.allowTabChange = false
     }
   }
 }

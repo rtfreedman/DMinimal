@@ -3,6 +3,23 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+let defaultClass = {
+  classname: '',
+  level: 1,
+  slots: {
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0,
+    8: 0,
+    9: 0
+  },
+  spellOpts: []
+}
+
 let defaultCharacter = {
   id: '',
   name: '',
@@ -66,6 +83,20 @@ export default new Vuex.Store(
       },
       changeName (state, payload) {
         this.state.characters[payload.index].name = payload.name
+      },
+      multiclass (state, payload) { // payload has index and classname
+        if (this.state.characters[payload.index].classes.length > 10) {
+          return
+        }
+        for (let i in this.state.characters[payload.index].classes) {
+          let c = this.state.characters[payload.index].classes[i]
+          if (c.classname === payload.classname) {
+            return
+          }
+        }
+        let newclass = JSON.parse(JSON.stringify(defaultClass))
+        newclass.classname = payload.classname
+        this.state.characters[payload.index].classes.push(newclass)
       },
       offsetStat (state, payload) {
         // stat, index, offset

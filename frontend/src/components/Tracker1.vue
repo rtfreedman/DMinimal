@@ -1,13 +1,6 @@
 <template>
     <v-card>
-      <v-layout align-center justify-center row>
-        <v-flex xs11>
-          <v-text-field v-model="name" placeholder="Name..."></v-text-field>
-        </v-flex>
-      </v-layout>
-      <!-- Ability Scores -->
-      <ability-scores :scores="character.abilityScores" :index="index"></ability-scores>
-      <!-- End Ability Scores -->
+      <!-- "Buttons" -->
       <v-tooltip right>
         <v-btn icon slot="activator" @click="multiclass()">
           <v-icon>add_circle_outline</v-icon>
@@ -36,14 +29,27 @@
           </v-layout>
         </v-card>
       </v-dialog>
-      <span v-for="characterClass in character.classes" :key="characterClass.classname">
+      <!-- End "Buttons" -->
+      <!-- Name -->
+      <v-layout align-center justify-center row>
+        <v-flex xs11>
+          <v-text-field v-model="name" placeholder="Name..."></v-text-field>
+        </v-flex>
+      </v-layout>
+      <!-- End Name -->
+      <!-- Ability Scores -->
+      <ability-scores :scores="character.abilityScores" :index="index"></ability-scores>
+      <!-- End Ability Scores -->
+      <span v-for="(characterClass, classindex) in character.classes" :key="characterClass.classname">
         <!-- TODO Class stuff -->
+        <charcter-class :characterindex="index" :classindex="classindex"> </charcter-class>
       </span>
     </v-card>
 </template>
 
 <script>
 import AbilityScores from '@/components/AbilityScores'
+import Class from '@/components/Class'
 export default {
   name: 'Tracker1',
   props: ['id', 'index'],
@@ -70,6 +76,7 @@ export default {
   },
   methods: {
     multiclass () {
+      this.$store.commit('multiclass', {'index': this.index, 'classname': ''})
       // TODO
     },
     getSpellSlots () {
@@ -80,7 +87,8 @@ export default {
     }
   },
   components: {
-    'ability-scores': AbilityScores
+    'ability-scores': AbilityScores,
+    'charcter-class': Class
   }
 }
 </script>
