@@ -40,7 +40,7 @@
       <!-- Ability Scores -->
       <ability-scores :scores="character.abilityScores" :index="index"></ability-scores>
       <!-- End Ability Scores -->
-      <span v-for="(characterClass, classindex) in character.classes" :key="characterClass.classname">
+      <span v-for="(characterClass, classindex) in character.classes" :key="classindex">
         <!-- TODO Class stuff -->
         <charcter-class :characterIndex="index" :classIndex="classindex" :classOpts="classOpts"> </charcter-class>
       </span>

@@ -24,7 +24,7 @@ import Tracker1 from '@/components/Tracker1'
 export default {
   name: 'TrackerList',
   beforeMount () {
-    this.classOpts = this.getClassOpts()
+    this.getClassOpts()
   },
   components: {
     Tracker1

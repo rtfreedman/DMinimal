@@ -9,7 +9,7 @@
         dense
       />
     </v-flex>
-    <v-flex xs3>
+    <v-flex xs1>
       <v-autocomplete 
         placeholder='Level'
         :items="levelOpts"
@@ -18,6 +18,7 @@
         dense
       />
     </v-flex>
+    {{className}}
   </div>
 </template>
 
@@ -26,13 +27,27 @@ export default {
   props: ['classIndex', 'characterIndex', 'classOpts'],
   data () {
     return {
-      levelOpts: Array.from(new Array(20), (x, i) => i + 1) // [1,20]
+      levelOpts: Array.from(new Array(20), (x, i) => i + 1), // [1,20]
+      boiler: '',
+      className: ''
+    }
+  },
+  watch: {
+    className (state) {
+      if (this.classOpts.includes(state)) {
+        this.$store.commit('changeClass', {
+          charIndex: this.characterIndex,
+          classIndex: this.classIndex,
+          newClass: state
+        })
+      }
     }
   },
   computed: {
-    classItem () {
-      console.log(this.$store.state.characters[this.characterIndex].classes)
-      return this.$store.state.characters[this.characterIndex].classes[this.classIndex]
+    classItem: {
+      get () {
+        return this.$store.state.characters[this.characterIndex].classes[this.classIndex]
+      }
     },
     level: {
       get () {
@@ -44,22 +59,6 @@ export default {
           classIndex: this.classIndex,
           newLevel: state
         })
-      }
-    },
-    className: {
-      get () {
-        return this.classItem.classname
-      },
-      set (state) {
-        console.log(state)
-        if (this.classOpts.includes(state)) {
-          console.log('full class!')
-          this.$store.commit('changeClass', {
-            charIndex: this.characterIndex,
-            classIndex: this.classIndex,
-            newClass: state
-          })
-        }
       }
     }
   }

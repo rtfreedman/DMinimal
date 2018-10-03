@@ -82,7 +82,6 @@ export default new Vuex.Store(
         this.state.characters.push(newChar)
       },
       changeClass (state, payload) { // payload has charIndex classIndex newClass
-        console.log(JSON.stringify(payload))
         this.state.characters[payload.charIndex].classes[payload.classIndex].classname = payload.newClass
       },
       changeClassLevel (state, payload) { // payload has charIndex classIndex newLevel
