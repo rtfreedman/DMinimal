@@ -1,17 +1,21 @@
 <template>
   <div>
-    <v-autocomplete
-      placeholder='Class'
-      :items="['Warlock']"
-      :search-input.sync="classname"
-      flat
-    />
+    <v-flex xs3>
+      <v-autocomplete
+        placeholder='Class'
+        :items="classOpts"
+        :search-input.sync="className"
+        flat
+        dense
+      />
+    </v-flex>
     <v-flex xs3>
       <v-autocomplete 
         placeholder='Level'
-        :items="['1']"
+        :items="levelOpts"
         :search-input.sync="level"
         flat
+        dense
       />
     </v-flex>
   </div>
@@ -19,20 +23,43 @@
 
 <script>
 export default {
-  props: ['classindex', 'characterindex'],
+  props: ['classIndex', 'characterIndex', 'classOpts'],
+  data () {
+    return {
+      levelOpts: Array.from(new Array(20), (x, i) => i + 1) // [1,20]
+    }
+  },
   computed: {
+    classItem () {
+      console.log(this.$store.state.characters[this.characterIndex].classes)
+      return this.$store.state.characters[this.characterIndex].classes[this.classIndex]
+    },
     level: {
       get () {
-        return this.$store.state.characters[this.characterindex].classes[this.classindex].level
+        return this.classItem.level
       },
-      set () {
+      set (state) {
+        this.$store.commit('changeClassLevel', {
+          charIndex: this.characterIndex,
+          classIndex: this.classIndex,
+          newLevel: state
+        })
       }
     },
-    classname: {
+    className: {
       get () {
-        return this.$store.state.characters[this.characterindex].classes[this.classindex].classname
+        return this.classItem.classname
       },
-      set () {
+      set (state) {
+        console.log(state)
+        if (this.classOpts.includes(state)) {
+          console.log('full class!')
+          this.$store.commit('changeClass', {
+            charIndex: this.characterIndex,
+            classIndex: this.classIndex,
+            newClass: state
+          })
+        }
       }
     }
   }

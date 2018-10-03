@@ -42,7 +42,7 @@
       <!-- End Ability Scores -->
       <span v-for="(characterClass, classindex) in character.classes" :key="characterClass.classname">
         <!-- TODO Class stuff -->
-        <charcter-class :characterindex="index" :classindex="classindex"> </charcter-class>
+        <charcter-class :characterIndex="index" :classIndex="classindex" :classOpts="classOpts"> </charcter-class>
       </span>
     </v-card>
 </template>
@@ -52,7 +52,7 @@ import AbilityScores from '@/components/AbilityScores'
 import Class from '@/components/Class'
 export default {
   name: 'Tracker1',
-  props: ['id', 'index'],
+  props: ['id', 'index', 'classOpts'],
   data () {
     return {
       concentrationDialog: false

@@ -12,7 +12,7 @@
     <v-tabs-items v-model="tabs">
       <v-tab-item v-for="(c, index) in characters" :key="c.id">
         <v-card flat>
-          <tracker1 :ref="'character' + c.id" :id="c.id" :index="index"></tracker1>
+          <tracker1 :ref="'character' + c.id" :id="c.id" :index="index" :classOpts="classOpts"></tracker1>
         </v-card>
       </v-tab-item>
     </v-tabs-items>
@@ -23,6 +23,9 @@
 import Tracker1 from '@/components/Tracker1'
 export default {
   name: 'TrackerList',
+  beforeMount () {
+    this.classOpts = this.getClassOpts()
+  },
   components: {
     Tracker1
   },
@@ -56,6 +59,23 @@ export default {
   methods: {
     addCharacter () {
       this.$store.commit('addCharacter')
+    },
+    getClassOpts () {
+      let r = new Request('http://localhost:8010/magic/classes/')
+      fetch(r)
+      .then(response => {
+        if (response.status === 200) {
+          return response.json()
+        } else {
+          throw new Error('Something went wrong on api server!')
+        }
+      })
+      .then(response => {
+        this.classOpts = response.Classes
+      })
+      .catch(error => {
+        console.error(error)
+      })
     },
     shortenName (name) {
       return name.split(' ')[0]

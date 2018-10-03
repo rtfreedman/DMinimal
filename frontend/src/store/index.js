@@ -81,6 +81,13 @@ export default new Vuex.Store(
         newChar.id = Math.floor(Math.random() * (10 ** 10)).toString()
         this.state.characters.push(newChar)
       },
+      changeClass (state, payload) { // payload has charIndex classIndex newClass
+        console.log(JSON.stringify(payload))
+        this.state.characters[payload.charIndex].classes[payload.classIndex].classname = payload.newClass
+      },
+      changeClassLevel (state, payload) { // payload has charIndex classIndex newLevel
+        this.state.characters[payload.charIndex].classes[payload.classIndex].level = payload.newLevel
+      },
       changeName (state, payload) {
         this.state.characters[payload.index].name = payload.name
       },
