@@ -27,7 +27,7 @@
       <v-dialog v-model="concentrationDialog" max-width=300>
         <v-card>
           <v-card-text>
-            <h2>Stop Concentrating on {{character.concentration}}?</h2>
+            <h2>Stop Concentrating on {{character.concentrating}}?</h2>
           </v-card-text>
           <v-layout column>
             <v-btn @click="concentrationDialog = false; stopConcentrating()" flat> Yes </v-btn>
@@ -48,7 +48,7 @@
       <!-- End Ability Scores -->
       <v-card-text v-for="(characterClass, classindex) in character.classes" :key="classindex">
         <!-- TODO Class stuff -->
-        <character-class :characterIndex="index" :classIndex="classindex" :classOpts="classOpts"> </character-class>
+        <character-class :charIndex="index" :classIndex="classindex" :classOpts="classOpts"> </character-class>
       </v-card-text>
     </v-card>
 </template>

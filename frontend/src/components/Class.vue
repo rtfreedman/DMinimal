@@ -18,16 +18,33 @@
         dense
       />
     </v-flex>
+    <magic-class :charIndex="charIndex" :classIndex="classIndex" v-if="isMagicClass()"></magic-class>
   </div>
 </template>
 
 <script>
+import MagicClass from '@/components/MagicClass'
 export default { // TODO: spell save DC, spell attack modifier, spell slot counters, spell search dialog (all inside a conditional magic component)
-  props: ['classIndex', 'characterIndex', 'classOpts'],
+  props: ['classIndex', 'charIndex', 'classOpts'],
+  components: {
+    'magic-class': MagicClass
+  },
   computed: {
-    classItem: {
+    classItem () {
+      return this.$store.state.characters[this.charIndex].classes[this.classIndex]
+    },
+    className: {
       get () {
-        return this.$store.state.characters[this.characterIndex].classes[this.classIndex]
+        return this.classItem.classname
+      },
+      set (state) {
+        if (this.classOpts.includes(state)) {
+          this.$store.commit('changeClass', {
+            charIndex: this.charIndex,
+            classIndex: this.classIndex,
+            newClass: state
+          })
+        }
       }
     },
     level: {
@@ -36,7 +53,7 @@ export default { // TODO: spell save DC, spell attack modifier, spell slot count
       },
       set (state) {
         this.$store.commit('changeClassLevel', {
-          charIndex: this.characterIndex,
+          charIndex: this.charIndex,
           classIndex: this.classIndex,
           newLevel: state
         })
@@ -45,25 +62,12 @@ export default { // TODO: spell save DC, spell attack modifier, spell slot count
   },
   data () {
     return {
-      levelOpts: Array.from(new Array(20), (x, i) => i + 1), // [1,20]
-      boiler: '',
-      className: ''
+      levelOpts: Array.from(new Array(20), (x, i) => i + 1) // [1,20]
     }
   },
-  method: {
+  methods: {
     isMagicClass () {
       return true // TODO
-    }
-  },
-  watch: {
-    className (state) {
-      if (this.classOpts.includes(state)) {
-        this.$store.commit('changeClass', {
-          charIndex: this.characterIndex,
-          classIndex: this.classIndex,
-          newClass: state
-        })
-      }
     }
   }
 }
