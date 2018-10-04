@@ -59,10 +59,9 @@ import Class from '@/components/Class'
 export default {
   name: 'Tracker1',
   props: ['id', 'index', 'classOpts'],
-  data () {
-    return {
-      concentrationDialog: false
-    }
+  components: {
+    'ability-scores': AbilityScores,
+    'character-class': Class
   },
   computed: {
     character () {
@@ -83,6 +82,11 @@ export default {
       }
     }
   },
+  data () {
+    return {
+      concentrationDialog: false
+    }
+  },
   methods: {
     multiclass () {
       this.$store.commit('multiclass', {'index': this.index, 'classname': ''})
@@ -93,10 +97,6 @@ export default {
     stopConcentrating () {
       this.$store.commit('stopConcentrating', this.index)
     }
-  },
-  components: {
-    'ability-scores': AbilityScores,
-    'character-class': Class
   }
 }
 </script>

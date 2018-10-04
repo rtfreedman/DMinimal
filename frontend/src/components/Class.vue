@@ -22,26 +22,8 @@
 </template>
 
 <script>
-export default {
+export default { // TODO: spell save DC, spell attack modifier, spell slot counters, spell search dialog (all inside a conditional magic component)
   props: ['classIndex', 'characterIndex', 'classOpts'],
-  data () {
-    return {
-      levelOpts: Array.from(new Array(20), (x, i) => i + 1), // [1,20]
-      boiler: '',
-      className: ''
-    }
-  },
-  watch: {
-    className (state) {
-      if (this.classOpts.includes(state)) {
-        this.$store.commit('changeClass', {
-          charIndex: this.characterIndex,
-          classIndex: this.classIndex,
-          newClass: state
-        })
-      }
-    }
-  },
   computed: {
     classItem: {
       get () {
@@ -57,6 +39,29 @@ export default {
           charIndex: this.characterIndex,
           classIndex: this.classIndex,
           newLevel: state
+        })
+      }
+    }
+  },
+  data () {
+    return {
+      levelOpts: Array.from(new Array(20), (x, i) => i + 1), // [1,20]
+      boiler: '',
+      className: ''
+    }
+  },
+  method: {
+    isMagicClass () {
+      return true // TODO
+    }
+  },
+  watch: {
+    className (state) {
+      if (this.classOpts.includes(state)) {
+        this.$store.commit('changeClass', {
+          charIndex: this.characterIndex,
+          classIndex: this.classIndex,
+          newClass: state
         })
       }
     }

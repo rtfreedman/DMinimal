@@ -23,6 +23,7 @@ let defaultClass = {
 let defaultCharacter = {
   id: '',
   name: '',
+  proficiency: '+0',
   concentrating: '',
   classes: [],
   abilityScores: {
@@ -120,12 +121,10 @@ export default new Vuex.Store(
         this.state.characters[characterIndex].proficiency = '+' + (Math.floor(totalLevel / 5) + 2).toString()
       },
       removeCharacter (state, identifier) {
-        console.log('rmchar')
         let index = this.state.characters.findIndex(function (element) {
           return element.id === identifier
         })
         if (index === -1) {
-          console.log(JSON.stringify(identifier))
           return
         }
         this.state.characters.splice(index, 1)
