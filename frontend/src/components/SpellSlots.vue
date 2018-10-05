@@ -1,6 +1,6 @@
 <template>
   <v-layout align-center justify-space-around row grid-list-xs>
-    <div v-for="(slot, level) in spellSlots" :key="level">
+    <div v-for="(slot, level) in workingSpellSlots" :key="level">
       <v-layout align-center justify-center column>
       <v-btn flat @click="increment(level)" color="yellow">+</v-btn>
       <span> {{slot}} </span>
@@ -8,7 +8,6 @@
       <h4 class="lvl"> Lv {{level}} </h4>
       </v-layout>
     </div>
-    {{internalSlots}}
   </v-layout>
 </template>
 <script>
@@ -21,21 +20,27 @@ export default {
     classItem () {
       return this.character.classes[this.classIndex]
     },
-    spellSlots () {
+    workingSpellSlots () {
+      return this.classItem.workingSlots
+    },
+    totalSpellSlots () {
       return this.classItem.slots
-    }
-  },
-  data () {
-    return {
-      internalSlots: []
     }
   },
   methods: {
     increment (level) {
-      console.log(level)
+      this.$store.commit('incrementSlot', {
+        charIndex: this.charIndex,
+        classIndex: this.classIndex,
+        level: level
+      })
     },
     decrement (level) {
-      console.log(level)
+      this.$store.commit('decrementSlot', {
+        charIndex: this.charIndex,
+        classIndex: this.classIndex,
+        level: level
+      })
     },
     launchOffsetter (level) {
       console.log(level)

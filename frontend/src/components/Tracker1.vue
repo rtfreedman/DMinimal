@@ -20,6 +20,10 @@
         <span v-if="!character.concentrating || character.concentrating === ''">Not currently concentrating</span>
       </v-tooltip>
       <v-tooltip top>
+        <v-btn flat icon slot="activator" @click="longRest()"><h3>Z</h3></v-btn>
+        <span>Long Rest</span>
+      </v-tooltip>
+      <v-tooltip top>
         <h3 slot="activator">{{proficiencyBonus}}</h3>
         <span>Proficiency Bonus</span>
       </v-tooltip>
@@ -90,6 +94,9 @@ export default {
   methods: {
     multiclass () {
       this.$store.commit('multiclass', {'index': this.index, 'classname': ''})
+    },
+    longRest () {
+      this.$store.commit('longRest', this.index)
     },
     getSpellSlots () {
       // TODO
