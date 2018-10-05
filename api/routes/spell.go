@@ -69,7 +69,7 @@ func getSpellSlots(w http.ResponseWriter, r *http.Request) {
 	for c := range req["classes"] {
 		slots = util.AddIntSlices(slots, req["classes"][c].GetSlots())
 	}
-	util.WriteJSONResponse("getSpellSlots", map[string][]map[string]int{
+	util.WriteJSONResponse("getSpellSlots", map[string]map[int]int{
 		"Slots": util.TransformToMapSlice(slots),
 	}, w)
 	return

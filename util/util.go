@@ -34,13 +34,10 @@ func WriteJSONResponse(trace string, resp interface{}, w http.ResponseWriter) {
 }
 
 // TransformToMapSlice transforms a slice to a []map[string]type with each element being {$index : value}
-func TransformToMapSlice(s []int) []map[string]int {
-	ret := []map[string]int{}
+func TransformToMapSlice(s []int) map[int]int {
+	ret := map[int]int{}
 	for index, value := range s {
-		ret = append(ret, map[string]int{
-			"level": index + 1,
-			"slot":  value,
-		})
+		ret[index+1] = value
 	}
 	return ret
 }

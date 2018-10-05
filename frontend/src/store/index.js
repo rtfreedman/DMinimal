@@ -61,26 +61,26 @@ export default new Vuex.Store(
               classname: 'Warlock',
               level: 1,
               slots: {
-                1: 4,
-                2: 0,
-                3: 0,
-                4: 0,
-                5: 0,
-                6: 0,
-                7: 0,
-                8: 0,
-                9: 0
+                '1': 4,
+                '2': 0,
+                '3': 0,
+                '4': 0,
+                '5': 0,
+                '6': 0,
+                '7': 0,
+                '8': 0,
+                '9': 0
               },
               workingSlots: {
-                1: 0,
-                2: 0,
-                3: 0,
-                4: 0,
-                5: 0,
-                6: 0,
-                7: 0,
-                8: 0,
-                9: 0
+                '1': 0,
+                '2': 0,
+                '3': 0,
+                '4': 0,
+                '5': 0,
+                '6': 0,
+                '7': 0,
+                '8': 0,
+                '9': 0
               },
               spellOpts: [
                 'Eldritch Blast',
@@ -107,10 +107,43 @@ export default new Vuex.Store(
       },
       changeClass (state, payload) { // charIndex classIndex newClass
         this.state.characters[payload.charIndex].classes[payload.classIndex].classname = payload.newClass
+        this.commit('updateSlots', {
+          charIndex: payload.charIndex,
+          classIndex: payload.classIndex
+        })
       },
       changeClassLevel (state, payload) { // charIndex classIndex newLevel
         this.state.characters[payload.charIndex].classes[payload.classIndex].level = payload.newLevel
+        this.commit('updateSlots', {
+          charIndex: payload.charIndex,
+          classIndex: payload.classIndex
+        })
         this.commit('proficiencyBonus', payload.charIndex)
+      },
+      updateSlots (state, payload) {
+        let strBody = JSON.stringify({
+          classes: [{
+            class: this.state.characters[payload.charIndex].classes[payload.classIndex].classname,
+            level: this.state.characters[payload.charIndex].classes[payload.classIndex].level
+          }]
+        })
+        let r = new Request('http://localhost:8010/magic/slots/', {method: 'POST', body: strBody})
+        fetch(r)
+        .then(response => {
+          if (response.status === 200) {
+            return response.json()
+          } else {
+            throw new Error('Something went wrong on api server!')
+          }
+        })
+        .then(response => {
+          this.state.characters[payload.charIndex].classes[payload.classIndex].slots = response.Slots
+          // make a deep copy for long rests without need to re-access backend
+          this.state.characters[payload.charIndex].classes[payload.classIndex].workingSlots = JSON.parse(JSON.stringify(response.Slots))
+        })
+        .catch(error => {
+          console.error(error)
+        })
       },
       changeName (state, payload) { // index name
         this.state.characters[payload.index].name = payload.name
