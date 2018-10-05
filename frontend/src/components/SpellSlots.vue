@@ -2,14 +2,15 @@
   <v-layout align-center justify-space-around row grid-list-xs>
     <div v-for="(slot, level) in workingSpellSlots" :key="level">
       <v-layout align-center justify-center column>
-      <v-btn flat @click="increment(level)" color="yellow">+</v-btn>
-      <span> {{slot}} </span>
-      <v-btn flat @click="decrement(level)" color="yellow">-</v-btn>
-      <h4 class="lvl"> Lv {{level}} </h4>
+        <v-btn flat @click="increment(level)" color="yellow">+</v-btn>
+        <span> {{slot}} </span>
+        <v-btn flat @click="decrement(level)" color="yellow">-</v-btn>
+        <h4 class="lvl"> Lv {{level}} </h4>
       </v-layout>
     </div>
   </v-layout>
 </template>
+
 <script>
 export default {
   props: ['charIndex', 'classIndex'],
@@ -41,9 +42,6 @@ export default {
         classIndex: this.classIndex,
         level: level
       })
-    },
-    launchOffsetter (level) {
-      console.log(level)
     }
   }
 }

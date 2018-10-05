@@ -1,23 +1,34 @@
 <template>
   <div>
-    <v-flex xs3>
-      <v-autocomplete
-        placeholder='Class'
-        :items="classOpts"
-        :search-input.sync="className"
-        flat
-        dense
-      />
-    </v-flex>
-    <v-flex xs1>
-      <v-autocomplete 
-        placeholder='Level'
-        :items="levelOpts"
-        :search-input.sync="level"
-        flat
-        dense
-      />
-    </v-flex>
+    <v-layout align-center justify-start row>
+      <v-flex xs3>
+        <v-layout align-start justify-center column fill-height>
+          <v-autocomplete
+            placeholder='Class'
+            :items="classOpts"
+            :search-input.sync="className"
+            flat
+            dense
+          />
+          <v-flex xs1>
+            <v-autocomplete 
+              placeholder='Level'
+              :items="levelOpts"
+              :search-input.sync="level"
+              flat
+              dense
+            />
+          </v-flex>
+        </v-layout>
+      </v-flex>
+      <v-flex xs1>
+        <v-spacer> </v-spacer>
+      </v-flex>
+      <v-layout align-start justify-center column fill-height>
+        <h2>Spell Save DC</h2>
+        <h2>Spell Attack Modifier</h2>
+      </v-layout>
+    </v-layout>
     <magic-class :charIndex="charIndex" :classIndex="classIndex" v-if="isMagicClass()"></magic-class>
   </div>
 </template>
