@@ -158,6 +158,9 @@ export default {
       .catch(error => {
         console.error(error)
       })
+    },
+    castSpell () {
+      // TODO
     }
   }
 }

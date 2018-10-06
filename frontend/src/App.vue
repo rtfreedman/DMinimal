@@ -14,6 +14,7 @@
           v-for="(item, i) in items"
           :key="i"
         >
+          <a :href="item.loc">
           <v-list-tile-action>
             <v-tooltip right>
               <v-btn slot="activator" flat icon>
@@ -22,6 +23,7 @@
               <span>{{item.title}}</span>
             </v-tooltip>
           </v-list-tile-action>
+          </a>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
@@ -48,7 +50,8 @@ export default {
       fixed: false,
       items: [{
         icon: 'bubble_chart',
-        title: 'Spelltracker'
+        title: 'Spelltracker',
+        loc: '/#/spelltracker'
       }],
       miniVariant: false,
       title: 'DM Tracker'
