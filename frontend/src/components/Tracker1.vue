@@ -124,7 +124,7 @@ export default {
       this.$store.commit('stopConcentrating', this.index)
     },
     castSpell () {
-      this.$refs.spellCast.castSpell()
+      this.$refs.spellCast.spellPreflight()
     }
   }
 }

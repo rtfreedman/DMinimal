@@ -27,9 +27,7 @@ let defaultClass = {
     7: 0,
     8: 0,
     9: 0
-  },
-  spellOpts: [],
-  selectedSpell: {}
+  }
 }
 
 let defaultCharacter = {
@@ -59,7 +57,8 @@ export default new Vuex.Store(
       },
       spellsInfo: {
         spellList: [],
-        className: ''
+        className: '',
+        currSpellInfo: {}
       },
       classOpts: [],
       magicClassOpts: [],
@@ -94,12 +93,7 @@ export default new Vuex.Store(
                 '7': 0,
                 '8': 0,
                 '9': 0
-              },
-              spellOpts: [ // spell options for current class
-                'Eldritch Blast',
-                'Anger'
-              ],
-              selectedSpell: {} // all information about the currently selected spell
+              }
             }
           ],
           abilityScores: {
@@ -232,6 +226,15 @@ export default new Vuex.Store(
         .catch(error => {
           console.error(error)
         })
+      },
+      // spell mutations
+      setSpellOpts (state, payload) { // className spellOpts
+        this.state.spellsInfo.currSpellInfo = {}
+        this.state.spellsInfo.spellList = payload.spellOpts
+        this.state.spellsInfo.className = payload.className
+      },
+      setSpellInfo (state, payload) {
+        this.state.spellsInfo.currSpellInfo = payload
       },
       // snackbar mutations
       hideSnackbar () {

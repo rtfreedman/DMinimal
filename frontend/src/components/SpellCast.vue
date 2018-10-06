@@ -4,22 +4,22 @@
     <v-dialog v-model="classChoiceDialog" max-width="300">
       <v-layout column align-center justify-center ma-2>
         <h2>Cast as which class?</h2>
-        <v-btn @click="selectedClass = c; classChoiceDialog = false" flat v-for="c in character.classes" :key="c.classname">{{c.classname}}</v-btn>
+        <v-btn @click="selectedClass = c; classChoiceDialog = false; fetchSpellOpts()" flat v-for="c in character.classes" :key="c.classname">{{c.classname}}</v-btn>
       </v-layout>
     </v-dialog>
     <!-- End Multiple Classes Dialog -->
-    <!-- <v-dialog v-model="spellSearchDialog" max-width="800">
+    <v-dialog v-model="spellSearchDialog" max-width="800">
       <v-card>
         <v-card-title class="headline">Find spell</v-card-title>
         <v-card-text>
           <v-autocomplete
             v-model="spellInput"
             placeholder='Spell...'
-            :search-input.sync="userInput"
+            :search-input.sync="input"
             :items="spellOpts"
           />
         </v-card-text>
-        <v-card-text>
+        <!-- <v-card-text>
           <h1>{{currSpellInfo.Name}}</h1>
           <div v-if="currSpellInfo.hasOwnProperty('Concentration')">Concentration</div>
           <v-list dense>
@@ -42,14 +42,13 @@
             </v-list-tile>
             <v-list-tile-content v-if="currSpellInfo.hasOwnProperty('Description')">{{ currSpellInfo.Description }}</v-list-tile-content>
           </v-list>
-        </v-card-text>
+        </v-card-text> -->
         <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="red lighten-1" flat @click="dialog = false"> Close </v-btn>
+          <v-btn color="red lighten-1" flat @click="spellSearchDialog = false"> Close </v-btn>
           <v-btn color="green lighten-1" flat @click="castSpell()"> Cast </v-btn>
         </v-card-actions>
       </v-card>
-    </v-dialog> -->
+    </v-dialog>
   </div>
 </template>
 
@@ -63,11 +62,17 @@ export default {
     classItem () {
       return this.character.classes[this.selectedClass]
     },
+    currSpellInfo () {
+      return this.$store.state.spellsInfo.currSpellInfo
+    },
+    currSpellClass () {
+      return this.$store.state.spellsInfo.className
+    },
     magicClassOpts () {
       return this.$store.state.magicClassOpts
     },
     spellOpts () {
-      return this.classItem[this.selectedClass]
+      return this.$store.state.spellsInfo.spellList
     }
   },
   data () {
@@ -75,19 +80,20 @@ export default {
       classChoiceDialog: false,
       spellSearchDialog: false,
       classChoices: [],
-      userInput: '',
+      input: '',
+      spellInput: '',
       selectedClass: 0,
       snackbarMessage: '',
       snackbar: false
     }
   },
   watch: {
-    userInput () {
+    spellInput () {
       // TODO
     }
   },
   methods: {
-    castSpell () {
+    spellPreflight () {
       let magicClasses = []
       for (let c in this.character.classes) {
         if (this.magicClassOpts.includes(this.character.classes[c].classname)) {
@@ -99,14 +105,41 @@ export default {
         this.classChoiceDialog = true
       } else if (magicClasses.length === 1) {
         this.selectedClass = magicClasses[0]
+        this.spellSearchDialog = true
+        this.fetchSpellOpts()
       } else {
-        this.$store.commit('showSnackbar', {
-          message: 'Cannot Cast Spells: No Magic Classes'
-        })
+        this.$store.commit('showSnackbar', {message: 'Cannot Cast Spells: No Magic Classes'})
+      }
+    },
+    fetchSpellOpts () {
+      if (this.currSpellClass === this.classItem.classname) {
         return
       }
-      console.log('asdf')
-      // TODO
+      let strBody = JSON.stringify({
+        classes: [this.classItem.classname],
+        spellName: ''
+      })
+      let r = new Request('http://localhost:8010/magic/search/', {method: 'Post', body: strBody})
+      let opts = []
+      fetch(r)
+      .then(response => {
+        if (response.status === 200) {
+          return response.json()
+        } else {
+          throw new Error('Something went wrong on api server!')
+        }
+      })
+      .then(response => {
+        opts = response.spellOpts
+        this.$store.commit('setSpellOpts', {
+          spellOpts: opts,
+          className: this.classItem.classname
+        })
+        this.spellSearchDialog = true
+      })
+      .catch(error => {
+        console.error(error)
+      })
     }
   }
 }
