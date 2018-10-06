@@ -22,18 +22,21 @@
         </v-layout>
       </v-flex>
     </v-layout>
-    <magic-class :charIndex="charIndex" :classIndex="classIndex" v-if="isMagicClass()"></magic-class>
+    <magic-class :charIndex="charIndex" :classIndex="classIndex" v-if="magicClassOpts.includes(classItem.classname)"></magic-class>
   </div>
 </template>
 
 <script>
 import MagicClass from '@/components/MagicClass'
 export default { // TODO: spell save DC, spell attack modifier, spell slot counters, spell search dialog (all inside a conditional magic component)
-  props: ['classIndex', 'charIndex', 'classOpts'],
+  props: ['classIndex', 'charIndex'],
   components: {
     'magic-class': MagicClass
   },
   computed: {
+    classOpts () {
+      return this.$store.state.classOpts
+    },
     classItem () {
       return this.$store.state.characters[this.charIndex].classes[this.classIndex]
     },
@@ -62,16 +65,14 @@ export default { // TODO: spell save DC, spell attack modifier, spell slot count
           newLevel: state
         })
       }
+    },
+    magicClassOpts () {
+      return this.$store.state.magicClassOpts
     }
   },
   data () {
     return {
       levelOpts: Array.from(new Array(20), (x, i) => i + 1) // [1,20]
-    }
-  },
-  methods: {
-    isMagicClass () {
-      return true // TODO
     }
   }
 }

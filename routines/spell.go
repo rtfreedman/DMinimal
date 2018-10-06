@@ -110,14 +110,16 @@ func (c *Class) GetSlots() []int {
 }
 
 // GetClassNames returns all classes that can use magic
-func GetClassNames() []string {
+func GetClassNames() ([]string, []string) {
 	// add non-magic classes
-	classes := []string{"Barbarian", "Fighter", "Rogue", "Monk"}
+	magicClasses := []string{}
 	for key := range tiers {
-		classes = append(classes, key)
+		magicClasses = append(magicClasses, key)
 	}
-	sort.Strings(classes)
-	return classes
+	allClasses := append([]string{"Barbarian", "Fighter", "Rogue", "Monk"}, magicClasses...)
+	sort.Strings(magicClasses)
+	sort.Strings(allClasses)
+	return allClasses, magicClasses
 }
 
 // SpellInfo contains information about spells

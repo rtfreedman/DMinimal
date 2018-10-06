@@ -5,18 +5,15 @@
       <h3>Spell Save DC : {{8 + spellMod}} </h3>
     </v-layout>
     <spell-slots :charIndex="charIndex" :classIndex="classIndex"> </spell-slots>
-    <spell-cast :charIndex="charIndex" :classIndex="classIndex"></spell-cast>
   </div>
 </template>
 
 <script>
 import SpellSlots from '@/components/SpellSlots'
-import SpellCast from '@/components/SpellCast'
 export default {
   props: ['charIndex', 'classIndex'],
   components: {
-    'spell-slots': SpellSlots,
-    'spell-cast': SpellCast
+    'spell-slots': SpellSlots
   },
   computed: {
     character () {

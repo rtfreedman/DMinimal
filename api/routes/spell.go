@@ -17,7 +17,7 @@ func SetupSpells(r *mux.Router) {
 	r.HandleFunc("/magic/spell/{spellname}", getSpellInformation).Methods("GET")
 	r.HandleFunc("/magic/search/", getSearch).Methods("POST")
 	r.HandleFunc("/magic/slots/", getSpellSlots).Methods("POST")
-	r.HandleFunc("/magic/classes/", getMagicClasses).Methods("GET")
+	r.HandleFunc("/classes/", getClasses).Methods("GET")
 }
 
 func getSpellInformation(w http.ResponseWriter, r *http.Request) {
@@ -75,9 +75,9 @@ func getSpellSlots(w http.ResponseWriter, r *http.Request) {
 	return
 }
 
-func getMagicClasses(w http.ResponseWriter, r *http.Request) {
+func getClasses(w http.ResponseWriter, r *http.Request) {
 	classes := map[string][]string{}
-	classes["Classes"] = routines.GetClassNames()
+	classes["Classes"], classes["MagicClasses"] = routines.GetClassNames()
 	enableCors(&w)
-	util.WriteJSONResponse("getMagicClasses", classes, w)
+	util.WriteJSONResponse("getClasses", classes, w)
 }

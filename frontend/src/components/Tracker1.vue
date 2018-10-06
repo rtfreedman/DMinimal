@@ -15,7 +15,7 @@
         <span>Reset to Defaults</span>
       </v-tooltip>
       <v-tooltip top>
-        <v-btn icon slot="activator">
+        <v-btn flat slot="activator" icon @click="castSpell()">
           <v-icon>mdi-auto-fix</v-icon>
         </v-btn>
         <span>Cast Spell</span>
@@ -60,22 +60,28 @@
       <!-- End Ability Scores -->
       <v-card-text v-for="(characterClass, classindex) in character.classes" :key="classindex">
         <!-- TODO Class stuff -->
-        <character-class :charIndex="index" :classIndex="classindex" :classOpts="classOpts"> </character-class>
+        <character-class :charIndex="index" :classIndex="classindex"> </character-class>
       </v-card-text>
+      <spell-cast :charIndex="index" ref="spellCast"></spell-cast>
     </v-card>
 </template>
 
 <script>
 import AbilityScores from '@/components/AbilityScores'
 import Class from '@/components/Class'
+import SpellCast from '@/components/SpellCast'
 export default {
   name: 'Tracker1',
-  props: ['id', 'index', 'classOpts'],
+  props: ['id', 'index'],
   components: {
     'ability-scores': AbilityScores,
-    'character-class': Class
+    'character-class': Class,
+    'spell-cast': SpellCast
   },
   computed: {
+    classOpts () {
+      return this.$store.state.classOpts
+    },
     character () {
       return this.$store.state.characters[this.index]
     },
@@ -116,6 +122,9 @@ export default {
     },
     stopConcentrating () {
       this.$store.commit('stopConcentrating', this.index)
+    },
+    castSpell () {
+      this.$refs.spellCast.castSpell()
     }
   }
 }

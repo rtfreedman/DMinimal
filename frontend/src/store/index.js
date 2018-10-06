@@ -28,7 +28,8 @@ let defaultClass = {
     8: 0,
     9: 0
   },
-  spellOpts: []
+  spellOpts: [],
+  selectedSpell: {}
 }
 
 let defaultCharacter = {
@@ -50,6 +51,8 @@ let defaultCharacter = {
 export default new Vuex.Store(
   {
     state: {
+      classOpts: [],
+      magicClassOpts: [],
       characters: [
         {
           id: '0',
@@ -60,7 +63,7 @@ export default new Vuex.Store(
             {
               classname: 'Warlock',
               level: 1,
-              slots: {
+              slots: { // slots for this class to reset/rest to
                 '1': 4,
                 '2': 0,
                 '3': 0,
@@ -71,7 +74,7 @@ export default new Vuex.Store(
                 '8': 0,
                 '9': 0
               },
-              workingSlots: {
+              workingSlots: { // slots that we're working with
                 '1': 0,
                 '2': 0,
                 '3': 0,
@@ -82,10 +85,11 @@ export default new Vuex.Store(
                 '8': 0,
                 '9': 0
               },
-              spellOpts: [
+              spellOpts: [ // spell options for current class
                 'Eldritch Blast',
                 'Anger'
-              ]
+              ],
+              selectedSpell: {} // all information about the currently selected spell
             }
           ],
           abilityScores: {
@@ -119,6 +123,24 @@ export default new Vuex.Store(
           classIndex: payload.classIndex
         })
         this.commit('proficiencyBonus', payload.charIndex)
+      },
+      updateClassOpts () {
+        let r = new Request('http://localhost:8010/classes/')
+        fetch(r)
+        .then(response => {
+          if (response.status === 200) {
+            return response.json()
+          } else {
+            throw new Error('Something went wrong on api server!')
+          }
+        })
+        .then(response => {
+          this.state.classOpts = response.Classes
+          this.state.magicClassOpts = response.MagicClasses
+        })
+        .catch(error => {
+          console.error(error)
+        })
       },
       updateSlots (state, payload) { // charIndex classIndex
         let strBody = JSON.stringify({
