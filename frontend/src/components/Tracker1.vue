@@ -15,12 +15,20 @@
         <span>Reset to Defaults</span>
       </v-tooltip>
       <v-tooltip top>
+        <v-btn icon slot="activator">
+          <v-icon>mdi-auto-fix</v-icon>
+        </v-btn>
+        <span>Cast Spell</span>
+      </v-tooltip>
+      <v-tooltip top>
         <v-btn :disabled="!character.concentrating" @click="concentrationDialog=true" flat icon slot="activator"><v-icon>remove_red_eye</v-icon></v-btn>
         <span v-if="character.concentrating">Concentrating on {{character.concentrating}}</span>
         <span v-if="!character.concentrating || character.concentrating === ''">Not currently concentrating</span>
       </v-tooltip>
       <v-tooltip top>
-        <v-btn flat icon slot="activator" @click="longRest()"><h3>Z</h3></v-btn>
+        <v-btn flat icon slot="activator" @click="longRest()">
+          <v-icon>mdi-sleep</v-icon>
+        </v-btn>
         <span>Long Rest</span>
       </v-tooltip>
       <v-tooltip top>

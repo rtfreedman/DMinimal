@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-btn flat color="blue lighten-2">Cast Spell</v-btn>
+    <!-- Dialog -->
   </div>
 </template>
 

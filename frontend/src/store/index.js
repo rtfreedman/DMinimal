@@ -120,7 +120,7 @@ export default new Vuex.Store(
         })
         this.commit('proficiencyBonus', payload.charIndex)
       },
-      updateSlots (state, payload) {
+      updateSlots (state, payload) { // charIndex classIndex
         let strBody = JSON.stringify({
           classes: [{
             class: this.state.characters[payload.charIndex].classes[payload.classIndex].classname,
