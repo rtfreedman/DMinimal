@@ -19,7 +19,7 @@
             :items="spellOpts"
           />
         </v-card-text>
-        <!-- <v-card-text>
+        <v-card-text>
           <h1>{{currSpellInfo.Name}}</h1>
           <div v-if="currSpellInfo.hasOwnProperty('Concentration')">Concentration</div>
           <v-list dense>
@@ -42,7 +42,7 @@
             </v-list-tile>
             <v-list-tile-content v-if="currSpellInfo.hasOwnProperty('Description')">{{ currSpellInfo.Description }}</v-list-tile-content>
           </v-list>
-        </v-card-text> -->
+        </v-card-text>
         <v-card-actions>
           <v-btn color="red lighten-1" flat @click="spellSearchDialog = false"> Close </v-btn>
           <v-btn color="green lighten-1" flat @click="castSpell()"> Cast </v-btn>
@@ -77,6 +77,7 @@ export default {
   },
   data () {
     return {
+      spellSearchDialogOpts: {Level: 'Level', School: 'School', Duration: 'Duration', SpellRange: 'Range', Components: 'Components'}, // why is this shameful?
       classChoiceDialog: false,
       spellSearchDialog: false,
       classChoices: [],
@@ -88,8 +89,25 @@ export default {
     }
   },
   watch: {
-    spellInput () {
-      // TODO
+    spellInput (val) {
+      if (this.currSpellInfo.hasOwnProperty('Name') && val === this.currSpellInfo.Name) {
+        return
+      }
+      let r = new Request('http://localhost:8010/magic/spell/' + val, {method: 'GET'})
+      fetch(r)
+      .then(response => {
+        if (response.status === 200) {
+          return response.json()
+        } else {
+          throw new Error('Something went wrong on api server!')
+        }
+      })
+      .then(response => {
+        this.$store.commit('setSpellInfo', response)
+      })
+      .catch(error => {
+        console.error(error)
+      })
     }
   },
   methods: {

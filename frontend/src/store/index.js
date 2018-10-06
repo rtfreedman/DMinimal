@@ -233,8 +233,8 @@ export default new Vuex.Store(
         this.state.spellsInfo.spellList = payload.spellOpts
         this.state.spellsInfo.className = payload.className
       },
-      setSpellInfo (state, payload) {
-        this.state.spellsInfo.currSpellInfo = payload
+      setSpellInfo (state, spellInfo) {
+        this.state.spellsInfo.currSpellInfo = spellInfo
       },
       // snackbar mutations
       hideSnackbar () {
