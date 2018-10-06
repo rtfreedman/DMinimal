@@ -34,7 +34,7 @@ let defaultClass = {
 let defaultCharacter = {
   id: '',
   name: '',
-  proficiency: '+0',
+  proficiency: 0,
   concentrating: '',
   classes: [JSON.parse(JSON.stringify(defaultClass))],
   abilityScores: {
@@ -54,7 +54,7 @@ export default new Vuex.Store(
         {
           id: '0',
           name: 'Rorik Ironforge',
-          proficiency: '+0',
+          proficiency: 0,
           concentrating: 'Animate Objects',
           classes: [
             {
@@ -185,7 +185,7 @@ export default new Vuex.Store(
             totalLevel += this.state.characters[charIndex].classes[c].level
           }
         }
-        this.state.characters[charIndex].proficiency = '+' + (Math.floor(totalLevel / 5) + 2).toString()
+        this.state.characters[charIndex].proficiency = (Math.floor(totalLevel / 5) + 2)
       },
       removeCharacter (state, identifier) {
         let index = this.state.characters.findIndex(function (element) {

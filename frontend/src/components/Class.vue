@@ -21,13 +21,6 @@
           </v-flex>
         </v-layout>
       </v-flex>
-      <v-flex xs1>
-        <v-spacer> </v-spacer>
-      </v-flex>
-      <v-layout align-start justify-center column fill-height>
-        <h2>Spell Save DC</h2>
-        <h2>Spell Attack Modifier</h2>
-      </v-layout>
     </v-layout>
     <magic-class :charIndex="charIndex" :classIndex="classIndex" v-if="isMagicClass()"></magic-class>
   </div>

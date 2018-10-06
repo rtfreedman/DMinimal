@@ -24,7 +24,7 @@
         <span>Long Rest</span>
       </v-tooltip>
       <v-tooltip top>
-        <h3 slot="activator">{{proficiencyBonus}}</h3>
+        <h3 slot="activator">+{{proficiencyBonus}}</h3>
         <span>Proficiency Bonus</span>
       </v-tooltip>
       </v-layout>
