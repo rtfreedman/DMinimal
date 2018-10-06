@@ -9,10 +9,10 @@
         <span>Multiclass</span>
       </v-tooltip>
       <v-tooltip top>
-        <v-btn flat slot="activator" icon @click="getSpellSlots">
+        <v-btn flat slot="activator" icon @click="resetCharacter">
           <v-icon> autorenew </v-icon>
         </v-btn>
-        <span>Update Slots</span>
+        <span>Reset to Defaults</span>
       </v-tooltip>
       <v-tooltip top>
         <v-btn :disabled="!character.concentrating" @click="concentrationDialog=true" flat icon slot="activator"><v-icon>remove_red_eye</v-icon></v-btn>
@@ -98,8 +98,13 @@ export default {
     longRest () {
       this.$store.commit('longRest', this.index)
     },
-    getSpellSlots () {
-      // TODO
+    resetCharacter () {
+      for (let c in this.character.classes) {
+        this.$store.commit('updateSlots', {
+          charIndex: this.index,
+          classIndex: c
+        })
+      }
     },
     stopConcentrating () {
       this.$store.commit('stopConcentrating', this.index)
