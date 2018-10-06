@@ -1,11 +1,13 @@
 <template>
   <div>
+    <!-- Multiple Classes Dialog -->
     <v-dialog v-model="classChoiceDialog" max-width="300">
-      <v-layout column justify-center ma-2>
-      <h2>Cast as which class?</h2>
-      <v-btn @click="selectedClass = c; classChoiceDialog = false" flat v-for="c in character.classes" :key="c.classname">{{c.classname}}</v-btn>
+      <v-layout column align-center justify-center ma-2>
+        <h2>Cast as which class?</h2>
+        <v-btn @click="selectedClass = c; classChoiceDialog = false" flat v-for="c in character.classes" :key="c.classname">{{c.classname}}</v-btn>
       </v-layout>
     </v-dialog>
+    <!-- End Multiple Classes Dialog -->
     <!-- <v-dialog v-model="spellSearchDialog" max-width="800">
       <v-card>
         <v-card-title class="headline">Find spell</v-card-title>
@@ -74,7 +76,9 @@ export default {
       spellSearchDialog: false,
       classChoices: [],
       userInput: '',
-      selectedClass: 0
+      selectedClass: 0,
+      snackbarMessage: '',
+      snackbar: false
     }
   },
   watch: {
@@ -93,7 +97,16 @@ export default {
       if (magicClasses.length > 1) {
         this.classChoices = magicClasses
         this.classChoiceDialog = true
+      } else if (magicClasses.length === 1) {
+        this.selectedClass = magicClasses[0]
+      } else {
+        this.$store.commit('showSnackbar', {
+          message: 'Cannot Cast Spells: No Magic Classes'
+        })
+        return
       }
+      console.log('asdf')
+      // TODO
     }
   }
 }

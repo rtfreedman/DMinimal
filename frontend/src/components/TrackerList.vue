@@ -12,22 +12,25 @@
     <v-tabs-items v-model="tabs">
       <v-tab-item v-for="(c, index) in characters" :key="c.id">
         <v-card flat>
-          <tracker1 :ref="'character' + c.id" :id="c.id" :index="index"></tracker1>
+          <tracker :ref="'character' + c.id" :id="c.id" :index="index"></tracker>
         </v-card>
       </v-tab-item>
     </v-tabs-items>
+    <error-snackbar/>
   </v-container>
 </template>
 
 <script>
 import Tracker1 from '@/components/Tracker1'
+import ErrorMessageSnackbar from '@/components/ErrorMessageSnackbar'
 export default {
   name: 'TrackerList',
   beforeMount () {
     this.$store.commit('updateClassOpts')
   },
   components: {
-    Tracker1
+    'tracker': Tracker1,
+    'error-snackbar': ErrorMessageSnackbar
   },
   computed: {
     characters () {

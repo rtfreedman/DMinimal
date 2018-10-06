@@ -51,6 +51,16 @@ let defaultCharacter = {
 export default new Vuex.Store(
   {
     state: {
+      snackbar: {
+        show: false,
+        message: '',
+        buttonMessage: '',
+        buttonFunction: undefined
+      },
+      spellsInfo: {
+        spellList: [],
+        className: ''
+      },
       classOpts: [],
       magicClassOpts: [],
       characters: [
@@ -104,6 +114,7 @@ export default new Vuex.Store(
       ]
     },
     mutations: {
+      // character mutations
       addCharacter () {
         let newChar = JSON.parse(JSON.stringify(defaultCharacter))
         newChar.id = Math.floor(Math.random() * (10 ** 10)).toString()
@@ -123,49 +134,6 @@ export default new Vuex.Store(
           classIndex: payload.classIndex
         })
         this.commit('proficiencyBonus', payload.charIndex)
-      },
-      updateClassOpts () {
-        let r = new Request('http://localhost:8010/classes/')
-        fetch(r)
-        .then(response => {
-          if (response.status === 200) {
-            return response.json()
-          } else {
-            throw new Error('Something went wrong on api server!')
-          }
-        })
-        .then(response => {
-          this.state.classOpts = response.Classes
-          this.state.magicClassOpts = response.MagicClasses
-        })
-        .catch(error => {
-          console.error(error)
-        })
-      },
-      updateSlots (state, payload) { // charIndex classIndex
-        let strBody = JSON.stringify({
-          classes: [{
-            class: this.state.characters[payload.charIndex].classes[payload.classIndex].classname,
-            level: this.state.characters[payload.charIndex].classes[payload.classIndex].level
-          }]
-        })
-        let r = new Request('http://localhost:8010/magic/slots/', {method: 'POST', body: strBody})
-        fetch(r)
-        .then(response => {
-          if (response.status === 200) {
-            return response.json()
-          } else {
-            throw new Error('Something went wrong on api server!')
-          }
-        })
-        .then(response => {
-          this.state.characters[payload.charIndex].classes[payload.classIndex].slots = response.Slots
-          // make a deep copy for long rests without need to re-access backend
-          this.state.characters[payload.charIndex].classes[payload.classIndex].workingSlots = JSON.parse(JSON.stringify(response.Slots))
-        })
-        .catch(error => {
-          console.error(error)
-        })
       },
       changeName (state, payload) { // index name
         this.state.characters[payload.index].name = payload.name
@@ -220,6 +188,62 @@ export default new Vuex.Store(
       },
       stopConcentrating (state, index) {
         this.state.characters[index].concentrating = ''
+      },
+      updateSlots (state, payload) { // charIndex classIndex
+        let strBody = JSON.stringify({
+          classes: [{
+            class: this.state.characters[payload.charIndex].classes[payload.classIndex].classname,
+            level: this.state.characters[payload.charIndex].classes[payload.classIndex].level
+          }]
+        })
+        let r = new Request('http://localhost:8010/magic/slots/', {method: 'POST', body: strBody})
+        fetch(r)
+        .then(response => {
+          if (response.status === 200) {
+            return response.json()
+          } else {
+            throw new Error('Something went wrong on api server!')
+          }
+        })
+        .then(response => {
+          this.state.characters[payload.charIndex].classes[payload.classIndex].slots = response.Slots
+          // make a deep copy for long rests without need to re-access backend
+          this.state.characters[payload.charIndex].classes[payload.classIndex].workingSlots = JSON.parse(JSON.stringify(response.Slots))
+        })
+        .catch(error => {
+          console.error(error)
+        })
+      },
+      // classopts mutations
+      updateClassOpts () {
+        let r = new Request('http://localhost:8010/classes/')
+        fetch(r)
+        .then(response => {
+          if (response.status === 200) {
+            return response.json()
+          } else {
+            throw new Error('Something went wrong on api server!')
+          }
+        })
+        .then(response => {
+          this.state.classOpts = response.Classes
+          this.state.magicClassOpts = response.MagicClasses
+        })
+        .catch(error => {
+          console.error(error)
+        })
+      },
+      // snackbar mutations
+      hideSnackbar () {
+        this.state.snackbar.show = false
+      },
+      showSnackbar (state, payload) { // message func buttonMessage
+        this.state.snackbar.message = payload.message
+        if (payload.hasOwnProperty('func') && payload.hasOwnProperty('buttonMessage')) {
+          this.state.snackbar.buttonMessage = payload.buttonMessage
+          this.state.snackbar.buttonFunction = payload.func
+        }
+        this.state.snackbar.show = true
       }
     }
   }
