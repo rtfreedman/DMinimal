@@ -8,7 +8,7 @@
       </v-layout>
     </v-dialog>
     <!-- End Multiple Classes Dialog -->
-    <v-dialog v-model="spellSearchDialog" max-width="800">
+    <v-dialog persistent v-model="spellSearchDialog" max-width="800">
       <v-card>
         <v-card-title class="headline">Find spell</v-card-title>
         <v-card-text>
@@ -46,7 +46,21 @@
         <v-card-actions>
           <v-btn color="red lighten-1" flat @click="spellSearchDialog = false"> Close </v-btn>
           <v-btn color="green lighten-1" flat @click="castSpell()"> Cast </v-btn>
+          <v-btn color="yellow darken-1" flat @click="atHigherLevelDialog=true"> At Higher Level </v-btn>
         </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <v-dialog v-model="atHigherLevelDialog" max-width="200">
+      <v-card>
+        <v-layout column justify-center align-center>
+          <h2>Cast at level...</h2>
+          <v-btn flat v-for="(value, level) in this.workingSlots"
+            v-if="value > 0 && parseInt(level, 10) > currSpellInfo.Level"
+            @click="castSpellAtLvl(parseInt(level, 10))" :key="level">
+              {{level}}
+          </v-btn>
+        </v-layout>
+        <v-btn flat @click="atHigherLevelDialog=false" color="red">Close</v-btn>
       </v-card>
     </v-dialog>
   </div>
@@ -62,6 +76,9 @@ export default {
     classItem () {
       return this.character.classes[this.selectedClass]
     },
+    concentrating () {
+      return this.character.concentrating
+    },
     currSpellInfo () {
       return this.$store.state.spellsInfo.currSpellInfo
     },
@@ -73,6 +90,9 @@ export default {
     },
     spellOpts () {
       return this.$store.state.spellsInfo.spellList
+    },
+    workingSlots () {
+      return this.classItem.workingSlots
     }
   },
   data () {
@@ -80,6 +100,7 @@ export default {
       spellSearchDialogOpts: {Level: 'Level', School: 'School', Duration: 'Duration', SpellRange: 'Range', Components: 'Components'}, // why is this shameful?
       classChoiceDialog: false,
       spellSearchDialog: false,
+      atHigherLevelDialog: false,
       classChoices: [],
       input: '',
       spellInput: '',
@@ -159,8 +180,57 @@ export default {
         console.error(error)
       })
     },
+    stopConcentrating () {
+      this.$store.commit('stopConcentrating', this.charIndex)
+      this.$store.commit('hideSnackbar')
+    },
     castSpell () {
-      // TODO
+      if (this.concentrating && this.currSpellInfo.hasOwnProperty('Concentration')) {
+        // launch concentration snackbar
+        this.$store.commit('showSnackbar', {
+          message: 'Concentrating on ' + this.concentrating,
+          func: this.stopConcentrating,
+          buttonMessage: 'Stop Concentrating'
+        })
+        return
+      }
+      if (this.workingSlots[this.currSpellInfo.Level.toString()] !== 0) {
+        this.$store.commit('decrementSlot', {
+          charIndex: this.charIndex,
+          classIndex: this.selectedClass,
+          level: this.currSpellInfo.Level
+        })
+        this.spellSearchDialog = false
+        return
+      }
+      let slotsAvailable = false
+      for (let i = this.currSpellInfo.Level + 1; i < 10; i++) {
+        if (this.workingSlots[i.toString()] > 0) {
+          slotsAvailable = true
+          break
+        }
+      }
+      let payload = {
+        message: 'No slots available at spell level'
+      }
+      if (slotsAvailable) {
+        payload['func'] = this.openAtHigherLevelDialog
+        payload['buttonMessage'] = 'Cast at Higher Level?'
+      }
+      this.$store.commit('showSnackbar', payload)
+    },
+    openAtHigherLevelDialog () {
+      this.atHigherLevelDialog = true
+      this.$store.commit('hideSnackbar')
+    },
+    castSpellAtLvl (level) {
+      this.$store.commit('decrementSlot', {
+        charIndex: this.charIndex,
+        classIndex: this.selectedClass,
+        level: level
+      })
+      this.atHigherLevelDialog = false
+      this.spellSearchDialog = false
     }
   }
 }
