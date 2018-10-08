@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import Tracker1 from '@/components/Tracker1'
+import Tracker from '@/components/Tracker'
 import ErrorMessageSnackbar from '@/components/ErrorMessageSnackbar'
 export default {
   name: 'TrackerList',
@@ -29,7 +29,7 @@ export default {
     this.$store.commit('updateClassOpts')
   },
   components: {
-    'tracker': Tracker1,
+    'tracker': Tracker,
     'error-snackbar': ErrorMessageSnackbar
   },
   computed: {
