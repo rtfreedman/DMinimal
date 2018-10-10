@@ -109,7 +109,7 @@ export default {
   data () {
     return {
       offset: null,
-      hitpointDialog: true
+      hitpointDialog: false
     }
   },
   methods: {

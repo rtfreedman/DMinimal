@@ -30,7 +30,7 @@
           </v-tooltip>
           <v-tooltip top>
             <v-btn flat icon slot="activator" @click="shortRest()"> 
-              <h4>Z</h4>
+              <v-icon>mdi-bell-sleep</v-icon>
             </v-btn>
             <span>Short Rest</span>
           </v-tooltip>
