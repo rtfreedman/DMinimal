@@ -184,6 +184,16 @@ export default new Vuex.Store(
         }
         this.state.characters.splice(index, 1)
       },
+      setHP (state, payload) { // charIndex hitpoints
+        if (payload.hitpoints > this.state.characters[payload.charIndex].maxHitpoints) {
+          this.state.characters[payload.charIndex].hitpoints = this.state.characters[payload.charIndex].maxHitpoints
+          return
+        }
+        this.state.characters[payload.charIndex].hitpoints = payload.hitpoints
+      },
+      setMaxHP (state, payload) { // charIndex hitpoints
+        this.state.characters[payload.charIndex].maxHitpoints = payload.hitpoints
+      },
       stopConcentrating (state, index) {
         this.state.characters[index].concentrating = ''
       },

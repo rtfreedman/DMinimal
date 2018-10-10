@@ -6,21 +6,22 @@
     <!-- Receive Attack Dialog md-sword -->
     <v-dialog v-model="hitpointDialog" max-width="500">
       <v-card>
-        <v-card-text>
+        <v-card-title>
           <h2>Health</h2>
-          <v-layout row>
-            <v-tooltip top>
-              <v-btn icon flat slot="activator"><v-icon>mdi-dice-multiple</v-icon></v-btn>
-              <span>Roll Health</span>
-            </v-tooltip>
-            <v-tooltip top>
-              <v-btn icon flat slot="activator"><v-icon>mdi-sword</v-icon></v-btn>
-              <span>Take Damage</span>
-            </v-tooltip>
-            <v-tooltip top>
-              <v-btn icon flat slot="activator"><v-icon>mdi-medical-bag</v-icon></v-btn>
-              <span>Heal</span>
-            </v-tooltip>
+        </v-card-title>
+        <v-card-text>
+          <v-layout align-center justify-center row fill-height>
+            <h2>Offset :</h2>
+            <v-flex xs1>
+            <v-spacer> </v-spacer>
+            </v-flex>
+            <v-flex xs2>
+              <v-text-field
+                single-line
+                :rules="[mustBeNum, maxNum]"
+                v-model="offset"
+              />
+            </v-flex>
           </v-layout>
         </v-card-text>
         <v-card-text>
@@ -30,6 +31,7 @@
               <v-text-field
                 single-line
                 reverse
+                :rules="[lessThanOrEqualToMax, mustBeNum, maxNum]"
                 label="HP"
                 v-model="hitpoints"
               />
@@ -41,12 +43,31 @@
               <v-text-field
                 single-line
                 reverse
+                :rules="[mustBeNum, maxNum]"
                 label="Max HP"
                 v-model="maxHitpoints"
               />
             </v-flex>
           </v-layout>
         </v-card-text>
+        <v-card-text>
+          <v-layout justify-end row>
+            <v-tooltip top>
+              <v-btn icon flat slot="activator"><v-icon>mdi-medical-bag</v-icon></v-btn>
+              <span>Heal</span>
+            </v-tooltip>
+            <v-tooltip top> <!-- TODO Replace with broken shield icon -->
+              <v-btn icon flat slot="activator"><v-icon>mdi-sword</v-icon></v-btn>
+              <span>Take Damage</span>
+            </v-tooltip>
+            <v-tooltip top>
+              <v-btn icon flat slot="activator"><v-icon>mdi-dice-multiple</v-icon></v-btn>
+              <span>Roll Health</span>
+            </v-tooltip>
+          </v-layout>
+        </v-card-text>
+        {{hitpoints}}
+        {{maxHitpoints}}
       </v-card>
     </v-dialog>
   </div>
@@ -58,6 +79,13 @@ export default {
   computed: {
     maxHitpoints: {
       set (val) {
+        if (isNaN(parseInt(val))) {
+          return
+        }
+        this.$store.commit('setMaxHP', {
+          charIndex: this.charIndex,
+          hitpoints: parseInt(val)
+        })
       },
       get () {
         return this.$store.state.characters[this.charIndex].maxHitpoints
@@ -65,6 +93,13 @@ export default {
     },
     hitpoints: {
       set (val) { // commit mutation
+        if (isNaN(parseInt(val))) {
+          return
+        }
+        this.$store.commit('setHP', {
+          charIndex: this.charIndex,
+          hitpoints: parseInt(val)
+        })
       },
       get () {
         return this.$store.state.characters[this.charIndex].hitpoints
@@ -73,7 +108,40 @@ export default {
   },
   data () {
     return {
-      hitpointDialog: false
+      offset: null,
+      hitpointDialog: true
+    }
+  },
+  methods: {
+    heal () {
+      if (isNaN(parseInt(this.hitpoints)) || isNaN(parseInt(this.offset))) {
+        return
+      }
+      this.$store.commit('setHP', {
+        charIndex: this.charIndex,
+        hitpoints: parseInt(this.hitpoints) + parseInt(this.offset)
+      })
+    },
+    hurt () {
+
+    },
+    lessThanOrEqualToMax (val) {
+      if (parseInt(val) > this.maxHitpoints) {
+        return 'HP must be less than Max HP'
+      }
+      return true
+    },
+    mustBeNum (val) {
+      if (isNaN(parseInt(val))) {
+        return 'Input is not a number'
+      }
+      return true
+    },
+    maxNum (val) {
+      if (parseInt(val) > 1000) {
+        return 'Input too large'
+      }
+      return true
     }
   }
 }

@@ -8,37 +8,47 @@
       </v-layout>
       <!-- End Name -->
       <!-- "Buttons" -->
-      <v-layout align-center row>
-        <v-tooltip top>
-          <v-btn icon slot="activator" @click="multiclass()">
-            <v-icon>add_circle_outline</v-icon>
-          </v-btn>
-          <span>Multiclass</span>
-        </v-tooltip>
-        <v-tooltip top>
-          <v-btn flat slot="activator" icon @click="castSpell()">
-            <v-icon>mdi-auto-fix</v-icon>
-          </v-btn>
-          <span>Cast Spell</span>
-        </v-tooltip>
-        <v-tooltip top>
-          <v-btn flat icon slot="activator" @click="longRest()">
-            <v-icon>mdi-sleep</v-icon>
-          </v-btn>
-          <span>Long Rest</span>
-        </v-tooltip>
-        <v-tooltip top>
-          <v-btn :disabled="!character.concentrating" @click="concentrationDialog=true" flat icon slot="activator"><v-icon>remove_red_eye</v-icon></v-btn>
-          <span v-if="character.concentrating">Concentrating on {{character.concentrating}}</span>
-          <span v-if="!character.concentrating || character.concentrating === ''">Not currently concentrating</span>
-        </v-tooltip>
-        <v-tooltip top>
-          <h3 slot="activator">+{{proficiencyBonus}}</h3>
-          <span>Proficiency Bonus</span>
-        </v-tooltip>
-        <!-- Hit Points -->
-        <hit-points :charIndex="index"></hit-points>
-        <!-- End Hit Points -->
+      <v-layout column>
+        <v-layout align-center row>
+          <v-tooltip top>
+            <v-btn icon slot="activator" @click="multiclass()">
+              <v-icon>add_circle_outline</v-icon>
+            </v-btn>
+            <span>Multiclass</span>
+          </v-tooltip>
+          <v-tooltip top>
+            <v-btn flat slot="activator" icon @click="castSpell()">
+              <v-icon>mdi-auto-fix</v-icon>
+            </v-btn>
+            <span>Cast Spell</span>
+          </v-tooltip>
+          <v-tooltip top>
+            <v-btn flat icon slot="activator" @click="longRest()">
+              <v-icon>mdi-sleep</v-icon>
+            </v-btn>
+            <span>Long Rest</span>
+          </v-tooltip>
+          <v-tooltip top>
+            <v-btn flat icon slot="activator" @click="shortRest()"> 
+              <h4>Z</h4>
+            </v-btn>
+            <span>Short Rest</span>
+          </v-tooltip>
+          <v-tooltip top>
+            <v-btn :disabled="!character.concentrating" @click="concentrationDialog=true" flat icon slot="activator"><v-icon>remove_red_eye</v-icon></v-btn>
+            <span v-if="character.concentrating">Concentrating on {{character.concentrating}}</span>
+            <span v-if="!character.concentrating || character.concentrating === ''">Not currently concentrating</span>
+          </v-tooltip>
+          <v-tooltip top>
+            <h3 slot="activator">+{{proficiencyBonus}}</h3>
+            <span>Proficiency Bonus</span>
+          </v-tooltip>
+        </v-layout>
+        <v-layout align-center row>
+          <!-- Hit Points -->
+          <hit-points :charIndex="index"></hit-points>
+          <!-- End Hit Points -->
+        </v-layout>
       </v-layout>
       <v-dialog v-model="concentrationDialog" max-width=300>
         <v-card>
@@ -118,6 +128,9 @@ export default {
           classIndex: c
         })
       }
+    },
+    shortRest () {
+      // TODO
     },
     stopConcentrating () {
       this.$store.commit('stopConcentrating', this.index)
