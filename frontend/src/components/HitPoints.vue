@@ -53,11 +53,11 @@
         <v-card-text>
           <v-layout justify-end row>
             <v-tooltip top>
-              <v-btn icon flat slot="activator"><v-icon>mdi-medical-bag</v-icon></v-btn>
+              <v-btn icon flat slot="activator" @click="heal"><v-icon>mdi-medical-bag</v-icon></v-btn>
               <span>Heal</span>
             </v-tooltip>
             <v-tooltip top> <!-- TODO Replace with broken shield icon -->
-              <v-btn icon flat slot="activator"><v-icon>mdi-sword</v-icon></v-btn>
+              <v-btn icon flat slot="activator" @click="hurt"><v-icon>mdi-sword</v-icon></v-btn>
               <span>Take Damage</span>
             </v-tooltip>
             <v-tooltip top>
@@ -123,7 +123,13 @@ export default {
       })
     },
     hurt () {
-
+      if (isNaN(parseInt(this.hitpoints)) || isNaN(parseInt(this.offset))) {
+        return
+      }
+      this.$store.commit('setHP', {
+        charIndex: this.charIndex,
+        hitpoints: parseInt(this.hitpoints) - parseInt(this.offset)
+      })
     },
     lessThanOrEqualToMax (val) {
       if (parseInt(val) > this.maxHitpoints) {
