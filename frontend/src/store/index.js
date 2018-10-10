@@ -31,6 +31,8 @@ let defaultClass = {
 }
 
 let defaultCharacter = {
+  hitpoints: 0,
+  maxHitpoints: 0,
   id: '',
   name: '',
   proficiency: 0,
@@ -64,6 +66,8 @@ export default new Vuex.Store(
       magicClassOpts: [],
       characters: [
         {
+          hitpoints: 0,
+          maxHitpoints: 0,
           id: '0',
           name: 'Rorik Ironforge',
           proficiency: 0,
