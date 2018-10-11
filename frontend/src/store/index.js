@@ -141,6 +141,20 @@ export default new Vuex.Store(
         })
       },
       changeClassLevel (state, payload) { // charIndex classIndex newLevel
+        // monitor minimum HP while we do this. (max class roll + con mod)
+        if (this.state.characters[payload.charIndex].classes[payload.classIndex].level < payload.newLevel) {
+          // we're leveling up. Increase HP by levelDifference * con mod + [hpOffset for i in range(levelDifference)]
+          if (this.state.characters.rollHealth) { // health was calculated by rolling. Roll again.
+          } else { // health took average. do that.
+          }
+        } else if (this.state.characters[payload.charIndex].classes[payload.classIndex].level > payload.newLevel) {
+          // we're leveling down?! Decrease HP by levelDifference * con mod + [hpOffset for i in range(levelDifference)]
+          if (this.state.characters.rollHealth) {
+          } else {
+          }
+        } else {
+          return
+        }
         this.state.characters[payload.charIndex].classes[payload.classIndex].level = payload.newLevel
         this.commit('updateSlots', {
           charIndex: payload.charIndex,
