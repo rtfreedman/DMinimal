@@ -2,10 +2,12 @@
   <div>
     <!-- Multiple Classes Dialog -->
     <v-dialog v-model="classChoiceDialog" max-width="300">
-      <v-layout column align-center justify-center ma-2>
-        <h2>Cast as which class?</h2>
-        <v-btn @click="selectedClass = c; classChoiceDialog = false; fetchSpellOpts()" flat v-for="c in character.classes" :key="c.classname">{{c.classname}}</v-btn>
-      </v-layout>
+      <v-card>
+        <v-layout column align-center justify-center ma-2>
+          <h2>Cast as which class?</h2>
+          <v-btn @click="selectedClass = index; classChoiceDialog = false; fetchSpellOpts()" flat v-for="(c, index) in character.classes" :key="c.classname">{{c.classname}}</v-btn>
+        </v-layout>
+      </v-card>
     </v-dialog>
     <!-- End Multiple Classes Dialog -->
     <v-dialog persistent v-model="spellSearchDialog" max-width="800">
@@ -143,7 +145,7 @@ export default {
         this.classChoices = magicClasses
         this.classChoiceDialog = true
       } else if (magicClasses.length === 1) {
-        this.selectedClass = magicClasses[0]
+        this.selectedClass = 0
         this.spellSearchDialog = true
         this.fetchSpellOpts()
       } else {
