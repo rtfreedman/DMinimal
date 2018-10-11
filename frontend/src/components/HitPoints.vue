@@ -177,6 +177,10 @@ export default {
           }
         }
       }
+      if (hitDie.length === 0) {
+        this.maxHitpoints = totalHealth
+        return
+      }
       // add constitution modifier
       totalHealth += (hitDie.length * ((this.character.abilityScores.CON - 10) / 2))
       // if we want to roll we do that
