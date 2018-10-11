@@ -61,8 +61,12 @@
               <span>Take Damage</span>
             </v-tooltip>
             <v-tooltip top>
-              <v-btn icon flat slot="activator"><v-icon>mdi-dice-multiple</v-icon></v-btn>
+              <v-btn icon flat slot="activator" @click="getHealth(true)"><v-icon>mdi-dice-multiple</v-icon></v-btn>
               <span>Roll Health</span>
+            </v-tooltip>
+            <v-tooltip top>
+              <v-btn icon flat slot="activator" @click="getHealth(false)"><v-icon>mdi-heart-half-full</v-icon></v-btn>
+              <span>Take Avg for Health</span>
             </v-tooltip>
           </v-layout>
         </v-card-text>
@@ -77,6 +81,12 @@
 export default {
   props: ['charIndex'],
   computed: {
+    character () {
+      return this.$store.state.characters[this.charIndex]
+    },
+    hitDice () {
+      return this.$store.state.hitDice
+    },
     maxHitpoints: {
       set (val) {
         if (isNaN(parseInt(val))) {
@@ -88,7 +98,7 @@ export default {
         })
       },
       get () {
-        return this.$store.state.characters[this.charIndex].maxHitpoints
+        return this.character.maxHitpoints
       }
     },
     hitpoints: {
@@ -102,7 +112,7 @@ export default {
         })
       },
       get () {
-        return this.$store.state.characters[this.charIndex].hitpoints
+        return this.character.hitpoints
       }
     }
   },
@@ -148,6 +158,38 @@ export default {
         return 'Input too large'
       }
       return true
+    },
+    getHealth (roll) {
+      if (this.character.classes.length === 0) {
+        return
+      }
+      let hitDie = []
+      let totalHealth = 0
+      let firstLevel = true
+      for (let c = 0; c < this.character.classes.length; c++) {
+        for (let l = 0; l < this.character.classes[c].level; l++) {
+          if (firstLevel) {
+            // take max health for first level
+            totalHealth += this.hitDice[this.character.classes[c].classname.split(' ')]
+            firstLevel = false
+          } else {
+            hitDie.push(this.hitDice[this.character.classes[c].classname.split(' ')])
+          }
+        }
+      }
+      // add constitution modifier
+      totalHealth += (hitDie.length * ((this.character.abilityScores.CON - 10) / 2))
+      // if we want to roll we do that
+      if (roll) {
+        totalHealth += hitDie.reduce((accumulator, dice) => {
+          return accumulator + (Math.floor(Math.random() * dice) + 1)
+        })
+      } else { // if we want to take the average variant
+        totalHealth += hitDie.reduce((accumulator, dice) => {
+          return accumulator + Math.ceil((dice + 1) / 2)
+        })
+      }
+      this.maxHitpoints = totalHealth
     }
   }
 }
