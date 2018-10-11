@@ -70,8 +70,6 @@
             </v-tooltip>
           </v-layout>
         </v-card-text>
-        {{hitpoints}}
-        {{maxHitpoints}}
       </v-card>
     </v-dialog>
   </div>
@@ -87,7 +85,24 @@ export default {
     hitDice () {
       return this.$store.state.hitDice
     },
+    hitpoints: {
+      get () {
+        return this.character.hitpoints
+      },
+      set (val) {
+        if (isNaN(parseInt(val))) {
+          return
+        }
+        this.$store.commit('setHP', {
+          charIndex: this.charIndex,
+          hitpoints: parseInt(val)
+        })
+      }
+    },
     maxHitpoints: {
+      get () {
+        return this.character.maxHitpoints
+      },
       set (val) {
         if (isNaN(parseInt(val))) {
           return
@@ -96,23 +111,17 @@ export default {
           charIndex: this.charIndex,
           hitpoints: parseInt(val)
         })
-      },
-      get () {
-        return this.character.maxHitpoints
       }
     },
-    hitpoints: {
-      set (val) { // commit mutation
-        if (isNaN(parseInt(val))) {
-          return
-        }
-        this.$store.commit('setHP', {
-          charIndex: this.charIndex,
-          hitpoints: parseInt(val)
-        })
+    rollHealth: {
+      get () { // unused
+        return this.character.rollHealth
       },
-      get () {
-        return this.character.hitpoints
+      set (val) {
+        this.$store.commit('setRollState', {
+          charIndex: this.charIndex,
+          rollHealth: val
+        })
       }
     }
   },
@@ -194,8 +203,12 @@ export default {
         })
       }
       this.maxHitpoints = totalHealth
+      if (this.hitpoints > this.maxHitpoints) {
+        this.hitpoints = this.maxHitpoints
+      }
+      // used to set health on level up (not sure what to do on decrease...)
+      this.rollHealth = roll
     }
   }
 }
 </script>
-

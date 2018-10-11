@@ -82,6 +82,7 @@ export default new Vuex.Store(
         {
           hitpoints: 0,
           maxHitpoints: 0,
+          rollHealth: false,
           id: '0',
           name: 'Rorik Ironforge',
           proficiency: 0,
@@ -207,6 +208,9 @@ export default new Vuex.Store(
       },
       setMaxHP (state, payload) { // charIndex hitpoints
         this.state.characters[payload.charIndex].maxHitpoints = payload.hitpoints
+      },
+      setRollState (state, payload) {
+        this.state.characters[payload.charIndex].rollHealth = payload.rollHealth
       },
       stopConcentrating (state, index) {
         this.state.characters[index].concentrating = ''
