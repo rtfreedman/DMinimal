@@ -179,35 +179,24 @@ export default {
       if (this.character.classes.length === 0) {
         return
       }
-      let hitDie = []
       let totalHealth = 0
       let firstLevel = true
       for (let c = 0; c < this.character.classes.length; c++) {
         for (let l = 0; l < this.character.classes[c].level; l++) {
+          totalHealth += Math.floor((this.character.abilityScores.CON - 10) / 2)
+          let value = 0
+          let dice = this.hitDice[this.character.classes[c].classname.split(' ')[0]]
           if (firstLevel) {
             // take max health for first level
-            totalHealth += this.hitDice[this.character.classes[c].classname.split(' ')[0]]
+            value = dice
             firstLevel = false
+          } else if (roll) {
+            value = (Math.floor(Math.random() * (dice - 1)) + 1)
           } else {
-            hitDie.push(this.hitDice[this.character.classes[c].classname.split(' ')[0]])
+            value = Math.ceil(dice / 2)
           }
+          totalHealth += value
         }
-      }
-      if (hitDie.length === 0) {
-        this.maxHitpoints = totalHealth
-        return
-      }
-      // add constitution modifier
-      totalHealth += (hitDie.length * ((this.character.abilityScores.CON - 10) / 2))
-      // if we want to roll we do that
-      if (roll) {
-        totalHealth += hitDie.reduce((accumulator, dice) => {
-          return accumulator + (Math.floor(Math.random() * dice) + 1)
-        })
-      } else { // if we want to take the average variant
-        totalHealth += hitDie.reduce((accumulator, dice) => {
-          return accumulator + Math.ceil((dice + 1) / 2)
-        })
       }
       this.maxHitpoints = totalHealth
       if (this.hitpoints > this.maxHitpoints) {
