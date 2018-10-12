@@ -11,10 +11,10 @@
         </v-card-title>
         <v-card-text>
           <v-layout align-center justify-center row fill-height>
-            <h2>Offset :</h2>
-            <v-flex xs1>
-            <v-spacer> </v-spacer>
-            </v-flex>
+            <v-tooltip top>
+              <v-btn large icon flat slot="activator" @click="heal"><v-icon>mdi-medical-bag</v-icon></v-btn>
+              <span>Heal</span>
+            </v-tooltip>
             <v-flex xs2>
               <v-text-field
                 single-line
@@ -22,6 +22,10 @@
                 v-model="offset"
               />
             </v-flex>
+            <v-tooltip top> <!-- TODO Replace with broken shield icon -->
+              <v-btn large icon flat slot="activator" @click="hurt"><v-icon>mdi-sword</v-icon></v-btn>
+              <span>Take Damage</span>
+            </v-tooltip>
           </v-layout>
         </v-card-text>
         <v-card-text>
@@ -53,11 +57,11 @@
         <v-card-text>
           <v-layout justify-end row>
             <v-tooltip top>
-              <v-btn icon flat slot="activator" @click="heal"><v-icon>mdi-medical-bag</v-icon></v-btn>
+              <v-btn large icon flat slot="activator" @click="heal"><v-icon>mdi-medical-bag</v-icon></v-btn>
               <span>Heal</span>
             </v-tooltip>
             <v-tooltip top> <!-- TODO Replace with broken shield icon -->
-              <v-btn icon flat slot="activator" @click="hurt"><v-icon>mdi-sword</v-icon></v-btn>
+              <v-btn large icon flat slot="activator" @click="hurt"><v-icon>mdi-sword</v-icon></v-btn>
               <span>Take Damage</span>
             </v-tooltip>
             <v-tooltip top>
@@ -127,7 +131,7 @@ export default {
   },
   data () {
     return {
-      offset: null,
+      offset: '0',
       hitpointDialog: false
     }
   },
@@ -157,6 +161,9 @@ export default {
       return true
     },
     mustBeNum (val) {
+      if (typeof val === 'string' && val.toLowerCase().includes('e')) {
+        return 'Scientific notation not allowed'
+      }
       if (isNaN(parseInt(val))) {
         return 'Input is not a number'
       }
@@ -179,10 +186,10 @@ export default {
         for (let l = 0; l < this.character.classes[c].level; l++) {
           if (firstLevel) {
             // take max health for first level
-            totalHealth += this.hitDice[this.character.classes[c].classname.split(' ')]
+            totalHealth += this.hitDice[this.character.classes[c].classname.split(' ')[0]]
             firstLevel = false
           } else {
-            hitDie.push(this.hitDice[this.character.classes[c].classname.split(' ')])
+            hitDie.push(this.hitDice[this.character.classes[c].classname.split(' ')[0]])
           }
         }
       }

@@ -67,6 +67,7 @@ export default new Vuex.Store(
       },
       snackbar: {
         show: false,
+        color: 'red darken-1',
         message: '',
         buttonMessage: '',
         buttonFunction: undefined
@@ -193,6 +194,9 @@ export default new Vuex.Store(
         this.state.characters[payload.index].classes.push(newclass)
       },
       offsetStat (state, payload) { // stat index offset
+        if (this.state.characters[payload.index].abilityScores[payload.stat] + payload.offset <= 0) {
+          return
+        }
         this.state.characters[payload.index].abilityScores[payload.stat] += payload.offset
       },
       proficiencyBonus (state, charIndex) {
@@ -286,11 +290,14 @@ export default new Vuex.Store(
       hideSnackbar () {
         this.state.snackbar.show = false
       },
-      showSnackbar (state, payload) { // message func buttonMessage
+      showSnackbar (state, payload) { // message, optional: func buttonMessage color
         this.state.snackbar.message = payload.message
         if (payload.hasOwnProperty('func') && payload.hasOwnProperty('buttonMessage')) {
           this.state.snackbar.buttonMessage = payload.buttonMessage
           this.state.snackbar.buttonFunction = payload.func
+        }
+        if (payload.hasOwnProperty('color')) {
+          this.state.snackbar.color = payload.color
         }
         this.state.snackbar.show = true
       }
