@@ -11,20 +11,20 @@
         </v-card-title>
         <v-card-text>
           <v-layout align-center justify-center row fill-height>
-            <v-tooltip top>
-              <v-btn large icon flat slot="activator" @click="heal"><v-icon>mdi-medical-bag</v-icon></v-btn>
-              <span>Heal</span>
+            <v-tooltip top> <!-- TODO Replace with broken shield icon -->
+              <v-btn large icon flat slot="activator" @click="hurt"><v-icon>mdi-sword</v-icon></v-btn>
+              <span>Take Damage</span>
             </v-tooltip>
-            <v-flex xs2>
+            <v-flex xs1>
               <v-text-field
                 single-line
                 :rules="[mustBeNum, maxNum]"
                 v-model="offset"
               />
             </v-flex>
-            <v-tooltip top> <!-- TODO Replace with broken shield icon -->
-              <v-btn large icon flat slot="activator" @click="hurt"><v-icon>mdi-sword</v-icon></v-btn>
-              <span>Take Damage</span>
+            <v-tooltip top>
+              <v-btn large icon flat slot="activator" @click="heal"><v-icon>mdi-medical-bag</v-icon></v-btn>
+              <span>Heal</span>
             </v-tooltip>
           </v-layout>
         </v-card-text>
