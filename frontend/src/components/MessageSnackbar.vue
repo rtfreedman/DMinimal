@@ -1,6 +1,6 @@
 <template>
   <v-snackbar
-    color="red darken-3"
+    :color="snackbarColor"
     v-model="show"
     :timeout="2500"> <h3>{{snackbarMessage}}</h3>
     <v-btn v-if="typeof snackbarButtonFunction === 'function'" flat @click="snackbarButtonFunction">{{snackbarButtonMessage}}</v-btn>
@@ -23,6 +23,9 @@ export default {
     },
     snackbarMessage () {
       return this.snackbar.message
+    },
+    snackbarColor () {
+      return this.snackbar.color
     },
     snackbarButtonMessage () {
       return this.snackbar.buttonMessage
