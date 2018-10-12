@@ -1,8 +1,8 @@
 <template>
   <div>
     <v-layout align-start justify-center column fill-height m-3>
-      <h3>Spell Atk Mod : d20 + {{spellMod}} </h3>
-      <h3>Spell Save DC : {{8 + spellMod}} </h3>
+      <h3>Spell Atk Mod : d20<span v-if="spellMod >= 0"> +</span> {{spellMod}} </h3>
+      <h3>Spell Save DC : {{spellDC}} </h3>
     </v-layout>
     <spell-slots :charIndex="charIndex" :classIndex="classIndex"> </spell-slots>
   </div>
@@ -21,6 +21,9 @@ export default {
     },
     classItem () {
       return this.character.classes[this.classIndex]
+    },
+    spellDC () {
+      return this.spellMod + 8
     },
     spellMod () {
       let mod = this.getMod(this.$store.state.characters[this.charIndex].abilityScores.INT)
