@@ -16,13 +16,13 @@
         </v-card>
       </v-tab-item>
     </v-tabs-items>
-    <error-snackbar/>
+    <msg-snackbar/>
   </v-container>
 </template>
 
 <script>
 import Tracker from '@/components/Tracker'
-import ErrorMessageSnackbar from '@/components/ErrorMessageSnackbar'
+import MessageSnackbar from '@/components/MessageSnackbar'
 export default {
   name: 'TrackerList',
   beforeMount () {
@@ -30,7 +30,7 @@ export default {
   },
   components: {
     'tracker': Tracker,
-    'error-snackbar': ErrorMessageSnackbar
+    'msg-snackbar': MessageSnackbar
   },
   computed: {
     characters () {
