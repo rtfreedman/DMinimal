@@ -91,8 +91,14 @@ export default {
     classOpts () {
       return this.$store.state.classOpts
     },
+    hitDice () {
+      return this.$store.state.hitDice
+    },
     character () {
       return this.$store.state.characters[this.index]
+    },
+    hitpoints () {
+      return this.character.hitpoints
     },
     proficiencyBonus () {
       return this.character.proficiency
@@ -111,7 +117,8 @@ export default {
   },
   data () {
     return {
-      concentrationDialog: false
+      concentrationDialog: false,
+      shortRestDie: {}
     }
   },
   methods: {
@@ -129,8 +136,39 @@ export default {
         })
       }
     },
+    performShortRest () {
+      let restoredHealth = 0
+      for (let a in this.shortRestDie) {
+        restoredHealth += Math.floor(Math.random() * this.shortRestDie[a])
+      }
+      this.$store.commit('setHP', {
+        charIndex: this.index,
+        hitpoints: parseInt(this.hitpoints) + restoredHealth
+      })
+      this.$store.commit('hideSnackbar')
+    },
     shortRest () {
-      // TODO
+      let acc = {}
+      for (let c in this.character.classes) {
+        let hitDie = this.hitDice[this.character.classes[c].classname.split(' ')[0]]
+        if (!acc.hasOwnProperty(hitDie)) {
+          acc[hitDie] = 0
+        }
+        acc[hitDie] += this.character.classes[c].level
+      }
+      let message = []
+      this.shortRestDie = []
+      for (let k in acc) {
+        message.push(acc[k].toString() + 'd' + k.toString())
+        this.shortRestDie.push.apply(this.shortRestDie, new Array(acc[k]).fill(k))
+      }
+      message = 'Restore ' + message.join(', ')
+      this.$store.commit('showSnackbar', {
+        color: 'green',
+        message: message,
+        func: this.performShortRest,
+        buttonMessage: 'Roll'
+      })
     },
     stopConcentrating () {
       this.$store.commit('stopConcentrating', this.index)
