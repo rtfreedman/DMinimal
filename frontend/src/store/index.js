@@ -194,8 +194,30 @@ export default new Vuex.Store(
         this.state.characters[payload.index].classes.push(newclass)
       },
       offsetStat (state, payload) { // stat index offset
-        if (this.state.characters[payload.index].abilityScores[payload.stat] + payload.offset <= 0) {
+        if (this.state.characters[payload.index].abilityScores[payload.stat] + payload.offset < 0) {
           return
+        }
+        if (payload.stat === 'CON') {
+          let totalLevel = 0
+          for (let c in this.state.characters[payload.index].classes) {
+            totalLevel += this.state.characters[payload.index].classes[c].level
+          }
+          if (totalLevel === 0) {
+            this.state.characters[payload.index].abilityScores[payload.stat] += payload.offset
+            return
+          }
+          let oddCorrection = (this.state.characters[payload.index].abilityScores[payload.stat] % 2) / 2.0
+          let newmax = this.state.characters[payload.index].maxHitpoints + (Math.floor((payload.offset / 2) + oddCorrection) * totalLevel)
+          this.commit('setMaxHP', {
+            charIndex: payload.index,
+            hitpoints: newmax
+          })
+          if (this.state.characters[payload.index].maxHitpoints < this.state.characters[payload.index].hitpoints) {
+            this.commit('setHP', {
+              charIndex: payload.index,
+              hitpoints: newmax
+            })
+          }
         }
         this.state.characters[payload.index].abilityScores[payload.stat] += payload.offset
       },
@@ -225,7 +247,9 @@ export default new Vuex.Store(
         this.state.characters[payload.charIndex].hitpoints = payload.hitpoints
       },
       setMaxHP (state, payload) { // charIndex hitpoints
-        this.state.characters[payload.charIndex].maxHitpoints = payload.hitpoints
+        if (payload.hitpoints >= 0) {
+          this.state.characters[payload.charIndex].maxHitpoints = payload.hitpoints
+        }
       },
       setRollState (state, payload) {
         this.state.characters[payload.charIndex].rollHealth = payload.rollHealth
