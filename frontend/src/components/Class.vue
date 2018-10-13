@@ -59,11 +59,13 @@ export default { // TODO: spell save DC, spell attack modifier, spell slot count
         return this.classItem.level
       },
       set (state) {
-        this.$store.commit('changeClassLevel', {
-          charIndex: this.charIndex,
-          classIndex: this.classIndex,
-          newLevel: state
-        })
+        if (typeof state === 'number') {
+          this.$store.commit('changeClassLevel', {
+            charIndex: this.charIndex,
+            classIndex: this.classIndex,
+            newLevel: state
+          })
+        }
       }
     },
     magicClassOpts () {

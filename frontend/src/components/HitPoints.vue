@@ -181,9 +181,10 @@ export default {
       }
       let totalHealth = 0
       let firstLevel = true
+      let constitutionOffset = Math.floor((this.character.abilityScores.CON - 10) / 2)
       for (let c = 0; c < this.character.classes.length; c++) {
         for (let l = 0; l < this.character.classes[c].level; l++) {
-          totalHealth += Math.floor((this.character.abilityScores.CON - 10) / 2)
+          totalHealth += constitutionOffset
           let value = 0
           let dice = this.hitDice[this.character.classes[c].classname.split(' ')[0]]
           if (firstLevel) {

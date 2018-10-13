@@ -142,19 +142,16 @@ export default new Vuex.Store(
         })
       },
       changeClassLevel (state, payload) { // charIndex classIndex newLevel
-        // monitor minimum HP while we do this. (max class roll + con mod)
-        if (this.state.characters[payload.charIndex].classes[payload.classIndex].level < payload.newLevel) {
-          // we're leveling up. Increase HP by levelDifference * con mod + [hpOffset for i in range(levelDifference)]
-          if (this.state.characters.rollHealth) { // health was calculated by rolling. Roll again.
-          } else { // health took average. do that.
-          }
-        } else if (this.state.characters[payload.charIndex].classes[payload.classIndex].level > payload.newLevel) {
-          // we're leveling down?! Decrease HP by levelDifference * con mod + [hpOffset for i in range(levelDifference)]
-          if (this.state.characters.rollHealth) {
-          } else {
-          }
-        } else {
-          return
+        if (this.state.characters[payload.charIndex].rollHealth) { // health was calculated by rolling. Roll again.
+          this.commit('setMaxHP', {
+            charIndex: payload.charIndex,
+            hitpoints: this.state.characters[payload.charIndex].maxHitpoints += ((Math.random() * (this.state.hitDice[this.state.characters[payload.charIndex].classes[payload.classIndex].classname] - 1)) + 1 + ((this.state.characters[payload.charIndex].abilityScores.CON - 10) / 2)) * (payload.newLevel - this.state.characters[payload.charIndex].classes[payload.classIndex].level)
+          })
+        } else { // health took average. do that.
+          this.commit('setMaxHP', {
+            charIndex: payload.charIndex,
+            hitpoints: this.state.characters[payload.charIndex].maxHitpoints += (Math.ceil(this.state.hitDice[this.state.characters[payload.charIndex].classes[payload.classIndex].classname] / 2) + ((this.state.characters[payload.charIndex].abilityScores.CON - 10) / 2)) * (payload.newLevel - this.state.characters[payload.charIndex].classes[payload.classIndex].level)
+          })
         }
         this.state.characters[payload.charIndex].classes[payload.classIndex].level = payload.newLevel
         this.commit('updateSlots', {
