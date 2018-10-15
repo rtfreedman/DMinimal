@@ -50,6 +50,7 @@
           <!-- End Hit Points -->
         </v-layout>
       </v-layout>
+      <death-throws v-if="hitpoints === 0 && maxHitpoints > 0" :charIndex="index"/>
       <v-dialog v-model="concentrationDialog" max-width=300>
         <v-card>
           <v-card-text>
@@ -66,10 +67,10 @@
       <ability-scores :scores="character.abilityScores" :index="index"></ability-scores>
       <!-- End Ability Scores -->
       <v-card-text v-for="(characterClass, classindex) in character.classes" :key="classindex">
-        <!-- TODO Class stuff -->
+        <!-- TODO Class-specific stuff -->
         <character-class :charIndex="index" :classIndex="classindex"> </character-class>
       </v-card-text>
-      <spell-cast :charIndex="index" ref="spellCast"></spell-cast>
+      <spell-cast :charIndex="index" ref="spellCast"/>
     </v-card>
 </template>
 
@@ -78,12 +79,14 @@ import AbilityScores from '@/components/AbilityScores'
 import Class from '@/components/Class'
 import SpellCast from '@/components/SpellCast'
 import HitPoints from '@/components/HitPoints'
+import DeathSavingThrows from './DeathSavingThrows.vue'
 export default {
   name: 'Tracker',
   props: ['id', 'index'],
   components: {
     'ability-scores': AbilityScores,
     'character-class': Class,
+    'death-throws': DeathSavingThrows,
     'spell-cast': SpellCast,
     'hit-points': HitPoints
   },
@@ -99,6 +102,9 @@ export default {
     },
     hitpoints () {
       return this.character.hitpoints
+    },
+    maxHitpoints () {
+      return this.character.maxHitpoints
     },
     proficiencyBonus () {
       return this.character.proficiency

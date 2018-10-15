@@ -54,7 +54,7 @@ export default {
         loc: '/#/spelltracker'
       }],
       miniVariant: false,
-      title: 'DM Tracker'
+      title: 'DMinimal'
     }
   },
   methods: {

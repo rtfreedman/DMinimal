@@ -31,6 +31,8 @@ let defaultClass = {
 }
 
 let defaultCharacter = {
+  deathThrows: 0,
+  lifeThrows: 0,
   hitpoints: 0,
   maxHitpoints: 0,
   id: '',
@@ -81,6 +83,8 @@ export default new Vuex.Store(
       magicClassOpts: [],
       characters: [
         {
+          deathThrows: 0,
+          lifeThrows: 0,
           hitpoints: 0,
           maxHitpoints: 0,
           rollHealth: false,
@@ -236,16 +240,32 @@ export default new Vuex.Store(
         }
         this.state.characters.splice(index, 1)
       },
+      setDeathThrows (state, payload) { // charIndex throwVal
+        this.state.characters[payload.charIndex].deathThrows = payload.throwVal
+      },
+      setLifeThrows (state, payload) { // charIndex throwVal
+        this.state.characters[payload.charIndex].lifeThrows = payload.throwVal
+      },
       setHP (state, payload) { // charIndex hitpoints
+        if (payload.hitpoints > 0) {
+          this.commit('setLifeThrows', {
+            charIndex: payload.charIndex,
+            throwVal: 0
+          })
+          this.commit('setDeathThrows', {
+            charIndex: payload.charIndex,
+            throwVal: 0
+          })
+        }
         if (payload.hitpoints > this.state.characters[payload.charIndex].maxHitpoints) {
-          this.state.characters[payload.charIndex].hitpoints = this.state.characters[payload.charIndex].maxHitpoints
+          this.state.characters[payload.charIndex].hitpoints = Math.floor(this.state.characters[payload.charIndex].maxHitpoints)
           return
         }
         this.state.characters[payload.charIndex].hitpoints = payload.hitpoints
       },
       setMaxHP (state, payload) { // charIndex hitpoints
         if (payload.hitpoints >= 0) {
-          this.state.characters[payload.charIndex].maxHitpoints = payload.hitpoints
+          this.state.characters[payload.charIndex].maxHitpoints = Math.floor(payload.hitpoints)
         }
       },
       setRollState (state, payload) {
