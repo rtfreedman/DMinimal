@@ -36,7 +36,7 @@ let defaultCharacter = {
   initiative: null,
   hitpoints: 1,
   maxHitpoints: 1,
-  id: '1',
+  id: '0',
   name: '',
   proficiency: 0,
   concentrating: '',
@@ -91,7 +91,7 @@ export default new Vuex.Store(
       // character mutations
       addCharacter () {
         let newChar = JSON.parse(JSON.stringify(defaultCharacter))
-        newChar.id = Math.floor(Math.random() * (10 ** 10)).toString()
+        newChar.id = Math.floor(Math.random() * (10 ** 10) + 2).toString()
         this.state.characters.push(newChar)
       },
       changeClass (state, payload) { // charIndex classIndex newClass
