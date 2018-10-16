@@ -43,7 +43,7 @@
 
 <script>
 export default {
-  name: 'DeathSavingThrows',
+  name: 'DeathSavingThrows', // too verbose?
   props: ['charIndex'],
   computed: {
     character () {
