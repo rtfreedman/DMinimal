@@ -50,8 +50,8 @@ export default {
       fixed: false,
       items: [{
         icon: 'bubble_chart',
-        title: 'Spelltracker',
-        loc: '/#/spelltracker'
+        title: 'DMinimal',
+        loc: '/'
       }],
       miniVariant: false,
       title: 'DMinimal'

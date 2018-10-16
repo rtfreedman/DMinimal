@@ -6,7 +6,7 @@
       <v-tab v-for="c in characters" :key="c.id">
         <span v-if="c.name !== ''">{{shortenName(c.name)}}</span>
         <span v-if="c.name === ''">Name</span>
-        <v-btn v-if="characters.length > 1 && c.id !== '0'" @click='removeCharacter(c)' icon flat color="grey"> <v-icon>cancel</v-icon> </v-btn>
+        <v-btn v-if="characters.length > 1 && c.id !== '0'" @click="deleteCharacter = c; deleteDialog = true" icon flat color="grey"> <v-icon>cancel</v-icon> </v-btn>
       </v-tab>
     </v-tabs>
     <v-tabs-items v-model="tabs">
@@ -16,6 +16,17 @@
         </v-card>
       </v-tab-item>
     </v-tabs-items>
+    <v-dialog v-model="deleteDialog" max-width=300>
+      <v-card>
+        <v-card-text>
+          <h2>Are you sure you want to delete <span v-if="deleteCharacter.name !== ''">{{deleteCharacter.name}}</span> <span v-else>unnamed character</span>?</h2>
+        </v-card-text>
+        <v-layout column>
+          <v-btn @click="deleteDialog = false; removeCharacter(deleteCharacter)" flat> Yes </v-btn>
+          <v-btn @click="deleteDialog = false;" flat> No </v-btn>
+        </v-layout>
+      </v-card>
+    </v-dialog>
     <msg-snackbar/>
   </v-container>
 </template>
@@ -55,6 +66,8 @@ export default {
   data () {
     return {
       currentTab: 0,
+      deleteDialog: false,
+      deleteCharacter: '',
       allowTabChange: true
     }
   },

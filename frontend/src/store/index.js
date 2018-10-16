@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 let defaultClass = {
   classname: '',
-  level: 1,
+  level: 0,
   slots: {
     1: 0,
     2: 0,
@@ -33,8 +33,8 @@ let defaultClass = {
 let defaultCharacter = {
   deathThrows: 0,
   lifeThrows: 0,
-  hitpoints: 0,
-  maxHitpoints: 0,
+  hitpoints: 1,
+  maxHitpoints: 1,
   id: '',
   name: '',
   proficiency: 0,
@@ -82,53 +82,7 @@ export default new Vuex.Store(
       classOpts: [],
       magicClassOpts: [],
       characters: [
-        {
-          deathThrows: 0,
-          lifeThrows: 0,
-          hitpoints: 0,
-          maxHitpoints: 0,
-          rollHealth: false,
-          id: '0',
-          name: 'Rorik Ironforge',
-          proficiency: 0,
-          concentrating: 'Animate Objects',
-          classes: [
-            {
-              classname: 'Warlock',
-              level: 1,
-              slots: { // slots for this class to reset/rest to
-                '1': 4,
-                '2': 0,
-                '3': 0,
-                '4': 0,
-                '5': 0,
-                '6': 0,
-                '7': 0,
-                '8': 0,
-                '9': 0
-              },
-              workingSlots: { // slots that we're working with
-                '1': 0,
-                '2': 0,
-                '3': 0,
-                '4': 0,
-                '5': 0,
-                '6': 0,
-                '7': 0,
-                '8': 0,
-                '9': 0
-              }
-            }
-          ],
-          abilityScores: {
-            STR: 20,
-            INT: 1,
-            WIS: 10,
-            DEX: 10,
-            CON: 20,
-            CHR: 1
-          }
-        }
+        JSON.parse(JSON.stringify(defaultCharacter))
       ]
     },
     mutations: {
@@ -146,15 +100,23 @@ export default new Vuex.Store(
         })
       },
       changeClassLevel (state, payload) { // charIndex classIndex newLevel
+        let levelOffset = payload.newLevel - this.state.characters[payload.charIndex].classes[payload.classIndex].level
+        if (payload.classIndex === 0 && this.state.characters[payload.charIndex].classes[payload.classIndex].level === 0) {
+          this.commit('setMaxHP', {
+            charIndex: payload.charIndex,
+            hitpoints: this.state.characters[payload.charIndex].maxHitpoints += this.state.hitDice[this.state.characters[payload.charIndex].classes[payload.classIndex].classname] + ((this.state.characters[payload.charIndex].abilityScores.CON - 10) / 2)
+          })
+          levelOffset -= 1
+        }
         if (this.state.characters[payload.charIndex].rollHealth) { // health was calculated by rolling. Roll again.
           this.commit('setMaxHP', {
             charIndex: payload.charIndex,
-            hitpoints: this.state.characters[payload.charIndex].maxHitpoints += ((Math.random() * (this.state.hitDice[this.state.characters[payload.charIndex].classes[payload.classIndex].classname] - 1)) + 1 + ((this.state.characters[payload.charIndex].abilityScores.CON - 10) / 2)) * (payload.newLevel - this.state.characters[payload.charIndex].classes[payload.classIndex].level)
+            hitpoints: this.state.characters[payload.charIndex].maxHitpoints += ((Math.random() * (this.state.hitDice[this.state.characters[payload.charIndex].classes[payload.classIndex].classname] - 1)) + 1 + ((this.state.characters[payload.charIndex].abilityScores.CON - 10) / 2)) * levelOffset
           })
         } else { // health took average. do that.
           this.commit('setMaxHP', {
             charIndex: payload.charIndex,
-            hitpoints: this.state.characters[payload.charIndex].maxHitpoints += (Math.ceil(this.state.hitDice[this.state.characters[payload.charIndex].classes[payload.classIndex].classname] / 2) + ((this.state.characters[payload.charIndex].abilityScores.CON - 10) / 2)) * (payload.newLevel - this.state.characters[payload.charIndex].classes[payload.classIndex].level)
+            hitpoints: this.state.characters[payload.charIndex].maxHitpoints += (Math.ceil(this.state.hitDice[this.state.characters[payload.charIndex].classes[payload.classIndex].classname] / 2) + ((this.state.characters[payload.charIndex].abilityScores.CON - 10) / 2)) * levelOffset
           })
         }
         this.state.characters[payload.charIndex].classes[payload.classIndex].level = payload.newLevel

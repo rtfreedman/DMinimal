@@ -82,6 +82,12 @@
 <script>
 export default {
   props: ['charIndex'],
+  mounted () {
+    this.getHealth(false)
+    this.offset = this.maxHitpoints
+    this.heal()
+    this.offset = '0'
+  },
   computed: {
     character () {
       return this.$store.state.characters[this.charIndex]
