@@ -36,7 +36,7 @@ let defaultCharacter = {
   initiative: null,
   hitpoints: 1,
   maxHitpoints: 1,
-  id: '0',
+  id: '1',
   name: '',
   proficiency: 0,
   concentrating: '',
@@ -204,9 +204,12 @@ export default new Vuex.Store(
         })
         if (index === -1) {
           return
+        } else if (index === 0) {
+          this.commit('changeTab', 1)
+        } else {
+          this.commit('changeTab', 0)
         }
         this.state.characters.splice(index, 1)
-        this.commit('changeTab', 0)
       },
       setDeathThrows (state, payload) { // charIndex throwVal
         this.state.characters[payload.charIndex].deathThrows = payload.throwVal
