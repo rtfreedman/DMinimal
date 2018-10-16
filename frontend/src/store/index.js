@@ -33,9 +33,10 @@ let defaultClass = {
 let defaultCharacter = {
   deathThrows: 0,
   lifeThrows: 0,
+  initiative: null,
   hitpoints: 1,
   maxHitpoints: 1,
-  id: '',
+  id: '0',
   name: '',
   proficiency: 0,
   concentrating: '',
@@ -67,6 +68,7 @@ export default new Vuex.Store(
         Warlock: 8,
         Wizard: 6
       },
+      tab: 0,
       snackbar: {
         show: false,
         color: 'red darken-1',
@@ -128,6 +130,9 @@ export default new Vuex.Store(
       },
       changeName (state, payload) { // index name
         this.state.characters[payload.index].name = payload.name
+      },
+      changeTab (state, index) {
+        this.state.tab = index
       },
       incrementSlot (state, payload) { // charIndex classIndex level
         this.state.characters[payload.charIndex].classes[payload.classIndex].workingSlots[payload.level] ++
@@ -201,6 +206,7 @@ export default new Vuex.Store(
           return
         }
         this.state.characters.splice(index, 1)
+        this.commit('changeTab', 0)
       },
       setDeathThrows (state, payload) { // charIndex throwVal
         this.state.characters[payload.charIndex].deathThrows = payload.throwVal

@@ -3,10 +3,10 @@
     <v-btn flat @click="addCharacter()"> +Character </v-btn>
     <v-btn @click="longRestAll()" v-if="characters.length > 1" flat color="blue">Long Rest All</v-btn>
     <v-tabs hide-slider v-model="tabs">
-      <v-tab v-for="c in characters" :key="c.id">
+      <v-tab v-for="(c, index) in characters" @click="setTab(index)" :key="c.id">
         <span v-if="c.name !== ''">{{shortenName(c.name)}}</span>
         <span v-if="c.name === ''">Name</span>
-        <v-btn v-if="characters.length > 1 && c.id !== '0'" @click="deleteCharacter = c; deleteDialog = true" icon flat color="grey"> <v-icon>cancel</v-icon> </v-btn>
+        <v-btn v-if="characters.length > 1 && c.id !== '0'" @click="deleteCharacter = c; deleteDialog = true" icon flat color="grey"> <v-icon>mdi-close</v-icon> </v-btn>
       </v-tab>
     </v-tabs>
     <v-tabs-items v-model="tabs">
@@ -49,26 +49,18 @@ export default {
     },
     tabs: {
       get: function () {
-        if (!this.allowTabChange) {
-          this.allowTabChange = true
-        }
-        return this.currentTab
+        return this.$store.state.tab
       },
       set: function (value) {
-        if (this.allowTabChange) {
-          this.currentTab = value
-        } else {
-          this.allowTabChange = true
-        }
+        // we don't want v-tabs to be able to set anything because it messes
+        // everything up when doing deletion
       }
     }
   },
   data () {
     return {
-      currentTab: 0,
       deleteDialog: false,
-      deleteCharacter: '',
-      allowTabChange: true
+      deleteCharacter: ''
     }
   },
   methods: {
@@ -83,8 +75,9 @@ export default {
     },
     removeCharacter (c) {
       this.$store.commit('removeCharacter', c.id)
-      this.tabs = 0
-      this.allowTabChange = false
+    },
+    setTab (index) {
+      this.$store.commit('changeTab', index)
     }
   }
 }
