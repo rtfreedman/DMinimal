@@ -36,7 +36,7 @@ let defaultCharacter = {
   initiative: null,
   hitpoints: 1,
   maxHitpoints: 1,
-  id: '0',
+  id: '1',
   name: '',
   proficiency: 0,
   concentrating: '',
@@ -68,7 +68,6 @@ export default new Vuex.Store(
         Warlock: 8,
         Wizard: 6
       },
-      tab: 0,
       snackbar: {
         show: false,
         color: 'red darken-1',
@@ -201,10 +200,6 @@ export default new Vuex.Store(
         })
         if (index === -1) {
           return
-        } else if (index === 0) {
-          this.commit('changeTab', 1)
-        } else {
-          this.commit('changeTab', 0)
         }
         this.state.characters.splice(index, 1)
       },
@@ -309,10 +304,6 @@ export default new Vuex.Store(
           this.state.snackbar.color = payload.color
         }
         this.state.snackbar.show = true
-      },
-      // tab mutations
-      changeTab (state, index) {
-        this.state.tab = index
       }
     }
   }
