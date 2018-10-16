@@ -131,16 +131,13 @@ export default new Vuex.Store(
       changeName (state, payload) { // index name
         this.state.characters[payload.index].name = payload.name
       },
-      changeTab (state, index) {
-        this.state.tab = index
-      },
-      incrementSlot (state, payload) { // charIndex classIndex level
-        this.state.characters[payload.charIndex].classes[payload.classIndex].workingSlots[payload.level] ++
-      },
       decrementSlot (state, payload) { // charIndex classIndex level
         if (this.state.characters[payload.charIndex].classes[payload.classIndex].workingSlots[payload.level] > 0) {
           this.state.characters[payload.charIndex].classes[payload.classIndex].workingSlots[payload.level] --
         }
+      },
+      incrementSlot (state, payload) { // charIndex classIndex level
+        this.state.characters[payload.charIndex].classes[payload.classIndex].workingSlots[payload.level] ++
       },
       longRest (state, charIndex) {
         for (let c in this.state.characters[charIndex].classes) {
@@ -312,6 +309,10 @@ export default new Vuex.Store(
           this.state.snackbar.color = payload.color
         }
         this.state.snackbar.show = true
+      },
+      // tab mutations
+      changeTab (state, index) {
+        this.state.tab = index
       }
     }
   }
