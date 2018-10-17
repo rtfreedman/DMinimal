@@ -50,7 +50,7 @@
           <!-- End Hit Points -->
         </v-layout>
       </v-layout>
-      <death-throws v-if="hitpoints === 0 && maxHitpoints > 0" :charIndex="index"/>
+      <death-throws v-if="hitpoints <= 0 && maxHitpoints > 0" :charIndex="index"/>
       <v-dialog v-model="concentrationDialog" max-width=300>
         <v-card>
           <v-card-text>
