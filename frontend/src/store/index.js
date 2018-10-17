@@ -139,6 +139,17 @@ export default new Vuex.Store(
         this.state.characters[payload.charIndex].classes[payload.classIndex].workingSlots[payload.level] ++
       },
       longRest (state, charIndex) {
+        if (this.state.characters[charIndex].hitpoints === 0) {
+          // you cannot gain the benefits of a long rest at 0 hitpoints
+          this.commit('showSnackbar', {
+            message: this.state.characters[charIndex].name + ' cannot gain the benefits of a long rest at 0 HP'
+          })
+          return
+        }
+        this.commit('setHP', {
+          charIndex: charIndex,
+          hitpoints: this.state.characters[charIndex].hitpoints
+        })
         for (let c in this.state.characters[charIndex].classes) {
           this.state.characters[charIndex].classes[c].workingSlots = JSON.parse(JSON.stringify(this.state.characters[charIndex].classes[c].slots))
         }
@@ -219,6 +230,9 @@ export default new Vuex.Store(
             charIndex: payload.charIndex,
             throwVal: 0
           })
+        }
+        if (payload.hitpoints < 0) {
+          payload.hitpoints = 0
         }
         if (payload.hitpoints > this.state.characters[payload.charIndex].maxHitpoints) {
           this.state.characters[payload.charIndex].hitpoints = Math.floor(this.state.characters[payload.charIndex].maxHitpoints)
