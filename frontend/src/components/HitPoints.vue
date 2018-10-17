@@ -18,7 +18,7 @@
             <v-flex xs1>
               <v-text-field
                 single-line
-                :rules="[mustBeNum, maxNum]"
+                :rules="[mustBeNum, minNum]"
                 v-model="offset"
               />
             </v-flex>
@@ -57,14 +57,6 @@
         <v-card-text>
           <v-layout justify-end row>
             <v-tooltip top>
-              <v-btn large icon flat slot="activator" @click="heal"><v-icon>mdi-medical-bag</v-icon></v-btn>
-              <span>Heal</span>
-            </v-tooltip>
-            <v-tooltip top> <!-- TODO Replace with broken shield icon -->
-              <v-btn large icon flat slot="activator" @click="hurt"><v-icon>mdi-sword</v-icon></v-btn>
-              <span>Take Damage</span>
-            </v-tooltip>
-            <v-tooltip top>
               <v-btn icon flat slot="activator" @click="getHealth(true)"><v-icon>mdi-dice-multiple</v-icon></v-btn>
               <span>Roll Health</span>
             </v-tooltip>
@@ -91,6 +83,9 @@ export default {
   computed: {
     character () {
       return this.$store.state.characters[this.charIndex]
+    },
+    deathThrows () {
+      return this.character.deathThrows
     },
     hitDice () {
       return this.$store.state.hitDice
@@ -142,45 +137,6 @@ export default {
     }
   },
   methods: {
-    heal () {
-      if (isNaN(parseInt(this.hitpoints)) || isNaN(parseInt(this.offset))) {
-        return
-      }
-      this.$store.commit('setHP', {
-        charIndex: this.charIndex,
-        hitpoints: parseInt(this.hitpoints) + parseInt(this.offset)
-      })
-    },
-    hurt () {
-      if (isNaN(parseInt(this.hitpoints)) || isNaN(parseInt(this.offset))) {
-        return
-      }
-      this.$store.commit('setHP', {
-        charIndex: this.charIndex,
-        hitpoints: parseInt(this.hitpoints) - parseInt(this.offset)
-      })
-    },
-    lessThanOrEqualToMax (val) {
-      if (parseInt(val) > this.maxHitpoints) {
-        return 'HP must be less than Max HP'
-      }
-      return true
-    },
-    mustBeNum (val) {
-      if (typeof val === 'string' && val.toLowerCase().includes('e')) {
-        return 'Scientific notation not allowed'
-      }
-      if (isNaN(parseInt(val))) {
-        return 'Input is not a number'
-      }
-      return true
-    },
-    maxNum (val) {
-      if (parseInt(val) > 1000) {
-        return 'Input too large'
-      }
-      return true
-    },
     getHealth (roll) {
       if (this.character.classes.length === 0) {
         return
@@ -211,6 +167,81 @@ export default {
       }
       // used to set health on level up (not sure what to do on decrease...)
       this.rollHealth = roll
+    },
+    heal () {
+      if (isNaN(parseInt(this.hitpoints)) || isNaN(parseInt(this.offset))) {
+        return
+      }
+      if (parseInt(this.offset) === 0) {
+        return
+      }
+      if (this.hitpoints <= 0 && this.deathThrows === 3) {
+        this.$store.commit('showSnackbar', {
+          color: 'black',
+          message: 'You cannot heal death',
+          func: this.resurrect,
+          buttonMessage: 'Resurrect?'
+        })
+        return
+      }
+      this.$store.commit('setHP', {
+        charIndex: this.charIndex,
+        hitpoints: parseInt(this.hitpoints) + parseInt(this.offset)
+      })
+    },
+    hurt () {
+      if (isNaN(parseInt(this.hitpoints)) || isNaN(parseInt(this.offset))) {
+        return
+      }
+      if (parseInt(this.offset) === 0) {
+        return
+      }
+      if (this.hitpoints <= 0 && this.deathThrows < 3) {
+        this.$store.commit('setDeathThrows', {
+          charIndex: this.charIndex,
+          throwVal: this.deathThrows + 1
+        })
+        return
+      }
+      let newHP = parseInt(this.hitpoints) - parseInt(this.offset)
+      if (parseInt(this.offset) >= parseInt(this.hitpoints) + parseInt(this.maxHitpoints)) {
+        this.$store.commit('setDeathThrows', {
+          charIndex: this.charIndex,
+          throwVal: 3
+        })
+        newHP = 0
+      }
+      this.$store.commit('setHP', {
+        charIndex: this.charIndex,
+        hitpoints: newHP
+      })
+    },
+    lessThanOrEqualToMax (val) {
+      if (parseInt(val) > this.maxHitpoints) {
+        return 'HP must be less than Max HP'
+      }
+      return true
+    },
+    mustBeNum (val) {
+      if (typeof val === 'string' && val.toLowerCase().includes('e')) {
+        return 'Scientific notation not allowed'
+      }
+      if (isNaN(parseInt(val))) {
+        return 'Input is not a number'
+      }
+      return true
+    },
+    minNum (val) {
+      if (parseInt(val) < 0) {
+        return 'No negative numbers'
+      }
+      return true
+    },
+    resurrect () {
+      this.$store.commit('setHP', {
+        charIndex: this.charIndex,
+        hitpoints: 1
+      })
     }
   }
 }
