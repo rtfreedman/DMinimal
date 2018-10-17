@@ -6,7 +6,10 @@
       <v-tab v-for="c in characters" :key="c.id">
         <span v-if="c.name !== ''">{{shortenName(c.name)}}</span>
         <span v-if="c.name === ''">Name</span>
-        <v-btn v-if="characters.length > 1 && c.id !== '0'" @click="deleteCharacter = c; deleteDialog = true" icon flat color="grey"> <v-icon>mdi-close</v-icon> </v-btn>
+        <v-layout justify-start align-start row ma-1>
+          <span v-if="c.initiative !== null" class="colorText">{{c.initiative}}</span>
+        </v-layout>
+        <v-btn v-if="characters.length > 1 && c.id !== '0'" @click="deleteCharacter = c; deleteDialog = true" icon small flat color="red"> <v-icon small>mdi-close</v-icon> </v-btn>
       </v-tab>
     </v-tabs>
     <v-tabs-items>
@@ -58,6 +61,7 @@ export default {
   methods: {
     addCharacter () {
       this.$store.commit('addCharacter')
+      this.selectedTab = this.characters.length - 1
     },
     shortenName (name) {
       return name.split(' ')[0]
@@ -72,3 +76,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.colorText {
+  color: yellow;
+  vertical-align: super;
+  font-size: 10px;
+}
+</style>

@@ -35,7 +35,7 @@
               <v-text-field
                 single-line
                 reverse
-                :rules="[lessThanOrEqualToMax, mustBeNum, maxNum]"
+                :rules="[lessThanOrEqualToMax, mustBeNum, minNum]"
                 label="HP"
                 v-model="hitpoints"
               />
@@ -47,7 +47,7 @@
               <v-text-field
                 single-line
                 reverse
-                :rules="[mustBeNum, maxNum]"
+                :rules="[mustBeNum, minNum]"
                 label="Max HP"
                 v-model="maxHitpoints"
               />
@@ -242,6 +242,7 @@ export default {
         charIndex: this.charIndex,
         hitpoints: 1
       })
+      this.$store.commit('hideSnackbar')
     }
   }
 }

@@ -4,8 +4,8 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 let defaultClass = {
-  classname: '',
-  level: 0,
+  classname: 'Bard',
+  level: 1,
   slots: {
     1: 0,
     2: 0,
@@ -138,6 +138,11 @@ export default new Vuex.Store(
       incrementSlot (state, payload) { // charIndex classIndex level
         this.state.characters[payload.charIndex].classes[payload.classIndex].workingSlots[payload.level] ++
       },
+      longRestAll () {
+        for (let c in this.state.characters) {
+          this.commit('longRest', c)
+        }
+      },
       longRest (state, charIndex) {
         if (this.state.characters[charIndex].hitpoints === 0) {
           // you cannot gain the benefits of a long rest at 0 hitpoints
@@ -148,7 +153,7 @@ export default new Vuex.Store(
         }
         this.commit('setHP', {
           charIndex: charIndex,
-          hitpoints: this.state.characters[charIndex].hitpoints
+          hitpoints: this.state.characters[charIndex].maxHitpoints
         })
         for (let c in this.state.characters[charIndex].classes) {
           this.state.characters[charIndex].classes[c].workingSlots = JSON.parse(JSON.stringify(this.state.characters[charIndex].classes[c].slots))
@@ -244,6 +249,9 @@ export default new Vuex.Store(
         if (payload.hitpoints >= 0) {
           this.state.characters[payload.charIndex].maxHitpoints = Math.floor(payload.hitpoints)
         }
+      },
+      setInitiative (state, payload) { // charIndex initiative
+        this.state.characters[payload.charIndex].initiative = payload.initiative
       },
       setRollState (state, payload) {
         this.state.characters[payload.charIndex].rollHealth = payload.rollHealth

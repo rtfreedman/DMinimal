@@ -44,6 +44,7 @@
             <span>Proficiency Bonus</span>
           </v-tooltip>
         </v-layout>
+        <initiative :charIndex="index"/>
         <v-layout align-center row>
           <!-- Hit Points -->
           <hit-points :charIndex="index"></hit-points>
@@ -80,6 +81,7 @@ import Class from '@/components/Class'
 import SpellCast from '@/components/SpellCast'
 import HitPoints from '@/components/HitPoints'
 import DeathSavingThrows from './DeathSavingThrows.vue'
+import Initiative from '@/components/Initiative'
 export default {
   name: 'Tracker',
   props: ['id', 'index'],
@@ -88,7 +90,8 @@ export default {
     'character-class': Class,
     'death-throws': DeathSavingThrows,
     'spell-cast': SpellCast,
-    'hit-points': HitPoints
+    'hit-points': HitPoints,
+    'initiative': Initiative
   },
   computed: {
     classOpts () {
@@ -156,6 +159,9 @@ export default {
     shortRest () {
       let acc = {}
       for (let c in this.character.classes) {
+        if (!this.hitDice.hasOwnProperty(this.character.classes[c].classname.split(' ')[0])) {
+          continue
+        }
         let hitDie = this.hitDice[this.character.classes[c].classname.split(' ')[0]]
         if (!acc.hasOwnProperty(hitDie)) {
           acc[hitDie] = 0
