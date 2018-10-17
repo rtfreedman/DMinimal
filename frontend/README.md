@@ -1,4 +1,4 @@
-# bahamut
+# DMinimal
 
 > A Vue.js project
 
