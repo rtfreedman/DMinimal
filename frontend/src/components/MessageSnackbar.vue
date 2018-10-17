@@ -2,7 +2,7 @@
   <v-snackbar
     :color="snackbarColor"
     v-model="show"
-    :timeout="2500"> <h3>{{snackbarMessage}}</h3>
+    :timeout="3000"> <h3>{{snackbarMessage}}</h3>
     <v-btn v-if="typeof snackbarButtonFunction === 'function'" flat @click="snackbarButtonFunction">{{snackbarButtonMessage}}</v-btn>
   </v-snackbar>
 </template>
