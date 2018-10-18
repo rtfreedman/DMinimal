@@ -91,84 +91,77 @@ export default new Vuex.Store({
       newChar.id = Math.floor(Math.random() * 10 ** 10 + 2).toString()
       this.state.characters.push(newChar)
     },
+
     changeClass(state, payload) {
+      const charIndex = payload.charIndex
+      const classIndex = payload.classIndex
       // charIndex classIndex newClass
-      this.state.characters[payload.charIndex].classes[
-        payload.classIndex
-      ].classname = payload.newClass
+      this.state.characters[charIndex].classes[classIndex].classname =
+        payload.newClass
       this.commit('updateSlots', {
-        charIndex: payload.charIndex,
-        classIndex: payload.classIndex,
+        charIndex,
+        classIndex,
       })
     },
+
     changeClassLevel(state, payload) {
+      const charIndex = payload.charIndex
       // charIndex classIndex newLevel
       let levelOffset =
         payload.newLevel -
-        this.state.characters[payload.charIndex].classes[payload.classIndex]
-          .level
+        this.state.characters[charIndex].classes[payload.classIndex].level
       if (
         payload.classIndex === 0 &&
-        this.state.characters[payload.charIndex].classes[payload.classIndex]
-          .level === 0
+        this.state.characters[charIndex].classes[payload.classIndex].level === 0
       ) {
         this.commit('setMaxHP', {
-          charIndex: payload.charIndex,
-          hitpoints: (this.state.characters[payload.charIndex].maxHitpoints +=
+          charIndex: charIndex,
+          hitpoints: (this.state.characters[charIndex].maxHitpoints +=
             this.state.hitDice[
-              this.state.characters[payload.charIndex].classes[
-                payload.classIndex
-              ].classname
+              this.state.characters[charIndex].classes[payload.classIndex]
+                .classname
             ] +
-            (this.state.characters[payload.charIndex].abilityScores.CON - 10) /
-              2),
+            (this.state.characters[charIndex].abilityScores.CON - 10) / 2),
         })
         levelOffset -= 1
       }
-      if (this.state.characters[payload.charIndex].rollHealth) {
+      if (this.state.characters[charIndex].rollHealth) {
         // health was calculated by rolling. Roll again.
         this.commit('setMaxHP', {
-          charIndex: payload.charIndex,
-          hitpoints: (this.state.characters[payload.charIndex].maxHitpoints +=
+          charIndex: charIndex,
+          hitpoints: (this.state.characters[charIndex].maxHitpoints +=
             (Math.random() *
               (this.state.hitDice[
-                this.state.characters[payload.charIndex].classes[
-                  payload.classIndex
-                ].classname
+                this.state.characters[charIndex].classes[payload.classIndex]
+                  .classname
               ] -
                 1) +
               1 +
-              (this.state.characters[payload.charIndex].abilityScores.CON -
-                10) /
-                2) *
+              (this.state.characters[charIndex].abilityScores.CON - 10) / 2) *
             levelOffset),
         })
       } else {
         // health took average. do that.
         this.commit('setMaxHP', {
-          charIndex: payload.charIndex,
-          hitpoints: (this.state.characters[payload.charIndex].maxHitpoints +=
+          charIndex: charIndex,
+          hitpoints: (this.state.characters[charIndex].maxHitpoints +=
             (Math.ceil(
               this.state.hitDice[
-                this.state.characters[payload.charIndex].classes[
-                  payload.classIndex
-                ].classname
+                this.state.characters[charIndex].classes[payload.classIndex]
+                  .classname
               ] / 2,
             ) +
-              (this.state.characters[payload.charIndex].abilityScores.CON -
-                10) /
-                2) *
+              (this.state.characters[charIndex].abilityScores.CON - 10) / 2) *
             levelOffset),
         })
       }
-      this.state.characters[payload.charIndex].classes[
-        payload.classIndex
-      ].level = payload.newLevel
+      this.state.characters[charIndex].classes[payload.classIndex].level =
+        payload.newLevel
       this.commit('updateSlots', {
-        charIndex: payload.charIndex,
+        charIndex: charIndex,
         classIndex: payload.classIndex,
       })
-      this.commit('proficiencyBonus', payload.charIndex)
+      this.commit('proficiencyBonus', charIndex)
     },
     changeName(state, payload) {
       // index name
@@ -351,9 +344,8 @@ export default new Vuex.Store({
           }
         })
         .then(response => {
-          this.state.characters[payload.charIndex].classes[
-            payload.classIndex
-          ].slots = response.Slots
+          const index = payload.charIndex
+          this.state.characters[index].classes[index].slots = response.Slots
           // make a deep copy for long rests without need to re-access backend
           this.state.characters[payload.charIndex].classes[
             payload.classIndex
