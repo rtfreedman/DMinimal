@@ -15,40 +15,40 @@
 export default {
   props: ['charIndex', 'classIndex'],
   computed: {
-    character() {
+    character () {
       return this.$store.state.characters[this.charIndex]
     },
-    classItem() {
+    classItem () {
       return this.character.classes[this.classIndex]
     },
-    workingSpellSlots() {
+    workingSpellSlots () {
       return this.classItem.workingSlots
     },
-    totalSpellSlots() {
+    totalSpellSlots () {
       return this.classItem.slots
-    },
+    }
   },
   methods: {
-    increment(level) {
+    increment (level) {
       this.$store.commit('incrementSlot', {
         charIndex: this.charIndex,
         classIndex: this.classIndex,
-        level: level,
+        level: level
       })
     },
-    decrement(level) {
+    decrement (level) {
       this.$store.commit('decrementSlot', {
         charIndex: this.charIndex,
         classIndex: this.classIndex,
-        level: level,
+        level: level
       })
-    },
-  },
+    }
+  }
 }
 </script>
 
 <style>
 h4.lvl {
-  color: grey;
+  color: grey
 }
 </style>

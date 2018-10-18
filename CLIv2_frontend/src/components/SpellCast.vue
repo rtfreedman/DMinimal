@@ -72,40 +72,34 @@
 export default {
   props: ['charIndex'],
   computed: {
-    character() {
+    character () {
       return this.$store.state.characters[this.charIndex]
     },
-    classItem() {
+    classItem () {
       return this.character.classes[this.selectedClass]
     },
-    concentrating() {
+    concentrating () {
       return this.character.concentrating
     },
-    currSpellInfo() {
+    currSpellInfo () {
       return this.$store.state.spellsInfo.currSpellInfo
     },
-    currSpellClass() {
+    currSpellClass () {
       return this.$store.state.spellsInfo.className
     },
-    magicClassOpts() {
+    magicClassOpts () {
       return this.$store.state.magicClassOpts
     },
-    spellOpts() {
+    spellOpts () {
       return this.$store.state.spellsInfo.spellList
     },
-    workingSlots() {
+    workingSlots () {
       return this.classItem.workingSlots
-    },
+    }
   },
-  data() {
+  data () {
     return {
-      spellSearchDialogOpts: {
-        Level: 'Level',
-        School: 'School',
-        Duration: 'Duration',
-        SpellRange: 'Range',
-        Components: 'Components',
-      }, // why is this shameful?
+      spellSearchDialogOpts: {Level: 'Level', School: 'School', Duration: 'Duration', SpellRange: 'Range', Components: 'Components'}, // why is this shameful?
       classChoiceDialog: false,
       spellSearchDialog: false,
       atHigherLevelDialog: false,
@@ -114,38 +108,33 @@ export default {
       spellInput: '',
       selectedClass: 0,
       snackbarMessage: '',
-      snackbar: false,
+      snackbar: false
     }
   },
   watch: {
-    spellInput(val) {
-      if (
-        this.currSpellInfo.hasOwnProperty('Name') &&
-        val === this.currSpellInfo.Name
-      ) {
+    spellInput (val) {
+      if (this.currSpellInfo.hasOwnProperty('Name') && val === this.currSpellInfo.Name) {
         return
       }
-      let r = new Request('http://localhost:8010/magic/spell/' + val, {
-        method: 'GET',
-      })
+      let r = new Request('http://localhost:8010/magic/spell/' + val, {method: 'GET'})
       fetch(r)
-        .then(response => {
-          if (response.status === 200) {
-            return response.json()
-          } else {
-            throw new Error('Something went wrong on api server!')
-          }
-        })
-        .then(response => {
-          this.$store.commit('setSpellInfo', response)
-        })
-        .catch(error => {
-          console.error(error)
-        })
-    },
+      .then(response => {
+        if (response.status === 200) {
+          return response.json()
+        } else {
+          throw new Error('Something went wrong on api server!')
+        }
+      })
+      .then(response => {
+        this.$store.commit('setSpellInfo', response)
+      })
+      .catch(error => {
+        console.error(error)
+      })
+    }
   },
   methods: {
-    spellPreflight() {
+    spellPreflight () {
       let magicClasses = []
       for (let c in this.character.classes) {
         if (this.magicClassOpts.includes(this.character.classes[c].classname)) {
@@ -160,58 +149,50 @@ export default {
         this.spellSearchDialog = true
         this.fetchSpellOpts()
       } else {
-        this.$store.commit('showSnackbar', {
-          message: 'Cannot Cast Spells: No Magic Classes',
-        })
+        this.$store.commit('showSnackbar', {message: 'Cannot Cast Spells: No Magic Classes'})
       }
     },
-    fetchSpellOpts() {
+    fetchSpellOpts () {
       if (this.currSpellClass === this.classItem.classname) {
         return
       }
       let strBody = JSON.stringify({
         classes: [this.classItem.classname],
-        spellName: '',
+        spellName: ''
       })
-      let r = new Request('http://localhost:8010/magic/search/', {
-        method: 'Post',
-        body: strBody,
-      })
+      let r = new Request('http://localhost:8010/magic/search/', {method: 'Post', body: strBody})
       let opts = []
       fetch(r)
-        .then(response => {
-          if (response.status === 200) {
-            return response.json()
-          } else {
-            throw new Error('Something went wrong on api server!')
-          }
+      .then(response => {
+        if (response.status === 200) {
+          return response.json()
+        } else {
+          throw new Error('Something went wrong on api server!')
+        }
+      })
+      .then(response => {
+        opts = response.spellOpts
+        this.$store.commit('setSpellOpts', {
+          spellOpts: opts,
+          className: this.classItem.classname
         })
-        .then(response => {
-          opts = response.spellOpts
-          this.$store.commit('setSpellOpts', {
-            spellOpts: opts,
-            className: this.classItem.classname,
-          })
-          this.spellSearchDialog = true
-        })
-        .catch(error => {
-          console.error(error)
-        })
+        this.spellSearchDialog = true
+      })
+      .catch(error => {
+        console.error(error)
+      })
     },
-    stopConcentrating() {
+    stopConcentrating () {
       this.$store.commit('stopConcentrating', this.charIndex)
       this.$store.commit('hideSnackbar')
     },
-    castSpell() {
-      if (
-        this.concentrating &&
-        this.currSpellInfo.hasOwnProperty('Concentration')
-      ) {
+    castSpell () {
+      if (this.concentrating && this.currSpellInfo.hasOwnProperty('Concentration')) {
         // launch concentration snackbar
         this.$store.commit('showSnackbar', {
           message: 'Concentrating on ' + this.concentrating,
           func: this.stopConcentrating,
-          buttonMessage: 'Stop Concentrating',
+          buttonMessage: 'Stop Concentrating'
         })
         return
       }
@@ -219,7 +200,7 @@ export default {
         this.$store.commit('decrementSlot', {
           charIndex: this.charIndex,
           classIndex: this.selectedClass,
-          level: this.currSpellInfo.Level,
+          level: this.currSpellInfo.Level
         })
         this.spellSearchDialog = false
         return
@@ -232,7 +213,7 @@ export default {
         }
       }
       let payload = {
-        message: 'No slots available at spell level',
+        message: 'No slots available at spell level'
       }
       if (slotsAvailable) {
         payload['func'] = this.openAtHigherLevelDialog
@@ -240,19 +221,20 @@ export default {
       }
       this.$store.commit('showSnackbar', payload)
     },
-    openAtHigherLevelDialog() {
+    openAtHigherLevelDialog () {
       this.atHigherLevelDialog = true
       this.$store.commit('hideSnackbar')
     },
-    castSpellAtLvl(level) {
+    castSpellAtLvl (level) {
       this.$store.commit('decrementSlot', {
         charIndex: this.charIndex,
         classIndex: this.selectedClass,
-        level: level,
+        level: level
       })
       this.atHigherLevelDialog = false
       this.spellSearchDialog = false
-    },
-  },
+    }
+  }
 }
 </script>
+

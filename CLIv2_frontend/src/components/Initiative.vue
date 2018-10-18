@@ -10,7 +10,10 @@
 
 <script>
 export default {
-  props: ['charIndex'],
-  computed: {},
+    props: ['charIndex'],
+    computed: {
+
+    }
 }
 </script>
+
