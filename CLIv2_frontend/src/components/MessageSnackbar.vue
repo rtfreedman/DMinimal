@@ -2,7 +2,7 @@
   <v-snackbar
     :color="snackbarColor"
     v-model="show"
-    :timeout="3000"> <h3>{{snackbarMessage}}</h3>
+    :timeout="2500"> <h3>{{snackbarMessage}}</h3>
     <v-btn v-if="typeof snackbarButtonFunction === 'function'" flat @click="snackbarButtonFunction">{{snackbarButtonMessage}}</v-btn>
   </v-snackbar>
 </template>
@@ -10,29 +10,29 @@
 <script>
 export default {
   computed: {
-    snackbar() {
+    snackbar () {
       return this.$store.state.snackbar
     },
     show: {
-      get() {
+      get () {
         return this.snackbar.show
       },
-      set() {
+      set () {
         this.$store.commit('hideSnackbar')
-      },
+      }
     },
-    snackbarMessage() {
+    snackbarMessage () {
       return this.snackbar.message
     },
-    snackbarColor() {
+    snackbarColor () {
       return this.snackbar.color
     },
-    snackbarButtonMessage() {
+    snackbarButtonMessage () {
       return this.snackbar.buttonMessage
     },
-    snackbarButtonFunction() {
+    snackbarButtonFunction () {
       return this.snackbar.buttonFunction
-    },
-  },
+    }
+  }
 }
 </script>
