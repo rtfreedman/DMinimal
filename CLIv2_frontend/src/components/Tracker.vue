@@ -44,14 +44,13 @@
             <span>Proficiency Bonus</span>
           </v-tooltip>
         </v-layout>
-        <initiative :charIndex="index"/>
         <v-layout align-center row>
           <!-- Hit Points -->
           <hit-points :charIndex="index"></hit-points>
           <!-- End Hit Points -->
         </v-layout>
       </v-layout>
-      <death-throws v-if="hitpoints <= 0 && maxHitpoints > 0" :charIndex="index"/>
+      <death-throws v-if="hitpoints === 0 && maxHitpoints > 0" :charIndex="index"/>
       <v-dialog v-model="concentrationDialog" max-width=300>
         <v-card>
           <v-card-text>
@@ -81,7 +80,6 @@ import Class from '@/components/Class'
 import SpellCast from '@/components/SpellCast'
 import HitPoints from '@/components/HitPoints'
 import DeathSavingThrows from './DeathSavingThrows.vue'
-import Initiative from '@/components/Initiative'
 export default {
   name: 'Tracker',
   props: ['id', 'index'],
@@ -90,78 +88,74 @@ export default {
     'character-class': Class,
     'death-throws': DeathSavingThrows,
     'spell-cast': SpellCast,
-    'hit-points': HitPoints,
-    'initiative': Initiative
+    'hit-points': HitPoints
   },
   computed: {
-    classOpts() {
+    classOpts () {
       return this.$store.state.classOpts
     },
-    hitDice() {
+    hitDice () {
       return this.$store.state.hitDice
     },
-    character() {
+    character () {
       return this.$store.state.characters[this.index]
     },
-    hitpoints() {
+    hitpoints () {
       return this.character.hitpoints
     },
-    maxHitpoints() {
+    maxHitpoints () {
       return this.character.maxHitpoints
     },
-    proficiencyBonus() {
+    proficiencyBonus () {
       return this.character.proficiency
     },
     name: {
-      get() {
+      get () {
         return this.character.name
       },
-      set(state) {
+      set (state) {
         this.$store.commit('changeName', {
           index: this.index,
-          name: state,
+          name: state
         })
-      },
-    },
+      }
+    }
   },
-  data() {
+  data () {
     return {
       concentrationDialog: false,
-      shortRestDie: {},
+      shortRestDie: {}
     }
   },
   methods: {
-    multiclass() {
-      this.$store.commit('multiclass', { index: this.index, classname: '' })
+    multiclass () {
+      this.$store.commit('multiclass', {'index': this.index, 'classname': ''})
     },
-    longRest() {
+    longRest () {
       this.$store.commit('longRest', this.index)
     },
-    resetCharacter() {
+    resetCharacter () {
       for (let c in this.character.classes) {
         this.$store.commit('updateSlots', {
           charIndex: this.index,
-          classIndex: c,
+          classIndex: c
         })
       }
     },
-    performShortRest() {
+    performShortRest () {
       let restoredHealth = 0
       for (let a in this.shortRestDie) {
         restoredHealth += Math.floor(Math.random() * this.shortRestDie[a])
       }
       this.$store.commit('setHP', {
         charIndex: this.index,
-        hitpoints: parseInt(this.hitpoints) + restoredHealth,
+        hitpoints: parseInt(this.hitpoints) + restoredHealth
       })
       this.$store.commit('hideSnackbar')
     },
-    shortRest() {
+    shortRest () {
       let acc = {}
       for (let c in this.character.classes) {
-        if (!this.hitDice.hasOwnProperty(this.character.classes[c].classname.split(' ')[0])) {
-          continue
-        }
         let hitDie = this.hitDice[this.character.classes[c].classname.split(' ')[0]]
         if (!acc.hasOwnProperty(hitDie)) {
           acc[hitDie] = 0
@@ -172,25 +166,22 @@ export default {
       this.shortRestDie = []
       for (let k in acc) {
         message.push(acc[k].toString() + 'd' + k.toString())
-        this.shortRestDie.push.apply(
-          this.shortRestDie,
-          new Array(acc[k]).fill(k),
-        )
+        this.shortRestDie.push.apply(this.shortRestDie, new Array(acc[k]).fill(k))
       }
       message = 'Restore ' + message.join(', ')
       this.$store.commit('showSnackbar', {
         color: 'green',
         message: message,
         func: this.performShortRest,
-        buttonMessage: 'Roll',
+        buttonMessage: 'Roll'
       })
     },
-    stopConcentrating() {
+    stopConcentrating () {
       this.$store.commit('stopConcentrating', this.index)
     },
-    castSpell() {
+    castSpell () {
       this.$refs.spellCast.spellPreflight()
-    },
-  },
+    }
+  }
 }
 </script>
