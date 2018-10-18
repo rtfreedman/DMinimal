@@ -3,9 +3,9 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-const defaultClass = {
-  classname: '',
-  level: 0,
+let defaultClass = {
+  classname: 'Bard',
+  level: 1,
   slots: {
     1: 0,
     2: 0,
@@ -30,7 +30,7 @@ const defaultClass = {
   },
 }
 
-const defaultCharacter = {
+let defaultCharacter = {
   deathThrows: 0,
   lifeThrows: 0,
   initiative: null,
@@ -67,7 +67,6 @@ export default new Vuex.Store({
       Warlock: 8,
       Wizard: 6,
     },
-    tab: 0,
     snackbar: {
       show: false,
       color: 'red darken-1',
@@ -91,77 +90,84 @@ export default new Vuex.Store({
       newChar.id = Math.floor(Math.random() * 10 ** 10 + 2).toString()
       this.state.characters.push(newChar)
     },
-
     changeClass(state, payload) {
-      const charIndex = payload.charIndex
-      const classIndex = payload.classIndex
       // charIndex classIndex newClass
-      this.state.characters[charIndex].classes[classIndex].classname =
-        payload.newClass
+      this.state.characters[payload.charIndex].classes[
+        payload.classIndex
+      ].classname = payload.newClass
       this.commit('updateSlots', {
-        charIndex,
-        classIndex,
+        charIndex: payload.charIndex,
+        classIndex: payload.classIndex,
       })
     },
-
     changeClassLevel(state, payload) {
-      const charIndex = payload.charIndex
       // charIndex classIndex newLevel
       let levelOffset =
         payload.newLevel -
-        this.state.characters[charIndex].classes[payload.classIndex].level
+        this.state.characters[payload.charIndex].classes[payload.classIndex]
+          .level
       if (
         payload.classIndex === 0 &&
-        this.state.characters[charIndex].classes[payload.classIndex].level === 0
+        this.state.characters[payload.charIndex].classes[payload.classIndex]
+          .level === 0
       ) {
         this.commit('setMaxHP', {
-          charIndex: charIndex,
-          hitpoints: (this.state.characters[charIndex].maxHitpoints +=
+          charIndex: payload.charIndex,
+          hitpoints: (this.state.characters[payload.charIndex].maxHitpoints +=
             this.state.hitDice[
-              this.state.characters[charIndex].classes[payload.classIndex]
-                .classname
+              this.state.characters[payload.charIndex].classes[
+                payload.classIndex
+              ].classname
             ] +
-            (this.state.characters[charIndex].abilityScores.CON - 10) / 2),
+            (this.state.characters[payload.charIndex].abilityScores.CON - 10) /
+              2),
         })
         levelOffset -= 1
       }
-      if (this.state.characters[charIndex].rollHealth) {
+      if (this.state.characters[payload.charIndex].rollHealth) {
         // health was calculated by rolling. Roll again.
         this.commit('setMaxHP', {
-          charIndex: charIndex,
-          hitpoints: (this.state.characters[charIndex].maxHitpoints +=
+          charIndex: payload.charIndex,
+          hitpoints: (this.state.characters[payload.charIndex].maxHitpoints +=
             (Math.random() *
               (this.state.hitDice[
-                this.state.characters[charIndex].classes[payload.classIndex]
-                  .classname
+                this.state.characters[payload.charIndex].classes[
+                  payload.classIndex
+                ].classname
               ] -
                 1) +
               1 +
-              (this.state.characters[charIndex].abilityScores.CON - 10) / 2) *
+              (this.state.characters[payload.charIndex].abilityScores.CON -
+                10) /
+                2) *
             levelOffset),
         })
       } else {
         // health took average. do that.
         this.commit('setMaxHP', {
-          charIndex: charIndex,
-          hitpoints: (this.state.characters[charIndex].maxHitpoints +=
+          charIndex: payload.charIndex,
+          hitpoints: (this.state.characters[payload.charIndex].maxHitpoints +=
             (Math.ceil(
               this.state.hitDice[
-                this.state.characters[charIndex].classes[payload.classIndex]
-                  .classname
+                this.state.characters[payload.charIndex].classes[
+                  payload.classIndex
+                ].classname
               ] / 2,
             ) +
-              (this.state.characters[charIndex].abilityScores.CON - 10) / 2) *
+              (this.state.characters[payload.charIndex].abilityScores.CON -
+                10) /
+                2) *
             levelOffset),
         })
       }
-      this.state.characters[charIndex].classes[payload.classIndex].level =
-        payload.newLevel
+      this.state.characters[payload.charIndex].classes[
+        payload.classIndex
+      ].level = payload.newLevel
       this.commit('updateSlots', {
-        charIndex: charIndex,
+        charIndex: payload.charIndex,
         classIndex: payload.classIndex,
       })
-      this.commit('proficiencyBonus', charIndex)
+      this.commit('proficiencyBonus', payload.charIndex)
     },
     changeName(state, payload) {
       // index name
@@ -182,7 +188,25 @@ export default new Vuex.Store({
       this.state.characters[payload.charIndex].classes[payload.classIndex]
         .workingSlots[payload.level]++
     },
+    longRestAll() {
+      for (let c in this.state.characters) {
+        this.commit('longRest', c)
+      }
+    },
     longRest(state, charIndex) {
+      if (this.state.characters[charIndex].hitpoints === 0) {
+        // you cannot gain the benefits of a long rest at 0 hitpoints
+        this.commit('showSnackbar', {
+          message:
+            this.state.characters[charIndex].name +
+            ' cannot gain the benefits of a long rest at 0 HP',
+        })
+        return
+      }
+      this.commit('setHP', {
+        charIndex: charIndex,
+        hitpoints: this.state.characters[charIndex].maxHitpoints,
+      })
       for (let c in this.state.characters[charIndex].classes) {
         this.state.characters[charIndex].classes[c].workingSlots = JSON.parse(
           JSON.stringify(this.state.characters[charIndex].classes[c].slots),
@@ -265,10 +289,6 @@ export default new Vuex.Store({
       })
       if (index === -1) {
         return
-      } else if (index === 0) {
-        this.commit('changeTab', 1)
-      } else {
-        this.commit('changeTab', 0)
       }
       this.state.characters.splice(index, 1)
     },
@@ -292,6 +312,9 @@ export default new Vuex.Store({
           throwVal: 0,
         })
       }
+      if (payload.hitpoints < 0) {
+        payload.hitpoints = 0
+      }
       if (
         payload.hitpoints >
         this.state.characters[payload.charIndex].maxHitpoints
@@ -310,6 +333,10 @@ export default new Vuex.Store({
           payload.hitpoints,
         )
       }
+    },
+    setInitiative(state, payload) {
+      // charIndex initiative
+      this.state.characters[payload.charIndex].initiative = payload.initiative
     },
     setRollState(state, payload) {
       this.state.characters[payload.charIndex].rollHealth = payload.rollHealth
@@ -344,8 +371,9 @@ export default new Vuex.Store({
           }
         })
         .then(response => {
-          const index = payload.charIndex
-          this.state.characters[index].classes[index].slots = response.Slots
+          this.state.characters[payload.charIndex].classes[
+            payload.classIndex
+          ].slots = response.Slots
           // make a deep copy for long rests without need to re-access backend
           this.state.characters[payload.charIndex].classes[
             payload.classIndex
@@ -402,10 +430,6 @@ export default new Vuex.Store({
         this.state.snackbar.color = payload.color
       }
       this.state.snackbar.show = true
-    },
-    // tab mutations
-    changeTab(state, index) {
-      this.state.tab = index
     },
   },
 })
