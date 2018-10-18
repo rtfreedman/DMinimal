@@ -28,55 +28,57 @@
 
 <script>
 import MagicClass from '@/components/MagicClass'
-export default { // TODO: spell save DC, spell attack modifier, spell slot counters, spell search dialog (all inside a conditional magic component)
+export default {
+  // TODO: spell save DC, spell attack modifier, spell slot counters, spell search dialog (all inside a conditional magic component)
   props: ['classIndex', 'charIndex'],
   components: {
-    'magic-class': MagicClass
+    'magic-class': MagicClass,
   },
   computed: {
-    classOpts () {
+    classOpts() {
       return this.$store.state.classOpts
     },
-    classItem () {
-      return this.$store.state.characters[this.charIndex].classes[this.classIndex]
+    classItem() {
+      return this.$store.state.characters[this.charIndex].classes[
+        this.classIndex
+      ]
     },
     className: {
-      get () {
+      get() {
         return this.classItem.classname
       },
-      set (state) {
+      set(state) {
         if (this.classOpts.includes(state)) {
           this.$store.commit('changeClass', {
             charIndex: this.charIndex,
             classIndex: this.classIndex,
-            newClass: state
+            newClass: state,
           })
         }
-      }
+      },
     },
     level: {
-      get () {
+      get() {
         return this.classItem.level
       },
-      set (state) {
+      set(state) {
         if (typeof state === 'number') {
           this.$store.commit('changeClassLevel', {
             charIndex: this.charIndex,
             classIndex: this.classIndex,
-            newLevel: state
+            newLevel: state,
           })
         }
-      }
+      },
     },
-    magicClassOpts () {
+    magicClassOpts() {
       return this.$store.state.magicClassOpts
+    },
+  },
+  data() {
+    return {
+      levelOpts: Array.from(new Array(20), (x, i) => i + 1), // [1,20]
     }
   },
-  data () {
-    return {
-      levelOpts: Array.from(new Array(20), (x, i) => i + 1) // [1,20]
-    }
-  }
 }
 </script>
-

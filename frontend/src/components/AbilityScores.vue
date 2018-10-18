@@ -27,7 +27,7 @@ export default {
   name: 'AbilityScores',
   props: ['scores', 'index'],
   methods: {
-    getMod (val) {
+    getMod(val) {
       let modifier = Math.floor((val - 10) / 2)
       if (modifier > 0) {
         return '+' + modifier
@@ -35,37 +35,41 @@ export default {
         return '' + modifier
       }
     },
-    offsetStat (stat, offset) {
+    offsetStat(stat, offset) {
       this.$store.commit('offsetStat', {
         stat: stat,
         offset: offset,
-        index: this.index
+        index: this.index,
       })
     },
-    rollStat (stat) {
+    rollStat(stat) {
       let rolls = []
       for (let i = 0; i < 4; i++) {
         rolls.push(Math.floor(Math.random() * 6) + 1)
       }
-      this.droppedDice = 'mdi-dice-' + (Math.min.apply(null, rolls).toString())
+      this.droppedDice = 'mdi-dice-' + Math.min.apply(null, rolls).toString()
       rolls.splice(rolls.indexOf(Math.min.apply(null, rolls)), 1)
-      let getsum = (total, num) => { return total + num }
+      let getsum = (total, num) => {
+        return total + num
+      }
       let newtotal = rolls.reduce(getsum)
       this.$store.commit('offsetStat', {
         stat: stat,
         offset: newtotal - this.scores[stat],
-        index: this.index
+        index: this.index,
       })
-      this.diceResult = rolls.map(val => { return 'mdi-dice-' + (val.toString()) })
-    }
+      this.diceResult = rolls.map(val => {
+        return 'mdi-dice-' + val.toString()
+      })
+    },
   },
-  data () {
+  data() {
     return {
       selectedStat: 'STR',
       diceResult: [],
       droppedDice: '',
-      statsDialog: false
+      statsDialog: false,
     }
-  }
+  },
 }
 </script>
