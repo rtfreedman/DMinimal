@@ -39,6 +39,7 @@ let defaultCharacter = {
   id: '1',
   name: '',
   proficiency: 0,
+  rollHealth: true,
   concentrating: '',
   classes: [JSON.parse(JSON.stringify(defaultClass))],
   abilityScores: {
@@ -94,7 +95,8 @@ export default new Vuex.Store({
       // charIndex classIndex newClass
       this.state.characters[payload.charIndex].classes[
         payload.classIndex
-      ].classname = payload.newClass
+      ].classname =
+        payload.newClass
       this.commit('updateSlots', {
         charIndex: payload.charIndex,
         classIndex: payload.classIndex,
@@ -162,7 +164,8 @@ export default new Vuex.Store({
       }
       this.state.characters[payload.charIndex].classes[
         payload.classIndex
-      ].level = payload.newLevel
+      ].level =
+        payload.newLevel
       this.commit('updateSlots', {
         charIndex: payload.charIndex,
         classIndex: payload.classIndex,
@@ -373,7 +376,8 @@ export default new Vuex.Store({
         .then(response => {
           this.state.characters[payload.charIndex].classes[
             payload.classIndex
-          ].slots = response.Slots
+          ].slots =
+            response.Slots
           // make a deep copy for long rests without need to re-access backend
           this.state.characters[payload.charIndex].classes[
             payload.classIndex
