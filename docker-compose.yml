@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  dnddata:
+    container_name: dnddata
+    image: postgres
+    ports:
+    - 5429:5432
+    volumes:
+    - ./pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: changeme
+      POSTGRES_USER: wizerd
+      POSTGRES_DB: dnd

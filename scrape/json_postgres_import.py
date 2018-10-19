@@ -1,5 +1,6 @@
 import psycopg2
 import json
+import getpass
 
 # generate type string for expected input values in set
 def get_type_string(content):
@@ -57,7 +58,7 @@ create_table = f'CREATE TABLE spells (id serial PRIMARY KEY, {get_type_string(co
 # print()
 # print('\n')
 # exit()
-conn = psycopg2.connect('dbname=dnd user=ryan')
+conn = psycopg2.connect(f'dbname=dnd port=5429 host=0.0.0.0 user=wizerd password={getpass.getpass("Postgres Password: ")}')
 cur = conn.cursor()
 cur.execute(create_table)
 for spell in content['Spells']:
