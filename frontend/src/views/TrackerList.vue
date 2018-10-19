@@ -2,7 +2,7 @@
   <v-container>
     <v-btn flat @click="addCharacter()"> +Character </v-btn>
     <v-btn @click="longRestAll()" v-if="characters.length > 1" flat color="blue">Long Rest All</v-btn>
-    <v-tabs hide-slider v-model="selectedTab">
+    <v-tabs slider-color="yellow" v-model="selectedTab">
       <v-tab v-for="c in characters.length" :key="'tab'+c">
         <span v-if="characters[c - 1].name !== ''">{{shortenName(characters[c - 1].name)}}</span>
         <span v-if="characters[c - 1].name === ''">Name</span>
@@ -13,9 +13,6 @@
       </v-tab>
       <v-tab-item v-for="c in characters.length" :key="'character' + c">
         <v-card flat>
-          <v-layout justify-end>
-            <v-btn v-if="characters.length > 1" @click="deleteCharacter = characters[selectedTab]; deleteDialog = true" icon small flat color="red"> <v-icon small>mdi-close</v-icon> </v-btn>
-          </v-layout>
           <tracker :id="characters[c - 1].id" :index="selectedTab"></tracker>
         </v-card>
       </v-tab-item>
