@@ -250,10 +250,11 @@ export default new Vuex.Store({
             payload.offset
           return
         }
-        let oddCorrection =
-          (this.state.characters[payload.index].abilityScores[payload.stat] %
-            2) /
-          2.0
+        let oddCorrection = this.state.characters[payload.index].abilityScores[
+          payload.stat
+        ]
+        oddCorrection %= 2
+        oddCorrection /= 2.0
         let newmax =
           this.state.characters[payload.index].maxHitpoints +
           Math.floor(payload.offset / 2 + oddCorrection) * totalLevel
