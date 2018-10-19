@@ -13,39 +13,44 @@ import SpellSlots from '@/components/SpellSlots'
 export default {
   props: ['charIndex', 'classIndex'],
   components: {
-    'spell-slots': SpellSlots
+    'spell-slots': SpellSlots,
   },
   computed: {
-    character () {
+    character() {
       return this.$store.state.characters[this.charIndex]
     },
-    classItem () {
+    classItem() {
       return this.character.classes[this.classIndex]
     },
-    spellDC () {
+    spellDC() {
       return this.spellMod + 8
     },
-    spellMod () {
-      let mod = this.getMod(this.$store.state.characters[this.charIndex].abilityScores.INT)
+    spellMod() {
+      let mod = this.getMod(
+        this.$store.state.characters[this.charIndex].abilityScores.INT,
+      )
       if (this.chrClasses.includes(this.classItem.classname)) {
-        mod = this.getMod(this.$store.state.characters[this.charIndex].abilityScores.CHR)
+        mod = this.getMod(
+          this.$store.state.characters[this.charIndex].abilityScores.CHR,
+        )
       } else if (this.wisClasses.includes(this.classItem.classname)) {
-        mod = this.getMod(this.$store.state.characters[this.charIndex].abilityScores.WIS)
+        mod = this.getMod(
+          this.$store.state.characters[this.charIndex].abilityScores.WIS,
+        )
       }
       return this.character.proficiency + mod
-    }
+    },
   },
-  data () {
+  data() {
     return {
       chrClasses: ['Bard', 'Sorcerer', 'Paladin', 'Warlock'],
-      wisClasses: ['Cleric', 'Druid', 'Ranger']
+      wisClasses: ['Cleric', 'Druid', 'Ranger'],
     }
   },
   methods: {
-    getMod (val) {
+    getMod(val) {
       return Math.floor((val - 10) / 2)
-    }
-  }
+    },
+  },
 }
 </script>
-

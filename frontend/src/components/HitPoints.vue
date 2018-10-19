@@ -74,14 +74,14 @@
 <script>
 export default {
   props: ['charIndex'],
-  mounted () {
+  mounted() {
     this.getHealth(false)
     this.offset = this.maxHitpoints
     this.heal()
     this.offset = '0'
   },
   computed: {
-    character () {
+    character() {
       return this.$store.state.characters[this.charIndex]
     },
     deathThrows () {
@@ -91,49 +91,50 @@ export default {
       return this.$store.state.hitDice
     },
     hitpoints: {
-      get () {
+      get() {
         return this.character.hitpoints
       },
-      set (val) {
+      set(val) {
         if (isNaN(parseInt(val))) {
           return
         }
         this.$store.commit('setHP', {
           charIndex: this.charIndex,
-          hitpoints: parseInt(val)
+          hitpoints: parseInt(val),
         })
-      }
+      },
     },
     maxHitpoints: {
-      get () {
+      get() {
         return this.character.maxHitpoints
       },
-      set (val) {
+      set(val) {
         if (isNaN(parseInt(val))) {
           return
         }
         this.$store.commit('setMaxHP', {
           charIndex: this.charIndex,
-          hitpoints: parseInt(val)
+          hitpoints: parseInt(val),
         })
-      }
+      },
     },
     rollHealth: {
-      get () { // unused
+      get() {
+        // unused
         return this.character.rollHealth
       },
-      set (val) {
+      set(val) {
         this.$store.commit('setRollState', {
           charIndex: this.charIndex,
-          rollHealth: val
+          rollHealth: val,
         })
-      }
-    }
+      },
+    },
   },
-  data () {
+  data() {
     return {
       offset: '0',
-      hitpointDialog: false
+      hitpointDialog: false,
     }
   },
   methods: {
@@ -186,10 +187,10 @@ export default {
       }
       this.$store.commit('setHP', {
         charIndex: this.charIndex,
-        hitpoints: parseInt(this.hitpoints) + parseInt(this.offset)
+        hitpoints: parseInt(this.hitpoints) + parseInt(this.offset),
       })
     },
-    hurt () {
+    hurt() {
       if (isNaN(parseInt(this.hitpoints)) || isNaN(parseInt(this.offset))) {
         return
       }
@@ -216,13 +217,13 @@ export default {
         hitpoints: newHP
       })
     },
-    lessThanOrEqualToMax (val) {
+    lessThanOrEqualToMax(val) {
       if (parseInt(val) > this.maxHitpoints) {
         return 'HP must be less than Max HP'
       }
       return true
     },
-    mustBeNum (val) {
+    mustBeNum(val) {
       if (typeof val === 'string' && val.toLowerCase().includes('e')) {
         return 'Scientific notation not allowed'
       }

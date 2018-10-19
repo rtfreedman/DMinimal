@@ -46,32 +46,31 @@ export default {
   name: 'DeathSavingThrows', // too verbose?
   props: ['charIndex'],
   computed: {
-    character () {
+    character() {
       return this.$store.state.characters[this.charIndex]
     },
     deathThrows: {
-      get () {
+      get() {
         return this.character.deathThrows
       },
-      set (val) {
+      set(val) {
         this.$store.commit('setDeathThrows', {
           charIndex: this.charIndex,
-          throwVal: val
+          throwVal: val,
         })
-      }
+      },
     },
     lifeThrows: {
-      get () {
+      get() {
         return this.character.lifeThrows
       },
-      set (val) {
+      set(val) {
         this.$store.commit('setLifeThrows', {
           charIndex: this.charIndex,
-          throwVal: val
+          throwVal: val,
         })
-      }
-    }
-  }
+      },
+    },
+  },
 }
 </script>
-
