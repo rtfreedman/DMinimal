@@ -3,22 +3,23 @@
     <v-btn flat @click="addCharacter()"> +Character </v-btn>
     <v-btn @click="longRestAll()" v-if="characters.length > 1" flat color="blue">Long Rest All</v-btn>
     <v-tabs hide-slider v-model="selectedTab">
-      <v-tab v-for="c in characters" :key="c.id">
-        <span v-if="c.name !== ''">{{shortenName(c.name)}}</span>
-        <span v-if="c.name === ''">Name</span>
+      <v-tab v-for="c in characters.length" :key="'tab'+c">
+        <span v-if="characters[c - 1].name !== ''">{{shortenName(characters[c - 1].name)}}</span>
+        <span v-if="characters[c - 1].name === ''">Name</span>
         <v-layout justify-start align-start row ma-1>
-          <span v-if="c.initiative !== null" class="colorText">{{c.initiative}}</span>
+          <span v-if="characters[c - 1].initiative !== null" class="colorText">{{characters[c - 1].initiative}}</span>
         </v-layout>
-        <v-btn v-if="characters.length > 1 && c.id !== '0'" @click="deleteCharacter = c; deleteDialog = true" icon small flat color="red"> <v-icon small>mdi-close</v-icon> </v-btn>
+        <v-btn v-if="characters.length > 1" @click.stop="deleteCharacter = characters[selectedTab]; deleteDialog = true" icon small flat color="red"> <v-icon small>mdi-close</v-icon> </v-btn>
       </v-tab>
-    </v-tabs>
-    <v-tabs-items>
-      <v-tab-item>
+      <v-tab-item v-for="c in characters.length" :key="'character' + c">
         <v-card flat>
-          <tracker :ref="'character' + characters[selectedTab].id" :id="characters[selectedTab].id" :index="selectedTab"></tracker>
+          <v-layout justify-end>
+            <v-btn v-if="characters.length > 1" @click="deleteCharacter = characters[selectedTab]; deleteDialog = true" icon small flat color="red"> <v-icon small>mdi-close</v-icon> </v-btn>
+          </v-layout>
+          <tracker :id="characters[c - 1].id" :index="selectedTab"></tracker>
         </v-card>
       </v-tab-item>
-    </v-tabs-items>
+    </v-tabs>
     <v-dialog v-model="deleteDialog" max-width=300>
       <v-card>
         <v-card-text>
@@ -71,7 +72,6 @@ export default {
     },
     removeCharacter (c) {
       this.$store.commit('removeCharacter', c.id)
-      this.selectedTab = 0
     }
   }
 }
