@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  dnddata:
-    container_name: dnddata
+  Ashardalon:
+    container_name: Ashardalon
     image: postgres
     ports:
     - 5429:5432
