@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 
-	"github.com/rtfreedman/DMinimal/routines"
-	"github.com/rtfreedman/SpellTracker/api"
+	"github.com/rtfreedman/DMinimal/backend/api"
+	"github.com/rtfreedman/DMinimal/backend/routines"
 )
 
 var port int
