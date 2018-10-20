@@ -28,15 +28,15 @@ def get_type_string(content):
 def insert_spell(cur, spell):
 	spell_keys = list(spell.keys())
 	# because you can't have backslashes in fstring brackets
-	def quote(item):
-		if type(item) is str:
-			return '\"' + item + '\"'
-		elif type(item) is list:
-			return 'ARRAY' + str(item)
-		return str(item)
+	# def quote(item):
+	# 	if type(item) is str:
+	# 		return '\"' + item + '\"'
+	# 	elif type(item) is list:
+	# 		return 'ARRAY' + str(item)
+	# 	return str(item)
 	cur.execute(f'INSERT INTO spells ({", ".join([key.replace(" ", "") for key in spell_keys])}) VALUES ({", ".join(["%s"]*len(spell_keys))})', [spell[key] for key in spell_keys])
 
-with open('data.json', 'r') as f:
+with open('scrape/data.json', 'r') as f:
 	content = json.loads(f.read())
 
 keys = set()
@@ -51,7 +51,7 @@ for spell in content['Spells']:
 # Key: Components, Type: <class 'str'>
 # Key: Classes, Type: <class 'list'>
 
-create_table = f'CREATE TABLE spells (id serial PRIMARY KEY, {get_type_string(content)});'
+# create_table = f'CREATE TABLE spells (id serial PRIMARY KEY, {get_type_string(content)});'
 # print('\n')
 # print(create_table)
 # print('\n\n')
@@ -60,7 +60,7 @@ create_table = f'CREATE TABLE spells (id serial PRIMARY KEY, {get_type_string(co
 # exit()
 conn = psycopg2.connect(f'dbname=dnd port=5429 host=0.0.0.0 user=wizerd password={getpass.getpass("Postgres Password: ")}')
 cur = conn.cursor()
-cur.execute(create_table)
+# cur.execute(create_table)
 for spell in content['Spells']:
 	try:
 		insert_spell(cur, spell)
