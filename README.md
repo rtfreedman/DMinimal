@@ -17,16 +17,16 @@ Dnd 5e unit/character tracker for Dungeon Masters of DnD 5th edition.
 User info:
 Users' passwords are not stored in the database. Uniquely salted hashes are put in the credentialInfo column.
 ### users
-|         userid     |  username  | credentialinfo |
-|:------------------:|:----------:|:--------------:|
-| serial primary key |    text    |      text      |
-|          0         | rtfreedman | 6DA1D16...5421 |
+|         userid     |  username  | credentialinfo |      sources    |
+|:------------------:|:----------:|:--------------:|:---------------:|
+| serial primary key |    text    |      text      |      text[]     |
+|         10         | rtfreedman | 6DA1D16...5421 | PHB,BR,Volo,... |
 ### userinfo
 |         id         | userid  | savedContent | contentType |
 |:------------------:|:-------:|:------------:|:-----------:|
 | serial primary key | integer |      text    |    text     |
+| 0 | 10 | {'characters':...} | state |
 
-Topic Specific information
 ### spells
 |         id         | range | school | classes | castingtime | athigherlevels |  level  | components | duration | name | concentration | description | source |
 |:------------------:|:-----:|:------:|:-------:|:-----------:|:--------------:|:-------:|:----------:|:--------:|:----:|:-------------:|:-----------:|:------:|

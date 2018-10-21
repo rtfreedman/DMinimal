@@ -1,0 +1,1414 @@
+{
+  "items": [
+    {
+      "Cost": "75 Gold",
+      "Description": "A glass jar holding a perfectly still toad “Its never aged a day!”\n- Jar does indeed hold a toad out of age. When removed it lives as normal, any object small enough can fit in the jar and never age inside.",
+      "Name": "Jar of the ageless toad"
+    },
+    {
+      "Cost": "35 Gold",
+      "Description": "A little lizard that looks like its made of marble. When you tickle it’s belly it turns into stone. Feed it shiny pebbles.\n- Also turns to stone when about to take damage, can be used as a +1 sling bullet. However it will try to run after being used as such.",
+      "Name": "Stone lizard"
+    },
+    {
+      "Cost": "50 Gold",
+      "Description": "A pair of wooden donkey legs, label says to attach to any object that fits and watch\n- Animates on an object, being able to walk at 30ft speed over flat land/ramps and carries as much as a donkey.",
+      "Name": "Donkey legs"
+    },
+    {
+      "Cost": "60 Gold",
+      "Description": "A pendant decorated with storm clouds over an island with a man shouting on it.\n- When worn massively amplifies the wearer’s voice, able to be heard for 5 miles clearly. Those within 100ft not covering their ears  are deafened for 1 round after speaking (Including wearer)",
+      "Name": "Thunderous pendant"
+    },
+    {
+      "Cost": "90 Gold",
+      "Description": "A hard looking biscuit, it’s a bit big and  doesn’t leave crumbs\n- When bitten, explodes into 1d20+10 biscuits, each being enough to sustain a medium creature for a day",
+      "Name": "Bountiful biscuit"
+    },
+    {
+      "Cost": "210 Gold",
+      "Description": "A small metal token with a feather on one side and a goat on the other.\n- When used summons a single goat that can carry a medium creature, runs at 60ft and has windwalk. Cannot be urged to go anywhere other than away from a threat to a safe place.",
+      "Name": "Feather Token, Escape goat"
+    },
+    {
+      "Cost": "80 Gold",
+      "Description": "A marble sized stone, Wizbolt spins it back and forth to demonstrate it growing and shrinking.\n- Spinning it clockwise makes it grow, counter makes it shrink. However it has no upper limit but mass scales with size.",
+      "Name": "Stone of Sizes"
+    },
+    {
+      "Cost": "1200 Gold",
+      "Description": "A ring that resembles a wrapped strand of golden flesh with a golden eye.\n- When turned one way the wearer’s eye pops out of the socket painlessly, still attached via a long nerve. Can extend up to 6 feet, the wearer can still see perfectly out of the eye. Eye strand however can be severed with 1/5th the HP of the wearer.",
+      "Name": "Ring of the severed eye"
+    },
+    {
+      "Cost": "500 Gold",
+      "Description": "Much like the Ring of the severed eye, only made of iron with a closed eye.\n- When the wearer closes one eye the eye opens on the ring revealing a shining pearl. Wearer can see perfectly out of the ring’s eye for as long as they keep their eye closed.",
+      "Name": "Ring of second eye"
+    },
+    {
+      "Cost": "750 Gold",
+      "Description": "A dull grey shag carpet “Flying carpet sir, made locally and designed for comfort!”\n- Indeed grants the user a 50ft fly average flight speed. However it only works while maintaining contact with the carpet with the user’s feet, to fly you would have to firmly press the non flying carpet to your feet by pulling it up.",
+      "Name": "Carpet of flying"
+    },
+    {
+      "Cost": "25 Gold",
+      "Description": "A single glove made of fine cloth decorated with a magic circle.\n- On command the gloved hand detaches and functions as per the mage hand spell. No harm is done to the user.",
+      "Name": "Gloves of the Mage’s hand"
+    },
+    {
+      "Cost": "10 Gold",
+      "Description": "A wand with a label ‘Wand of duplication, simply say ‘Double up’ to activate’\n- Wand will summon a new wand of duplication on activation. Unfortunately the wand is consumed in the process.",
+      "Name": "Wand of Duplication"
+    },
+    {
+      "Cost": "350 Gold",
+      "Description": "A wand with two ends, no signs of its purpose.\n- When activated and pointed at another creature both the target and user get an intense orgasm. 25 uses",
+      "Name": "Double ended wand of mutual satisfaction"
+    },
+    {
+      "Cost": "5 Gold",
+      "Description": "A stone that can fit onto the stock of the average crossbow, label reads ‘Loadstone, for when you really need to keep shooting!’\n- When activated allows the user to load a crossbow bolt as a free action, requires a standard action to activate.",
+      "Name": "Loadstone"
+    },
+    {
+      "Cost": "5 Gold",
+      "Description": "Iron ring that has a blue swirly stone in the center.\n- When activated the ring teleports. Only the ring, however its teleportation is perfect.",
+      "Name": "Ring of teleportation"
+    },
+    {
+      "Cost": "40 Gold",
+      "Description": "A thick multi-colored slurry in a clear small bottle. Label reads ‘Only for the magically attuned, temporarily improves magical strength’\n- The next spell is cast at +2 caster level, but rolls twice on the expanded wild magic table.",
+      "Name": "Potion of Magical enhancement"
+    },
+    {
+      "Cost": "80 Gold",
+      "Description": "A copper ring with a brown glass ‘gem’.\n- Ring makes the user unnoticeable to anyone the wearer is unaware of. However this causes the wearer to easily bump into the person they were unaware of, thus ending the effect. Will not work if the user is aware of a person being in an area (Ex in a room, sneaking around without looking at the person but knowing someone is in there won’t work)",
+      "Name": "Ring of Mutual Ignorance"
+    },
+    {
+      "Cost": "40 Gold",
+      "Description": "A leather sack that resembles a bag of holding “Yes sir that bag has no holding limit, you can put any and everything you want in there!”\n- Will indeed accept everything. However the items put it enter a random storage space anywhere in the world, and you cannot take any items out.",
+      "Name": "Bag of infinite containment"
+    },
+    {
+      "Cost": "85 Gold",
+      "Description": "Bagpipes made smaller for travel. The mouthpiece is transparent.\n- Playing it causes the user to become invisible, however it is very loud. Does not work if the bagpipes cannot make sound.",
+      "Name": "Bagpipes of hiding"
+    },
+    {
+      "Cost": "30 Gold",
+      "Description": "A sewing needle with a small length of thread, it changes color depending on the cloth it is held over.\n- Has infinite thread that matches to any common material if it is activated. When activated it can create clothing from any pre cut fabrics or mend clothing, however both results will look shoddy and will have at least one hole large enough for a common coin to slip through.",
+      "Name": "Needle of adequate sewing"
+    },
+    {
+      "Cost": "25 Gold",
+      "Description": "A bar of soap with rose petals in it. Smells of roses, label claims it to be infinite in use.\n- Soap can be used endlessly, and the user smells faintly of roses for a day after using. However one creature within 5 miles smells the user as a very delicious food and will attempt to eat them.",
+      "Name": "Soap of pleasant scents"
+    },
+    {
+      "Cost": "10 Gold",
+      "Description": "A wine bottle that is half empty. You can’t bring yourself to think of it as half full.\n- Can only be seen as half empty, can hold any liquid. However liquids poured in after it reaches the halfway point vanishes. Nobody knows where it goes.",
+      "Name": "Bottle of the pessimist"
+    },
+    {
+      "Cost": "7 Gold",
+      "Description": "Ornate gold and ruby amulet with a fine chain attached.\n- When a creature attempts to wear it the clasp undoes itself. When attempting to wrap the chain around something it unwraps, placing it in a bag however will contain it.",
+      "Name": "Amulet of carrying"
+    },
+    {
+      "Cost": "3000 Gold",
+      "Description": "Mahogany and gold inlaid staff that radiates a palpable magical aura. The label reads \"Teleport great distances! Conjure powerful storms! Turn solid objects into gold! Behold, with the Staff of Infinite Power ANYTHING is possible!\"\n- Roll a d6\n1- The staff fizzle and sparks, and...! Nothing happens. Damn.\n2-The weather abruptly changes. If underground or somewhere you can't see the weather, you don't notice the effect.\n3-You're teleported x feet in a random direction. (maybe 60 to 100 feet?) Up is a possibility.\n4-You momentarily gain the hand of Midas, and anything you touch turns into gold! On further inspection though, objects you touch are just coated in yellow paint...\n5-You summon a devil for one round. Not long enough for him to do anything, but with every subsequent summoning he becomes increasingly annoyed.\n6-Roll again. If you roll a 6 again, roll again. If you somehow roll three 6's in a row, the staff glows magnificently and you may make a wish as per the Wish spell! On making a wish there's a 44% chance the staff will shatter (as with the Wish spell having a 33% chance you won't be able to cast the spell again)",
+      "Name": "Staff of Infinite Power"
+    },
+    {
+      "Cost": "30 Gold",
+      "Description": "Burlap sack held upright almost overflowing with a mix of potato species.\n- Sack is infinite, the physical sack can be emptied beyond reach and stood in, pouring it over pours endlessly and refills the sack. It is possible to enter the sack and survive if you can remove the potatoes.",
+      "Name": "Sack of potatoes"
+    },
+    {
+      "Cost": "45 Gold",
+      "Description": "A normal iron immovable rod with a button on the end, however the button has a cap on it to prevent accidental pressing.\n- When activated it rips off into the horizon. It seems to be truly immovable in space and has left the planet.",
+      "Name": "Improved Immovable rod"
+    },
+    {
+      "Cost": "45 Gold",
+      "Description": "It looks like an immovable rod with a cap over the button, but the label reads it as an unstoppable one.\n- When activated it rips off into the horizon. It may have left the planet.",
+      "Name": "Unstoppable rod"
+    },
+    {
+      "Cost": "25 Gold",
+      "Description": "A normal looking wand with acid spray labeled on it. Activation phrase ‘The secret ingredient is’\n- It sprays out two gallons of moderate quality vinegar. Stings a little in the eyes.",
+      "Name": "Wand of Acid spray"
+    },
+    {
+      "Cost": "2010 Gold",
+      "Description": "A pair of brass knuckles, they pick up as magical.\n- +1 brass knuckles, for one hour after hitting a target the user gets +2 on diplomacy checks with them. Only affects one target at a time.",
+      "Name": "Friendship fists"
+    },
+    {
+      "Cost": "100 Gold",
+      "Description": "A pair of dark blue gloves, when the gnome holds them up his arm looks discolored.\n- When worn all things within a 10ft radius of the wearer take on the tritanopic color spectrum. Once a day they can touch a solid object and make them discolored as such for 24 hours. Wearing them renders the user colorblind as the gloves, dissipating 24 hours after removal.",
+      "Name": "Gloves of the Tritanopic Wizard"
+    },
+    {
+      "Cost": "30 Gold",
+      "Description": "A glass jar containing a bright orange flame, it feels cold to the touch.\n- Sheds light twice as far as a torch, however sucks the heat out of the surroundings. Works in cool environments if held, cannot function in freezing conditions at all.",
+      "Name": "Jar of Fire"
+    },
+    {
+      "Cost": "40 Gold",
+      "Description": "An unrolling scroll, when opened it is filled with draconic writing. Pulling it out more reveals the paper to be incredibly long. (It is a story about Wizbolt, the beetle Hurdy, and someone named Seerleaf. Describes in extreme detail a trip to someplace called the Rylian Bazaar and a passionate affair between Seerleaf and Wizbolt.)\n“The scribing scroll, this nifty little piece of parchment will write fantastical prophecies while you sleep!”\n- When bought the existing writing vanishes. The paper can be pulled infinitely, however the writing only appears at night. Anyone with the ability to see the astral plane can see a woman come in the night and write tales in the scroll, no others see it open. If caught mid writing the writing stops for the night.",
+      "Name": "Scribing Scroll"
+    },
+    {
+      "Cost": "12 Gold",
+      "Description": "Unremarkable stick “This convenient little thing can be thrown so far it returns hours later!”\n- When thrown is launched into the horizon until unseen. Chasing it finds it about 1000ft away. 1d4 hours later the thrower will find it amongst their belonging. Anyone who sees the astral plane sees a slowly plodding mastiff fetching it, he looks happy.",
+      "Name": "Returning Stick"
+    },
+    {
+      "Cost": "87 Gold",
+      "Description": "A featureless round hat, it comes with three pins for styling it. “Holds all you could ever need!”\n- Treated as a weightless bag of holding 1, however it must be held with the opening up or worn to contain anything. Can hold liquids. When worn absorbs the wearer’s head, wearer can see the inside of a small storehouse and a mechanical humanoid inside, but from the ceiling. It stands still regardless of what is done to it.",
+      "Name": "Hat of holding"
+    },
+    {
+      "Cost": "1600 Gold",
+      "Description": "A leather handbag with a main pocket and one side pocket. It looks deep inside.\n- Acts like a normal handy haversack, with one less pocket for storage. Also requires a full round action to retrieve anything.",
+      "Name": "Haver’s Handbag"
+    },
+    {
+      "Cost": "7000 Gold",
+      "Description": "A small silver key, it looks big enough to fit the keyholes on the doors created by the Rod of Door. The fob has ‘Storage’ etched on it.\n- When used to unlock any door opens a portal to a massive warehouse. It looks infinite however every container is empty. Has facilities to contain items normally storable in an iron chest or glass tube. Effectively infinite storage, but for every item placed inside it takes 6 seconds to find the needed one. When the key is removed the door closes and returns to normal, sealing what and who ever is inside in.",
+      "Name": "Dor’s Storage key"
+    },
+    {
+      "Cost": "1200 Gold",
+      "Description": "Wizbolt has a halfling sat in the back of his wagon. He wears ragged adventuring clothing and an oversized backpack brimming with miscellaneous goods. Seems ok with being sold as an item.\n- Doesn’t have a name as a slave halfling. When asked to provide a mundane or alchemical item he will rummage through his pack for 1d20 minutes. When he provides an item the gold for the item goes missing from the asker (Basically he’s a walking ‘Well-Prepared’ feat). If someone else looks into his pack they find a ton of junk, digging deep requires a full day’s work and several digging tools. Eventually they fall into a bustling bazaar.\nHe cannot fight due to his pack and weak body. Has no skills. Sleeps in his backpack, but needs food.",
+      "Name": "Handy Halfling"
+    },
+    {
+      "Cost": "1900 Gold",
+      "Description": "A faintly magic shortsword.\n- A +1 shortsword. When held, shrink 1 ft.",
+      "Name": "Shortsword"
+    },
+    {
+      "Cost": "2 Gold",
+      "Description": "A bunch of red grapes, they look juicy and smell of cookies.\n- They taste like chocolate chip cookies, including the juice. Still have the texture of grapes though.",
+      "Name": "Enchanted grapes"
+    },
+    {
+      "Cost": "7500 Gold",
+      "Description": "A razor sharp cleaver. Looking at it feels intimidating, especially for chefs.\n- A +2 shortsword mechanically, however wielding it causes the wearer to be in a constant irritable state. The slightest insult or inconvenience will cause them to gain +4 STR and fly into an uncontrolled rage until the cause has apologized or been fixed. If being held and served food containing a sentient creature fly into a worse rage of +6 and a attack only the chef until losing the knife or the chef makes a convincing lie about the origin of the meal.",
+      "Name": "Butcher cleaver of the Barbarous chef"
+    },
+    {
+      "Cost": "1 Gold",
+      "Description": "A booklet of a dozen black headed matches.\n- When struck water drips from the head until the match is used up, 1 tablespoon per match. Said water can catch ‘fire’ to flammable objects, creating more water. Effectively extinguished by sufficient fire.",
+      "Name": "Book of anti-matches"
+    },
+    {
+      "Cost": "35000 Gold",
+      "Description": "Grindstone that looks sharp in itself.\n- Can sharpen any object to have the vorpal quality. Any object. However the sharpening only lasts one attack.",
+      "Name": "Vorpal Grindstone"
+    },
+    {
+      "Cost": "40 Gold",
+      "Description": "Pinkish cloth satchel, the inside is pulsing flesh\n- No obvious qualities, holds as much as a normal satchel. Feels wet and slimy.",
+      "Name": "Satchel of flesh"
+    },
+    {
+      "Cost": "5000 Gold",
+      "Description": "A hefty softball sized rock. “I got this trinket from a peculiar dwarf, dressed in paper and angry but he was one of the finest wizards I’ve ever met!”\n- Can break any glass/crystal no matter the thickness or strength, as long as it is technically glass, its thrown into. Only thrown. After breaking and landing the thrower gets flung in the same manner directly onto the rock.",
+      "Name": "Rock of breaking and entering"
+    },
+    {
+      "Cost": "1800 Gold",
+      "Description": "A rabbit felt wide brimmed, high crown fedora with a band around it. It looks dusty with age.\n- When worn it grants a +1 luck bonus to AC and will never come off unless the wearer enters any sort of closing door, gate, or portal. During which the hat will always fall and need a DC 12 reflex check to save. Also grants proficiency with the whip, and an intense fear of snakes.",
+      "Name": "Hat of the Temple Delver"
+    },
+    {
+      "Cost": "7200 Gold",
+      "Description": "A rather new looking leather bound book with the title in bright yellow ink. A picture of a cloaked figure holding a scythe is snapping skeletal fingers as a man runs away with a grin.\n- Not magical. Inside the book looks to be made by a printing press but has no indication of an author, publisher, or any affiliates. It details many ways to achieve immortality with and without magical prowess, claiming the methods inside can even a simpleton alive forever. (DM’s have fun with this)",
+      "Name": "Immortality: How to trick Death "
+    },
+    {
+      "Cost": "170 Gold",
+      "Description": "A small cob of dried corn kernels in many colors.\n- Has 1d100 kernels, when kernels are exposed to high non atmospheric heat they pop into any random food item. Can include anything from a small candy drop to a whole roasted animal. Hilarity ensue!",
+      "Name": "Kernels of Sustenance"
+    },
+    {
+      "Cost": "2200 Gold",
+      "Description": "Green paper ticket that has a large 1 printed on it, and a dotted line on the back.\n- When torn will teleport the user to one random city or safe place the user knows of, if none are available they are held in a mechanical high class train car. The server is apologetic for the slow service and will do their best to entertain and provide for the needs of the user indefinitely. Tearing is an immediate action.",
+      "Name": "Ticket to elsewhere"
+    },
+    {
+      "Cost": "3000 Gold",
+      "Description": "A sword that looks to be made of high quality steel and decorated with gold and gemstones. However it is entirely flat, incredibly light, and flexible. Just like paper.\n- Functions as a +2 Longsword, however always attacks with a -6 penalty (-4, due to the sword’s +2) from it’s unwieldy and uncomfortable nature.",
+      "Name": "Paper sword"
+    },
+    {
+      "Cost": "1000 Gold",
+      "Description": "A strange looking phial with clear glass and a vibrant blue fluid inside stopped by a brightly colored cork. It looks cartoony. It comes with a smaller vial with ‘antidote’ on the label.\n- When drunk the imbiber appears to turn into a brightly colored caricature of themselves with slightly exaggerated features, in addition to always seeming 2D with a round shadow. Drinker is treated as mute but may use any verbal components for spells, as their speech becomes speech bubbles visible to all around them, size and font is determined by volume and tone. Bubbles are physical to the drinker and can be used as a natural weapon with a 10ft range (If they scream). Buffs and other effects are visible above their heads when active, including while hiding or crafting. These effects also apply to anything the user holds or wears, weapons making small text when drawn or sound effects when attacking, also completely silent. Finally the user’s movements make them stretch and squash in a comedic fashion, weapons bending, tip toeing, hiding behind objects, flattening out, and a fist growing, etc. (Mechanically a -2 to diplomacy, bluff, intimidation, and linguistics. +4 to stealth, acrobatics, climb, and fly. +4 to escape artist)",
+      "Name": "Elixir of Comiconia"
+    },
+    {
+      "Cost": "20 Gold",
+      "Description": "A golden pocket watch with a crystal face and decorated with small gemstones. It makes a quiet ticking as the twelve arms move. Yes, twelve. “This handy little thing keeps time like no other! Better yet once you press the button on top time will no longer be your problem”\n- All time stops when pressed. Party perceives nothing happening other than the clock going missing and an adventurer holding it pinching their forehead. They only shakes their head in response and asks you not press the button again.",
+      "Name": "Pocket clock of Time Stopping"
+    },
+    {
+      "Cost": "120 Gold",
+      "Description": "A thick ring covered with tiny images of a traveller.\n- When worn the entire limb vanishes. Roll a d10 and 24 hours later it returns with; 1 - tattoo on arm, 2 - arm injured, 3 - gained a ring, probably a wedding ring, 4 - ring missing, 5-10 - nothing special.  It will have a similar effect on legs.",
+      "Name": "Ring of the Wandering Limb"
+    },
+    {
+      "Cost": "160 Gold",
+      "Description": "A hefty book with an untitled blue cover. “It contains countless tales of wonder!”\n- Make a will save on reading the first page, DC 22. If failed fall asleep, that dream is particularly vivid and interesting, however you sleep for 8 hours every time. If passed you notice the tales inside the book are unremarkably mundane, a farmer making a new hoe, a bear having trouble itching itself, description of a wooden bucket in incredible detail, and so on. Affects things immune to sleep normally.",
+      "Name": "Book of Slumbering"
+    },
+    {
+      "Cost": "2 Gold",
+      "Description": "A tiny heart shaped vial filled with a slightly viscous pink fluid. The bottle smells like rose petals.\n- When drunk it tastes unpleasant and slimy, slick on the tongue. Its difficult to scrape the solution off your tongue and teeth, but nothing else happens. It appears to have been for existing love if you catch my drift.",
+      "Name": "Love potion"
+    },
+    {
+      "Cost": "45 Gold",
+      "Description": "A small bone of an unknown creature that has bite marks on it. Smells like roasted meat.\n- When chewed on fills the air in a 40ft area with the strong smell of cooked meat, strong enough to mask other scents.",
+      "Name": "Chewing bone"
+    },
+    {
+      "Cost": "110 Gold",
+      "Description": "A vial sized bottle with a fine chain on the top. When cupped in the hands you can see it’s faint glow.\n- When swung around as a full round action it collects ambient light, can hold up to five rounds of light. This light is released at a command word and retains the properties of the contained light (Moonlight induces lycanthropy for example). Acts as the light cantrip.",
+      "Name": "Bottle of Light"
+    },
+    {
+      "Cost": "2 Gold",
+      "Description": "A gold coin similar to the ones used by humans, but minted with unfamiliar faces and words.\n- When flipped on a two part decision will always land on the side most favorable. Although you might have just paid two valid gold for one nobody would take.",
+      "Name": "Coin of Favored Paths"
+    },
+    {
+      "Cost": "60 Gold",
+      "Description": "A metal sphere and a complimentary glove. They seem to be magnetic to an extent.\n- Each sphere counts as a half hand weapon (Two per hand), donned by wearing the glove. Per stone it deals 1d4 damage with a 20ft range. Up to 4 can be used, at which point it can as a move action turn into a shield with +3 shield AC that takes up both hands.",
+      "Name": "Aggressive Ioun Stone"
+    },
+    {
+      "Cost": "2100 Gold",
+      "Description": "A white gold ring with a light blue gemstone.\n- While worn the wearer treats all air and gases as liquid. Wearer can fly as if swimming in normal water. However the air is too thick to breath, and is treated as if the wearer is underwater while wearing it.",
+      "Name": "Advanced Ring of Swimming"
+    },
+    {
+      "Cost": "310 Gold",
+      "Description": "A pair of sturdy leather boots with many laces. The soles look a bit worn.\n- Never stop walking. Never run, never shuffle, walk. Walk, walk, walk. Walk forever. Does not get tired however is always walking. Requires the wearer to be grappled to remove the boots as a full round action.",
+      "Name": "Endless Boots"
+    },
+    {
+      "Cost": "6200 Gold",
+      "Description": "A glass bottle with a tiny demonic creature inside. Its solid yellow glassy eyes stare out with curiosity.\n- It is indeed a demon, it is affectionate and an innocent trickster. Feed it bits of meat or bones, a good treat is fried foods. Has no combat abilities, has limited childish intelligence and telepathy within 5ft of it’s owner. Speaks abyssal. It is very friendly and likes to sit on the shoulder, doing cute demon things.",
+      "Name": "Jarred Demon"
+    },
+    {
+      "Cost": "15 Gold",
+      "Description": "A utterly normal looking half fist sized stone.\n- Will always hit it’s target when thrown, dealing 1+½ str damage. Can not do anything not possible with an extraordinarily lucky throw. Reusable.",
+      "Name": "Stone of the Gods"
+    },
+    {
+      "Cost": "480 Gold",
+      "Description": "A golden crest with the white symbol of praying hands. Instruction reads to throw it at the ground before the target.\n- When used hit AC 5 touch attack. A very fat man dressed in holy robes descends from the sky, hands held around an ball of holy light gleaming as he faces your enemy. The saint points up, a wagon falls from the sky dealing 6d6 falling damage. Another saint sits up from the wagon, confused before poofing away. The original gives a thumbs up before doing the same.",
+      "Name": "Crest of Saint Pommel"
+    },
+    {
+      "Cost": " 12000 Gold",
+      "Description": "A whole automaton shaped like a tengu but with the beak also looking a bit like beard/moustache combo. It makes a soft ticking sound and has glowing eyes, it appears incomplete but functional with a branching sword on it’s back.\n- An unintelligent automaton that functions as the Winglock character. Will animate after spending an indeterminate amount of time with the party but is unable to speak, can assist with crafting and use magic items.",
+      "Name": "Winglock Mk2 Prototype"
+    },
+    {
+      "Cost": "4250 Gold",
+      "Description": "A absolutely massively headed wooden mallet on a long handle. Looks like it would be difficult to use, but with a bit of handling its doable.\n- +2 Warhammer, grants a +4 on disguise checks to disguise as another race, size, or age, each adding the +4. Disguising as an object grants a flat +10. When used to deal sneak attacks the wearer yells ‘TOO SUBTLE’ at the top of their lungs uncontrollably, but deals 50% more die in sneak attack damage.",
+      "Name": "Rogue’s Mallet"
+    },
+    {
+      "Cost": "3200 Gold",
+      "Description": "A coil of rope. When called the rope animates and moves excitedly to be shown off, it seems to have dog like mannerism.\n- A 50ft rope with the construct type. Has the mentality of a lap dog and is too scared to fight. Friendly though and a good pet without maintenance, plus a 50ft rope that you don’t carry is handy. It will try to warn you when scared by first rubbing at you, or if unable to, make noise.",
+      "Name": "Dog leash"
+    },
+    {
+      "Cost": "900 Gold",
+      "Description": "A small knife made entirely out of solid shadow. It seems fragile as it is contained in a small velvet lined box. Wizbolt warns you its permanent.\n- One use, disconnects the user’s shadow so it may act on it’s own. It is however very temperamental and may wander off, but if given a sufficient gift it can run errands or take commands. Cannot speak, magic weapons do full damage to it, owner feels the damage too.",
+      "Name": "Severance of Shadow"
+    },
+    {
+      "Cost": "75 Gold",
+      "Description": "A small vial of a glistening colorful fluid. The fluid moves without external motion and seems to occasionally move above the bottom of the vial.\n- When drunk the drinker is compelled to dance and flail wildly and loudly. In doing so they float a few inches above the ground. When stopping they return to the ground, this aspect stays with the drinker forever whenever they are wild and loud enough in their dance, however it does not always activate.",
+      "Name": "Blessing of the careless"
+    },
+    {
+      "Cost": "3800 Gold",
+      "Description": "A medium sized club made of polished stone with a handle wrapped in a rough cloth. It is engraved in the giant language (Details story of a giant who became such a powerful stone sage they were cursed to forever live in the skies, unable to die and only have a small island of rock to comfort him)\n- A normal club with the Flying Giant enchantment, on a critical hit a boulder falls from the sky onto a designated target within 10ft. Boulder deals 2d10 of damage, does not work when not in open air or close enough that a boulder could penetrate the interruption.",
+      "Name": "Club of the Flying Giant"
+    },
+    {
+      "Cost": "200 Gold",
+      "Description": "A little bottle of blood red fluid, Wizbolt warns you it’s effects are permanent.\n- The drinker now looks funnier the angrier they get. Its permanent.",
+      "Name": "Brand of the Humiliated Berzerker"
+    },
+    {
+      "Cost": "1100 Gold",
+      "Description": "A pouch of black dust, it sends up grey wisps as it opens.\n- Enough for one use, when spread on a creature’s shadow it become semi real and able to help the creature. You may choose either one weapon or magic school, attack rolls or caster level checks with the selected source get a +2, or you may select one skill and gain a +4 bonus to it as the shadow assists you. However if spending 1 hour in total darkness the shadow will become hostile and attack as an incorporeal version of the creature (Attacking only the creature, 1/4th the HP, using the same resource pools as the character)",
+      "Name": "Dust of living Shade"
+    },
+    {
+      "Cost": "20300 Gold",
+      "Description": "An ornate bottle with a reflective fluid. Wizbolt warns its effects are permanent.\n- Drinker now has the Mirror-Walker trait. This allows them to walk through any mirror into any other known mirror. However they may come across a version of themselves that will attack on sight while travelling, which acts exactly as the original with all the same abilities. 10% chance of encountering it.",
+      "Name": "Curse of the Reflecting Wanderer"
+    },
+    {
+      "Cost": "1250 Gold",
+      "Description": "Wizbolt seemingly conjures a small crest of a hammer over a forge, only as thick as paper over his hand. He warns you its permanent.\n- When bough Wizbolt presses it onto an area of your body you wish to have the curse. Grants +2 to all craft checks made. However all animals and animal like creatures instinctively hate you, druids in particular. Druids of a beastly race feel compelled to attack, DC 7 will to not.",
+      "Name": "Industrial Curse"
+    },
+    {
+      "Cost": "1800 Gold",
+      "Description": "Unusually small scroll in a case of strange green material. Runes seem to dance around it’s surface. Wizbolt warns it’s effects are permanent.\n- When read the reader’s skin now reveals glowing green runes when exposed to moonlight, during this time they may cast Magic Missile at will (Always deals 1d4+1 though) with 1 missile per 4 HD. However the readers gets a feeling they’re being watched while the runes are glowing and for some time after.",
+      "Name": "Blessing of Elders"
+    },
+    {
+      "Cost": "910 Gold",
+      "Description": "A primal looking tooth, Wizbolt indicates you simply press it against one of your canines to activate it. However this is permanent unless you pull out the teeth.\n-When used it converts ALL the user’s teeth into that of a primal beast. This grants a bite attack that deals damage as one of the creature’s size and deals an additional +1 magic damage, as such is a magic weapon. However casters within 10ft per HD of the creature are subject to wild magic.",
+      "Name": "Untamed Tooth"
+    },
+    {
+      "Cost": "540 Gold",
+      "Description": "A strangely long claw that has been carved to fit over a fingernail. Wizbolt warns its effects are almost permanent.\n- When applied the creature’s thumb or equivalent digits melt into their hands as long sharp claw come out of their hands. These claws deal damage as if the creature was one size larger and are secondary weapons. Strangely despite being made of normal keratin they can be enchanted, it just requires the owner be there for it. However the creature no longer has thumbs and cannot manipulate objects, getting a -6 to all rolls with a hand held weapon and skills involving the thumb. This can be reversed with a polymorph any object spell.",
+      "Name": "Cave Dweller Claw"
+    },
+    {
+      "Cost": "670 Gold",
+      "Description": "Wizbolt holds up a bonesaw and grins wickedly ‘A leg for a leg so to say, I’ll have your least favorite and you will receive an.. Adequate compensation.’\n- Wizbolt moves with incredible speed and grace, you barely feel the saw cutting through your leg at the hip and when you look down it has been cleanly severed and bandaged. Wizbolt examines his new item and snaps his finger, creating a crutch for you to lean on. ‘There, now then it’ll take some getting used to but you’ll be thankful when you need to run. Just don’t try a prosthetic, it’ll ruin it.’. The area below the leg stump picks up as magic, when in danger (Or below ⅓ HP) you are granted +60ft move speed, +4 on jumping, balance, and endurance checks to run.",
+      "Name": "TRADE: Leg for Leg"
+    },
+    {
+      "Cost": "8200 Gold",
+      "Description": "Wizbolt grins and holds up his hand, twisting energy lingering over it. ‘A trade sometimes transcends currency, your flesh for a boon of bones’\n- Wizbolt shakes your hand with the spell activate, you feel extraordinarily numb as the flesh of your body flows into Wizbolt’s sleeves. You gain the skeleton template with the following changes: No alignment change, HD or save change, retain your INT score (And thus feats and skills), lose any racial traits including physical ability score modifiers, and you gain the ability to harmless detach and reattach any of your bones. They remain under your control but you have a -4 if you can see the severed limb, -8 if you can’t, this applies to anything you do with them. This does include your head which now has eyes that are only pools of darkness with a pupil of white light (Changeable at will), which can see and hear when detached.",
+      "Name": "TRADE: Flesh for Bone"
+    },
+    {
+      "Cost": "6800 Gold",
+      "Description": "Wizbolt chuckles and holds out a hand with a gelatinous mass suspended over it. ‘You hardly need flesh and bone to survive, you may as well sell it to me. You won’t be disappointed.’\n- Wizbolt grabs your hand and you feel a dull burn as the glob of ooze eats its way through your body over only a minute. Your race has changed to squole, replace all your racial traits including ability score modifiers. You may replace any racial feats gained with a squole feat if you have the prerequisites. Although the good news is despite being an ooze you are still the same size category and general shape of your previous incarnation.",
+      "Name": "TRADE: Flesh for Slime"
+    },
+    {
+      "Cost": "3200 Gold",
+      "Description": "Wizbolt holds up a strange looking tool. ‘An eye for an eye, as the saying goes. I can assure you, you new eyes will be wonderful, best sight you’ll ever know.’\n- Wizbolt shakes your hand and your vision goes dark for a slight instant, everyone else you see a single frame of vision of Wizbolt digging the tool into your friend’s eyes. Person you now see colorful wisps in the air. You are now constantly under the effects of Arcane Sight and see Invisible. However you take a -4 to perception with sight as it seems some objects move or features shift. Seeing a small eyed fleshy creature peeking out from under your boot that is unaffected by your kick, you can guess you may be prone to hallucinations now.",
+      "Name": "TRADE: Eye for Eye"
+    },
+    {
+      "Cost": "3715 Gold",
+      "Description": "A pitchfork, it looks like its been well used and has a couple nicks in the handle.\n- When used by anyone with at least 1 rank in Profession[Farmer] it will always deal average damage (Normally 4) and cannot roll for damage. If the user has 1 rank per HD it grants a +2 to attack and always deals maximum damage. Treat as a martial weapon.",
+      "Name": "Joe’s Pitchfork"
+    },
+    {
+      "Cost": "2250 Gold",
+      "Description": "A pot of gritty glistering paste. Wizbolt warns your its permanent.\n- When applying it your skin becomes true diamond, melded with your flesh to be flexible yet still just as hard. You gain a DR/25 against piercing and slashing, technically a hardness if it ever comes up. However on being attacked by any bludgeoning damage you must roll d100. 75+ the blow harmless glances off your skin. 25-74 you take normal damage. 5-24 you take double the damage. 1-4 the blow hits one of your planes of cleavage and your skin shatters immediately, dropping you to 0 HP and unconscious. Healing however does return the diamond skin, as it is your new biological skin.",
+      "Name": "Diamondskin Oil"
+    },
+    {
+      "Cost": "7300 Gold",
+      "Description": "A single bright red bulky glove with a spiky bubble on the hand.\n- Deals damage as a caestus, with a x4 crit modifier. Deals 4d8 force damage on crit, however it also breaks the user’s hand rendering the hand useless and attacks dealing ½ damage to the user. Creature struck by the force damage are vertically propelled a number of feet equal to the total damage of the attack.",
+      "Name": "Super glove"
+    },
+    {
+      "Cost": "18 Gold",
+      "Description": "A thick cookbook of traditional dwarven cooking. It uses many minerals and a few metals, recipes range from bismuth brisket to indium cookies.\n- Spending 1 hour reading through you gain a +2 to chefing checks to make a dwarven dish. Such foods will give you a +2 diplomacy on dwarves who know you made it. In addition long term consumption of the mineral heavy foods can have effects on the body ranging from larger bones, tighter muscles, achromacy with dark vision, and more. Non dwarves who eat a dish however must make a DC 10 Fortitude save to not be sickened for 24 hours after eating.",
+      "Name": "Dwarven Cookbook"
+    },
+    {
+      "Cost": "355 Gold",
+      "Description": "A hefty cudgel with tiny cross symbol studs.\n- When hitting someone with it they gain 1 HP. Does not deal lethal damage, but it’s own healing can’t remove nonlethal damage. Hurts like hell too.",
+      "Name": "Wellness Stick"
+    },
+    {
+      "Cost": "2100 Gold",
+      "Description": "A bottle tinted green with silver decorations, it has a four leaf clover floating inside. Wizbolt warns it’s permanent.\n- When drunk you may now change any roll made once per round. ANY roll, mine, your’s, another player’s. Any. Change meaning deciding the exact number too, not rerolling. [Mark every use, DM can use these marks to change any roll as well]",
+      "Name": "Elixir of the Fortunate Fool"
+    },
+    {
+      "Cost": "1400 Gold",
+      "Description": "A down feather made out of very fine bronze. Despite being made of metal it feels weightless.\n- Keep it on your person and the next time you die you miraculously recover. However the feather then feels much heavier. For the next week the first person to speak your name takes your place in the afterlife and dies instantly. If the week passes without a mention you die as you were supposed to.",
+      "Name": "Vulture Down"
+    },
+    {
+      "Cost": "3700 Gold",
+      "Description": "A small gold ring crested with Gu’ul’s fork.\n- When worn critical multiplier increases by one. Plus a creature slain by such a critical is consumed in silvery hell fire and creates a demon in its place! Demon is not under your control though.",
+      "Name": "Gu’ul’s Hunger"
+    },
+    {
+      "Cost": "500 Gold",
+      "Description": "A small tied together bundle of tree leaves.\n- When held you can ask the trees to carry you to safety! But your skin isn’t as hard as tree bark, you’ll take about 1d6 of damage every 10ft they take you.",
+      "Name": "Pact with the trees"
+    },
+    {
+      "Cost": "425 Gold",
+      "Description": "A large, thick adamantine chain link. It is cold to the touch.\n- When worn the wearer gains +20 STR and CON, +10 DEX, and all mental scores except charisma is lowered to 2. In addition more adamantine shackles shoot out from the aether and bind them in place until someone else removes the link. There is no way to prevent the chains from paralyzing you. Worn as a bracelet on the wrist slot",
+      "Name": "Fenrir’s Chain link"
+    },
+    {
+      "Cost": "7900 Gold",
+      "Description": "A magnificent bastard sword of human make, finely decorated and razor sharp.\n- +2 bastard sword, intelligent with the mind of an englishman. Can be summoned from anywhere in the world by shouting it’s name. It arrives in a flash of light and creates a dapper monocle on the summoner.",
+      "Name": "Sir Franklin Witherston III Esq."
+    },
+    {
+      "Cost": "10000 Gold",
+      "Description": "A stiff paper business card for a man by the name of Stanton Woodville, Eldritch investigator and slayer of things beyond. Provides the materials to summon him one time, but warns to have a clear request before doing so.\n- Takes a full round to summon, can perfectly fulfill any task in the shortest amount of time provided it is physically possible. Has a LG alignment and will remark about the morality of the action, may deem it necessary to punish the summoner for particularly evil acts.",
+      "Name": "Stanton’s Card"
+    },
+    {
+      "Cost": "1800 Gold",
+      "Description": "A small box that holds a single potion. Tag says it produces a new one every day, one like you’ve never seen!\n- Roll on the random potion table for the effects, produces one per day. Currently holds a Cure all Elixir. [Elixir, cure all, strong but wears off, causes swelling, inhaler like bottle, light grey, slight glow, thick and sludgy texture, smells like a brothel and tastes like paint, label has grown bits of rock on it]",
+      "Name": "Box of Potions"
+    },
+    {
+      "Cost": "45 Gold",
+      "Description": "A small grass whistle, a bit firm and warm to the touch but otherwise plays satisfying tunes.\n- When played with a Perform [Winds] check of over 10, the whistle bursts into flames as per the burning hands spell, with the cone starting on and thus affecting the user’s head. After the whistle has burned away it becomes a clear crystal whistle of masterwork quality.",
+      "Name": "Crimson Whistle"
+    },
+    {
+      "Cost": "600 Gold",
+      "Description": "A perfectly normal bear trap. When opened it creates a pit with bears inside.\n-Literally the only thing it can do. Pit + Bears",
+      "Name": "Bear Trap"
+    },
+    {
+      "Cost": "4200 Gold",
+      "Description": "A shard of Lazulite, smoothed but clearly broken from something.\n-When used underwater summoned the LAZURITE BEAST. A huge shark like creature made of Lazulite. Serves as light combat, fast transport, and creates clouds of cool mist or scalding steam.",
+      "Name": "Lazulite Shard"
+    },
+    {
+      "Cost": "4600 Gold",
+      "Description": "A small horn carved of jade, looks almost like an elephant tusk.\n-When used summons the JADE TITAN. A gargantuan six legged jade elephant which moves at 5ft per round, DR/25 -, immovable and unstoppable.",
+      "Name": "Jade Horn"
+    },
+    {
+      "Cost": "3800 Gold",
+      "Description": "A large scale of citrine, very smooth and warm to the touch.\n-When used underground summons the CITRINE SALAMANDER. A large citrine scaled salamander who can create tunnels with ease",
+      "Name": "Citrine Scale"
+    },
+    {
+      "Cost": "250 Gold",
+      "Description": "A ladder made of springs and bones. Surprisingly small.\n- Always the exact height needed. Also horrifying.",
+      "Name": "Spring Loaded Skeleton Ladder"
+    },
+    {
+      "Cost": "200 Gold",
+      "Description": "A hand press for squeezing fruit into juices, made out of adamantine.\n- Can extract juice from anything. ANYTHING",
+      "Name": "Omni-Juicer"
+    },
+    {
+      "Cost": "500 Gold",
+      "Description": "A bowl of slimy green juice, it smells nice but makes you feel like you forgot something\n- Allows you to change one level to another class or change features gotten at the most recent level",
+      "Name": "Cactus Juice"
+    },
+    {
+      "Cost": "5000 Gold",
+      "Description": "A metal can with a pull top. The label reads ‘System Overload, Nova-Cherry flavor’. A warning reads ‘May cause loss and reformation of memory’\n- Allows drinker to change all class levels to another class or choose alternate class features in their own class",
+      "Name": "System Overload, NC"
+    },
+    {
+      "Cost": "1500 Gold",
+      "Description": "A metal can with a pull top. The label reads ‘System Overload, Mutagenesis’’. A warning reads ‘May cause spontaneous destruction and recreation of DNA’\n- The drinker becomes another random race.",
+      "Name": "System Overload, M"
+    },
+    {
+      "Cost": "1000 Gold",
+      "Description": "A metal can with a pull top. The label reads ‘System Overload, Inspirating’. A warning label reads ‘May cause loss of skilled before and immediate knowledge of unknown arts’\n- Reallocate all skill points.",
+      "Name": "System Overload, I"
+    },
+    {
+      "Cost": "3600 Gold",
+      "Description": "A sword made of glass with a metal wire above the hilt. Lights up at will.\n- Double Shocking shortsword (2d6 electric), fragile quality. Can light up as a lantern. Holds 3 charges, using the shocking feature removes 1. 1 charge lights the sword for 2 hours. Can be recharged by exposing it to electricity, at 1 spell level per charge or at least 2d6 natural electricity per charge.",
+      "Name": "Electric Shattersword"
+    },
+    {
+      "Cost": "850 Gold",
+      "Description": "A paper with a black rod of Asclepius, confusing. To help ward toxins.\n- Placed on a part of the body as a tattoo. Grants a +2 vs poison or similar noxious effects.",
+      "Name": "Caduceus Markings"
+    },
+    {
+      "Cost": "200 Gold",
+      "Description": "Small sapling of an unknown tree. It makes a soft ticking, it seems fine gears grow from it’s bark.\n- Takes 100 years to grow to maturity. If supplied with ample water it will produce one bulb fruit per day, if left unpicked it will grow up to huge size. Bulb fruit can be smashed for a clockwork minion of the matching size (From tiny to huge).",
+      "Name": "Mechanical Sapling"
+    },
+    {
+      "Cost": "6000 Gold",
+      "Description": "Cracked clock, instructions read ‘Point face at target, set timer, watch’. Wizbolt warns it’s single use.\n- Timer goes from 1 to 200. When used the target will age however many years were indicated.",
+      "Name": "Time to waste"
+    },
+    {
+      "Cost": "2400 Gold",
+      "Description": "Faceless pure white pony with a lovely pink bow. You hear dark whispers in your mind while inspecting it.\n- CE war horse with a gaze attack, DC 20 Will save, rage+confusion for 1 round. Cannot be commanded to use it.",
+      "Name": "A beautiful pony"
+    },
+    {
+      "Cost": "600 Gold",
+      "Description": "It is perfectly generic. About 4 pounds of it.\n- Can be used as any other material.",
+      "Name": "Perfectly Generic Object"
+    },
+    {
+      "Cost": "2300 Gold",
+      "Description": "Breastplate armor that is lighter than a feather. When hefted it takes considerable time to fall.\n- +1 Breastplate which allows the user to glide at 10ft per 5ft down, and negates all falling damage. Also grants +8 to acrobatics to jump.",
+      "Name": "Flying Aegis"
+    },
+    {
+      "Cost": "6100 Gold",
+      "Description": "Simple silver key with ‘Guest Room’ etched finely on the fob.\n- When opening a locked door with the key enter a clean well furnished hallway with 6 doors, leading into bedrooms that suit the desires of the person entering it. Cannot be used for storage, only sleeping and rest.",
+      "Name": "Dor’s Guest room key"
+    },
+    {
+      "Cost": "9900 Gold",
+      "Description": "A shifting monochromatic geometric prism. Wizbolt has no clue what the hell it does, but whatever it is should be saved for emergencies with how fucking potent the thing seems.\n- Allows a single leap from one reality to another, effectively able to change anything and everything in an instant. Downside: The user dies shortly after and becomes known as the Godhead. Can only be used while near death or in dire situations. Also only used with GM permission.",
+      "Name": "Godhead"
+    },
+    {
+      "Cost": "1300 Gold",
+      "Description": "A patched leather bag with a couple ghostly silver coins inside.\n- Can hold silver coins only, by throwing a coin out of the bag as a swift action you are launched 10ft up and 30ft forward, falling damage negated unless you fall further than the jump sends you. Holds 5 silver, loading a coin is a move action. Thrown arc doesn’t affect the jump in any way",
+      "Name": "Misty Coin Bag"
+    },
+    {
+      "Cost": "600 Gold",
+      "Description": "Vial of bright yellow fluid.\n- When drunk the user is immune to all damage of any form for 1 round. Drinking is always a standard action, with the effect coming in on the next turn (Lasting from the drinker’s turn to their turn next round)",
+      "Name": "Bottled Determination"
+    },
+    {
+      "Cost": "8200 Gold",
+      "Description": "A grey sword hilt with a strange gem with blotches of grey shifting inside.\n- Requires Exotic Proficiency [Everysword] to use. Can transform into every bladed weapon at will as a free action, however damage and crit is determined by the weapon (A great axe can’t have the 19-20 crit for example). Bladed weapons include swords, daggers, axes, polearms, and any other slashing damage with a handle (No ranged weapons). Can also become an estoc or similar swords that do not deal slashing.",
+      "Name": "The Everysword"
+    },
+    {
+      "Cost": "2000 Gold",
+      "Description": "Collection of wands on display, all very sharp and colored: Red, blue, green, white and grey. Each one sold separate.\n- All wands are touch attack weapons, red dealing fire, blue cold, green acid, white shock, all dealing 1d6 damage + STR and INT. Grey deals 2d6 nonlethal with the same bonus. 50 charges.",
+      "Name": "A very pointy Wand"
+    },
+    {
+      "Cost": "11250 Gold",
+      "Description": "A simple broom.\n- Can create a shop as per the Magic Shop third party spell. This shop lasts for one day and comes with a goblin who runs the shop. Goblin sells any mundane item and has a random magic item for sale every day. Shop appears with a Wizbolt crest on the sign, goblin is an employee of Wizbolt Trading.",
+      "Name": "Shopkeep’s Broom"
+    },
+    {
+      "Cost": "75 Gold",
+      "Description": "A cannon the size and color of a butterfly, complete with wings. It flutters aimlessly.\n- Has the mind of an insect, cannot be controlled. Will randomly shoot dealing 1d4 damage with a +4 to touch, x4 crit.\n\nRandom Horses - Varies\nUse This Link to find a horse, price each time.",
+      "Name": "Butterfly Cannon"
+    },
+    {
+      "Cost": "3200 Gold",
+      "Description": "Great helm covered with untarnished filigree yet has wear of being removed and put on often. Has no signs of other damage.\n- Intelligent helmet that is deathly afraid of battle and would try to force wearer to avoid conflict at all times. DC 20 Will save to not run from any fight. Grants +2 dodge AC, -1 to attack and damage, -8 vs fear effects.",
+      "Name": "Helm of Greatest Safety"
+    },
+    {
+      "Cost": "275 Gold",
+      "Description": "A pair of tailoring scissors, shiny metal and decorated with a blue and yellow coloring.\n- Cannot be used to cut anything, but instead can mend cuts in anything a pair of scissors could reasonably cut (Paper/cloth would work, but hardened leather and wood wouldn’t)",
+      "Name": "Clumsy Tailor’s Scissors"
+    },
+    {
+      "Cost": "4100 Gold",
+      "Description": "Sigil in the shape of vicious hound’s head, Wizbolt warns its one use.\n- When used summons PAPPY DAGE, a tiny sized white fluffy dog with the stats of the grim white stag",
+      "Name": "Sigil of the Hound"
+    },
+    {
+      "Cost": "6600 Gold",
+      "Description": "A red newsboy hat with an M on it.\n- Grants the wearer Improved Unarmed Strike while jumping, dealing +2 damage when landing on something. Allows the user to jump 20ft vertically freely, and ignore all falling damage.",
+      "Name": "Cap of the Hero"
+    },
+    {
+      "Cost": "10 Gold",
+      "Description": "You don’t want it.\n- Informs the nearest authority that a murder has occurred. Also grants +4 Intimidation against humans, and whispers dark secrets to casters holding it (Causing them to gain 1 more spell slot one level below their max, and causing them to go insane as per This)",
+      "Name": "Human Head"
+    },
+    {
+      "Cost": "17200 Gold",
+      "Description": "A iron toilet brush, the bristles are glowing hot.\n- Treat as a Keen Flaming Burst morningstar, except dealing Blunt and Slashing instead of Piercing. Critical hits always somehow hit the victim in the rear, or closest analogy.",
+      "Name": "Iron Toilet Brush"
+    },
+    {
+      "Cost": "185 Gold",
+      "Description": "Vial of a light orange fluid. Label reads ‘For when you’re down, a good feeling to lift you up!’\n- When drunk fly as per the spell for three hours. Also experience a highly euphoric state, being unable to attack, make skill checks, cast spells, or anything that requires focus beyond flying around. When it wears off you’re in a pretty good mood too!",
+      "Name": "A Good Feeling"
+    },
+    {
+      "Cost": "13425 Gold",
+      "Description": "An aged cloth map detailed in a long dead language, Wizbolt has the translation for purchase.\n- Leads a small adventure to an overground vertical castle. Entering the castle there is expected to be constructs still roaming the halls. Upon reaching the crown the titan awakes and could be convinced to be a personal walking castle. Although she is slow, her insides are water tight.",
+      "Name": "Map to the Tower Titan"
+    },
+    {
+      "Cost": "6150 Gold",
+      "Description": "A hefty club made of ceramic. It looks like it would hurt, if a bit fragile.\n- One handed weapon that deals damage as a +2 Earthbreaker, which gains the broken condition on rolling 1-5, shattering beyond repair on a second 1.",
+      "Name": "Ceramic Kanabo"
+    },
+    {
+      "Cost": "43200 Gold",
+      "Description": "A simple silver ring. Wizbolt says he got it from a quiet young lady, no clue what it does.\n- Allows the wearer to revive the parents of any orphaned child. Needs no body, or even knowledge of them existing, only good will and empathy for the child.",
+      "Name": "Silver Ring"
+    },
+    {
+      "Cost": "16850 Gold",
+      "Description": "A beaver, it looks used to being treated like a beard. He’s pretty relaxed really. Feed him wood sticks.\n- Allows the wearer to cast cantrips as a level 1 wizard, preparing 3 per day for free use. Also allows you to cast Fireball as a level 3 wizard once per day.",
+      "Name": "Oinkbane’s Beard"
+    },
+    {
+      "Cost": "1850 Gold",
+      "Description": "A normal longsword, apparently immune to corrosion effects.\n- Masterwork longsword, totally immune to effects that rust or damage objects. Also negates any sundering effects. Damn thing refuses to break really.",
+      "Name": "Stubborn Sword"
+    },
+    {
+      "Cost": "150 Gold",
+      "Description": "For Wizards, sorcerers, and magi. Creates a small sun above the caster, creating a pleasant warmth. Sorcerers forget a 4th level spell to learn this.\n- Full Round Action, 4th level, Will delays. Spawns a beating desert sun over the caster for 1 hour/level, lighting up a 300ft area in bright light, 150 dim. All creatures inside the area feel a strong high created by the sun, fascinating and confusing them, one will save per round to act normally. This effect however affects everything in the area, including constructs and undead, plants taking a -4 on the save to act normally. Also creates a moderately hot temperature, completely protecting from severe cold. Caster and allies included, SR doesn’t apply.",
+      "Name": "Spell Page, High Noon"
+    },
+    {
+      "Cost": "200 Gold",
+      "Description": "A card detailing a bounty for Delilah, the bell ringer bandit. The image shows a person who seems to be made of cactus wearing a poncho, holding up a weird pistol. Reward for bringing her in dead is 21000 Gold, alive is 23000 Gold. Gives warning about her being a crackshot, deadly at any range. Name comes from the ringing sound that comes when she fires, and the funeral bells after she’s left.\n- When used transport the party to an abandoned western desert town. Delilah will be there waiting with dual revolvers at the ready. Delilah’s revolvers instant kill on crits regardless with a headshot, making a 20ft AOE sonic ring which stuns for 1 round. Simply firing creates a 10ft radius blast dealing 1d6 sonic damage from the quaking bell sound. Revolver names: ‘Tintinnabulation’ and ‘Clangour’",
+      "Name": "Bounty card: Delilah"
+    },
+    {
+      "Cost": "2300 Gold",
+      "Description": "Wand with the Wizbolt brand logo on the handle’s base. Tag reads ‘Up up and away with a word! Three times per day’\n- 3 daily charge wand of the Fly spell. Also a 10% chance of a scroll mishap on use",
+      "Name": "Wizbolt Wand: Fly"
+    },
+    {
+      "Cost": "200 Gold",
+      "Description": "A mace. It’s hovering a couple inches above the counter.\n- Actually weightless, will not fall but can be moved with ease. However as a mace it relies on weight, and thus deals damage as if it were three sizes smaller.",
+      "Name": "Weightless Mace"
+    },
+    {
+      "Cost": "460 Gold",
+      "Description": "A small needle and a length of thread. It looks clean.\n- When the thread is sewn into a fabric and that fabric worn by a person it grants the wearer’s clothing the ability to become perfectly clean 2/day, and 1/day mend itself.",
+      "Name": "Maid’s Thread"
+    },
+    {
+      "Cost": "700 Gold",
+      "Description": "A figurine made of paper mache of a tiger. It looks fierce and noble.\n- Used as a figurine of wondrous powers, creating a paper mache tiger. Tiger can prowl around an area or protect a person/area as designated by the user. However it is only for looks and deals damage as a common cat, and is afraid of water and fire. Rain or splashing water makes it panicked, as is creating fire in it’s sight. Will not willingly go within 5ft of an open flame.",
+      "Name": "Paper Tiger"
+    },
+    {
+      "Cost": "870 Gold",
+      "Description": "A ‘belt’ made out of a rubbery tentacle.\n- When worn grafts to the wearer’s skin and can be used as a tail, able to hold 5lbs and unable to use weapons, shields, cast, or anything requiring fine action. However it can retrieve stowed items as a swift action.",
+      "Name": "Tentatail"
+    },
+    {
+      "Cost": "80 Gold",
+      "Description": "Small white pellet, smells strongly of alcohol. Dose is large enough for a pint.\n- When dropped into a pint or less of water or similar non alcoholic safe to consume liquid it creates a strong alcoholic drink. DC 17 fortitude save to not immediately become highly inebriated.",
+      "Name": "Inebriation Pellet"
+    },
+    {
+      "Cost": "320 Gold",
+      "Description": "A gold coin with a normal dwarven design, demonstrated to hold in the air for a minute with a brick on it.\n- When tossed into the air it will stay for 1 minute and can hold 100 lbs on top of it.",
+      "Name": "Dropping Coin"
+    },
+    {
+      "Cost": "22000 Gold",
+      "Description": "A dagger designed for piercing with two wings around a circular guard.\n- Cannot be used to attack normally, instead allows a touch attack. Such attacks (And general use) send the wielder flying until they collide with something, treating it as a touch attack if hitting a creature. If the attack misses they instead fly through their square.",
+      "Name": "Dagger of the Aerial Explorer"
+    },
+    {
+      "Cost": "12000 Gold",
+      "Description": "An iron ring with a big polished stone. It is heavier than it looks.\n- Grants the wearer proficiency in heavy armor and said heavy armor only weighs half it’s normal amount to the wearer.",
+      "Name": "Ring of the Dragon Slayer"
+    },
+    {
+      "Cost": "800 Gold",
+      "Description": "A worn fingerless leather glove with burn marks. Smells like ash and swamp gas.\n- Allows the wearer to cast Produce flame 5/day, CL 5",
+      "Name": "Pyromaniac’s glove"
+    },
+    {
+      "Cost": "6200 Gold",
+      "Description": "A set of blue overalls. They look strange.\n- Allows the wearer to freely become ethereal and material. Every round spent ethereal does 1 damage per HD.",
+      "Name": "Impossible Overalls"
+    },
+    {
+      "Cost": "3200 Gold",
+      "Description": "Small box big enough only for a ring. Wizbolt will only open on purchase.\n- When opened the user is hit with a blast of arcane magic, causing them to grow dragon like features: Draconic eyes, claw like nails, minor horns, and scale growth in unmentionable places. You have gained the Dragon type in addition to your original type, also gained two claw attacks of your size and +1 Natural Armor.",
+      "Name": "Dragon’s Curse"
+    },
+    {
+      "Cost": "30312 Gold",
+      "Description": "A long scarf with razor sharp kobold scales with a lovely pink color scheme and stripey design.\n- Invigorating Bladed Scarf, deals an additional 1d6 magic damage. However it surrounds the user in subtle transparent floating hearts, and somehow creates a pink glow in the air when swung. At random it gives the sensation of someone riding on the wearer’s back, or hugging them.",
+      "Name": "Sparkle’s Scarf, made with love"
+    },
+    {
+      "Cost": "14000 Gold",
+      "Description": "A set of matte grey full plate. It is making a buzzing sound.\n- Can as a full round action conjure specially trained hornets to sting the eardrums of up to three targets. Deafening lasts about a week, Fort save DC 21 to avoid it. Otherwise it is a +1 Full plate set.",
+      "Name": "Assassin’s Plate"
+    },
+    {
+      "Cost": "3200 Gold",
+      "Description": "Blue umbrella with a floral motif. Smells like shadows.\n- Creates an area of Deeper Darkness under it while open. Diameter is 4ft, big enough for a medium or smaller creature to hide under it. Needs to be held in one hand to work.",
+      "Name": "Secretive Umbrella"
+    },
+    {
+      "Cost": "7300 Gold",
+      "Description": "A pair of brass knuckles with crystals growing on them.\n- +2 brass knuckles. Also restores a ki point to the target on a hit.",
+      "Name": "Chakra Aligner"
+    },
+    {
+      "Cost": "16500 Gold",
+      "Description": "A series of pink gold bracelets, engraved with fine patterns and writing in an unknown language. They resonant a soft tone as they clink together.\n- While worn the user’s unarmed attacks and claws (Provided the arms are being used) they are treated as weapons with a reach up to 10ft. However a natural 1 on an attack roll benefitting from the bracelets causes them to fly off, landing in the square of the target. Also, they’re fabulous.",
+      "Name": "Tele Fisting Bracelets"
+    },
+    {
+      "Cost": "1100 Gold",
+      "Description": "A pan with a green stained handle.\n- Pan can grow to accommodate any meal and evenly spreads heat. However meat thrown into the pan sears to show a detailed image of the creature’s death, including the killer.",
+      "Name": "Veganite Pan"
+    },
+    {
+      "Cost": "9700 Gold",
+      "Description": "An orangutan wearing a rather dapper suit, popping a humbug in his mouth.\n- Geoffrey is simply a very effective butler. He can maintain any given base of operations, operate any vehicle with a +8 to relevant driving checks, assist in cooking with a +4 bonus to the proper chef, and do any mundane butler task. Once per day he can be called from anywhere to your side with a designated item provided you had it stored somewhere or stored the money to buy it. Also has a limitless supply of banana humbugs, they provide no nutritional value but are quality candies.",
+      "Name": "Geoffrey"
+    },
+    {
+      "Cost": "10750 Gold",
+      "Description": "A pair of metal doodads with sharp prongs on one side. They spark when touched together.\n- Allows the wearer to cast Lightning Bolt 5 times per day by focusing the electricity running through their brain with CL 5. The wearer’s brain is slightly electrocuted by doing this as the lightning comes out of their face, causing one round of confusion. This is counted as an extraordinary ability.",
+      "Name": "Brain electrodes"
+    },
+    {
+      "Cost": "6400 Gold",
+      "Description": "A robot entirely made of old trumpets. We have no idea how it works.\n- Medium sized construct that can use bardic performances as a 5th level Bard. Can also use a Theme Song, focusing it’s bardic performance to only apply to one target (Can’t be used if performance is already singular). This doubles the bonuses granted or adds +2 to the save DC.",
+      "Name": "Trumpetron MK1"
+    },
+    {
+      "Cost": "3600 Gold",
+      "Description": "A dusty tome with the author’s name worn away and pages mixed with loose sheets.\n- Reader becomes shaken after reading, a Perform [Oratory] check can spread this effect to listeners with a DC equal to the check. By every 2 the check is over their save they are shaken for an additional round. Creatures living near the ocean take a -4 to their saves. If read while on the ocean with no land in view it causes frightened instead and conjures illusions accompanying the stories.",
+      "Name": "Ancient Book of Whale Tales"
+    },
+    {
+      "Cost": "750 Gold",
+      "Description": "A blunderbuss painted with bright colors and a cartoonish shape.\n- Blunderbuss that has infinite ammunition. That ammunition is confetti. This gun only deals 1 point of damage and creates a 15ft cone of colorful confetti with a satisfying popping sound. Critical hits force the target to laugh uncontrollably, they are treated as helpless and suffocating until someone spends a standard action to clear them of confetti.",
+      "Name": "Funderbuss"
+    },
+    {
+      "Cost": "16650 Gold",
+      "Description": "A terrifying greatsword of human make, crudely decorated and serrated.\n- +3 greatsword, intelligent with the mind of an brutal sociopath. Can be summoned from anywhere in the world by shouting it’s name. It arrives in a gout of hellfire and makes the user’s steps leave burning footprints. Causes the user to pick up as Chaotic Evil for alignment detection",
+      "Name": "Sir Franklin Witherston IV Esq."
+    },
+    {
+      "Cost": "14500 Gold",
+      "Description": "A set of thick full plate armor decorated with dwarven art of a person in the armor wrestling down terrible beasts.\n- +3 Full Plate armor, renders the wearer immune to any effects that move or grapple them unless they wish for it to do so. Effects that teleport the wearer must penetrate SR 22 to work (Unless wearer wants to be affected)",
+      "Name": "Statue’s Plate"
+    },
+    {
+      "Cost": "60000 Gold",
+      "Description": "A fine leather glove sized for a halfling. It is decorated with a keyhole the back and palm.\n- When worn the wearer may open any door and walk through to any other door they know to exist. If the exit door is locked then they will need to insert the key into the glove’s keyhole to open it, however the opening door does not need to be unlocked.",
+      "Name": "Dor’s Glove"
+    },
+    {
+      "Cost": "4750 Gold",
+      "Description": "A strange sack that appears to have had the opening sewn shut, and has two tuby ‘arms’ on the sides. It looks to be somewhat full of a soft material.\n- When bought the arms of the bag raise up in a gesture for a hug. Items placed within it’s reached will be hugged by the bag. Items hugged in this way can not be larger than medium sized, however are weightless to the carrier of the bag, as are items touching the held item. Items balanced on each other stay well enough, allowing the bag to be treated as a Type II bag of holding. Only difference being the objects are not stored in any way and are still at their full volume. The bag is also very sad if you don’t personally give it a hug to show you appreciate it’s work once in a while, it’s doing its best to keep your things for you.",
+      "Name": "Bag of Holding, Type H"
+    },
+    {
+      "Cost": "25500 Gold",
+      "Description": "A wonderfully carved axe made from some sort of rainbow colored wood and a flowing axe head that shimmers with colors.\n- Normally a normal Battleaxe, able to cast Persistent image five times a day. Will save DC is equal to the user’s craft [Painting] check and lasts for a number of rounds equal to half the check. Illusion can only take up a 5ft radius around the user, but is otherwise the same as the spell. While this effect is active the axe is treated as a +2 battleaxe, if a creature disbelieves the illusion the bonus is lost against that target, instead acting as if it has the Furyborn enchantment.",
+      "Name": "Axe of the unfulfilled Berserker"
+    },
+    {
+      "Cost": "120 Gold",
+      "Description": "A small wooden block with holes drilled along one half.\n- When held to the ear enables communication with the Lonely man. Just a really lonely man in a dark place, happy to talk and a bit desperate/scared that everyone forgot about him. He doesn’t know where he is, how he got there, who Wizbolt is, or how he found his device. If asked about the device he begins to panic as he does not know where or how he found and it and only remembers it in the instant the speaker’s voice was heard. Can be asked for advice on any subject, treated as having half the user’s HD+1 to any relevant checks. Speaks all languages, even secret and sign languages (Don’t ask how that works over voice)",
+      "Name": "Lonely man’s friend"
+    },
+    {
+      "Cost": "23175 Gold",
+      "Description": "A simple leather robe with an oiled exterior and a very roomy chest area. Smells like water.\n- When worn, any time the wearer finds a plot relevant object, person, event, or piece of information a red herring (the fish) will appear in the robe. Best not tell the PCs about this effect.",
+      "Name": "Cult hunter’s robes"
+    },
+    {
+      "Cost": "6800 Gold",
+      "Description": "A pair of shiny bone cufflinks with a golden bead.\n- When worn as a part of any sleeves the wearer is treated as ambidextrous for: Hand shaking, signature writing, bowing, card dealing, bowling, and wintergarten playing. Also may reach into their sleeves to retrieve items stored in the cufflinks as a swift action, stowing an item is a full round action for anything larger than a deck of cards. Cufflinks can hold up to 400lbs with limitless volume. Though items larger than the wearer takes an additional minute to stow per size category larger (And it looks rather silly, stuffing them into your sleeves).",
+      "Name": "Wizbolt’s old Cufflinks"
+    },
+    {
+      "Cost": "13200 Gold",
+      "Description": "A caravan larger than Wizbolt’s. You’re not sure how to appeared there, even Wizbolt isn’t sure how it did.\n- The wagon is a Huge vehicle on the outside with a place for seating that is protect from weather as well as the interior is, and moves without the need of a beast of burden. It still requires a driver of some sort. The inside is treated as the Secure Shelter spell, with only six bunks and chairs, a small kitchen near the fireplace, six small dressers each with a mirror. Currently stocked with a month’s worth of firewood. Interior including furniture is very well made with an odd purplish wood and red velvets. Can sometimes be conjured while thought about, or just at random. Unseen Servant likes to gently caress inhabitants on rare occasions, particularly those who look upset.",
+      "Name": "A really big caravan"
+    },
+    {
+      "Cost": "11500 Gold",
+      "Description": "A guillotine large enough to behead a large creature. An unnerving aura emanates from it.\n- Functional guillotine, when a creature vulnerable to a coupe de grace is placed inside it will remove their heads. Does not need to be sharpened and can be packed and unpacked in 1d10 minutes. However the person doesn’t die, their head becomes permanently detachable, not even divine intervention can repair the damage (Loosely attached, about as well as a plastic suction cup on a wall). Also a sentient magic item that is sad it can’t do the one thing it was made to do. Very depressed, can sometimes be heard telepathically whimpering (It doesn’t have control, it is sorry for when it happens. Don’t abuse your guillotine.)",
+      "Name": "Cursed Guillotine"
+    },
+    {
+      "Cost": "12250 Gold",
+      "Description": "A pair of beige trousers. They have a fighting spirit about them.\n- Grants the wearer the ability to conjure a pair of boxing gloves from the pockets of the trousers. While wearing these boxing gloves they are unable to use their hands for fine manipulation but are treated as having Improved Unarmed Strike. The boxing gloves can only deal nonlethal damage and can use the wearer’s perform [Sing] check as an attack roll, dealing 1d8 of damage for a medium creature. Confirmed criticals knock the target unconscious until the wearer takes off their boxing gloves.",
+      "Name": "Fighting Trousers"
+    },
+    {
+      "Cost": "7800 Gold",
+      "Description": "A double barrel shotgun with unusually wide barrels.\n- Can be used as a normal double barrel shotgun but can’t be enchanted normally. When not loaded it can always fire a blast of confetti, making a fun party noise. Deals only 1d4 damage when used in this manner but critical hits cause the target to explode in a gruesome, violent, gory mess acting as a coup de grace (Damage die increases to normal for this). The target’s allies have to make a will save DC 22 to not be frightened of the user. For this it does not make the party noise or confetti.",
+      "Name": "Shotfun"
+    },
+    {
+      "Cost": "450 Gold",
+      "Description": "A mysterious set of garments. You don’t know what they mean but maybe there is something afoot with this garb.\n- Pocket contains a cryptogram, which can be deciphered into a hex code, that gives the location of an image. Hidden within the image is a secret phrase, rearranging the phrase creates a sentence which is an instruction to find a new location. The new location has a statue and a message on the plaque, crack the plaque’s riddle as it relates to the statue and find the box. The box will contain several items that must be arranged in the correct manner which will form a key. Refer back to the image, find where that image was taken from and place the key in the secret hole under the third chair from the right. The way is now opened, you will be faced with many puzzles to test your will to complete this challenge. At the end there is a major artifact (Don’t tell the PCs! Also why would you use this?).",
+      "Name": "Alternate Reality Garb"
+    },
+    {
+      "Cost": "3000 Gold",
+      "Description": "A missing poster without a portrait. The reward is one million gold for the Missing Man.\n- Carrying it allows the owner to perceive the Missing Man. The Missing Man is a creature that wanders throughout reality missing to most creatures, causing chaos and abducting lost creatures. Finding a way to attack him will be hard, since he does not technically exist, but does. His trail could be found anywhere and nowhere, tracking will be difficult.",
+      "Name": "Missing poster"
+    },
+    {
+      "Cost": "9300 Gold",
+      "Description": "You really don’t want this key.\n- Context (And DM) sensitive. Can be used at any time at least to escape immediate harm, least for as long as you can tolerate the magical realm. Usable 3 times, each use after causes 1d12 Wisdom damage (Can’t go negative).",
+      "Name": "Key to the Magical Realm"
+    },
+    {
+      "Cost": "4600 Gold",
+      "Description": "A tortoise wearing thick iron plate armor. It has an unshakable aura. Feed it fruits and veggies.\n- Weighs 35lbs, but while carried somewhere gives the carrier +2 Natural/Armor bonus to AC. This type can apply as either, as beneficial to the carrier. It cannot survive in bags of holding or similar items, it is still a live tortoise.",
+      "Name": "Iron-clad Tortoise"
+    },
+    {
+      "Cost": "7500 Gold",
+      "Description": "A wicked hook with a length of chain on the handle.\n- Treat as a Throwing Returning Ogre Hook with a 40ft range. Both the thrower and target are dragged 5ft towards each other each hit. 1% chance on every attack to pull an outsider out of any good aligned plane. They do not appreciate having a hook in them.",
+      "Name": "God’s Hooks"
+    },
+    {
+      "Cost": "9700 Gold",
+      "Description": "A length of chains that are warm to the touch.\n- Must be worn as armor and a weapon. Treat as a set of +1 Chainmail and a Spiked Chain that has an additional 5ft of reach. Kills with the chains add +1 fire damage to the weapon, stacking infinitely. For every 3 points of fire damage gained the wearer takes 1 point per attack. Has a 1% of dragging an outsider out of any evil aligned plane, they do not appreciate being lashed by chains.",
+      "Name": "Devil’s chains"
+    },
+    {
+      "Cost": "75 Gold",
+      "Description": "A belt, made entirely of tools.\n- Very impractical belt that contains every common tool and one set of masterwork tools chosen by the DM. Wearer takes a -2 to acrobatic checks and increase the dex penalty of armor by 1. Can be enchanted though.",
+      "Name": "Tool belt"
+    },
+    {
+      "Cost": "1650 Gold",
+      "Description": "A handful of sand, perfect for being held in the pocket.\n- Can be thrown as a swift action to blind the target (DC = melee attack roll) and allow the user to move up to their speed. They must yell ‘Pocket sand!’ while doing so. One use.",
+      "Name": "Pocket Sand"
+    },
+    {
+      "Cost": "5 Gold",
+      "Description": "Not great, but when its all you got you’ll make it work.\n- Normally a hammer that only detects as magical. When the owner has nothing else on their person except a set of non-magical armor or clothing (Not both) it becomes a +5 Speed Furyborn club with a critical of 15-20/x4.",
+      "Name": "A hammer"
+    },
+    {
+      "Cost": "11000 Gold",
+      "Description": "A pair of socks. One is striped with many colors, the other is argyle. Strangely they match well.\n- All magic items worn by and within 10ft of the wearer can only be detected as magical, no other details are possible to ascertain. Wearer is under a constant Nondetection spell and may turn it off or on as a free action.",
+      "Name": "Wizbolt’s Anti Detection Socks"
+    },
+    {
+      "Cost": "200 Gold",
+      "Description": "A pebble, its pretty light.\n- A full size boulder, compacted in a way that interrupts extradimensional spaces like bags of holding and portable holes. If this stone ever comes into contact with such an item it explodes into a gargantuan boulder.",
+      "Name": "Boulder of holding"
+    },
+    {
+      "Cost": "960 Gold",
+      "Description": "A satchel containing many blue round pellets.\n- When throw in the air in a dry area (Anywhere without sufficient humidity or water in the immediate vicinity) the dust absorbs the dryness and produces 100 gallons of water. Single use.",
+      "Name": "Dust of Wetness"
+    },
+    {
+      "Cost": "110 Gold",
+      "Description": "A phial of transparent liquid.\n- When bought the tonic disappears, DC 21 perception to find it. It hid behind the buyer’s leg. Any time the tonic is not being watched it hides somewhere on or near the owner with a stealth of +10. Does nothing when drunk, but tastes like something familiar but you can’t quite place it.",
+      "Name": "Hiding Tonic"
+    },
+    {
+      "Cost": "340 Gold",
+      "Description": "A leech. Its magical.\n- Does nothing a normal leech can’t do. But it is magical. Picks up as enchantment. Sort of makes you wonder why you’ll buy anything thats labelled as magic.",
+      "Name": "Magic Leech"
+    },
+    {
+      "Cost": "8000 Gold",
+      "Description": "A pair of oversized classes connected to a large wooden nose complete with bristle mustache.\n- Grants the wearer a +10 to disguise and can be used to apply a disguise as a swift action using only the +10. However you are wearing them, and people may ask you to remove them.",
+      "Name": "Spy’s Spectacles"
+    },
+    {
+      "Cost": "1000,000 Gold",
+      "Description": "You thought these didn’t even exist.\n- Can be sold for 1500,000 Gold. They are that rare.",
+      "Name": "Hen’s Teeth"
+    },
+    {
+      "Cost": "35 Gold",
+      "Description": "A opaque vial.\n- Contains a tiny rolled up paper saying ‘You’ve made some’. Can be given to another creature, if read applies a -1 morale penalty to attack rolls, will saves, and the DC to intimidate them. Lasts 1 day. Reusable if you retrieve the vial.",
+      "Name": "Vial of Mistakes"
+    },
+    {
+      "Cost": "10400 Gold",
+      "Description": "A white triangle with a simple eye, floating next to a golden chain.\n- Symbol of a forgotten god, allows the wearer to make an additional attack at their full BAB, this can be used with any other extra attacks from other equipment. If used with a ranged weapon instead it allows for four attacks at full BAB, stacking as well. When used in this way it increases the reload of the weapon up to a full round action, or doubled if greater, though only after the final attack.",
+      "Name": "Triangular Amulet"
+    },
+    {
+      "Cost": "7940 Gold",
+      "Description": "A heavy book, the cover advertises an obscenely muscular man using two hammers in combat.\n- Allow the reader to qualify for two weapon fighting (And similar/related feats) using their strength modifier instead of their dexterity. As a book it can be read any amount of times, however once read the reader can’t go back to using dexterity through sheer shame knowing there are better paths in life.",
+      "Name": "Guidebook of Muscular Dexterity"
+    },
+    {
+      "Cost": "12800 Gold",
+      "Description": "A rather large deformed, slightly humanoid fish skull. It flips satisfying when tossed in the air.\n- Allows the owner to roll once per turn. This moves them 15ft as a free action, however it must be in a straight line. User is also slightly mutated, ears becoming fins, fin growing in the center of the head, and gaining proficiency with acoustic guitars as weapons, as well as a +2 to perform [Strings] with them.",
+      "Name": "Fish Skull"
+    },
+    {
+      "Cost": "34650 Gold",
+      "Description": "A half fist sized chunk of hand candy. Wizbolt warns it’s curse is difficult to remove.\n- The first creature to suck on it’s gob is permanently stopped. That is to say they can not verbalize or make any sound through their mouth. They now require two hours of tedious effort to try and eat or drink even small morsels, and cannot cast spells with verbal components. A dispel curse can remove this temporarily with a DC of 22, allowing normal gob use for 24 hours. A wish or miracle spell can remove this curse without a check.\n\nWizbolt’s Gifts - Free!\nA box for each of you, lovingly wrapped in colorful paper with a bow on top, there are even candies and a bell on the boxes! The least he could do for such wonderful customers.\n- Only give out once a year now, for the season. Each player gets a single Wizbolt item either chosen at random or selected by the DM. Just try to keep them within the same range, unless some were particularly nasty customers.",
+      "Name": "Everlasting Gobstopper"
+    },
+    {
+      "Cost": "90 Gold",
+      "Description": "A loose sweater that looks perfect to sleep in. It has a black and white design on the front.\n- When the wearer falls asleep their consciousness enters a strange landscape, unique to the individual. After one night of this they gain the ability to wake from sleep at will, and can be alerted of outside influences in their dreams with a DC 14 Wisdom check. However after having this benefit the wearer is left unrested and odd, taking a -4 to diplomacy, sense motive, bluff, and perception checks, a -2 to all will saves against creatures of the same type (If applicable subtype), and a +1 to intimidate. They also become narcophilic, requiring an additional 4 hours of sleep to be rested (For creatures that do not normally sleep, they do for this purpose.), this can’t be reduced by sleep related effects but is removed by a full sleep without the pajamas.",
+      "Name": "Bizarre Pajamas"
+    },
+    {
+      "Cost": "2000 Gold",
+      "Description": "A small jar of 40 white pellets.\n- Powerful sleeping ‘aid’, potent enough to cause sleep even in creatures normally unable to sleep. After ingesting one pill the eater must make a DC 23 Will save or be put to sleep in 1d6 rounds. Creatures normally immune need only a DC 18 save and have 3d6 rounds before the drops take effect. Drops can be dissolved in drinks easily, or crushed over food items to be used as a poison. Sleep induced by the drops is always restful and counteracts any effects that prevent restful sleeping.",
+      "Name": "Somnic Drops"
+    },
+    {
+      "Cost": "2600 Gold",
+      "Description": "A small bottle, when in the light the fluid is water like, green and blonde. When under shade it thickens, and turns more black and white in places. Wizbolt warns its permanent.\n- When drunk the drinker has a 2% chance to transform when suddenly exposed to dim light or darkness. The drinker is given no warning, and instantly transforms into a malformed figure with near glowing white flesh and pitch black features and outline. The drinker can not act while in this form until someone touches them, that person vanishes instantly and returns in their bed the next morning, or most recent place they slept. After they vanish the drinker returns to normal and everyone who could see the event must make a DC 17 Will save or be shaken while they can see the drinker for 1 hour.",
+      "Name": "Eerie Sludge"
+    },
+    {
+      "Cost": "80 Gold",
+      "Description": "A baggie of banana humbugs, little candies. Theres 12 of them.\n- Pretty tasty candies on their own, but when given to any primate with an Intelligence of 3 or lower they treat the giver as if they were friendly.",
+      "Name": "Banana Humbugs"
+    },
+    {
+      "Cost": "8400 Gold",
+      "Description": "A giant lollipop, looks like tutti fruity.\n- Acts as a staff, currently a full 5 charges, CL 8th. Can cast:\nPrestidigitation - 1 charge (Can only flavor items as sweet candy or make items sticky)\nArcane Mark - 1 charge (Creates a colorful swirl only)\nCharm Person - 1 charge (They get a lick though)\nGood berry - 2 charges (Sprinkles hard candies instead of modifying berries)\nCan be recharged by pouring 50 Gold worth of sugar or candy on it, each use wears down the candy until only the stick is left. Can still be recharged as normal.",
+      "Name": "Saccharine Staff"
+    },
+    {
+      "Cost": "165000 Gold",
+      "Description": "A bottle filled with a chunky slurry. The bottle looks like the bottom half was once a jar. Wizbolt warns its permanent.\n- Once drunk the drinker’s form warps and twist, developing animal features. They gain 1d6 features from the following list (Chosen randomly): Burrow 30ft, Fly 90ft [Good], Climb 90ft, Blindsense 30ft, Darkvision 60ft, Low-light vision, Scent, Poison, Pounce, Rake, Web, Breath Weapon (DM chooses which, can be any on an animal or magical beast), Grab, Constrict, Spikes, Roar, +30ft Movement speed, or an effect from an animal/magical beast at the DM’s choosing. The drinker’s type becomes Magical Beast, technically now a chimera with parts fitting their new abilities. This is permanent barring a Reincarnate spell or similar race change effect.",
+      "Name": "Chimera Tincture"
+    },
+    {
+      "Cost": "90400 Gold",
+      "Description": "A single bag of tea. Smells lovely already.\n- Once drunk the drinker will not need sleep and can sustain themselves on almost entirely tea, only needing food of a creature three sizes smaller than they are, but taking up water as if a size larger. Gain a +8 alchemical bonus against sleep effects. Only makes a single cup.",
+      "Name": "Elemental Tea"
+    },
+    {
+      "Cost": "20200 Gold",
+      "Description": "A miniature door made of wood with a tiny knob.\n- Can be used as a standard action, whispering into it calls in a Dor Strike. This acts as the Volcanic Storm spell (Cl 7th), except all damage is bludgeoning and does not cause a penalty to perception checks. Instead if maximum damage is rolled every enemy in the area of effect is pulled in to Dor’s doors, never to be seen again. The volcanic rock in the spell is replaced with doors appearing and falling from the air. So. Many. Doors. These doors shatter on impact and can’t be entered. Usable 5/day.",
+      "Name": "Dor Caller"
+    },
+    {
+      "Cost": "32000 Gold",
+      "Description": ".ssenkrad senihs tI .sroloc ginkool gnorw ,egnarts htiw yek A\n- Can be used once per day, creates a short life anti door. Such doors allow the user to walk into a space of inverse reality 20ftx40ftx20ft in size. The inverse reality they enter is created as an opposite of the area around the anti door, and may be drastically different both to the normal reality and what has been seen previously. Anti doors remain until the user returns to reality.",
+      "Name": "yek s’roD"
+    },
+    {
+      "Cost": "140 Gold",
+      "Description": "A droopy sack with a dark bluish tinge. This sack knows true sadness.\n- Can be used as part of an intimidate check, granting a +2 to the check to whoever is holding it. Those who become shaken by the intimidate check increase the shaken penalties by -1, due to feeling really sad.",
+      "Name": "Sack of Sadness"
+    },
+    {
+      "Cost": "75 Gold",
+      "Description": "A belt bag that comes with a trendy belt. Seems the current fashion is technicolor polkadots.\n- Once per week the bag generates a mundane outfit suited to current trends. Grants a +2 to diplomacy or bluff checks to convince others you are up to date with fashion. Outfit can be sold for 10 gold, but you must wait a full week before the next one can be made.",
+      "Name": "Trendy Belt Bag"
+    },
+    {
+      "Cost": "350 Gold",
+      "Description": "A rough canvas bag that is leaking out light.\n- Once per day can be opened, acting as Daylight centered on the bag. Always gives off the same light as a candle, due to it not being a very well made bag of sunshine.",
+      "Name": "Bag of Sunshine"
+    },
+    {
+      "Cost": "14375 Gold",
+      "Description": "An effeminate purse. Standing on a pair of very manly muscular legs, striking a manly pose.\n- Treat as an animated small sized object, with an unarmed strike instead of slam. Str 18, Dex 14, No Con/Int, Wis 3, Cha 15. Unarmed strike deals 1d6+Str damage, BAB = that of the buyer. Can wear magic boots. Also acts as a bag of holding, being able to hold as much as a medium creature with it’s Str score inside it’s tiny bag body.",
+      "Name": "Man Purse"
+    },
+    {
+      "Cost": "470 Gold",
+      "Description": "A pocket that could be easily incorporated into any garment. Looks very, very crisp.\n- Can be used as a masterwork dagger in all ways, except with the weaknesses of being made of cloth. Deals 1 damage every round to objects or creatures stored inside of it (Diminutive-Fine sized), being able to wear down hardness/DR. Can be torn to used as an emergency weapon as a standard action, +30 bluff to convince others it is not a weapon. Because nobody should ever think that a pocket is a weapon.",
+      "Name": "Pocket Knife"
+    },
+    {
+      "Cost": "25 Gold",
+      "Description": "A biscuit, its got a bit of blood on it.\n- Holy symbol of Jeff, god of Biscuits. Can function as any other holy symbol or eaten as a delicious treat. Also makes an effective improvised weapon, dealing 1 bleed damage on a crit per every +5 BAB the user has.",
+      "Name": "Jeff’s Holy Symbol"
+    },
+    {
+      "Cost": "9750 Gold",
+      "Description": "A bag that appears to be empty but has a band of Grey, Rust, and Tan around the opening.\n- Can act as any of the three bag of Tricks, rolling a d3 to decide. Animals thrown out always have a jester’s hat on and spend their first full round action doing a minor act of jestering. 50/50 chance that is is very entertaining.",
+      "Name": "Bag of Jests"
+    },
+    {
+      "Cost": "130000 Gold",
+      "Description": "A mass of green plasma with a white stripe moving through it. It pulses with energy.\n- Grants +4 Size bonus to STR, user may fly 40ft [Poor]. When flying their arms turn to wings and cannot be used. Once bought the blessing is absorbed into the user but may be expelled over a minute of concentration.",
+      "Name": "Blessing of Babylon"
+    },
+    {
+      "Cost": "8500 Gold",
+      "Description": "This ruby is definitely not magical, totally mundane.\n- Occasionally when the owner of the stone makes a sarcastic remark the remark becomes real. Ex: “That boss was so easy, I wish we could fight him again” summons said boss.",
+      "Name": "“Totally not magical Ruby”"
+    },
+    {
+      "Cost": "4000 Gold",
+      "Description": "A severed mouth with snaggle teeth. It grumbles quietly.\n- The mouth can be told a message and given instruction on when to say it, or to give an alarm when a specific thing happens within it’s 50ft blindsight. Speaks with a thick cockney accent and is a general cunt, can yell loud enough to be heard 200ft away. Washing it with soap prevents it from saying profanities for 24 hours.\n\nCrushed Hound’s Eye - 5,200\nAn eyeball, its misshapen, red on one side, and has a thick cataract over the other.\n- Can be activated by gently pressuring it, creating an ethereal hound around it. The hound is small sized and can be commanded to run to and survey an area for up to 24 hours. The hound has a max speed of 300ft while running, and is counted as incorporeal to attacks but due to the solid eye it can not move through objects. If attacked the body dissipates and the eye must be recovered, otherwise it returns after 24 hours and the owner is given visions of what the hound saw over the next two hours, being treated as fascinated. The hound can only be summoned once per week.",
+      "Name": "Severed Mouth"
+    },
+    {
+      "Cost": "600 Gold",
+      "Description": "A featureless child’s doll, it has an unsettling aura.\n- If the doll is on the owner’s person at time of death their soul is absorbed into the doll, acting as the Reincarnate spell except coming back as an accursed doll. -2 Str, +2 Dex, no Con score, construct type, Tiny sized. Half HD DR/Piercing, no special vision, +8 to disguise as an inanimate doll. If the doll dies the soul is always revived as a new incarnation of the doll regardless of spell used, unless it is a wish or miracle.",
+      "Name": "Hollow Doll"
+    },
+    {
+      "Cost": "20 Gold",
+      "Description": "A packet of tripping sauce, doesn’t have any nutrition facts.\n- Can be used as a swift action, allowing a trip attempt at a target within 15 ft. Said trip attempt uses the user’s CMB however the target doesn’t gain any benefits from size or extra legs to their CMD. Single use. Also makes a good sauce on fried foods.",
+      "Name": "Tripping sauce"
+    },
+    {
+      "Cost": "275 Gold",
+      "Description": "A pair of gnome heads, they seem ok with being bodiless.\n- What is whispered into the ear of one head is spoken by the other. Provided they are on the same plane they work regardless of distance. Sometimes they worry about their third brother.",
+      "Name": "Head phones"
+    },
+    {
+      "Cost": "360 Gold",
+      "Description": "A pudgy green toad with orange lips. You’re irritated just looking at it.\n- Can be prodded as a move action, producing an annoying screech people are sick of the instant they hear it. Causes all within a 20ft radius to lose their next action as they shake their head in shame. The user must make a DC 20 will save to not leave the encounter out of shame. Single use. Mostly because you don’t want to have it after one use.",
+      "Name": "Screeching Toad"
+    },
+    {
+      "Cost": "11500 Gold",
+      "Description": "An absolutely massive blade of grass, the bottom frayed and woven into a handle.\n- Acts as a +1 Speed Greatsword with a hardness of 0 and HP of 5. If it is used to attack a creature with a significant amount of fire or is used/left near an open fire it is completely destroyed as it burns away.",
+      "Name": "Greatblade of Grass"
+    },
+    {
+      "Cost": "40 Gold",
+      "Description": "A strange square device with many glowing spots.\n- Does absolutely nothing on it’s own. However it grants a +4 bonus to bluff and intimidate checks when held by someone with 16 or more Intelligence from them ‘explaining’ its many functions.",
+      "Name": "Technobauble"
+    },
+    {
+      "Cost": "300 Gold",
+      "Description": "A ring, the top half has an arrow and the bottom half spins with the entire common alphabet on it.\n- When spoken to in a language other than common the ring slowly converts everything said into common. Can be rubbed against writings for the same effect. Takes 1 second per letter.",
+      "Name": "Magic Decoder Ring"
+    },
+    {
+      "Cost": "17500 Gold",
+      "Description": "A big hammer with an iron head and indented star decorations.\n- Functions as a +1 Greatclub, weighing twice the normal amount. The star decorations can overflow with magic, opening a portal to the Hammerspace. Hammerspace can carry 100lbs of goods per point of strength of the user. On confirmed critical hits the hammer effectively swallows the target, 1d6 per round, AC 20, Hardness 5 HP 30.",
+      "Name": "Hammerspace Mallet"
+    },
+    {
+      "Cost": "15000 Gold",
+      "Description": "A small wristband with a button on it. Fairly colorful.\n- When used summons a brightly colored door with a pair of eyes on top that watches the area. Inside the door acts as an extradimensional space containing a small foyer down a short few steps, bathing area with warm and cold water, a reading room, and a bedroom for one. The eyes outside can alert whoever is inside of someone approaching and describe what is outside the door. Anything left inside is retained exactly as it was between summonings, the door vanishes once it is unobserved.",
+      "Name": "Dor’s Respite"
+    },
+    {
+      "Cost": "28500 Gold",
+      "Description": "A twisted goat horn, cracked and leaking blood.\n- When used as a full round action calls a small goat with a peculiar look. Goat has 1 in all mental scores but otherwise the stats of the Dretch. Can not bleat as a goat but makes sounds of common farm animals.",
+      "Name": "Rorn’s Horn"
+    },
+    {
+      "Cost": "1100 Gold",
+      "Description": "Three little balls of a splotchy red and white candy. Smells like cinnamon\n- When eaten causes the user to gush blood from their eyes and mouth, as well as any wounds from their body. This deals 1 point of bleed damage + 1 for every 5 points of damage done by sources other than bleeding. This effect can either cause a target to appear terrifying or be given with an appropriate check to grant a +8 to intimidate checks. Particularly vicious creatures such as evil outsiders or those of the Chaotic evil alignment are immune to the former, but are affected if they eat the candy.",
+      "Name": "Vein breakers"
+    },
+    {
+      "Cost": "55 Gold",
+      "Description": "A simple book with no title or author. Wizbolt advises against opening it yourself.\n- When opened causes itself and the creature who opened it to catch fire, dealing 2d4 fire damage initially and burning for 1d6 until extinguished.",
+      "Name": "Book of Immolation"
+    },
+    {
+      "Cost": "2300 Gold",
+      "Description": "A red lens fit into a downward facing lantern. Comes filled with 2 hours worth of oil.\n- When lit and hung creates an unsettling red light. Grants whoever sits in the light a devilish appearance, giving a +2 to intimate, Perform [Oratory], Bluff, and any checks relating to twisting laws in the speaker’s favor. For every hour in the light the speaker must make a DC 12+1 per hour will save or shift one step towards lawful evil. If the creature is already lawful evil increase the bonuses given by +1.",
+      "Name": "Devil’s light"
+    },
+    {
+      "Cost": "57500 Gold",
+      "Description": "A golden amulet with a shining rounded ruby set in it. It seems to be calling out to be worn.\n- Grants technical immortality, allowing a soul to be stored indefinitely and transfer into the body of whoever wears it. The soul of the body is destroyed when the amulet’s enters. If the amulet is removed the soul returns to it. Currently contains the soul of a mad wizard, well meaning but hazardously unaware. The only way to remove the soul is by using the Trap the Soul spell while the amulet’s soul is in a body. If the amulet is removed or not at least being held by the chain by it’s body, the body dies and cannot be reanimated.",
+      "Name": "Cursed immortal amulet"
+    },
+    {
+      "Cost": "3700 Gold",
+      "Description": "This rusty iron ring appears to show a dusty landscape within it, changing as it’s moved. Poking a finger through it seems very warm. The ring can stretch very slowly and closes much faster.\n- Acts as the Gate spell to the Empty World. However requires 1 minute of work expanding the ring large enough to fit through if medium, halving or doubling time for each size category larger or smaller. The Empty World itself consists of a vast plane of tall buildings made of a strange stone with scatterings of strange metals, glass, and materials of unknown origin. Temperature is always considerably warmer than the material plane, as well as having a much thinner atmosphere. Any time a creature suffers fatigue they take 1 point of damage for each minute under fatigue and cannot recover by normal means aside from magic. The world is entirely devoid of life, only wandered by scarce flying constructs that attack on sight. You may make perception checks through the ring albeit at a -10 penalty from the dust and small view point.",
+      "Name": "Gate to an Empty World"
+    },
+    {
+      "Cost": "4500 Gold",
+      "Description": "A journal with a sturdy seal. Wizbolt cannot tell you any of whats contained inside and advises against looking yourself. He thinks it could be dangerous, probably close your eyes if someone else opens it.\n- Contains information on a creature that seems inane, describing it as an interplanar traveller who hunts for information on itself and collects it. While reading said creature appears within arms reach of the reader and grabs them and the journal, never to be seen again. Any who witness the event must make a DC 25 will save to forget all it’s seen of the creature least they suffer the same fate within 1 hour. The creature in unyielding and undying, however a DC 30 escape artist check or a grapple attempt of 25 or higher escapes the initial grasp and allows an attempt at the Will save, increasing by +1 for each failed attempt.",
+      "Name": "???"
+    },
+    {
+      "Cost": "5450 Gold",
+      "Description": "A large buckler, looks more like a round shield for a normal person. Made of stone with an unshakable chill, it makes you feel sturdy.\n- Weighs twice as much as a normal large sized buckler, can be used as a normal buckler for a large creature or a heavy steel shield by a medium one. Otherwise a +1 shield that allows the user to parry massive projectiles by succeeding a Feint check opposed to the attack roll. This can only be used by massive projectiles such as from massive creatures, thrown boulders, catapult shots, ballista bolts, and cannon fire. Can also be used once per month to parry an avalanche, mudslide, rockslide, or similar event with a DC 30 feint check. When parried the avalanche slides up to 1,000 feet out of it’s path and does not harm those in the avoided area.",
+      "Name": "Mountain’s Buckler"
+    },
+    {
+      "Cost": "1600 Gold",
+      "Description": "A battle aspergillum which rattles when shaken. Wizbolt warns not to get it wet.\n- A Shocking Battle aspergillum which always deals and extra +1 electricity damage. If it gets wet all those touching it takes 4d6 electricity damage and are stunned for 1 round, after which the item stops functioning magically. It can take light rainfall if covered but is otherwise very sensitive.",
+      "Name": "Tesla aspergillum"
+    },
+    {
+      "Cost": "24500 Gold",
+      "Description": "A long parchment, its blank. Seems like it could hold a lot of stories.\n- Acts as a +2 Greatsword made of parchment, once its bought it fills itself in with stories on the owner’s battles. Can be used with weapon finesse. If the user has a profession [Writer] or craft [Calligraphy] skill with 8 ranks or more they may use those skills in place of attack rolls when using the war scroll.",
+      "Name": "War scroll"
+    },
+    {
+      "Cost": "100 Gold",
+      "Description": "A decrepit tome without an author, Wizbolt lets you flip through the first few pages. Seems to be how to make yourself vanish, seems somber yet acceptable. It has many chapters, labelled as names in different handwriting.\n- When read the reader gains the ability to effectively remove themselves from everyone they know or have interacted with. This disjoints the character from any adventuring party as the magic of the book distances them. The DC to track or find information about the user increases by +40, and cannot be located or learned of through magic without a DC 30+HD of the missing caster level check. Those who knew the character remember them as normal, as they vanish through mundane means and do not alter memories unless another ability would allow them to do so.",
+      "Name": "Manuscript of the gone"
+    },
+    {
+      "Cost": "2340 Gold",
+      "Description": "A simple broadsword, it carries a ferocious aura. It’s said to be haunted by the spirit of an undying warrior.\n- +1 Longsword normally. If the wielder is ever slain while holding the sword a stone springs from the ground and wraps the body in chains to appear as if it is standing. Perception DC 35 to tell the owner is actually dead. Anyone who attempts to strike the body has the offending limb(s) severed and the sword is rendered mundane.",
+      "Name": "Sword of the Fallen Fey"
+    },
+    {
+      "Cost": "13350 Gold",
+      "Description": "A small device, looks very real from the front aside from a clearly mechanical aperture.\n- Grants Darkvision 60ft, however the darkvision is able to see in full color. Though while using the color vision cause a -2 to visual perception checks due to using only one eye. Functions as a spyglass as well, and halving perception checks due to distance.",
+      "Name": "Mechanical Eye"
+    },
+    {
+      "Cost": "11575 Gold",
+      "Description": "A snake head with miniature human heads budding off of it. The smalls heads seem to still be alive but do not speak.\n- Can be held forward to cause a Gaze attack, all who fail the DC 22 Will save are affected by a Stone to Flesh spell. The targets can willingly fail the save. Its also very unsettling to hold, and own in general. Seriously.",
+      "Name": "Asudem’s Head"
+    },
+    {
+      "Cost": "75 Gold",
+      "Description": "A bag of kibble with a three headed dog on the front. It seems very happy.\n- Three uses, causes any dog to gain two new heads, to become a three headed hound. The dog(s) is not harmed in any way and all three heads work in tandem without fighting at all times. This grants the dog additional bite attacks as normal. Works on all canines, and said creatures find the food delicious. Can’t cause a dog to have more than three heads, however it is still delicious dog food and they would appreciate have the remaining uses being dedicated to individual treats instead of regular food.",
+      "Name": "Kerebus Chow"
+    },
+    {
+      "Cost": "300 Gold",
+      "Description": "A one man sled. You may never need it but if you do you’ll really, really need it.\n- Can be ridden to safely sled across lava. The rider is immune to any damage from being close to lava or even the small parts that may hit their body, though not if they crash into a significant amount or a similar amount falling on them.",
+      "Name": "Lava sled"
+    },
+    {
+      "Cost": "5000 Gold",
+      "Description": "A sickly blue coin with a skull on one side and strange runes on the other.\n- Single use, when a creature carrying the token dies they are revived 1 hour later as if by the Raise Dead spell. In that one hour period they get to meet the god(s) of death or the afterlife they would’ve gone too, who may not be pleased about them getting out of dying.",
+      "Name": "Death token"
+    },
+    {
+      "Cost": "22500 Gold",
+      "Description": "A square bottle of a golden liquid with specks of red that form wailing faces. Wizbolt warns its permanent.\n- When drunk immediately causes 1d6 Permanent Wisdom damage and 1 minute of Confusion. Once the confusion wears off the drinker is left plagued by visions of the future, being constantly under the effect of Anticipate Peril and See Beyond. They may cast Divination, Locate Object, Clairaudience/Clairvoyance, Scrying, and Vision as spell like abilities at will, however each use causes 1 point of Wisdom drain. Each cast has a 10% chance of causing the drinker to suffer from Insanity as the spell, or a random madness (If in play) with a DC of 23. The DC to remove the curse is DC 25.",
+      "Name": "Prophecy Philter"
+    },
+    {
+      "Cost": "7400 Gold",
+      "Description": "A bag of ungodly sweet candies of all flavors. They have a strong scent that carries a sensation of whimsy and carelessness.\n- Must consume all the candies in the bag to activate. After all have been eaten the eater is covered in a shining layer of sparkling colored sugar as suiting their personality, coming out transformed into an overly sweet version of themselves, adorned with colors and a typically sweet items that match their new personality. They gain +4 Charisma and become twisted versions of themselves, overly cheery and constantly excited with their deepest desires becoming their dominant traits. Each day they must have a DC 12 Will save or be affected by the Mania madness with the urge to spread their candy infection with others (A full round action, avoided with a DC 16 Will save). However they become immutable, immune to mind affecting effects, figments, and charisma damage/drain.",
+      "Name": "Saccharine Sweets"
+    },
+    {
+      "Cost": "9200 Gold",
+      "Description": "A small sheet of paper with only a small part of the musical score on it revealed. Just thinking the notes makes you angry.\n- Once read the song vanishes from the paper and is burned into the reader’s mind. They may mentally recite the song as a move action to be affected by Rage as per the spell. They may stack the spells’ effects up to four times (AC penalty only increases to -4), however each time they must make a DC 14 Will save (+2 for each consecutive use) or be unable to tell friend from foe. If they fail this save they immediately gain +8 Str and Con, DR 5/-, and attack whoever is closest to them including animal companions or familiars.",
+      "Name": "Song of Rage"
+    },
+    {
+      "Cost": "8 Gold",
+      "Description": "A 6 inch tall figurine of a knight. It turns it’s head towards you and points a plastic sword to your nose.\n- Initially unfriendly, though can be affected by diplomacy as normal. Cannot speak, 4 HP, AC 18. Can move at 10ft move speed and will perform any task it can, however it’s sword deals only a single point of damage and is molded to it’s hand, leaving one free tiny little hand. Strangely it has an interest in cook books.",
+      "Name": "Haunted Figure"
+    },
+    {
+      "Cost": "1800 Gold",
+      "Description": "An eyepatch with 7 glowing red spots on it. On the inside it has uncomfortable looking spikes.\n- When put on it destroys one of the wearer’s eyes and effectively replaces it, dealing 2 damage. Grants low light vision at all times and dark vision when used alone (-2 visual perception checks). Can be used once per month to reroll a single dice roll any die roll, as long as the wearer sees it.",
+      "Name": "Speyeder Patch"
+    },
+    {
+      "Cost": "2970 Gold",
+      "Description": "This shiny black wok is large enough to cover your back, along with any backpack with space to spare. Heavy, but very sturdy.\n- Acts as a Heavy adamantine Shield, however it grants a passive +1 Shield bonus to AC when worn on the back allowing both hands to be used. Counts as a masterwork tool for cooking checks, and whenever the wearer is hit by a fire effect that blasts them (Not walking into fire or coming from a passive source) the shield blocks all damage save 1 per damage die rolled as the shield heats up. It remains heated, losing 1 point of damage per minute to cool down, any creature in contact with the shield takes the heated damage once per round.",
+      "Name": "Dwarven Cooking Shield"
+    },
+    {
+      "Cost": "2350 Gold",
+      "Description": "A pair of white cloth gloves, slightly sweaty. It’s said the original wearer displayed true bravery at every turn.\n- When worn the wearer may wield any light source as a melee attack against incorporeal undead. The attack deals 1d6 per 15ft of bright light or 30ft of normal light it provides, + the wearer’s Will save (If they have any bonus against fear apply this to damage as well). They lose any immunity to fear they have and become automatically shaken for 1 round upon seeing incorporeal undead or otherwise detecting them. The light attack is untyped damage and bypasses all defenses the target has (DR, Spell resistance, even AC)",
+      "Name": "Gloves of the Ghost Slayer"
+    },
+    {
+      "Cost": "52000 Gold",
+      "Description": "Unassuming round leather boots, the bottom soles are worn from decades of use and dusted with the soil of countless worlds yet the top is polished to a pleasing shine. These boots will serve you well.\n- Wearer is always under the effects of Freedom of Movement. This is a non magical effect that can only be dispelled or suppressed by godly intervention. In addition they ignore all falling damage and may leap up to 30ft in the air and land as a full round action dealing 1d6+Str per 10ft fallen to any creature they land on (As a ranged touch attack). The Str is multiplied as well. Wearer grows a full mustache every morning and is affected by Geas/Quest to save any nobility in trouble provided they’re aware of it.",
+      "Name": "Star Bounding Boots"
+    },
+    {
+      "Cost": "200 Gold",
+      "Description": "An old lap dog with blue-grey fur. It introduces itself with an exotic accent and licks its lips.\n- Doesn’t talk much, but while cooking it provides useful advice. When giving advice it grants a +2 to cooking related checks, however if asked for a recipe it will give you a recipe to follow along with, granting a +4 instead. Otherwise a normal dog, make his last few years comfortable.",
+      "Name": "Francis"
+    },
+    {
+      "Cost": "800 Gold",
+      "Description": "A pair of large deep red glasses with a swirl design.\n- After being worn for 24 hours the wearer gains the benefit of the Brilliant Planner feat however they need to only be near a settlement, spend half the time, and half the gold to prepare their plan. This allows them to prepare a plan in settlements they’re unable to enter normally. Causes strange speech and the wearer to bear a constant and irremovable large grin while the plan is available. Taking the glasses off is only possible when a plan is not available.",
+      "Name": "Red Glasses"
+    },
+    {
+      "Cost": "3760 Gold",
+      "Description": "A gleaming blade with a wing design crossguard. It radiates lost potential.\n- +1 Holy Longsword. While the wielder is at full HP or more they may use to as a ranged weapon with a 20ft range as a beam of energy comes from the blade. However the blade is fragile, having Hardness 3 and HP 20. With each attack in any form it takes 1 point of damage, when broken it will regenerate to full HP after 24 hours. If destroyed the hilt reforms the sword in 1 week. If it scores a critical attack against a creature with the evil subtype the user may embed the sword in the creature, petrifying it until a good aligned creature of the wielder’s HD or more removes the sword.",
+      "Name": "Novice Sword"
+    },
+    {
+      "Cost": "2400 Gold",
+      "Description": "A bushel of mint leaves, it gives you a decent cut when you try to touch the leaves.\n- Acts as a +1 short spear, if damaged it regenerates at 1 HP per hour. Can be used to deal slashing damage as well.\n\nB.F.H. - 14500 gold\nA big fucking hammer made of wood with a pink and yellow star design on the two faces. The handle has some sort of mechanism in it.\n- +3 Earthbreaker, deals damage as if it were huge, imposing a -2 attack when used by medium creatures (Increasing normally for smaller or larger than Large). Critical attacks cause the mechanism to reveal a rocket in the hammer, granting a free bullrush with a bonus equal to the damage dealt by the attack with a backlash of 8 damage to the wielder. This bullrush does not provoke, can knock targets upwards by 5ft by sacrificing 5ft of horizontal movement, and does not move the user.",
+      "Name": "Spear Mint"
+    },
+    {
+      "Cost": "4575 Gold",
+      "Description": "A pointy cap with two small pouches on a band around it. Wide brimmed and well made.\n- Acts as a bag of Holding Type II, except it must be worn as a head slot item and weighs only 2lbs. Carrying it for any longer than 1 minute without setting it down on a surface or hook for at least 1 hour causes it to weigh 3x the weight it currently is holding until worn as a hat for 1 hour.",
+      "Name": "Hat of Holding, Type II"
+    },
+    {
+      "Cost": "1 Gold",
+      "Description": "A bottle with a red cap and label, the liquid inside looks fizzy\n- A delicious beverage at any temperature and grants a +1 bonus to dex skill and dex related checks for 1 hour after drinking. Causes an irrational hatred of the Blue Elixir",
+      "Name": "Red Elixir"
+    },
+    {
+      "Cost": "1 Gold",
+      "Description": "A bottle with a blue cap and label, the liquid inside looks fizzy\n- A delicious beverage thats best chilled. Grants a +1 bonus to str skill and str related checks for 1 hour after drinking. Causes an irrational hatred of the Red Elixir",
+      "Name": "Blue Elixir"
+    },
+    {
+      "Cost": "16250 Gold",
+      "Description": "A large red maple leaf that holds its shape remarkably well. Holds a faint whiff of incense.\n- Acts as a +1 Shortsword normally. While used by someone who worships a god of the moon or nature acts as a +2 Bane Evil Shortsword, which causes evil and undead creatures killed by it to fade away to nothing.",
+      "Name": "Sacred Leaf of the Moon"
+    },
+    {
+      "Cost": "3600 Gold",
+      "Description": "A white hood with a red trim. A small bell chimes on it’s ties.\n- Grants the wearer a Good aura as the cleric ability. Provided the wearer does not carry a weapon they’re under a constant Sanctuary and Protection from Evil with a DC of 10+Half wearer’s HD (Min 1) + Their Charisma modifier. If they draw a weapon the effect dissolves in 1 round, during which the weapon drawn counts as a good aligned weapon.",
+      "Name": "Hood of the Shrine"
+    },
+    {
+      "Cost": "5400 Gold",
+      "Description": "A large backpack fit perfectly for a dwarf made of an active small foundry, complete with a tiny anvil and tools.\n- Weighs 60lbs and cannot be worn with similar backpack items. Always active as a foundry, providing light as a torch, usable as an improvised weapon dealing an additional d8 fire damage, as a portable masterwork tool/forge for metalworking. By sheathing a weapon in the foundry for up to 3 rounds it deals an additional 1d8 fire damage equal to the number of rounds left in the heat. Each round it reduces by 1d8. If a weapon is left in for 4-8 rounds damage increases as normal but it gains the broken condition, and if left in for 9 rounds the weapon is destroyed.",
+      "Name": "Mobile Foundry"
+    },
+    {
+      "Cost": "11000 Gold",
+      "Description": "A thick nail crusted in dried blood.\n- Used as a swift action to impale yourself, dealing 1d4+Str bleed damage and entering Rage as per the spell for the same number of rounds. Each round the bleed reduces by 1, ending with the Rage effect.",
+      "Name": "Frenzy Nail"
+    },
+    {
+      "Cost": "13400 Gold",
+      "Description": "A long arm severed at the shoulder, skin tight to the bone. The hand has only three fingers and grabs lightly at the air.\n- Acts as a +2 reach weapon sized for a medium creature, dealing 1d6 piercing and slashing damage. Can be ‘wielded’ by any creature able to hold the shoulder as it animates itself when swung, grasping and clawing at the target. The wielder may make 2 free attacks of opportunity using the weapon, stacking with combat expertise and similar effects, however they must be used with the weapon. The weapon can attack within it’s entire area of reach.",
+      "Name": "Glutton’s Grasp"
+    },
+    {
+      "Cost": "16000 Gold",
+      "Description": "A standard revolver, bearing a large staring eye just above the handle on either side of the gun, and a mouth in front of the trigger. It says hello.\n- +2 revolver, however it speaks in a surreal fashion. When purchased it will speak “Ownership has transferred? You should know I’m eager to serve as your arm. Just know when you fire your finger will be within reach of my tongue.” Otherwise functions as an effective revolver that requires no ammo, which licks the user’s finger once per round when used to attack and remembers the face of every creature it shoots. It has a perfect memory and will go on lengthy speeches to describe the creature’s appearance and thoughts. If a creature dies to it after 48 hours there will be a new rambling revolver nearby the body.",
+      "Name": "Rambling Revolver"
+    },
+    {
+      "Cost": "4000 Gold",
+      "Description": "Slim bottle of a starry blue fluid with bands of pink swirling inside. It moves with a hypnotic fluidity. Wizbolt warns its addictive and puts you out of it.\n- When drunk acts as the Ethereal Jaunt spell, however when drunk they immediately move in an upward slant, moving 5ft up for every 10ft forward, in whatever direction they were facing in a single round. For the next minute they are left in a stupor, being Fascinated regardless of regular immunities. When the effect ends DC 14 Fort save to avoid addiction as a moderate drug.",
+      "Name": "Ether Slant"
+    },
+    {
+      "Cost": "600 Gold",
+      "Description": "A bright orange ooze that wobbles, making a trilling sound. It seems very affectionate.\n- A sentient medium sized ooze, 20ft move speed, with 12 HP, 8 Str, 12 Dex, 12 Con, 2 Int, 6 Wis, and 14 Cha, Neutral good alignment. Acts similarly to a dog and bonds first with whoever purchased it or treats it kindly and isn’t of an Evil alignment. Has a 1d6 slam attack performed by pseudopods, however it will never deal damage to a living creature unless said creature poses and immediate threat to those who’ve bonded with it. Otherwise is playful and friendly, and can harmless carry one medium sized creature in it’s body but will only do so as play or to remove them from harm. Has a +8 diplomacy and being within reach of it grants a +4 vs fear effects.",
+      "Name": "Jellied Joy"
+    },
+    {
+      "Cost": "6500 Gold",
+      "Description": "A small black square device with two gear like indentations on it. A faint far away sounding music comes from it. Wizbolt suggests everyone be together for it.\n- When used the device vanishes. The next time any of the creatures in the user’s ‘Party’ dies they are as a group presented the option to return to the last time they rested (Such as to recover spells). Doing so sends them back in time, with the same equipment they had then, however they do remember the events leading up to the death. Once used the save point is expended.",
+      "Name": "Save Point"
+    },
+    {
+      "Cost": "3450 Gold",
+      "Description": "An oversized cooking knife with a point, made of a black metal. Appears to be dull and carries a passive aura.\n- Acts as a -5 shortsword that incurs a -8 on saves vs fear effects. For each living creature of at least CR 4 it slays, the blood is slowly absorbed, turning the blade red. The first creature killed by it decreases it’s penalty to -4, every ten more increases it’s enhancement bonus by +1, up to +10. While it incurs a penalty the wielder can never have a fear state greater than shaken, though they are staggered in addition to being shaken. After its bonus reaches +1 the stagger effect no longer occurs, and the wielder of the weapon (Or whoever has tallied the most kills with it) takes one shift towards lawful evil, shifting again at +5, and at +10. At +5 the save penalty no longer occurs, at +10 all fear effects that target the wielder reflect back at the origin, incurring the -8 penalty to their save.",
+      "Name": "Weakling’s Strength"
+    },
+    {
+      "Cost": "1850 Gold",
+      "Description": "A metal helmet with a single horn on the left side and a fixed visor with holes for speaking.\n- Grants +1 Armor AC, acting as an enhancement bonus when paired with light armor. Additionally acts as a wind instrument for performances, as a masterwork instrument. Can mimic any wind instrument flawlessly. The wearer can also attempt a bluff check to attempt to ‘throw’ the sound as if throwing their voice, as well as any effect that would otherwise affect their voice being able to affect the helmet’s music.",
+      "Name": "Fluted Helm"
+    },
+    {
+      "Cost": "3470 Gold",
+      "Description": "A simple wooden staff tinted red with golden rings on either cap. Bears a paper lantern on one end.\n- Acts as a Flaming Lantern staff, can light up as a hooded lantern at will. Can cast Dancing Lights to create one light per HD of the user, each being able to act individually. Said lights manifest as tiny fiery orbs, if the staff has been within 60ft of a dying creature the creature may opt to be stored inside the staff. This creates a permanent dancing light with a color of the creature’s choice that acts as a freshly killed body for purposes of communication or revival (Including speak with dead).",
+      "Name": "Lantern Spirit Staff"
+    },
+    {
+      "Cost": "5655 Gold",
+      "Description": "A sitar with a band of red cloth tied to the top of it. Seems to be very well tuned.\n- Masterwork sitar that grants it’s user +2 Enhancement bonus to Wisdom while held. If wielded by a monk with a number of ranks in Perform [Strings] equal to their HD, can act as a monk weapon with a +1 enhancement bonus, dealing damage as the monk’s unarmed strike. By rolling a natural 20 on a perform check the monk may recover 1 ki point a day.",
+      "Name": "Monk’s Sitar"
+    },
+    {
+      "Cost": "230 Gold",
+      "Description": "A black cloak that seems worn and tattered, decorated with a necklace of long teeth. Seems waterproof.\n- Indeed waterproof. Once put on cannot be removed for 24 hours. Causes the wearer to have an insatiable hunger, if they do not consume 4x the food they normally require every six hours they begin starving, treating 2 hours as a day without food. Wearer is immune to any harmful effects of consumed items such as poison, disease, or curses, though they may not eat inedible items. While starving they gain a bite attack which deals damage as if they were one size larger, with every bite acting as a quarter of a normal ration.",
+      "Name": "Starvation Cloak"
+    },
+    {
+      "Cost": "2100 Gold",
+      "Description": "A large flat board with a handle on one side and blood stains on the other.\n- Masterwork heavy wooden shield. Enchanted to act as a +1 weapon for shield bashing, but not as a shield.",
+      "Name": "Smashing Board"
+    },
+    {
+      "Cost": "1230 Gold",
+      "Description": "A severed arm on an unknown creature. It taps the table impatiently.\n- Can be attached to any humanoid creature, polymorphing to appear as a normal arm for the creature. Always treated as an off hand, otherwise a fully functioning third arm. Requires armor and clothing to be modified as if for an unusual creature.",
+      "Name": "Extra Hand"
+    },
+    {
+      "Cost": "3900 Gold",
+      "Description": "A square mirror that reflects everything under a strange fuzzy layer. Creatures shown in the mirror seem to twitch or gain unnatural aspects.\n- Can be activated as a full round action creating five copies of the user as per Mirror Image. Though the images are imperfect, appearing mutated or distorting randomly causing them to be less effective. Treat the original creature as three when rolling to determine if an attack hits them. Each use has a cumulative 1% chance for one of the images to be a real creature, a copy of the user with the Broken Soul or Mutant template, alignment opposite of the original and actively hostile, taking two of the images from the user for itself without the user’s lessened effectiveness.",
+      "Name": "Echo Mirror"
+    },
+    {
+      "Cost": "70 Gold",
+      "Description": "A mortar cannon with no loading mechanism, smells of mortar.\n- Magical weapon that deals 1d6 bludgeoning damage and causes blindness on critical hits. Those blinded can spend their next full round action wiping off the mortar or else it hardens, requiring 4 damage to be done to the creature to clear it. Has a range increment of 100ft, must have half the distance fired in vertical space to be fired. Requires no ammunition, mortar fired is mundane.",
+      "Name": "Mortar Mortar"
+    },
+    {
+      "Cost": "17500 Gold",
+      "Description": "A long tube with a handle and a spyglass attached to the side. Creates a red point of light when held.\n- Magical weapon, requires any form of grenade or bomb to be loaded as ammunition as a standard action. Has a range increment of 70ft, deals damage of whatever ammo was loaded into it with a +2 Enhancement bonus. Treated as having the Bane property when fired at any creature currently flying, while also doubling it’s enhancement bonus due to the aiming light guiding the projectile. Rolls twice on attacks vs said creatures benefitting from cover, taking the favorable result. Causes the wielder to speak in a ‘classical’ fashion while a flying creature is in it’s maximum range, and to detect them automatically once they enter it’s first increment.",
+      "Name": "‘Thou shalt not fly’"
+    },
+    {
+      "Cost": "11400 Gold",
+      "Description": "An amulet with a radial cut yellow gemstone. Something about it is unsettling.\n- Causes a permanent silence like effect which prevents the use of verbal spell components, command words, and emotional components. If examined with detect magic it picks up as necromancy, as it is powered by the soul of a puppy.",
+      "Name": "Silencing Amulet"
+    },
+    {
+      "Cost": "190 Gold",
+      "Description": "A rotting cat corpse, surprisingly lively and not smelly. Has a terribly coarse meow.\n- Zombie cat, once per day it can cast a miniature fireball with a radius of 10ft and dealing 2d6 damage. Surprisingly friendly to whoever buys it, but doesn’t play well with other cats.",
+      "Name": "Shamblemeister"
+    },
+    {
+      "Cost": "7600 Gold",
+      "Description": "A ‘vest’ made from incredibly well preserved orc skin, mostly the torso. It’s studded with preserved four leaf clovers.\n- Slightly morbid, grants a +2 luck bonus to all saves. Body slot item.",
+      "Name": "Lucky Orc Skin"
+    },
+    {
+      "Cost": "48500 Gold",
+      "Description": "A simple one handed axe with a bright red painted blade. Seems more suitable to chopping wood than enemies.\n- Vorpal Battleaxe, only functions in the hands of LG or LN aligned creatures. Vorpal functionality works regardless to the amount of heads a creature may have. The axe cannot deal damage to ‘good guys’.",
+      "Name": "Axe of the Lawkeeper"
+    },
+    {
+      "Cost": "3000 Gold",
+      "Description": "A golden retriever with a pair of swords fastened to her sides. Seems very vigilant.\n- Can only be purchased by someone who possess an animal companion. Acts as the Dog companion, with proficiency in longswords and the ability to use said weapons without difficulty. Has the Two weapon Fighting and Greater TWF feats, and may have her swords replaced with any other weapons.",
+      "Name": "Swordog"
+    },
+    {
+      "Cost": "820 Gold",
+      "Description": "A license for face trading, qualifying for eyes, noses, and mouths. Its signed, but lacks a recipient name.\n- Once purchased the buyer’s name appears on the license. As long as the license remains intact they may remove the eyes, nose, or mouth of any creature. This is done as a standard action, acting as the steal maneuver, and only causes mild discomfort in the creature. Creatures with feature taken by this retain their sense of sight and smell, but lose the specific scent ability and the ability to speak or eat. Parts taken can be attached to any other creature and do not rot while removed, but do retain special qualities such as Scent, special extraordinary senses, etc. Features cannot be taken from corpses, however undead and constructs work if it applies.",
+      "Name": "Face Trader License"
+    },
+    {
+      "Cost": "17750 Gold",
+      "Description": "A teardrop shaped bottle with liquid so clear you can’t see it until shaken.\n- Drinker’s flesh becomes glass like, acting as permanent invisibility. However they treat every attack that deals only bludgeoning damage as a critical hit, and are staggered for 1 round after such a blow. When at half HP the invisibility bonus to stealth is cut in half due to breaking glass skin. When knocked below 0 HP the tonic’s effect end, or can be removed by a remove curse spell.",
+      "Name": "Glass Tonic"
+    },
+    {
+      "Cost": "8400 Gold",
+      "Description": "A choker necklace with small barbs on the inside.\n- Renders the wearer entirely immune to pain, and immunity to nonlethal damage. However they must make perception checks to notice when they are attacked as if the attacker had not attacked, trap not sprung, etc.",
+      "Name": "Analgesic Choker"
+    },
+    {
+      "Cost": "24600 Gold",
+      "Description": "Band of tight flesh colored cloth with two single doll like arms on either side.\n- When worn the band meld with the wearer’s torso and arms take on a natural look for them just under their existing arms. These new arms are fully functional and may allow them to take feat requiring four arms. However both hands are off hands unless changed by a feat or ability.",
+      "Name": "Armbands"
+    },
+    {
+      "Cost": "6500 Gold",
+      "Description": "A golden beetle shell, its somewhat transparent and has a mostly rubbed off Wizbolt logo. Someone’s attached a handle to the inside. Can beetles even shed their shells?\n- +1 Clangorous Heavy shield made of chitin. Once per day the wearer may transform into a Giant beetle with a golden shell, just like Hurdy! The Clangorous ability of the shield doesn’t require a thunderstone to activate, instead it is used as a full round action and manifests as beetle chittering. The DC is 13+Con of the user instead of the normal 15.\n\n____________________________________________________________________________\n\nSpecial Offer",
+      "Name": "Hurdy’s shed shell"
+    },
+    {
+      "Cost": "320000 Gold",
+      "Description": "A pure white cube. “This little thing can create any material you want, no limit what so ever!”. The gnome then holds the cube up in one hand, which then creates a 3ft cube of a crystal which he claims to be diamond. It looks real and entirely pure.\n- It can indeed create anything imaginable in endless amounts, it can even create highly complex objects in an instant. However it requires the user to know the precise recipe, which is a alchemical formula. DC 40 Alchemy/arcana to create a featureless cube of a simple material such as carbon, hydrogen, oxygen, or transition metals. However metals created by this method are 100% pure, and thus much less usable then if they had the proper impurities. DC 50 to create usable transition metals, coal, water, breathable air, and other common non organics. DC 70 to create noble metals such as gold, platinum, quicksilver, and copper.\nWhen a recipe is used correctly the DC for that specific item lowers to 30.\nTo create complex items the user must previously know (lowered DC) for all materials used, and make an engineering check to create them. Simple items like weapons, armor, and non moving items are DC 35. Items with few moving parts such as a wagon, crank, crane, or other simple machines are DC 40. Clockwork items have a DC of 40+ their normal craft DC, for said items craft clockwork can be used.\nFor alchemical substances the DC is 40+ their normal craft DC.\nItems created are not explicitly magical in nature, but can be used to fill in material requirements to construct items or constructs.\nOrganic materials are highly complex and need a DC 60 alchemy/arcana check and a DC 30 nature check with a size limit of medium (However creatures can be scaled down).",
+      "Name": "Cube of True Alchemy"
+    },
+    {
+      "Cost": "520000 Gold",
+      "Description": "An iron cannon decorated with depictions of natural disasters, wars, magical apocalypses, and so on. Just seeing it is unnerving, especially as wizbolt is pointing the endless black of the muzzle at you.\n“The calamity cannon my good customer! This dangerous little baddy just got delivered to my caravan from a friend. It has near limitless potential in it’s destructive debauchery. Just set the dials to your desired flavor of end times, point it up, and watch your enemies cower!”\nOne dial reads “Off, Natural, Sentient, Magic, Divine, Wipe, Celestial, Foreign, Creator, Forgotten”, the other “Local, Planet, Plane, Universe, Dimension, Reality, All”.  Whatever you set the first to will set the flavor of the calamity, and the second the scale. The first dial is set to off, but the second is set to Reality.",
+      "Name": "Calamity Cannon"
+    },
+    {
+      "Cost": "70000 Gold",
+      "Description": "This short dagger is covered in runes and has blood seeping through the handle.\n“100% guaranteed to kill whatever isn’t as tough as you!”\nA normal dagger, except the user may accept psychic damage to deal the same amount to the target. It has no limits, can do infinite damage. However when the user is killed while wielding it as a weapon from any source the body and dagger are destroyed, may kill attackers as well. If the dagger kills anything while doing psychic damage the body is destroyed entirely, being stretched a and warped until nothing remains.",
+      "Name": "Dagger of Mutually Assured Destruction"
+    },
+    {
+      "Cost": "105000 Gold",
+      "Description": "A rusty gauntlet for the right hand. There is no space for a hand to be inside and the back of the glove bears the symbol of Myrik. Looking at it gives a weak urge to laugh and inklings of strange thoughts. “Nice little hand isn’t it? Yes sirs, I bought this baby of a god!”\n-Has 5 different settings\nRed: Cannon, hand becomes a small cannon and can blast out small firey gusts dealing 1d6 damage as a ranged attack with 30ft range. Can be used for iterative attacks, or a single full round attack for 2d8 damage.\nGreen: Beam, hand becomes a lightning rod esque figure and can emit thin green beams dealing 2d4 damage as a ray touch attack. Can be bounced off mirrors to go around corners with a -4 per bounce. Shooting certain ancient objects may have effects.\nYellow: Hand glows a bright light, which can disperse normal and magical darkness within 60ft. Darkness created by greater forces have a much lower effect at 10ft maximum, possibly less.\nBlue: Hand is alight with azure flames, attacks with them deal an additional 1d6 holy/fire damage. Undead slain by this effect are purified and made immune to necromantic effects.\nBlack: Hand burns with a sickly green and black flare. Activating this causes 1 WIS damage that returns overnight, caused by alien thoughts invading your mind. Grants an amount of rounds of rage as per the barbarian class feature equal to your warpriest/cleric/paladin levels. By accepting 3 more points of WIS damage you may gain a rage power or the ability to do +2d8 unknown damage. Creature killed by this effect do not die, but will slowly begin shifting and shimmering in form, the final blow having their bodies twist in unnatural ways and shrink until entirely vanished. You can still hear them for 1d4 rounds after, during which they scream in terror and pain, ending almost always in an exclamation of prophecy.",
+      "Name": "Myrik’s right hand"
+    }
+  ]
+}
