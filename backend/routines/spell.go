@@ -152,7 +152,7 @@ func SpellSearch(name string, classes []string) ([]string, error) {
 	if len(classes) > 0 {
 		classqueries := []string{}
 		for _, class := range classes {
-			classqueries = append(classqueries, "(classes @> ARRAY['"+class+"']::varchar[])")
+			classqueries = append(classqueries, "(classes @> ARRAY['"+class+"']::text[])")
 		}
 		query = query + " AND (" + strings.Join(classqueries, " OR ") + ")"
 	}

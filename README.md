@@ -30,7 +30,7 @@ Topic Specific information
 ### spells
 |         id         | range | school | classes | castingtime | athigherlevels |  level  | components | duration | name | concentration | description | source |
 |:------------------:|:-----:|:------:|:-------:|:-----------:|:--------------:|:-------:|:----------:|:--------:|:----:|:-------------:|:-----------:|:------:|
-| primary key serial |  text |  text  |   text  |     text    |      text      | integer |    text    |   text   | text |      text     |     text    |  text  |
+| primary key serial |  text |  text  | text[]  |     text    |      text      | integer |    text    |   text   | text |      text     |     text    |  text  |
 
 ### monsters
 TODO

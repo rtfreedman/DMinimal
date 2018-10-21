@@ -1,3 +1,3 @@
-create table spells (id serial primary key, range text, school text, classes text, castingtime text, athigherlevels text, level integer, components text, duration text, name text, concentration text, description text, source text);
+create table spells (id serial primary key, range text, school text, classes text[], castingtime text, athigherlevels text, level integer, components text, duration text, name text, concentration text, description text, source text);
 create table users (userid serial primary key, username text, credentialinfo text);
 create table userinfo (id serial primary key, userid integer, savedContent text, contentType text);
