@@ -3,21 +3,15 @@
     <v-flex xs2>
       <v-layout row>
         <v-tooltip top>
-          <v-btn icon
-                 slot="activator"
-                 @click="rollInitiative()">
+          <v-btn icon slot="activator" @click="rollInitiative()">
             <v-icon>mdi-dice-multiple</v-icon>
           </v-btn>
           <span>Roll Initiative!</span>
         </v-tooltip>
         <!-- Initiative v-model'd input -->
-        <v-text-field reverse
-                      label="Initiative"
-                      :rules="[validate]"
-                      v-model="initiative" />
+        <v-text-field reverse label="Initiative" :rules="[validate]" v-model="initiative"/>
         <!-- Conditional clear button -->
-        <v-btn icon
-               @click="clearInitiative()">
+        <v-btn icon @click="clearInitiative()">
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </v-layout>

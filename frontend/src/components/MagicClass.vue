@@ -1,15 +1,13 @@
 <template>
   <div>
-    <v-layout align-start
-              justify-center
-              column
-              fill-height
-              m-3>
-      <h3>Spell Atk Mod : d20<span v-if="spellMod >= 0"> +</span> {{spellMod}} </h3>
-      <h3>Spell Save DC : {{spellDC}} </h3>
+    <v-layout align-start justify-center column fill-height m-3>
+      <h3>Spell Atk Mod : d20
+        <span v-if="spellMod >= 0">+</span>
+        {{spellMod}}
+      </h3>
+      <h3>Spell Save DC : {{spellDC}}</h3>
     </v-layout>
-    <spell-slots :charIndex="charIndex"
-                 :classIndex="classIndex"> </spell-slots>
+    <spell-slots :charIndex="charIndex" :classIndex="classIndex"></spell-slots>
   </div>
 </template>
 

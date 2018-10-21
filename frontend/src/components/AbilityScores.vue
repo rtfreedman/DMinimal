@@ -1,38 +1,32 @@
 <template>
-  <v-layout align-center
-            justify-start
-            row>
-    <v-layout v-for="(statVal, statName) in scores"
-              :key="statName"
-              align-center
-              justify-start
-              column>
+  <v-layout align-center justify-start row>
+    <v-layout
+      v-for="(statVal, statName) in scores"
+      :key="statName"
+      align-center
+      justify-start
+      column
+    >
       <span>
-        <h3> {{statName}} </h3>
+        <h3>{{statName}}</h3>
       </span>
-      <v-btn flat
-             @click="selectedStat=statName; diceResult = []; droppedDice = ''; statsDialog=true;">{{statVal}}</v-btn>
-      <span> {{getMod(statVal)}} </span>
+      <v-btn
+        flat
+        @click="selectedStat=statName; diceResult = []; droppedDice = ''; statsDialog=true;"
+      >{{statVal}}</v-btn>
+      <span>{{getMod(statVal)}}</span>
     </v-layout>
-    <v-dialog v-model="statsDialog"
-              max-width=150>
+    <v-dialog v-model="statsDialog" max-width="150">
       <v-card>
-        <v-layout align-center
-                  justify-space-around>
-          <v-icon v-for="(val, index) in diceResult"
-                  :key="index">{{val}}</v-icon>
+        <v-layout align-center justify-space-around>
+          <v-icon v-for="(val, index) in diceResult" :key="index">{{val}}</v-icon>
           <v-icon color="grey darken-1">{{droppedDice}}</v-icon>
         </v-layout>
-        <v-layout align-center
-                  justify-start
-                  column>
-          <v-btn flat
-                 @click="offsetStat(selectedStat, 1)">+</v-btn>
+        <v-layout align-center justify-start column>
+          <v-btn flat @click="offsetStat(selectedStat, 1)">+</v-btn>
           <span>{{scores[selectedStat]}}</span>
-          <v-btn flat
-                 @click="offsetStat(selectedStat, -1)">-</v-btn>
-          <v-btn flat
-                 @click="rollStat(selectedStat)">
+          <v-btn flat @click="offsetStat(selectedStat, -1)">-</v-btn>
+          <v-btn flat @click="rollStat(selectedStat)">
             <v-icon>mdi-dice-multiple</v-icon>
           </v-btn>
         </v-layout>
