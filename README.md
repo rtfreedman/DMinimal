@@ -6,7 +6,7 @@ Dnd 5e unit/character tracker for Dungeon Masters of DnD 5th edition.
 - Frontend: Vue, Node
 - Backend: Golang
 - Utility scripts: Python3.6+
-    - If you want to perform any scraping then Chromedriver, Selenium, and Google Chrome are necessary
+    - If you want to perform any collection then Chromedriver, Selenium, and Google Chrome are necessary
 - DB: Docker, Docker-Compose, and Postgres (to use psql locally to the 5429 port)
 
 ## Setup
