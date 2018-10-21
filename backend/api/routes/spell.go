@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/rtfreedman/SpellTracker/routines"
-	"github.com/rtfreedman/SpellTracker/util"
+	"github.com/rtfreedman/DMinimal/backend/routines"
+	"github.com/rtfreedman/DMinimal/backend/util"
 )
 
 func enableCors(w *http.ResponseWriter) {

@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
-	"github.com/rtfreedman/SpellTracker/api/routes"
+	"github.com/rtfreedman/DMinimal/backend/api/routes"
 )
 
 // RunAPI starts the API

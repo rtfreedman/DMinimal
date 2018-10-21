@@ -1,4 +1,8 @@
 .DS_Store
+.vscode
 
 # Binary
-DMinimal
+backend/backend
+
+# postgres data
+pgdata
