@@ -1,68 +1,99 @@
 <template>
   <div>
     <!-- Multiple Classes Dialog -->
-    <v-dialog v-model="classChoiceDialog" max-width="300">
+    <v-dialog v-model="classChoiceDialog"
+              max-width="300">
       <v-card>
-        <v-layout column align-center justify-center ma-2>
+        <v-layout column
+                  align-center
+                  justify-center
+                  ma-2>
           <h2>Cast as which class?</h2>
-          <v-btn @click="selectedClass = index; classChoiceDialog = false; fetchSpellOpts()" flat v-for="(c, index) in character.classes" :key="c.classname">{{c.classname}}</v-btn>
+          <v-btn @click="selectedClass = index; classChoiceDialog = false; fetchSpellOpts()"
+                 flat
+                 v-for="(c, index) in character.classes"
+                 :key="c.classname">{{c.classname}}</v-btn>
         </v-layout>
       </v-card>
     </v-dialog>
     <!-- End Multiple Classes Dialog -->
-    <v-dialog persistent v-model="spellSearchDialog" max-width="800">
+    <v-dialog persistent
+              v-model="spellSearchDialog"
+              max-width="800">
       <v-card>
         <v-card-title class="headline">Find spell</v-card-title>
         <v-card-text>
-          <v-autocomplete
-            v-model="spellInput"
-            placeholder='Spell...'
-            :search-input.sync="input"
-            :items="spellOpts"
-          />
+          <v-autocomplete v-model="spellInput"
+                          placeholder='Spell...'
+                          :search-input.sync="input"
+                          :items="spellOpts" />
         </v-card-text>
         <v-card-text>
           <h1>{{currSpellInfo.Name}}</h1>
           <div v-if="currSpellInfo.hasOwnProperty('Concentration')">Concentration</div>
           <v-list dense>
-            <v-list-tile v-if="currSpellInfo.hasOwnProperty(elem)" v-for="(elem, text) in spellSearchDialogOpts" :key="elem">
-              <v-list-tile-content><h3>{{text}}:</h3></v-list-tile-content>
+            <v-list-tile v-if="currSpellInfo.hasOwnProperty(elem)"
+                         v-for="(elem, text) in spellSearchDialogOpts"
+                         :key="elem">
+              <v-list-tile-content>
+                <h3>{{text}}:</h3>
+              </v-list-tile-content>
               <v-list-tile-content class="align-end">{{ currSpellInfo[elem] }}</v-list-tile-content>
             </v-list-tile>
             <v-list-tile v-if="currSpellInfo.hasOwnProperty('Classes')">
-              <v-list-tile-content><h3>Classes:</h3></v-list-tile-content>
-              <v-list-tile-content v-if="currSpellInfo.Classes" class="align-end">{{ currSpellInfo.Classes.join(", ") }}</v-list-tile-content>
+              <v-list-tile-content>
+                <h3>Classes:</h3>
+              </v-list-tile-content>
+              <v-list-tile-content v-if="currSpellInfo.Classes"
+                                   class="align-end">{{ currSpellInfo.Classes.join(", ") }}</v-list-tile-content>
             </v-list-tile>
             <v-list-tile v-if="currSpellInfo.hasOwnProperty('AtHigherLevels') && currSpellInfo.AtHigherLevels !== ''">
-              <v-list-tile-content><h3>At Higher Levels:</h3></v-list-tile-content>
+              <v-list-tile-content>
+                <h3>At Higher Levels:</h3>
+              </v-list-tile-content>
             </v-list-tile>
             <v-list-tile v-if="currSpellInfo.hasOwnProperty('AtHigherLevels') && currSpellInfo.AtHigherLevels !== ''">
               <v-list-tile-content>{{ currSpellInfo.AtHigherLevels }}</v-list-tile-content>
             </v-list-tile>
             <v-list-tile v-if="currSpellInfo.hasOwnProperty('Description')">
-              <v-list-tile-content><h3>Description:</h3></v-list-tile-content>
+              <v-list-tile-content>
+                <h3>Description:</h3>
+              </v-list-tile-content>
             </v-list-tile>
             <v-list-tile-content v-if="currSpellInfo.hasOwnProperty('Description')">{{ currSpellInfo.Description }}</v-list-tile-content>
           </v-list>
         </v-card-text>
         <v-card-actions>
-          <v-btn color="red lighten-1" flat @click="spellSearchDialog = false"> Close </v-btn>
-          <v-btn color="green lighten-1" flat @click="castSpell()"> Cast </v-btn>
-          <v-btn color="yellow darken-1" flat @click="atHigherLevelDialog=true"> At Higher Level </v-btn>
+          <v-btn color="red lighten-1"
+                 flat
+                 @click="spellSearchDialog = false"> Close </v-btn>
+          <v-btn color="green lighten-1"
+                 flat
+                 @click="castSpell()"> Cast </v-btn>
+          <v-btn color="yellow darken-1"
+                 flat
+                 @click="atHigherLevelDialog=true"> At Higher Level </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <v-dialog v-model="atHigherLevelDialog" max-width="200">
+    <v-dialog v-model="atHigherLevelDialog"
+              max-width="200">
       <v-card>
-        <v-layout column justify-center align-center>
+        <v-layout column
+                  justify-center
+                  align-center>
           <h2>Cast at level...</h2>
-          <v-btn flat v-for="(value, level) in this.workingSlots"
-            v-if="value > 0 && parseInt(level, 10) > currSpellInfo.Level"
-            @click="castSpellAtLvl(parseInt(level, 10))" :key="level">
-              {{level}}
+          <v-btn flat
+                 v-for="(value, level) in this.workingSlots"
+                 v-if="value > 0 && parseInt(level, 10) > currSpellInfo.Level"
+                 @click="castSpellAtLvl(parseInt(level, 10))"
+                 :key="level">
+            {{level}}
           </v-btn>
         </v-layout>
-        <v-btn flat @click="atHigherLevelDialog=false" color="red">Close</v-btn>
+        <v-btn flat
+               @click="atHigherLevelDialog=false"
+               color="red">Close</v-btn>
       </v-card>
     </v-dialog>
   </div>
@@ -125,7 +156,7 @@ export default {
       ) {
         return
       }
-      let r = new Request('http://localhost:8010/magic/spell/' + val, {
+      const r = new Request('http://localhost:8010/magic/spell/' + val, {
         method: 'GET',
       })
       fetch(r)
@@ -146,8 +177,8 @@ export default {
   },
   methods: {
     spellPreflight() {
-      let magicClasses = []
-      for (let c in this.character.classes) {
+      const magicClasses = []
+      for (const c in this.character.classes) {
         if (this.magicClassOpts.includes(this.character.classes[c].classname)) {
           magicClasses.push(c)
         }
@@ -169,11 +200,11 @@ export default {
       if (this.currSpellClass === this.classItem.classname) {
         return
       }
-      let strBody = JSON.stringify({
+      const strBody = JSON.stringify({
         classes: [this.classItem.classname],
         spellName: '',
       })
-      let r = new Request('http://localhost:8010/magic/search/', {
+      const r = new Request('http://localhost:8010/magic/search/', {
         method: 'Post',
         body: strBody,
       })
@@ -231,7 +262,7 @@ export default {
           break
         }
       }
-      let payload = {
+      const payload = {
         message: 'No slots available at spell level',
       }
       if (slotsAvailable) {
@@ -248,7 +279,7 @@ export default {
       this.$store.commit('decrementSlot', {
         charIndex: this.charIndex,
         classIndex: this.selectedClass,
-        level: level,
+        level,
       })
       this.atHigherLevelDialog = false
       this.spellSearchDialog = false

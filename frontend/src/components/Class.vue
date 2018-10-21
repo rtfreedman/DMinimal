@@ -1,28 +1,31 @@
 <template>
   <div>
-    <v-layout align-center justify-start row>
+    <v-layout align-center
+              justify-start
+              row>
       <v-flex xs3>
-        <v-layout align-start justify-center column fill-height>
-          <v-autocomplete
-            placeholder='Class'
-            :items="classOpts"
-            :search-input.sync="className"
-            flat
-            dense
-          />
+        <v-layout align-start
+                  justify-center
+                  column
+                  fill-height>
+          <v-autocomplete placeholder='Class'
+                          :items="classOpts"
+                          :search-input.sync="className"
+                          flat
+                          dense />
           <v-flex xs1>
-            <v-autocomplete 
-              placeholder='Level'
-              :items="levelOpts"
-              :search-input.sync="level"
-              flat
-              dense
-            />
+            <v-autocomplete placeholder='Level'
+                            :items="levelOpts"
+                            :search-input.sync="level"
+                            flat
+                            dense />
           </v-flex>
         </v-layout>
       </v-flex>
     </v-layout>
-    <magic-class :charIndex="charIndex" :classIndex="classIndex" v-if="magicClassOpts.includes(classItem.classname)"></magic-class>
+    <magic-class :charIndex="charIndex"
+                 :classIndex="classIndex"
+                 v-if="magicClassOpts.includes(classItem.classname)"></magic-class>
   </div>
 </template>
 
@@ -43,6 +46,7 @@ export default {
         this.classIndex
       ]
     },
+
     className: {
       get() {
         return this.classItem.classname
@@ -57,6 +61,7 @@ export default {
         }
       },
     },
+
     level: {
       get() {
         return this.classItem.level

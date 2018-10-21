@@ -3,19 +3,21 @@
     <v-flex xs2>
       <v-layout row>
         <v-tooltip top>
-          <v-btn icon slot="activator" @click="rollInitiative()" >
+          <v-btn icon
+                 slot="activator"
+                 @click="rollInitiative()">
             <v-icon>mdi-dice-multiple</v-icon>
           </v-btn>
           <span>Roll Initiative!</span>
         </v-tooltip>
         <!-- Initiative v-model'd input -->
-        <v-text-field
-          reverse
-          label="Initiative"
-          :rules="[validate]"
-          v-model="initiative"/>
+        <v-text-field reverse
+                      label="Initiative"
+                      :rules="[validate]"
+                      v-model="initiative" />
         <!-- Conditional clear button -->
-        <v-btn icon @click="clearInitiative()">
+        <v-btn icon
+               @click="clearInitiative()">
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </v-layout>
@@ -28,14 +30,14 @@ export default {
   name: 'initiative',
   props: ['charIndex'],
   computed: {
-    character () {
+    character() {
       return this.$store.state.characters[this.charIndex]
     },
     initiative: {
-      get () {
+      get() {
         return this.character.initiative
       },
-      set (val) {
+      set(val) {
         if (this.validate(val) !== true) {
           return
         }
@@ -45,13 +47,13 @@ export default {
         }
         this.$store.commit('setInitiative', {
           charIndex: this.charIndex,
-          initiative: newInitiative
+          initiative: newInitiative,
         })
-      }
-    }
+      },
+    },
   },
   methods: {
-    validate (val) {
+    validate(val) {
       if (typeof val === 'string' && val.toLowerCase().includes('e')) {
         return 'Scientific notation not allowed'
       }
@@ -66,12 +68,15 @@ export default {
       }
       return true
     },
-    rollInitiative () {
-      this.initiative = Math.floor((this.character.abilityScores.DEX - 10) / 2) + Math.floor(Math.random() * 20) + 1
+    rollInitiative() {
+      this.initiative =
+        Math.floor((this.character.abilityScores.DEX - 10) / 2) +
+        Math.floor(Math.random() * 20) +
+        1
     },
-    clearInitiative () {
+    clearInitiative() {
       this.initiative = null
-    }
-  }
+    },
+  },
 }
 </script>
