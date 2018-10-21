@@ -3,9 +3,9 @@
     <div v-for="(slot, level) in workingSpellSlots" :key="level">
       <v-layout align-center justify-center column>
         <v-btn flat @click="increment(level)" color="yellow">+</v-btn>
-        <span> {{slot}} </span>
+        <span>{{slot}}</span>
         <v-btn flat @click="decrement(level)" color="yellow">-</v-btn>
-        <h4 class="lvl"> Lv {{level}} </h4>
+        <h4 class="lvl">Lv {{level}}</h4>
       </v-layout>
     </div>
   </v-layout>
@@ -33,14 +33,14 @@ export default {
       this.$store.commit('incrementSlot', {
         charIndex: this.charIndex,
         classIndex: this.classIndex,
-        level: level,
+        level,
       })
     },
     decrement(level) {
       this.$store.commit('decrementSlot', {
         charIndex: this.charIndex,
         classIndex: this.classIndex,
-        level: level,
+        level,
       })
     },
   },

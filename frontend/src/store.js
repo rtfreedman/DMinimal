@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-let defaultClass = {
+const defaultClass = {
   classname: 'Bard',
   level: 1,
   slots: {
@@ -30,7 +30,7 @@ let defaultClass = {
   },
 }
 
-let defaultCharacter = {
+const defaultCharacter = {
   deathThrows: 0,
   lifeThrows: 0,
   initiative: null,
@@ -87,112 +87,93 @@ export default new Vuex.Store({
   mutations: {
     // character mutations
     addCharacter() {
-      let newChar = JSON.parse(JSON.stringify(defaultCharacter))
+      const newChar = JSON.parse(JSON.stringify(defaultCharacter))
       newChar.id = Math.floor(Math.random() * 10 ** 10 + 2).toString()
       this.state.characters.push(newChar)
     },
-    changeClass(state, payload) {
+    changeClass(state, { charIndex, classIndex, newClass }) {
       // charIndex classIndex newClass
-      this.state.characters[payload.charIndex].classes[
-        payload.classIndex
-      ].classname =
-        payload.newClass
+      this.state.characters[charIndex].classes[classIndex].classname = newClass
       this.commit('updateSlots', {
-        charIndex: payload.charIndex,
-        classIndex: payload.classIndex,
+        charIndex,
+        classIndex,
       })
     },
-    changeClassLevel(state, payload) {
+    changeClassLevel(state, { newLevel, charIndex, classIndex }) {
       // charIndex classIndex newLevel
       let levelOffset =
-        payload.newLevel -
-        this.state.characters[payload.charIndex].classes[payload.classIndex]
-          .level
+        newLevel - this.state.characters[charIndex].classes[classIndex].level
       if (
-        payload.classIndex === 0 &&
-        this.state.characters[payload.charIndex].classes[payload.classIndex]
-          .level === 0
+        classIndex === 0 &&
+        this.state.characters[charIndex].classes[classIndex].level === 0
       ) {
         this.commit('setMaxHP', {
-          charIndex: payload.charIndex,
-          hitpoints: (this.state.characters[payload.charIndex].maxHitpoints +=
+          charIndex,
+          hitpoints: (this.state.characters[charIndex].maxHitpoints +=
             this.state.hitDice[
-              this.state.characters[payload.charIndex].classes[
-                payload.classIndex
-              ].classname
+              this.state.characters[charIndex].classes[classIndex].classname
             ] +
-            (this.state.characters[payload.charIndex].abilityScores.CON - 10) /
-              2),
+            (this.state.characters[charIndex].abilityScores.CON - 10) / 2),
         })
         levelOffset -= 1
       }
-      if (this.state.characters[payload.charIndex].rollHealth) {
+      if (this.state.characters[charIndex].rollHealth) {
         // health was calculated by rolling. Roll again.
         this.commit('setMaxHP', {
-          charIndex: payload.charIndex,
-          hitpoints: (this.state.characters[payload.charIndex].maxHitpoints +=
+          charIndex,
+          hitpoints: (this.state.characters[charIndex].maxHitpoints +=
             (Math.random() *
               (this.state.hitDice[
-                this.state.characters[payload.charIndex].classes[
-                  payload.classIndex
-                ].classname
+                this.state.characters[charIndex].classes[classIndex].classname
               ] -
                 1) +
               1 +
-              (this.state.characters[payload.charIndex].abilityScores.CON -
-                10) /
-                2) *
+              (this.state.characters[charIndex].abilityScores.CON - 10) / 2) *
             levelOffset),
         })
       } else {
         // health took average. do that.
         this.commit('setMaxHP', {
-          charIndex: payload.charIndex,
-          hitpoints: (this.state.characters[payload.charIndex].maxHitpoints +=
+          charIndex,
+          hitpoints: (this.state.characters[charIndex].maxHitpoints +=
             (Math.ceil(
               this.state.hitDice[
-                this.state.characters[payload.charIndex].classes[
-                  payload.classIndex
-                ].classname
+                this.state.characters[charIndex].classes[classIndex].classname
               ] / 2,
             ) +
-              (this.state.characters[payload.charIndex].abilityScores.CON -
-                10) /
-                2) *
+              (this.state.characters[charIndex].abilityScores.CON - 10) / 2) *
             levelOffset),
         })
       }
-      this.state.characters[payload.charIndex].classes[
-        payload.classIndex
-      ].level =
-        payload.newLevel
+      this.state.characters[charIndex].classes[classIndex].level = newLevel
       this.commit('updateSlots', {
-        charIndex: payload.charIndex,
-        classIndex: payload.classIndex,
+        charIndex,
+        classIndex,
       })
-      this.commit('proficiencyBonus', payload.charIndex)
+      this.commit('proficiencyBonus', charIndex)
     },
-    changeName(state, payload) {
+    changeName(state, { index, name }) {
       // index name
-      this.state.characters[payload.index].name = payload.name
+      this.state.characters[index].name = name
     },
-    decrementSlot(state, payload) {
+    decrementSlot(state, { classIndex, charIndex, level }) {
       // charIndex classIndex level
       if (
-        this.state.characters[payload.charIndex].classes[payload.classIndex]
-          .workingSlots[payload.level] > 0
+        this.state.characters[charIndex].classes[classIndex].workingSlots[
+          level
+        ] > 0
       ) {
-        this.state.characters[payload.charIndex].classes[payload.classIndex]
-          .workingSlots[payload.level]--
+        this.state.characters[charIndex].classes[classIndex].workingSlots[
+          level
+        ]--
       }
     },
-    incrementSlot(state, payload) {
+    incrementSlot(state, { classIndex, charIndex, level }) {
       // charIndex classIndex level
-      this.state.characters[payload.charIndex].classes[payload.classIndex]
-        .workingSlots[payload.level]++
+      this.state.characters[charIndex].classes[classIndex].workingSlots[level]++
     },
     longRestAll() {
-      for (let c in this.state.characters) {
+      for (const c in this.state.characters) {
         this.commit('longRest', c)
       }
     },
@@ -207,10 +188,10 @@ export default new Vuex.Store({
         return
       }
       this.commit('setHP', {
-        charIndex: charIndex,
+        charIndex,
         hitpoints: this.state.characters[charIndex].maxHitpoints,
       })
-      for (let c in this.state.characters[charIndex].classes) {
+      for (const c in this.state.characters[charIndex].classes) {
         this.state.characters[charIndex].classes[c].workingSlots = JSON.parse(
           JSON.stringify(this.state.characters[charIndex].classes[c].slots),
         )
@@ -221,13 +202,13 @@ export default new Vuex.Store({
       if (this.state.characters[payload.index].classes.length > 10) {
         return // no more than 10 classes
       }
-      for (let i in this.state.characters[payload.index].classes) {
-        let c = this.state.characters[payload.index].classes[i]
+      for (const i in this.state.characters[payload.index].classes) {
+        const c = this.state.characters[payload.index].classes[i]
         if (c.classname === payload.classname) {
           return // no duplicate classes
         }
       }
-      let newclass = JSON.parse(JSON.stringify(defaultClass))
+      const newclass = JSON.parse(JSON.stringify(defaultClass))
       newclass.classname = payload.classname
       this.state.characters[payload.index].classes.push(newclass)
     },
@@ -242,7 +223,7 @@ export default new Vuex.Store({
       }
       if (payload.stat === 'CON') {
         let totalLevel = 0
-        for (let c in this.state.characters[payload.index].classes) {
+        for (const c in this.state.characters[payload.index].classes) {
           totalLevel += this.state.characters[payload.index].classes[c].level
         }
         if (totalLevel === 0) {
@@ -255,7 +236,7 @@ export default new Vuex.Store({
         ]
         oddCorrection %= 2
         oddCorrection /= 2.0
-        let newmax =
+        const newmax =
           this.state.characters[payload.index].maxHitpoints +
           Math.floor(payload.offset / 2 + oddCorrection) * totalLevel
         this.commit('setMaxHP', {
@@ -277,7 +258,7 @@ export default new Vuex.Store({
     },
     proficiencyBonus(state, charIndex) {
       let totalLevel = 0
-      for (let c in this.state.characters[charIndex].classes) {
+      for (const c in this.state.characters[charIndex].classes) {
         if (
           this.state.characters[charIndex].classes[c].hasOwnProperty('level')
         ) {
@@ -288,7 +269,7 @@ export default new Vuex.Store({
         Math.floor(totalLevel / 5) + 2
     },
     removeCharacter(state, identifier) {
-      let index = this.state.characters.findIndex(function(element) {
+      const index = this.state.characters.findIndex(function(element) {
         return element.id === identifier
       })
       if (index === -1) {
@@ -350,7 +331,7 @@ export default new Vuex.Store({
     },
     updateSlots(state, payload) {
       // charIndex classIndex
-      let strBody = JSON.stringify({
+      const strBody = JSON.stringify({
         classes: [
           {
             class: this.state.characters[payload.charIndex].classes[
@@ -362,7 +343,7 @@ export default new Vuex.Store({
           },
         ],
       })
-      let r = new Request('http://localhost:8010/magic/slots/', {
+      const r = new Request('http://localhost:8010/magic/slots/', {
         method: 'POST',
         body: strBody,
       })
@@ -390,7 +371,7 @@ export default new Vuex.Store({
     },
     // classopts mutations
     updateClassOpts() {
-      let r = new Request('http://localhost:8010/classes/')
+      const r = new Request('http://localhost:8010/classes/')
       fetch(r)
         .then(response => {
           if (response.status === 200) {
@@ -408,11 +389,11 @@ export default new Vuex.Store({
         })
     },
     // spell mutations
-    setSpellOpts(state, payload) {
+    setSpellOpts(state, { spellOpts, className }) {
       // className spellOpts
       this.state.spellsInfo.currSpellInfo = {}
-      this.state.spellsInfo.spellList = payload.spellOpts
-      this.state.spellsInfo.className = payload.className
+      this.state.spellsInfo.spellList = spellOpts
+      this.state.spellsInfo.className = className
     },
     setSpellInfo(state, spellInfo) {
       this.state.spellsInfo.currSpellInfo = spellInfo

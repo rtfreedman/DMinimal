@@ -1,9 +1,11 @@
 <template>
-  <v-snackbar
-    :color="snackbarColor"
-    v-model="show"
-    :timeout="3000"> <h3>{{snackbarMessage}}</h3>
-    <v-btn v-if="typeof snackbarButtonFunction === 'function'" flat @click="snackbarButtonFunction">{{snackbarButtonMessage}}</v-btn>
+  <v-snackbar :color="snackbarColor" v-model="show" :timeout="3000">
+    <h3>{{snackbarMessage}}</h3>
+    <v-btn
+      v-if="typeof snackbarButtonFunction === 'function'"
+      flat
+      @click="snackbarButtonFunction"
+    >{{snackbarButtonMessage}}</v-btn>
   </v-snackbar>
 </template>
 
