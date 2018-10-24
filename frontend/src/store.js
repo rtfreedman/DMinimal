@@ -7,7 +7,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    nextCharacterId: 0,
+    nextCharacterId: 2,
     hitDice: {
       Barbarian: 12,
       Bard: 8,
@@ -36,7 +36,7 @@ export default new Vuex.Store({
     },
     classOpts: [],
     magicClassOpts: [],
-    characters: [new Character()],
+    characters: [new Character(1)],
   },
   mutations,
 })

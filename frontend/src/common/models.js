@@ -28,8 +28,8 @@ export class Class {
 }
 
 export class Character {
-  constructor() {
-    this.id = 1
+  constructor(id) {
+    this.id = id
     this.deathThrows = 0
     this.lifeThrows = 0
     this.initiative = null

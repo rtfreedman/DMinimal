@@ -3,9 +3,7 @@ import { Class, Character } from './common/models'
 export default {
   // character mutations
   addCharacter(state) {
-    const character = new Character()
-    character.id = state.nextCharacterId++
-    state.characters.push(character)
+    state.characters.push(new Character(state.nextCharacterId++))
   },
 
   changeClass(state, { charIndex, classIndex, newClass }) {
