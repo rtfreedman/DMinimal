@@ -53,7 +53,7 @@
       <v-tooltip bottom>
         <v-btn
           :disabled="!character.concentrating"
-          @click="concentrationDialog=true"
+          @click="showConcentrationDialog = true"
           color="primary"
           icon
           flat
@@ -72,7 +72,7 @@
       <h3>PROFICIENCY BONUS: +{{ character.proficiency }}</h3>
     </v-toolbar>
     <v-dialog
-      v-model="concentrationDialog"
+      v-model="showConcentrationDialog"
       max-width="300"
     >
       <v-card>
@@ -124,10 +124,7 @@ export default {
       for (const a in this.shortRestDie) {
         restoredHealth += Math.floor(Math.random() * this.shortRestDie[a])
       }
-      this.$store.commit('setHP', {
-        charIndex: this.index,
-        hitpoints: parseInt(this.hitpoints) + restoredHealth,
-      })
+      this.character.hitPoints += restoredHealth
       this.$store.commit('hideSnackbar')
     },
 
@@ -136,13 +133,13 @@ export default {
       for (const c in this.character.classes) {
         if (
           hitDice.hasOwnProperty(
-            this.character.classes[c].classname.split(' ')[0],
+            this.character.classes[c].name.split(' ')[0],
           )
         ) {
           continue
         }
         const hitDie = hitDice[
-          this.character.classes[c].classname.split(' ')[0]
+          this.character.classes[c].name.split(' ')[0]
         ]
         if (!acc.hasOwnProperty(hitDie)) {
           acc[hitDie] = 0

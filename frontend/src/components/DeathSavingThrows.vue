@@ -1,7 +1,7 @@
 <template>
   <v-flex xs4>
     <v-layout column ma-3>
-      <v-layout row align-center>
+      <v-layout  align-center>
         <v-slider
           v-model="lifeThrows"
           color="yellow"
@@ -21,7 +21,7 @@
           <v-icon v-if="lifeThrows === 3">mdi-lifebuoy</v-icon>
         </span>
       </v-layout>
-      <v-layout row align-center>
+      <v-layout  align-center>
         <v-slider
           v-model="deathThrows"
           color="black"

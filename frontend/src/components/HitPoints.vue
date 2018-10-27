@@ -7,13 +7,11 @@
       flat
     >
       <v-icon class="mr-2" small>mdi-heart</v-icon>
-      <span>{{ character.hitpoints }} / {{ character.maxHitpoints }}</span>
+      <span>{{ character.hitPoints }} / {{ character.maxHitPoints }}</span>
     </v-btn>
-    <!-- Hit Point Counter md-heart -->
-    <!-- Hit Point Roll md-refresh -->
-    <!-- Receive Attack Dialog md-sword -->
+    <!-- dialog -->
     <v-dialog
-      v-model="hitpointDialog"
+      v-model="showHitPointDialog"
       max-width="500"
     >
       <v-card>
@@ -24,7 +22,6 @@
           <v-layout
             align-center
             justify-center
-            row
             fill-height
           >
             <v-tooltip top>
@@ -65,7 +62,7 @@
           <v-layout
             align-center
             justify-space-between
-            row
+            
             fill-height
           >
             <h3>Current Health :</h3>
@@ -75,14 +72,13 @@
                 reverse
                 :rules="[lessThanOrEqualToMax, mustBeNum, minNum]"
                 label="HP"
-                v-model="hitpoints"
+                v-model="character.hitPoints"
               />
             </v-flex>
           </v-layout>
           <v-layout
             align-center
             justify-space-between
-            row
           >
             <h3>Maximum Health :</h3>
             <v-flex xs2>
@@ -91,13 +87,13 @@
                 reverse
                 :rules="[mustBeNum, minNum]"
                 label="Max HP"
-                v-model="maxHitpoints"
+                v-model="character.maxHitPoints"
               />
             </v-flex>
           </v-layout>
         </v-card-text>
         <v-card-text>
-          <v-layout justify-end row>
+          <v-layout justify-end >
             <v-tooltip top>
               <v-btn
                 icon
@@ -135,63 +131,19 @@ export default {
 
   mounted() {
     this.getHealth(false)
-    this.offset = this.maxHitpoints
+    this.offset = this.maxHitPoints
     this.heal()
     this.offset = '0'
   },
 
-  computed: {
-    deathThrows() {
-      return this.character.deathThrows
-    },
-
-    hitpoints: {
-      get() {
-        return this.character.hitpoints
-      },
-      set(val) {
-        if (isNaN(parseInt(val))) {
-          return
-        }
-        this.$store.commit('setHP', {
-          charIndex: this.charIndex,
-          hitpoints: parseInt(val),
-        })
-      },
-    },
-    maxHitpoints: {
-      get() {
-        return this.character.maxHitpoints
-      },
-      set(val) {
-        if (isNaN(parseInt(val))) {
-          return
-        }
-        this.$store.commit('setMaxHP', {
-          charIndex: this.charIndex,
-          hitpoints: parseInt(val),
-        })
-      },
-    },
-    rollHealth: {
-      get() {
-        // unused
-        return this.character.rollHealth
-      },
-      set(val) {
-        this.$store.commit('setRollState', {
-          charIndex: this.charIndex,
-          rollHealth: val,
-        })
-      },
-    },
-  },
   data() {
     return {
+      localHitPoints: this.character.hitPoints,
       offset: '0',
-      hitpointDialog: false,
+      showHitPointDialog: false,
     }
   },
+
   methods: {
     getHealth(roll) {
       if (this.character.classes.length === 0) {
@@ -207,7 +159,7 @@ export default {
           totalHealth += constitutionOffset
           let value = 0
           const dice =
-            hitDice[this.character.classes[c].classname.split(' ')[0]]
+            hitDice[this.character.classes[c].name.split(' ')[0]]
           if (firstLevel) {
             // take max health for first level
             value = dice
@@ -220,21 +172,24 @@ export default {
           totalHealth += value
         }
       }
-      this.maxHitpoints = totalHealth
-      if (this.hitpoints > this.maxHitpoints) {
-        this.hitpoints = this.maxHitpoints
+      this.character.maxHitPoints = totalHealth
+      if (this.character.hitPoints > this.maxHitPoints) {
+        this.hitPoints = this.maxHitPoints
       }
       // used to set health on level up (not sure what to do on decrease...)
       this.rollHealth = roll
     },
+
     heal() {
-      if (isNaN(parseInt(this.hitpoints)) || isNaN(parseInt(this.offset))) {
+      if (isNaN(parseInt(this.character.hitPoints)) || isNaN(parseInt(this.offset))) {
         return
       }
+
       if (parseInt(this.offset) === 0) {
         return
       }
-      if (this.hitpoints <= 0 && this.deathThrows === 3) {
+
+      if (this.hitPoints <= 0 && this.deathThrows === 3) {
         this.$store.commit('showSnackbar', {
           color: 'black',
           message: 'You cannot heal death',
@@ -243,29 +198,31 @@ export default {
         })
         return
       }
+
+      this.character.hitPoints = 
       this.$store.commit('setHP', {
         charIndex: this.charIndex,
-        hitpoints: parseInt(this.hitpoints) + parseInt(this.offset),
+        hitpoints: parseInt(this.hitPoints) + parseInt(this.offset),
       })
     },
     hurt() {
-      if (isNaN(parseInt(this.hitpoints)) || isNaN(parseInt(this.offset))) {
+      if (isNaN(parseInt(this.hitPoints)) || isNaN(parseInt(this.offset))) {
         return
       }
       if (parseInt(this.offset) === 0) {
         return
       }
-      if (this.hitpoints <= 0 && this.deathThrows < 3) {
+      if (this.hitPoints <= 0 && this.deathThrows < 3) {
         this.$store.commit('setDeathThrows', {
           charIndex: this.charIndex,
           throwVal: this.deathThrows + 1,
         })
         return
       }
-      let newHP = parseInt(this.hitpoints) - parseInt(this.offset)
+      let newHP = parseInt(this.hitPoints) - parseInt(this.offset)
       if (
         parseInt(this.offset) >=
-        parseInt(this.hitpoints) + parseInt(this.maxHitpoints)
+        parseInt(this.hitPoints) + parseInt(this.maxHitPoints)
       ) {
         this.$store.commit('setDeathThrows', {
           charIndex: this.charIndex,
@@ -279,7 +236,7 @@ export default {
       })
     },
     lessThanOrEqualToMax(val) {
-      if (parseInt(val) > this.maxHitpoints) {
+      if (parseInt(val) > this.maxHitPoints) {
         return 'HP must be less than Max HP'
       }
       return true
