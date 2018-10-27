@@ -5,24 +5,31 @@
     />
     <!-- flesh out and make collapsible -->
     <!-- character info -->
-    <v-layout>
-      <v-flex>
-        <v-card light class="text-xs-left ma-2">
-          <h3 class="pl-3 pt-3">CHARACTER INFO</h3>
-          <v-card-text class="pt-0">
-            <v-text-field
-              v-model="localName"
-              label="Name"
-              @blur="$emit('changeName', localName)"
-              hide-details
-            ></v-text-field>
-          </v-card-text>
-        </v-card>
-      </v-flex>
+    <v-layout px-3 mb-3>
+      <v-expansion-panel light>
+        <v-expansion-panel-content style="color: #303030; background-color: #ffd700; opacity: 0.9;">
+          <h3 slot="header">CHARACTER INFO</h3>
+          <v-card flat dark class="text-xs-left ma-2">
+            <v-card-text>
+              <v-text-field
+                v-model="localName"
+                label="Name"
+                @blur="$emit('changeName', localName)"
+                hide-details
+              ></v-text-field>
+              <v-textarea label="Bio"></v-textarea>
+            </v-card-text>
+          </v-card>
+        </v-expansion-panel-content>
+      </v-expansion-panel>
     </v-layout>
-    <v-layout ml-3></v-layout>
+
     <!-- dynamic state -->
-    <v-layout justify-space-between align-center mb-3>
+    <v-layout
+      justify-space-between
+      align-center
+      mb-3
+    >
       <app-initiative :character="character"/>
       <app-hit-points :character="character"/>
     </v-layout>
