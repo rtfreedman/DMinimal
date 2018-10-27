@@ -12,3 +12,5 @@ export const hitDice = {
   Warlock: 8,
   Wizard: 6,
 }
+export const chrClasses = ['Bard', 'Sorcerer', 'Paladin', 'Warlock']
+export const wisClasses = ['Cleric', 'Druid', 'Ranger']

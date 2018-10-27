@@ -1,8 +1,5 @@
 <template>
   <v-container>
-    <pre v-for="c in characters" :key="c.id">
-      {{ c.name || 'name' }}
-    </pre>
     <v-btn
       color="primary"
       flat
@@ -27,7 +24,7 @@
         <span>{{ characters[i - 1].name.split(' ')[0] || 'Name' }}</span>
         <v-layout justify-start align-start ma-1>
           <span
-            v-if="characters[i - 1].initiative !== null"
+            v-if="characters[i - 1].initiative"
             class="primary--text"
           >({{ characters[i - 1].initiative }})</span>
         </v-layout>

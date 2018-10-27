@@ -27,7 +27,7 @@
       <app-hit-points :character="character"/>
     </v-layout>
     <app-death-throws
-      v-if="character.hitpoints <= 0 && character.maxHitpoints > 0"
+      v-if="character.hitPoints <= 0 && character.maxHitPoints > 0"
       :character="character"
     />
     <!-- End "Buttons" -->
@@ -38,15 +38,14 @@
     />
     <!-- End Ability Scores -->
     <v-card-text
-      v-for="(characterClass, classindex) in character.classes"
-      :key="classindex"
+      v-for="characterClass in character.classes"
+      :key="characterClass.name"
     >
       <!-- TODO Class-specific stuff -->
 
       <app-character-class
         :characterClass="characterClass"
         :character="character"
-        :classIndex="classindex"
       />
     </v-card-text>
     <app-spell-cast

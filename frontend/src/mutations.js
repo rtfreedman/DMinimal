@@ -48,7 +48,7 @@ export default {
         charIndex,
         hitpoints: (this.state.characters[charIndex].maxHitpoints +=
           hitDice[
-            this.state.characters[charIndex].classes[classIndex].classname
+            this.state.characters[charIndex].classes[classIndex].name
           ] +
           (this.state.characters[charIndex].abilityScores.CON - 10) / 2),
       })
@@ -61,7 +61,7 @@ export default {
         hitpoints: (this.state.characters[charIndex].maxHitpoints +=
           (Math.random() *
             (hitDice[
-              this.state.characters[charIndex].classes[classIndex].classname
+              this.state.characters[charIndex].classes[classIndex].name
             ] -
               1) +
             1 +
@@ -75,7 +75,7 @@ export default {
         hitpoints: (this.state.characters[charIndex].maxHitpoints +=
           (Math.ceil(
             hitDice[
-              this.state.characters[charIndex].classes[classIndex].classname
+              this.state.characters[charIndex].classes[classIndex].name
             ] / 2,
           ) +
             (this.state.characters[charIndex].abilityScores.CON - 10) / 2) *

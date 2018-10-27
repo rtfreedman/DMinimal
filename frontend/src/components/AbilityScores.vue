@@ -1,5 +1,5 @@
 <template>
-  <v-layout align-center justify-start row>
+  <v-layout align-center justify-start>
     <v-layout
       v-for="(statVal, statName) in scores"
       :key="statName"

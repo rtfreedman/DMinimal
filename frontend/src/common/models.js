@@ -2,7 +2,7 @@ import $store from '@/store'
 
 export class Class {
   constructor(name) {
-    this.classname = name || 'Bard'
+    this.name = name || 'Bard'
     this.level = 1
     this.slots = {
       1: 0,
@@ -35,8 +35,8 @@ export class Character {
     this.deathThrows = 0
     this.lifeThrows = 0
     this.initiative = 0
-    this.hitpoints = 1
-    this.maxHitpoints = 1
+    this.hitPoints = 1
+    this.maxHitPoints = 1
     this.name = ''
     this.proficiency = 0
     this.rollHealth = true
@@ -54,13 +54,13 @@ export class Character {
 
   setClass(clIndex, name, slots) {
     const cl = this.classes[clIndex]
-    cl.classname = name
+    cl.name = name
     cl.slots = slots
     cl.workingSlots = Object.assign({}, slots)
   }
 
   rest() {
-    if (this.hitpoints === 0) {
+    if (this.hitPoints === 0) {
       // you cannot gain the benefits of a long rest at 0 hitpoints
       $store.commit('showSnackbar', {
         message: `${
@@ -69,13 +69,13 @@ export class Character {
       })
       return
     }
-    this.hitpoints = this.maxHitpoints
+    this.hitPoints = this.maxHitPoints
     this.classes.forEach(c => {
       c.workingSlots = Object.assign({}, c.slots)
     })
   }
 
-  multiClass(name) {
+  multiclass(name) {
     // no more than 10 classes
     if (this.classes.length > 10) {
       return

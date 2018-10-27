@@ -1,6 +1,7 @@
 <template>
   <v-container>
-    <v-layout align-center justify-start row>
+    {{ characterClass }}
+    <v-layout align-center justify-start>
       <v-flex xs3>
         <v-layout
           align-start
@@ -11,7 +12,7 @@
           <v-autocomplete
             label="Class"
             :items="classOptions"
-            v-model="selectedClass"
+            v-model="characterClass.name"
             @input="updateClass"
             flat
             dense
@@ -20,7 +21,7 @@
             <v-autocomplete
               label="Level"
               :items="levelOpts"
-              :search-input.sync="level"
+              v-model="characterClass.level"
               flat
               dense
             />
@@ -28,52 +29,28 @@
         </v-layout>
       </v-flex>
     </v-layout>
-    <magic-class
-      :charIndex="charIndex"
-      :classIndex="classIndex"
-      v-if="magicClassOptions.includes(classItem.classname)"
-    ></magic-class>
+    <app-magic-class
+      :character="character"
+      :characterClass="characterClass"
+      v-if="magicClassOptions.includes(characterClass.name)"
+    />
   </v-container>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import MagicClass from '@/components/MagicClass'
+import MagicClass from './MagicClass'
+
 export default {
   // TODO: spell save DC, spell attack modifier, spell slot counters, spell search dialog (all inside a conditional magic component)
-  props: ['characterClass', 'classIndex', 'charIndex'],
+  props: ['characterClass', 'character'],
 
   components: {
-    'magic-class': MagicClass,
+    'app-magic-class': MagicClass,
   },
 
   computed: {
     ...mapGetters(['classOptions', 'magicClassOptions']),
-
-    classItem() {
-      return this.$store.state.characters[this.charIndex].classes[
-        this.classIndex
-      ]
-    },
-
-    className() {
-      return this.classItem.classname
-    },
-
-    level: {
-      get() {
-        return this.classItem.level
-      },
-      set(state) {
-        if (typeof state === 'number') {
-          this.$store.commit('changeClassLevel', {
-            charIndex: this.charIndex,
-            classIndex: this.classIndex,
-            newLevel: state,
-          })
-        }
-      },
-    },
   },
 
   data() {
@@ -84,14 +61,12 @@ export default {
   },
 
   created() {
-    this.selectedClass = this.characterClass.classname
+    this.selectedClass = this.characterClass.name
   },
 
   methods: {
     updateClass() {
       this.$store.dispatch('updateClass', {
-        charIndex: this.charIndex,
-        classIndex: this.classIndex,
         className: this.selectedClass,
         level: this.characterClass.level,
       })

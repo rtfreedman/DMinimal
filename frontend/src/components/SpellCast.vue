@@ -6,11 +6,11 @@
         <v-layout column align-center justify-center ma-2>
           <h2>Cast as which class?</h2>
           <v-btn
-            @click="selectedClass = index; classChoiceDialog = false; fetchSpellOpts()"
+            @click="selectedClassIndex = index; classChoiceDialog = false; fetchSpellOpts()"
             flat
             v-for="(c, index) in character.classes"
-            :key="c.classname"
-          >{{c.classname}}</v-btn>
+            :key="c.name"
+          >{{c.name}}</v-btn>
         </v-layout>
       </v-card>
     </v-dialog>
@@ -99,15 +99,14 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
-  props: ['charIndex'],
+  props: ['character'],
   computed: {
     ...mapGetters(['magicClassOptions']),
-    character() {
-      return this.$store.state.characters[this.charIndex]
-    },
+
     classItem() {
-      return this.character.classes[this.selectedClass]
+      return this.character.classes[this.selectedClassIndex]
     },
+
     concentrating() {
       return this.character.concentrating
     },
@@ -139,7 +138,7 @@ export default {
       classChoices: [],
       input: '',
       spellInput: '',
-      selectedClass: 0,
+      selectedClassIndex: 0,
       snackbarMessage: '',
       snackbar: false,
     }
@@ -175,7 +174,7 @@ export default {
     spellPreflight() {
       const magicClasses = []
       for (const c in this.character.classes) {
-        if (this.magicClassOptions.includes(this.character.classes[c].classname)) {
+        if (this.magicClassOptions.includes(this.character.classes[c].name)) {
           magicClasses.push(c)
         }
       }
@@ -183,7 +182,7 @@ export default {
         this.classChoices = magicClasses
         this.classChoiceDialog = true
       } else if (magicClasses.length === 1) {
-        this.selectedClass = 0
+        this.selectedClassIndex = 0
         this.spellSearchDialog = true
         this.fetchSpellOpts()
       } else {
@@ -193,11 +192,11 @@ export default {
       }
     },
     fetchSpellOpts() {
-      if (this.currSpellClass === this.classItem.classname) {
+      if (this.currSpellClass === this.classItem.name) {
         return
       }
       const strBody = JSON.stringify({
-        classes: [this.classItem.classname],
+        classes: [this.classItem.name],
         spellName: '',
       })
       const r = new Request('/api/magic/search/', {
@@ -217,7 +216,7 @@ export default {
           opts = response.spellOpts
           this.$store.commit('setSpellOpts', {
             spellOpts: opts,
-            className: this.classItem.classname,
+            className: this.classItem.name,
           })
           this.spellSearchDialog = true
         })
@@ -245,7 +244,7 @@ export default {
       if (this.workingSlots[this.currSpellInfo.Level.toString()] !== 0) {
         this.$store.commit('decrementSlot', {
           charIndex: this.charIndex,
-          classIndex: this.selectedClass,
+          classIndex: this.selectedClassIndex,
           level: this.currSpellInfo.Level,
         })
         this.spellSearchDialog = false
@@ -274,7 +273,7 @@ export default {
     castSpellAtLvl(level) {
       this.$store.commit('decrementSlot', {
         charIndex: this.charIndex,
-        classIndex: this.selectedClass,
+        classIndex: this.selectedClassIndex,
         level,
       })
       this.atHigherLevelDialog = false
