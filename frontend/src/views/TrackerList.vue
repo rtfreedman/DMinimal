@@ -1,5 +1,8 @@
 <template>
   <v-container>
+    <pre v-for="c in characters" :key="c.id">
+      {{ c.name || 'name' }}
+    </pre>
     <v-btn
       color="primary"
       flat
@@ -17,20 +20,19 @@
       v-model="selectedTab"
     >
       <v-tab
-        v-for="c in characters"
-        :key="`tab_${c.id}`"
+        v-for="i in characters.length"
+        :key="i"
       >
-        <span>{{ c.name.split(' ')[0] || 'Name' }}</span>
+        <span>{{ characters[i - 1].name.split(' ')[0] || 'Name' }}</span>
         <v-layout justify-start align-start ma-1>
           <span
-            v-if="c.initiative !== null"
+            v-if="characters[i - 1].initiative !== null"
             class="primary--text"
-          >({{ c.initiative }})</span>
+          >({{ characters[i - 1].initiative }})</span>
         </v-layout>
-
         <v-btn
           v-if="characters.length > 1"
-          @click.stop="deleteCharacter = c; showDeleteDialog = true"
+          @click.stop="deleteCharacter = characters[i - 1]; showDeleteDialog = true"
           icon
           dark
           small
@@ -40,12 +42,12 @@
       </v-tab>
       <v-tab-item
         v-for="i in characters.length"
-        :key="`tab_item_${characters[i - 1].id}`"
+        :key="i"
       >
         <v-card flat>
           <app-tracker
             :character="characters[i - 1]"
-            :index="selectedTab"
+            @triggerChangeDetection="triggerChangeDetection"
           ></app-tracker>
         </v-card>
       </v-tab-item>
@@ -83,8 +85,10 @@ Characters:
 import { mapGetters, mapMutations, mapActions } from 'vuex'
 import Tracker from '@/components/Tracker'
 import MessageSnackbar from '@/components/MessageSnackbar'
-import { setImmediate } from 'timers';
+import { setImmediate } from 'timers'
 export default {
+  name: 'trackerList',
+
   components: {
     'app-tracker': Tracker,
     'app-msg-snackbar': MessageSnackbar,
@@ -107,7 +111,11 @@ export default {
   },
 
   methods: {
-    ...mapMutations(['addCharacter', 'removeCharacter']),
+    ...mapMutations([
+      'addCharacter',
+      'removeCharacter',
+      'triggerChangeDetection',
+    ]),
     ...mapActions(['retrieveClassOptions']),
 
     add() {
@@ -129,6 +137,12 @@ export default {
       this.removeCharacter({ id: this.deleteCharacter.id })
       this.showDeleteDialog = false
       this.deleteCharacter = null
+      setImmediate(() => {
+        if (this.selectedTab > this.characters.length - 1) {
+          console.log(this.selectedTab, this.characters.length)
+          this.selectedTab = this.characters.length - 1
+        }
+      })
     },
   },
 }

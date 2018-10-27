@@ -1,87 +1,153 @@
 <template>
   <v-card>
-    <!-- Name -->
-    <v-layout align-center row ml-3>
-      <v-flex xs11>
-        <v-text-field v-model="name" placeholder="Name..."></v-text-field>
+    <!-- actions -->
+    <v-toolbar color="secondary" flat>
+      <v-tooltip bottom>
+        <v-btn
+          icon
+          flat
+          slot="activator"
+          color="primary"
+          @click="multiclass()"
+        >
+          <v-icon>add_circle_outline</v-icon>
+        </v-btn>
+        <span>Multiclass</span>
+      </v-tooltip>
+      <v-tooltip bottom>
+        <v-btn
+          color="primary"
+          flat
+          slot="activator"
+          icon
+          @click="castSpell()"
+        >
+          <v-icon>mdi-auto-fix</v-icon>
+        </v-btn>
+        <span>Cast Spell</span>
+      </v-tooltip>
+      <v-tooltip bottom>
+        <v-btn
+          color="primary"
+          icon
+          flat
+          slot="activator"
+          @click="longRest()"
+        >
+          <v-icon>mdi-sleep</v-icon>
+        </v-btn>
+        <span>Long Rest</span>
+      </v-tooltip>
+      <v-tooltip bottom>
+        <v-btn
+          color="primary"
+          icon
+          flat
+          slot="activator"
+          @click="shortRest()"
+        >
+          <v-icon>mdi-bell-sleep</v-icon>
+        </v-btn>
+        <span>Short Rest</span>
+      </v-tooltip>
+      <v-tooltip bottom>
+        <v-btn
+          :disabled="!character.concentrating"
+          @click="concentrationDialog=true"
+          color="primary"
+          icon
+          flat
+          slot="activator"
+        >
+          <v-icon>remove_red_eye</v-icon>
+        </v-btn>
+        <span
+          v-if="character.concentrating"
+        >Concentrating on {{ character.concentrating }}</span>
+        <span
+          v-if="!character.concentrating || character.concentrating === ''"
+        >Not currently concentrating</span>
+      </v-tooltip>
+      <v-spacer></v-spacer>
+      <h3>PROFICIENCY BONUS: +{{ character.proficiency }}</h3>
+    </v-toolbar>
+    <!-- character info -->
+    <v-layout>
+      <v-flex>
+        <v-card light class="text-xs-left ma-2">
+          <h3 class="pl-3 pt-3">CHARACTER INFO</h3>
+          <v-card-text class="pt-0">
+            <v-text-field
+              v-model="character.name"
+              label="Name"
+              @blur="$emit('triggerChangeDetection')"
+              hide-details
+            ></v-text-field>
+          </v-card-text>
+        </v-card>
       </v-flex>
     </v-layout>
-    <!-- End Name -->
-    <!-- "Buttons" -->
+    <v-layout ml-3>
+      
+    </v-layout>
+    <!-- dynamic state -->
     <v-layout column>
-      <v-layout align-center row>
-        <v-tooltip top>
-          <v-btn icon slot="activator" @click="multiclass()">
-            <v-icon>add_circle_outline</v-icon>
-          </v-btn>
-          <span>Multiclass</span>
-        </v-tooltip>
-        <v-tooltip top>
-          <v-btn flat slot="activator" icon @click="castSpell()">
-            <v-icon>mdi-auto-fix</v-icon>
-          </v-btn>
-          <span>Cast Spell</span>
-        </v-tooltip>
-        <v-tooltip top>
-          <v-btn flat icon slot="activator" @click="longRest()">
-            <v-icon>mdi-sleep</v-icon>
-          </v-btn>
-          <span>Long Rest</span>
-        </v-tooltip>
-        <v-tooltip top>
-          <v-btn flat icon slot="activator" @click="shortRest()">
-            <v-icon>mdi-bell-sleep</v-icon>
-          </v-btn>
-          <span>Short Rest</span>
-        </v-tooltip>
-        <v-tooltip top>
-          <v-btn
-            :disabled="!character.concentrating"
-            @click="concentrationDialog=true"
-            flat
-            icon
-            slot="activator"
-          >
-            <v-icon>remove_red_eye</v-icon>
-          </v-btn>
-          <span v-if="character.concentrating">Concentrating on {{character.concentrating}}</span>
-          <span
-            v-if="!character.concentrating || character.concentrating === ''"
-          >Not currently concentrating</span>
-        </v-tooltip>
-        <v-tooltip top>
-          <h3 slot="activator">+{{proficiencyBonus}}</h3>
-          <span>Proficiency Bonus</span>
-        </v-tooltip>
-      </v-layout>
-      <initiative :charIndex="index"/>
+      <app-initiative :character="character"/>
       <v-layout align-center row>
         <!-- Hit Points -->
-        <hit-points :charIndex="index"></hit-points>
+        <hit-points :character="character"></hit-points>
         <!-- End Hit Points -->
       </v-layout>
     </v-layout>
-    <death-throws v-if="hitpoints <= 0 && maxHitpoints > 0" :charIndex="index"/>
-    <v-dialog v-model="concentrationDialog" max-width="300">
+    <death-throws
+      v-if="hitpoints <= 0 && maxHitpoints > 0"
+      :character="character"
+    />
+    <v-dialog
+      v-model="concentrationDialog"
+      max-width="300"
+    >
       <v-card>
         <v-card-text>
           <h2>Stop Concentrating on {{character.concentrating}}?</h2>
         </v-card-text>
         <v-layout column>
-          <v-btn @click="concentrationDialog = false; stopConcentrating()" flat>Yes</v-btn>
-          <v-btn @click="concentrationDialog = false;" flat>No</v-btn>
+          <v-btn
+            @click="concentrationDialog = false; stopConcentrating()"
+            flat
+            color="primary"
+          >Yes</v-btn>
+          <v-btn
+            @click="concentrationDialog = false;"
+            flat
+            color="primary"
+          >No</v-btn>
         </v-layout>
       </v-card>
     </v-dialog>
     <!-- End "Buttons" -->
     <!-- Ability Scores -->
-    <ability-scores :scores="character.abilityScores" :index="index"></ability-scores>
+    <ability-scores
+      :scores="character.abilityScores"
+      :character="character"
+    ></ability-scores>
     <!-- End Ability Scores -->
-    <v-card-text v-for="(characterClass, classindex) in character.classes" :key="classindex">
+    <v-card-text
+      v-for="(characterClass, classindex) in character.classes"
+      :key="classindex"
+    >
       <!-- TODO Class-specific stuff -->
-      <character-class :characterClass="characterClass" :charIndex="index" :classIndex="classindex"></character-class>
+
+      <character-class
+        :characterClass="characterClass"
+        :character="character"
+        :classIndex="classindex"
+      ></character-class>
     </v-card-text>
-    <spell-cast :charIndex="index" ref="spellCast"/>
+    <spell-cast
+      :character="character"
+      ref="spellCast"
+    />
   </v-card>
 </template>
 
@@ -92,36 +158,34 @@ import SpellCast from '@/components/SpellCast'
 import HitPoints from '@/components/HitPoints'
 import DeathSavingThrows from './DeathSavingThrows'
 import Initiative from '@/components/Initiative'
+
 export default {
-  name: 'Tracker',
-  props: ['id', 'index'],
+  name: 'tracker',
+
+  props: ['character'],
+
   components: {
-    'ability-scores': AbilityScores,
-    'character-class': Class,
-    'death-throws': DeathSavingThrows,
-    'spell-cast': SpellCast,
-    'hit-points': HitPoints,
-    initiative: Initiative,
+    'app-ability-scores': AbilityScores,
+    'app-character-class': Class,
+    'app-death-throws': DeathSavingThrows,
+    'app-spell-cast': SpellCast,
+    'app-hit-points': HitPoints,
+    'app-initiative': Initiative,
   },
+
   computed: {
-    classOpts() {
-      return this.$store.state.classOpts
-    },
     hitDice() {
       return this.$store.state.hitDice
     },
-    character() {
-      return this.$store.state.characters[this.index]
-    },
+
     hitpoints() {
       return this.character.hitpoints
     },
+
     maxHitpoints() {
       return this.character.maxHitpoints
     },
-    proficiencyBonus() {
-      return this.character.proficiency
-    },
+
     name: {
       get() {
         return this.character.name

@@ -23,8 +23,13 @@ export default {
   },
 
   setClassOptions(state, { classOptions, magicClassOptions }) {
-    state.classOpts = classOptions
-    state.magicClassOpts = magicClassOptions
+    state.classOptions = classOptions
+    state.magicClassOptions = magicClassOptions
+  },
+
+  triggerChangeDetection(state) {
+    console.log('trig')
+    state.characters.splice(0, 1, state.characters[0])
   },
 
   changeClassLevel(state, { newLevel, charIndex, classIndex }) {

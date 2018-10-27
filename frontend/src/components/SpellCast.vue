@@ -97,9 +97,11 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   props: ['charIndex'],
   computed: {
+    ...mapGetters(['magicClassOptions']),
     character() {
       return this.$store.state.characters[this.charIndex]
     },
@@ -114,9 +116,6 @@ export default {
     },
     currSpellClass() {
       return this.$store.state.spellsInfo.className
-    },
-    magicClassOpts() {
-      return this.$store.state.magicClassOpts
     },
     spellOpts() {
       return this.$store.state.spellsInfo.spellList
@@ -176,7 +175,7 @@ export default {
     spellPreflight() {
       const magicClasses = []
       for (const c in this.character.classes) {
-        if (this.magicClassOpts.includes(this.character.classes[c].classname)) {
+        if (this.magicClassOptions.includes(this.character.classes[c].classname)) {
           magicClasses.push(c)
         }
       }

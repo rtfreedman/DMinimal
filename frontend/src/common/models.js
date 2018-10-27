@@ -34,7 +34,7 @@ export class Character {
     this.id = id
     this.deathThrows = 0
     this.lifeThrows = 0
-    this.initiative = null
+    this.initiative = 0
     this.hitpoints = 1
     this.maxHitpoints = 1
     this.name = ''
