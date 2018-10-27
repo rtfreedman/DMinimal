@@ -153,7 +153,7 @@ export default {
       ) {
         return
       }
-      const r = new Request('http://localhost:8010/magic/spell/' + val, {
+      const r = new Request('/api/magic/spell/' + val, {
         method: 'GET',
       })
       fetch(r)
@@ -201,7 +201,7 @@ export default {
         classes: [this.classItem.classname],
         spellName: '',
       })
-      const r = new Request('http://localhost:8010/magic/search/', {
+      const r = new Request('/api/magic/search/', {
         method: 'Post',
         body: strBody,
       })
