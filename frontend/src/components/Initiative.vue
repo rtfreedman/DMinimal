@@ -4,13 +4,13 @@
       v-model="character.initiative"
       clearable
       outline
-      class="ml-2"
+      class="ml-3"
       append-icon="mdi-dice-multiple"
       :append-icon-cb="rollInitiative"
       label="Initiative"
       style="max-width: 170px"
       hide-details
-    >{{ character.initiative > 0 ? character.initiative : null }}</v-text-field>
+    />
     <!-- Conditional clear button -->
   </v-layout>
 </template>
