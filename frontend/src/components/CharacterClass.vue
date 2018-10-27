@@ -1,40 +1,29 @@
 <template>
-  <v-container>
-    {{ characterClass }}
-    <v-layout align-center justify-start>
-      <v-flex xs3>
-        <v-layout
-          align-start
-          justify-center
-          column
-          fill-height
-        >
-          <v-autocomplete
-            label="Class"
-            :items="classOptions"
-            v-model="characterClass.name"
-            @input="updateClass"
-            flat
-            dense
-          />
-          <v-flex xs1>
-            <v-autocomplete
-              label="Level"
-              :items="levelOpts"
-              v-model="characterClass.level"
-              flat
-              dense
-            />
-          </v-flex>
-        </v-layout>
-      </v-flex>
+  <v-layout class="border-primary" pa-3 mx-3 mb-3>
+    <v-layout justify-start>
+      <v-autocomplete
+        label="Class"
+        :items="classOptions"
+        v-model="characterClass.name"
+        @input="updateClass"
+        flat
+        dense
+      />
+      <v-spacer></v-spacer>
+      <v-autocomplete
+        label="Level"
+        :items="levelOpts"
+        v-model="characterClass.level"
+        flat
+        dense
+      />
     </v-layout>
-    <app-magic-class
+    <!-- <app-magic-class
       :character="character"
       :characterClass="characterClass"
       v-if="magicClassOptions.includes(characterClass.name)"
-    />
-  </v-container>
+    />-->
+  </v-layout>
 </template>
 
 <script>

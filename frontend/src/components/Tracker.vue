@@ -5,11 +5,17 @@
     />
     <!-- flesh out and make collapsible -->
     <!-- character info -->
-    <v-layout px-3 mb-3>
+    <v-layout px-3>
       <v-expansion-panel light>
-        <v-expansion-panel-content style="color: #303030; background-color: #ffd700; opacity: 0.9;">
+        <v-expansion-panel-content
+          style="color: #303030; background-color: #ffd700; opacity: 0.8;"
+        >
           <h3 slot="header">CHARACTER INFO</h3>
-          <v-card flat dark class="text-xs-left ma-2">
+          <v-card
+            flat
+            dark
+            class="text-xs-left ma-2"
+          >
             <v-card-text>
               <v-text-field
                 v-model="localName"
@@ -23,38 +29,41 @@
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-layout>
-
-    <!-- dynamic state -->
-    <v-layout
-      justify-space-between
-      align-center
-      mb-3
-    >
-      <app-initiative :character="character"/>
-      <app-hit-points :character="character"/>
+    <v-layout mb-3>
+        <app-initiative :character="character"/>
+        <app-hit-points :character="character"/>
     </v-layout>
     <app-death-throws
       v-if="character.hitPoints <= 0 && character.maxHitPoints > 0"
       :character="character"
     />
-    <!-- End "Buttons" -->
-    <!-- Ability Scores -->
     <app-ability-scores
       :scores="character.abilityScores"
       :character="character"
     />
-    <!-- End Ability Scores -->
-    <v-card-text
-      v-for="characterClass in character.classes"
-      :key="characterClass.name"
-    >
-      <!-- TODO Class-specific stuff -->
-
+    <v-layout align-center>
+      <h3 class="ml-3">CLASS</h3>
+      <v-tooltip bottom>
+        <v-btn
+          icon
+          flat
+          slot="activator"
+          color="primary"
+          @click="character.multiclass()"
+        >
+          <v-icon>add_circle_outline</v-icon>
+        </v-btn>
+        <span>MULTICLASS</span>
+      </v-tooltip>
+    </v-layout>
+    <v-layout column>
       <app-character-class
+        v-for="characterClass in character.classes"
+        :key="characterClass.name"
         :characterClass="characterClass"
         :character="character"
       />
-    </v-card-text>
+    </v-layout>
     <app-spell-cast
       :character="character"
       ref="spellCast"

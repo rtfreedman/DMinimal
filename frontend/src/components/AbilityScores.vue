@@ -1,44 +1,96 @@
 <template>
-  <v-layout align-center justify-start>
-    <v-layout
-      v-for="(statVal, statName) in scores"
-      :key="statName"
-      align-center
-      justify-start
-      column
-    >
-      <span>
-        <h3>{{statName}}</h3>
-      </span>
-      <v-btn
-        flat
-        @click="selectedStat=statName; diceResult = []; droppedDice = ''; statsDialog=true;"
-      >{{statVal}}</v-btn>
-      <span>{{getMod(statVal)}}</span>
+  <v-container pt-0>
+    <v-layout justify-space-between align-center>
+      <v-layout align-center>
+        <h3>ABILITY SCORES</h3>
+        <v-tooltip bottom>
+          <v-btn
+            icon
+            flat
+            slot="activator"
+            color="primary"
+            @click="rollStats()"
+          >
+            <v-icon>mdi-dice-multiple</v-icon>
+          </v-btn>
+          <span>ROLL ABILITIES</span>
+        </v-tooltip>
+      </v-layout>
+      <h3>PROFICIENCY BONUS: {{ character.proficiency }}</h3>
     </v-layout>
-    <v-dialog v-model="statsDialog" max-width="150">
-      <v-card>
-        <v-layout align-center justify-space-around>
-          <v-icon v-for="(val, index) in diceResult" :key="index">{{val}}</v-icon>
-          <v-icon color="grey darken-1">{{droppedDice}}</v-icon>
+    <v-layout
+      justify-space-around
+      pa-2
+      class="border-primary"
+    >
+      <v-layout
+        column
+        v-for="(statVal, statName) in scores"
+        :key="statName"
+        class="text-xs-center"
+      >
+        <v-layout justify-center>
+          <div>
+            <strong>{{ statName }}</strong>
+            <h1>{{ statVal }}</h1>
+          </div>
+          <h4
+            class="mx-1"
+            style="margin-top: 36px"
+          >+ {{ getMod(statVal) }}</h4>
         </v-layout>
-        <v-layout align-center justify-start column>
-          <v-btn flat @click="offsetStat(selectedStat, 1)">+</v-btn>
+      </v-layout>
+    </v-layout>
+    <!-- <v-btn
+        flat
+    @click="selectedStat=statName; diceResult = []; droppedDice = ''; statsDialog=true;">-->
+    <v-dialog
+      v-model="statsDialog"
+      max-width="150"
+    >
+      <v-card>
+        <v-layout
+          align-center
+          justify-space-around
+        >
+          <v-icon
+            v-for="(val, index) in diceResult"
+            :key="index"
+          >{{ val }}</v-icon>
+          <v-icon
+            color="grey darken-1"
+          >{{droppedDice}}</v-icon>
+        </v-layout>
+        <v-layout
+          align-center
+          justify-start
+          column
+        >
+          <v-btn
+            flat
+            @click="offsetStat(selectedStat, 1)"
+          >+</v-btn>
           <span>{{scores[selectedStat]}}</span>
-          <v-btn flat @click="offsetStat(selectedStat, -1)">-</v-btn>
-          <v-btn flat @click="rollStat(selectedStat)">
+          <v-btn
+            flat
+            @click="offsetStat(selectedStat, -1)"
+          >-</v-btn>
+          <v-btn
+            flat
+            @click="rollStat(selectedStat)"
+          >
             <v-icon>mdi-dice-multiple</v-icon>
           </v-btn>
         </v-layout>
       </v-card>
     </v-dialog>
-  </v-layout>
+  </v-container>
 </template>
 
 <script>
 export default {
   name: 'AbilityScores',
-  props: ['scores', 'index'],
+  props: ['character', 'scores', 'index'],
   methods: {
     getMod(val) {
       const modifier = Math.floor((val - 10) / 2)

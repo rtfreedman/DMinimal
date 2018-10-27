@@ -1,14 +1,33 @@
 <template>
-  <div>
-    <v-btn
-      @click="showHitPointDialog = true"
-      round
-      color="primary"
-      flat
+  <v-layout column mx-3 style="max-width: 150px">
+    <v-layout align-center>
+      <h3>HIT POINTS</h3>
+      <v-tooltip bottom>
+        <v-btn
+          icon
+          flat
+          slot="activator"
+          color="primary"
+          @click="showHitPointDialog = true"
+        >
+          <v-icon small>mdi-heart</v-icon>
+        </v-btn>
+        <span>ADJUST HIT POINTS</span>
+      </v-tooltip>
+    </v-layout>
+    <v-layout
+      column
+      class="border-primary"
+      style="height: 50px; max-width: 120px"
     >
-      <v-icon class="mr-2" small>mdi-heart</v-icon>
-      <span>{{ character.hitPoints }} / {{ character.maxHitPoints }}</span>
-    </v-btn>
+      <v-layout justify-center align-center>
+        <h1>{{ character.hitPoints }}</h1>
+        <h4
+          class="mx-1"
+          style="margin-top: 8px"
+        >/ {{ character.maxHitPoints }}</h4>
+      </v-layout>
+    </v-layout>
     <!-- dialog -->
     <v-dialog
       v-model="showHitPointDialog"
@@ -62,7 +81,6 @@
           <v-layout
             align-center
             justify-space-between
-            
             fill-height
           >
             <h3>Current Health :</h3>
@@ -93,7 +111,7 @@
           </v-layout>
         </v-card-text>
         <v-card-text>
-          <v-layout justify-end >
+          <v-layout justify-end>
             <v-tooltip top>
               <v-btn
                 icon
@@ -120,7 +138,7 @@
         </v-card-text>
       </v-card>
     </v-dialog>
-  </div>
+  </v-layout>
 </template>
 
 <script>
@@ -158,8 +176,7 @@ export default {
         for (let l = 0; l < this.character.classes[c].level; l++) {
           totalHealth += constitutionOffset
           let value = 0
-          const dice =
-            hitDice[this.character.classes[c].name.split(' ')[0]]
+          const dice = hitDice[this.character.classes[c].name.split(' ')[0]]
           if (firstLevel) {
             // take max health for first level
             value = dice
@@ -181,7 +198,10 @@ export default {
     },
 
     heal() {
-      if (isNaN(parseInt(this.character.hitPoints)) || isNaN(parseInt(this.offset))) {
+      if (
+        isNaN(parseInt(this.character.hitPoints)) ||
+        isNaN(parseInt(this.offset))
+      ) {
         return
       }
 
@@ -199,8 +219,7 @@ export default {
         return
       }
 
-      this.character.hitPoints = 
-      this.$store.commit('setHP', {
+      this.character.hitPoints = this.$store.commit('setHP', {
         charIndex: this.charIndex,
         hitpoints: parseInt(this.hitPoints) + parseInt(this.offset),
       })
