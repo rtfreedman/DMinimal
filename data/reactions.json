@@ -1,0 +1,70 @@
+{
+  "reactions": [
+    {
+      "attack_bonus": 0,
+      "desc": "The captain adds 2 to its AC against one melee attack that would hit it. To do so, the captain must see the attacker and be wielding a melee weapon.",
+      "monster": "Bandit Captain",
+      "name": "Parry"
+    },
+    {
+      "attack_bonus": 0,
+      "desc": "When a pudding that is Medium or larger is subjected to lightning or slashing damage, it splits into two new puddings if it has at least 10 hit points. Each new pudding has hit points equal to half the original pudding's, rounded down. New puddings are one size smaller than the original pudding.",
+      "monster": "Black Pudding",
+      "name": "Split"
+    },
+    {
+      "attack_bonus": 0,
+      "desc": "When a creature the devil can see starts its turn within 30 feet of the devil, the devil can create the illusion that it looks like one of the creature's departed loved ones or bitter enemies. If the creature can see the devil, it must succeed on a DC 14 Wisdom saving throw or be frightened until the end of its turn.",
+      "monster": "Chain Devil",
+      "name": "Unnerving Mask"
+    },
+    {
+      "attack_bonus": 0,
+      "desc": "The erinyes adds 4 to its AC against one melee attack that would hit it. To do so, the erinyes must see the attacker and be wielding a melee weapon.",
+      "monster": "Erinyes",
+      "name": "Parry"
+    },
+    {
+      "attack_bonus": 0,
+      "desc": "The gladiator adds 3 to its AC against one melee attack that would hit it. To do so, the gladiator must see the attacker and be wielding a melee weapon.",
+      "monster": "Gladiator",
+      "name": "Parry"
+    },
+    {
+      "attack_bonus": 0,
+      "desc": "The knight adds 2 to its AC against one melee attack that would hit it. To do so, the knight must see the attacker and be wielding a melee weapon.",
+      "monster": "Knight",
+      "name": "Parry"
+    },
+    {
+      "attack_bonus": 0,
+      "desc": "The marilith adds 5 to its AC against one melee attack that would hit it. To do so, the marilith must see the attacker and be wielding a melee weapon.",
+      "monster": "Marilith",
+      "name": "Parry"
+    },
+    {
+      "attack_bonus": 0,
+      "desc": "The noble adds 2 to its AC against one melee attack that would hit it. To do so, the noble must see the attacker and be wielding a melee weapon.",
+      "monster": "Noble",
+      "name": "Parry"
+    },
+    {
+      "attack_bonus": 0,
+      "desc": "When a jelly that is Medium or larger is subjected to lightning or slashing damage, it splits into two new jellies if it has at least 10 hit points. Each new jelly has hit points equal to half the original jelly's, rounded down. New jellies are one size smaller than the original jelly.",
+      "monster": "Ochre Jelly",
+      "name": "Split"
+    },
+    {
+      "attack_bonus": 0,
+      "desc": "When a creature makes an attack against the wearer of the guardian's amulet, the guardian grants a +2 bonus to the wearer's AC if the guardian is within 5 feet of the wearer.",
+      "monster": "Shield Guardian",
+      "name": "Shield"
+    },
+    {
+      "attack_bonus": 0,
+      "desc": "If a rock or similar object is hurled at the giant, the giant can, with a successful DC 10 Dexterity saving throw, catch the missile and take no bludgeoning damage from it.",
+      "monster": "Stone Giant",
+      "name": "Rock Catching"
+    }
+  ]
+}
