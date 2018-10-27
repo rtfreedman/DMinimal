@@ -2,17 +2,28 @@
   <v-container>
     <v-layout align-center justify-start row>
       <v-flex xs3>
-        <v-layout align-start justify-center column fill-height>
+        <v-layout
+          align-start
+          justify-center
+          column
+          fill-height
+        >
           <v-autocomplete
             label="Class"
-            :items="classOpts"
+            :items="classOptions"
             v-model="selectedClass"
             @input="updateClass"
             flat
             dense
           />
           <v-flex xs1>
-            <v-autocomplete label="Level" :items="levelOpts" :search-input.sync="level" flat dense/>
+            <v-autocomplete
+              label="Level"
+              :items="levelOpts"
+              :search-input.sync="level"
+              flat
+              dense
+            />
           </v-flex>
         </v-layout>
       </v-flex>
@@ -20,12 +31,13 @@
     <magic-class
       :charIndex="charIndex"
       :classIndex="classIndex"
-      v-if="magicClassOpts.includes(classItem.classname)"
+      v-if="magicClassOptions.includes(classItem.classname)"
     ></magic-class>
   </v-container>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import MagicClass from '@/components/MagicClass'
 export default {
   // TODO: spell save DC, spell attack modifier, spell slot counters, spell search dialog (all inside a conditional magic component)
@@ -36,9 +48,7 @@ export default {
   },
 
   computed: {
-    classOpts() {
-      return this.$store.state.classOpts
-    },
+    ...mapGetters(['classOptions', 'magicClassOptions']),
 
     classItem() {
       return this.$store.state.characters[this.charIndex].classes[
@@ -63,10 +73,6 @@ export default {
           })
         }
       },
-    },
-
-    magicClassOpts() {
-      return this.$store.state.magicClassOpts
     },
   },
 
