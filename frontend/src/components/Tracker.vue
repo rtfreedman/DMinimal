@@ -79,8 +79,7 @@
     <!-- End Ability Scores -->
     <v-card-text v-for="(characterClass, classindex) in character.classes" :key="classindex">
       <!-- TODO Class-specific stuff -->
-
-      <character-class :charIndex="index" :classIndex="classindex"></character-class>
+      <character-class :characterClass="characterClass" :charIndex="index" :classIndex="classindex"></character-class>
     </v-card-text>
     <spell-cast :charIndex="index" ref="spellCast"/>
   </v-card>

@@ -1,21 +1,21 @@
 <template>
-  <v-layout row>
-    <v-flex xs2>
-      <v-layout row>
-        <v-tooltip top>
-          <v-btn icon slot="activator" @click="rollInitiative()">
-            <v-icon>mdi-dice-multiple</v-icon>
-          </v-btn>
-          <span>Roll Initiative!</span>
-        </v-tooltip>
-        <!-- Initiative v-model'd input -->
-        <v-text-field reverse label="Initiative" :rules="[validate]" v-model="initiative"/>
-        <!-- Conditional clear button -->
-        <v-btn icon @click="clearInitiative()">
-          <v-icon>mdi-close</v-icon>
-        </v-btn>
-      </v-layout>
-    </v-flex>
+  <v-layout align-center>
+    <v-tooltip top>
+      <v-btn icon slot="activator" @click="rollInitiative()">
+        <v-icon>mdi-dice-multiple</v-icon>
+      </v-btn>
+      <span>Roll Initiative!</span>
+    </v-tooltip>
+    <!-- Initiative v-model'd input -->
+    <!-- <v-text-field reverse placeholder="Initiative" :rules="[validate]" v-model="initiative" solo light></v-text-field> -->
+    <h4>INITIATIVE:</h4>
+    <div style="width: 36px; border: 1px solid white;" class="text-xs-center ml-2">
+      <h3>{{ initiative || '?' }}</h3>
+    </div>
+    <!-- Conditional clear button -->
+    <v-btn v-if="initiative" icon @click="clearInitiative()">
+      <v-icon>mdi-close</v-icon>
+    </v-btn>
   </v-layout>
 </template>
 

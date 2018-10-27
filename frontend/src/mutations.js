@@ -1,18 +1,30 @@
 import { Class, Character } from './common/models'
 
 export default {
+  // set application state on restore action
+  setState(state, retrievedState) {
+    state = retrievedState
+  },
+
   // character mutations
   addCharacter(state) {
     state.characters.push(new Character(state.nextCharacterId++))
   },
 
-  changeClass(state, { charIndex, classIndex, newClass }) {
-    // charIndex classIndex newClass
-    this.state.characters[charIndex].classes[classIndex].classname = newClass
-    this.commit('updateSlots', {
-      charIndex,
-      classIndex,
-    })
+  setClass(state, { charIndex, classIndex, className, slots }) {
+    const ch = state.characters[charIndex]
+    ch.setClass(classIndex, className, slots)
+    state.characters.splice(charIndex, 1, ch)
+  },
+
+  removeCharacter(state, { id }) {
+    const i = state.characters.findIndex(c => c.id === id)
+    this.state.characters.splice(i, 1)
+  },
+
+  setClassOptions(state, { classOptions, magicClassOptions }) {
+    state.classOpts = classOptions
+    state.magicClassOpts = magicClassOptions
   },
 
   changeClassLevel(state, { newLevel, charIndex, classIndex }) {
@@ -85,31 +97,6 @@ export default {
     // charIndex classIndex level
     this.state.characters[charIndex].classes[classIndex].workingSlots[level]++
   },
-  longRestAll() {
-    for (const c in this.state.characters) {
-      this.commit('longRest', c)
-    }
-  },
-  longRest(state, charIndex) {
-    if (this.state.characters[charIndex].hitpoints === 0) {
-      // you cannot gain the benefits of a long rest at 0 hitpoints
-      this.commit('showSnackbar', {
-        message:
-          this.state.characters[charIndex].name +
-          ' cannot gain the benefits of a long rest at 0 HP',
-      })
-      return
-    }
-    this.commit('setHP', {
-      charIndex,
-      hitpoints: this.state.characters[charIndex].maxHitpoints,
-    })
-    for (const c in this.state.characters[charIndex].classes) {
-      this.state.characters[charIndex].classes[c].workingSlots = JSON.parse(
-        JSON.stringify(this.state.characters[charIndex].classes[c].slots),
-      )
-    }
-  },
   multiclass(state, payload) {
     // index, classname
     if (this.state.characters[payload.index].classes.length > 10) {
@@ -179,15 +166,6 @@ export default {
     this.state.characters[charIndex].proficiency =
       Math.floor(totalLevel / 5) + 2
   },
-  removeCharacter(state, identifier) {
-    const index = this.state.characters.findIndex(function(element) {
-      return element.id === identifier
-    })
-    if (index === -1) {
-      return
-    }
-    this.state.characters.splice(index, 1)
-  },
   setDeathThrows(state, payload) {
     // charIndex throwVal
     this.state.characters[payload.charIndex].deathThrows = payload.throwVal
@@ -238,64 +216,6 @@ export default {
   },
   stopConcentrating(state, index) {
     this.state.characters[index].concentrating = ''
-  },
-  updateSlots(state, payload) {
-    // charIndex classIndex
-    const strBody = JSON.stringify({
-      classes: [
-        {
-          class: this.state.characters[payload.charIndex].classes[
-            payload.classIndex
-          ].classname,
-          level: this.state.characters[payload.charIndex].classes[
-            payload.classIndex
-          ].level,
-        },
-      ],
-    })
-    const r = new Request('http://localhost:8010/magic/slots/', {
-      method: 'POST',
-      body: strBody,
-    })
-    fetch(r)
-      .then(response => {
-        if (response.status === 200) {
-          return response.json()
-        } else {
-          throw new Error('Something went wrong on api server!')
-        }
-      })
-      .then(response => {
-        this.state.characters[payload.charIndex].classes[
-          payload.classIndex
-        ].slots = response.Slots
-        // make a deep copy for long rests without need to re-access backend
-        this.state.characters[payload.charIndex].classes[
-          payload.classIndex
-        ].workingSlots = JSON.parse(JSON.stringify(response.Slots))
-      })
-      .catch(error => {
-        console.error(error)
-      })
-  },
-  // classopts mutations
-  updateClassOpts() {
-    const r = new Request('http://localhost:8010/classes/')
-    fetch(r)
-      .then(response => {
-        if (response.status === 200) {
-          return response.json()
-        } else {
-          throw new Error('Something went wrong on api server!')
-        }
-      })
-      .then(response => {
-        this.state.classOpts = response.Classes
-        this.state.magicClassOpts = response.MagicClasses
-      })
-      .catch(error => {
-        console.error(error)
-      })
   },
   // spell mutations
   setSpellOpts(state, { spellOpts, className }) {
