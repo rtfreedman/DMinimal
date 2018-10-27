@@ -6,12 +6,11 @@
       outline
       class="ml-3"
       append-icon="mdi-dice-multiple"
-      :append-icon-cb="rollInitiative"
+      @click:append="rollInitiative"
       label="Initiative"
       style="max-width: 170px"
       hide-details
     />
-    <!-- Conditional clear button -->
   </v-layout>
 </template>
 
