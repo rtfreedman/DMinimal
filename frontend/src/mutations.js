@@ -1,4 +1,5 @@
-import { Class, Character } from './common/models'
+import { Character } from './common/models'
+import { hitDice } from './common/constants'
 
 export default {
   // set application state on restore action
@@ -46,7 +47,7 @@ export default {
       this.commit('setMaxHP', {
         charIndex,
         hitpoints: (this.state.characters[charIndex].maxHitpoints +=
-          this.state.hitDice[
+          hitDice[
             this.state.characters[charIndex].classes[classIndex].classname
           ] +
           (this.state.characters[charIndex].abilityScores.CON - 10) / 2),
@@ -59,7 +60,7 @@ export default {
         charIndex,
         hitpoints: (this.state.characters[charIndex].maxHitpoints +=
           (Math.random() *
-            (this.state.hitDice[
+            (hitDice[
               this.state.characters[charIndex].classes[classIndex].classname
             ] -
               1) +
@@ -73,7 +74,7 @@ export default {
         charIndex,
         hitpoints: (this.state.characters[charIndex].maxHitpoints +=
           (Math.ceil(
-            this.state.hitDice[
+            hitDice[
               this.state.characters[charIndex].classes[classIndex].classname
             ] / 2,
           ) +
@@ -105,21 +106,7 @@ export default {
     // charIndex classIndex level
     this.state.characters[charIndex].classes[classIndex].workingSlots[level]++
   },
-  multiclass(state, payload) {
-    // index, classname
-    if (this.state.characters[payload.index].classes.length > 10) {
-      return // no more than 10 classes
-    }
-    for (const i in this.state.characters[payload.index].classes) {
-      const c = this.state.characters[payload.index].classes[i]
-      if (c.classname === payload.classname) {
-        return // no duplicate classes
-      }
-    }
-    const newclass = new Class()
-    newclass.classname = payload.classname
-    this.state.characters[payload.index].classes.push(newclass)
-  },
+
   offsetStat(state, payload) {
     // stat index offset
     if (

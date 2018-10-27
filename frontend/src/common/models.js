@@ -1,8 +1,8 @@
 import $store from '@/store'
 
 export class Class {
-  constructor() {
-    this.classname = 'Bard'
+  constructor(name) {
+    this.classname = name || 'Bard'
     this.level = 1
     this.slots = {
       1: 0,
@@ -73,5 +73,17 @@ export class Character {
     this.classes.forEach(c => {
       c.workingSlots = Object.assign({}, c.slots)
     })
+  }
+
+  multiClass(name) {
+    // no more than 10 classes
+    if (this.classes.length > 10) {
+      return
+    }
+    // no duplicate classes
+    if (this.classes.includes(name)) {
+      return
+    }
+    this.classes.push(new Class(name))
   }
 }
