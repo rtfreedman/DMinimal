@@ -78,18 +78,16 @@
           <h3 class="pl-3 pt-3">CHARACTER INFO</h3>
           <v-card-text class="pt-0">
             <v-text-field
-              v-model="character.name"
+              v-model="localName"
               label="Name"
-              @blur="$emit('triggerChangeDetection')"
+              @blur="$emit('changeName', localName)"
               hide-details
             ></v-text-field>
           </v-card-text>
         </v-card>
       </v-flex>
     </v-layout>
-    <v-layout ml-3>
-      
-    </v-layout>
+    <v-layout ml-3></v-layout>
     <!-- dynamic state -->
     <v-layout column>
       <app-initiative :character="character"/>
@@ -171,6 +169,12 @@ export default {
     'app-spell-cast': SpellCast,
     'app-hit-points': HitPoints,
     'app-initiative': Initiative,
+  },
+
+  data() {
+    return {
+      localName: this.character.name,
+    }
   },
 
   computed: {
