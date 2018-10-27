@@ -8,8 +8,9 @@
     >
       <v-icon>mdi-dice-multiple</v-icon>
     </v-btn>-->
+    {{ character.initiative }}
     <v-text-field
-      v-model="character.iniative"
+      v-model="character.initiative"
       clearable
       outline
       :rules="[mustBeNum, minNum]"
@@ -21,13 +22,6 @@
       hide-details
     >{{ character.initiative || '?' }}</v-text-field>
     <!-- Conditional clear button -->
-    <v-btn
-      v-if="character.initiative"
-      icon
-      @click="clearInitiative()"
-    >
-      <v-icon>mdi-close</v-icon>
-    </v-btn>
   </v-layout>
 </template>
 
@@ -37,15 +31,12 @@ export default {
   props: ['character'],
   methods: {
     rollInitiative() {
+      console.log('da fuck')
       const value =
         Math.floor((this.character.abilityScores.DEX - 10) / 2) +
         Math.floor(Math.random() * 20) +
         1
-      this.character.iniative = parseInt(value)
-    },
-
-    clearInitiative() {
-      this.character.initiative = null
+      this.character.initiative = parseInt(value)
     },
 
     mustBeNum(val) {
