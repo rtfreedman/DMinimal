@@ -1,14 +1,13 @@
 <template>
   <div>
     <v-btn
-      @click="hitpointDialog=true"
+      @click="showHitPointDialog = true"
       round
+      color="primary"
       flat
     >
-      <v-layout justify-space-around align-center>
-        <v-icon>mdi-heart</v-icon>
-        <span>{{ character.hitpoints }} / {{ character.maxHitpoints }}</span>
-      </v-layout>
+      <v-icon class="mr-2" small>mdi-heart</v-icon>
+      <span>{{ character.hitpoints }} / {{ character.maxHitpoints }}</span>
     </v-btn>
     <!-- Hit Point Counter md-heart -->
     <!-- Hit Point Roll md-refresh -->
@@ -207,9 +206,8 @@ export default {
         for (let l = 0; l < this.character.classes[c].level; l++) {
           totalHealth += constitutionOffset
           let value = 0
-          const dice = hitDice[
-            this.character.classes[c].classname.split(' ')[0]
-          ]
+          const dice =
+            hitDice[this.character.classes[c].classname.split(' ')[0]]
           if (firstLevel) {
             // take max health for first level
             value = dice
