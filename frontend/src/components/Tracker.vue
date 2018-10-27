@@ -22,7 +22,7 @@
     </v-layout>
     <v-layout ml-3></v-layout>
     <!-- dynamic state -->
-    <v-layout column>
+    <v-layout justify-space-between align-center mb-3>
       <app-initiative :character="character"/>
       <app-hit-points :character="character"/>
     </v-layout>

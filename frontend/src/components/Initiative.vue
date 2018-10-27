@@ -1,20 +1,23 @@
 <template>
-  <v-layout align-center>
-    <v-btn
+  <v-layout>
+    <!-- <v-btn
       color="primary"
       flat
-      class="mt-4"
       icon
       @click="rollInitative"
     >
       <v-icon>mdi-dice-multiple</v-icon>
-    </v-btn>
+    </v-btn> -->
     <v-text-field
       v-model="character.iniative"
       clearable
+      outline
+      class="ml-2"
+      append-icon="mdi-dice-multiple"
+      :append-icon-cb="rollInitiative"
       label="Initiative"
+      style="max-width: 170px"
       hide-details
-      style="max-width: 100px"
     >{{ character.initiative || '?' }}</v-text-field>
     <!-- Conditional clear button -->
     <v-btn
