@@ -18,6 +18,7 @@
     <v-tabs
       slider-color="primary"
       v-model="selectedTab"
+      :hide-slider="hideSlider"
     >
       <v-tab
         v-for="i in characters.length"
@@ -47,7 +48,7 @@
         <v-card flat>
           <app-tracker
             :character="characters[i - 1]"
-            @triggerChangeDetection="triggerChangeDetection"
+            @changeName="changeName($event, i)"
           ></app-tracker>
         </v-card>
       </v-tab-item>
@@ -103,6 +104,7 @@ export default {
       showDeleteDialog: false,
       selectedTab: 0,
       deleteCharacter: null,
+      hideSlider: false,
     }
   },
 
@@ -117,6 +119,14 @@ export default {
       'triggerChangeDetection',
     ]),
     ...mapActions(['retrieveClassOptions']),
+
+    changeName(name, i) {
+      this.characters[i - 1].name = name
+      this.triggerChangeDetection()
+      setImmediate(() => {
+        this.triggerChangeDetection(true)
+      })
+    },
 
     add() {
       this.addCharacter()

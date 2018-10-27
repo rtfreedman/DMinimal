@@ -27,9 +27,12 @@ export default {
     state.magicClassOptions = magicClassOptions
   },
 
-  triggerChangeDetection(state) {
-    console.log('trig')
-    state.characters.splice(0, 1, state.characters[0])
+  triggerChangeDetection(state, remove) {
+    if (!remove) {
+      state.characters.push(state.characters[0])
+    } else {
+      state.characters.pop()
+    }
   },
 
   changeClassLevel(state, { newLevel, charIndex, classIndex }) {
