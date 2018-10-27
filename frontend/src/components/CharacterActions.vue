@@ -4,18 +4,6 @@
     <v-toolbar color="secondary" flat>
       <v-tooltip bottom>
         <v-btn
-          icon
-          flat
-          slot="activator"
-          color="primary"
-          @click="character.multiclass()"
-        >
-          <v-icon>add_circle_outline</v-icon>
-        </v-btn>
-        <span>Multiclass</span>
-      </v-tooltip>
-      <v-tooltip bottom>
-        <v-btn
           color="primary"
           icon
           flat
@@ -29,6 +17,18 @@
       <v-tooltip bottom>
         <v-btn
           color="primary"
+          icon
+          flat
+          slot="activator"
+          @click="shortRest()"
+        >
+          <v-icon>mdi-bell-sleep</v-icon>
+        </v-btn>
+        <span>SHORT REST</span>
+      </v-tooltip>
+      <v-tooltip bottom>
+        <v-btn
+          color="primary"
           flat
           slot="activator"
           icon
@@ -37,18 +37,6 @@
           <v-icon>mdi-auto-fix</v-icon>
         </v-btn>
         <span>Cast Spell</span>
-      </v-tooltip>
-      <v-tooltip bottom>
-        <v-btn
-          color="primary"
-          icon
-          flat
-          slot="activator"
-          @click="shortRest()"
-        >
-          <v-icon>mdi-bell-sleep</v-icon>
-        </v-btn>
-        <span>Short Rest</span>
       </v-tooltip>
       <v-tooltip bottom>
         <v-btn
@@ -68,8 +56,6 @@
           v-if="!character.concentrating || character.concentrating === ''"
         >Not currently concentrating</span>
       </v-tooltip>
-      <v-spacer></v-spacer>
-      <h3>PROFICIENCY BONUS: +{{ character.proficiency }}</h3>
     </v-toolbar>
     <v-dialog
       v-model="showConcentrationDialog"
