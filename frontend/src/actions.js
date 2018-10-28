@@ -20,16 +20,11 @@ export default {
       .catch(handleError)
   },
 
-  updateClass({ commit }, { charIndex, classIndex, className, level }) {
+  selectClass(_, { index, name, level, character }) {
     magicAPI
-      .getSlots([{ class: className, level }])
+      .getSlots([{ class: name, level }])
       .then(data => {
-        commit('setClass', {
-          charIndex,
-          classIndex,
-          className,
-          slots: data.Slots,
-        })
+        character.setClass(index, name, data.Slots)
       })
       .catch(handleError)
   },

@@ -1,38 +1,52 @@
 <template>
-  <v-layout class="border-primary" pa-3 mx-3 mb-3>
-    <v-layout justify-start>
-      <v-autocomplete
-        label="Class"
-        :items="classOptions"
-        v-model="characterClass.name"
-        @input="updateClass"
+  <v-layout column class="border-primary">
+    <v-layout mb-2>
+      <v-layout justify-start pt-4 pl-4 pb-2>
+        <v-select
+          placeholder="Class"
+          :items="classOptions"
+          v-model="characterClass.name"
+          @input="handleSelectClass"
+          light
+          solo
+          hide-details
+          style="max-width: 300px"
+        />
+        <v-select
+          placeholder="Level"
+          :items="oneToTwenty"
+          v-model="characterClass.level"
+          light
+          solo
+          hide-details
+          style="max-width: 100px; margin-left: 10px;"
+        />
+      </v-layout>
+      <v-btn
+        icon
         flat
-        dense
-      />
-      <v-spacer></v-spacer>
-      <v-autocomplete
-        label="Level"
-        :items="levelOpts"
-        v-model="characterClass.level"
-        flat
-        dense
-      />
+        @click="removeClass"
+        class="ma-1"
+      >
+        <v-icon>close</v-icon>
+      </v-btn>
     </v-layout>
-    <!-- <app-magic-class
+    <app-magic-class
+      v-if="magicClassOptions.includes(characterClass.name)"
       :character="character"
       :characterClass="characterClass"
-      v-if="magicClassOptions.includes(characterClass.name)"
-    />-->
+    />
   </v-layout>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import MagicClass from './MagicClass'
+import { oneToTwenty } from '../common/functions'
 
 export default {
   // TODO: spell save DC, spell attack modifier, spell slot counters, spell search dialog (all inside a conditional magic component)
-  props: ['characterClass', 'character'],
+  props: ['characterClass', 'classIndex', 'character'],
 
   components: {
     'app-magic-class': MagicClass,
@@ -44,21 +58,24 @@ export default {
 
   data() {
     return {
-      selectedClass: null,
-      levelOpts: Array.from(new Array(20), (x, i) => i + 1), // [1,20]
+      oneToTwenty: oneToTwenty(),
     }
   },
 
-  created() {
-    this.selectedClass = this.characterClass.name
-  },
-
   methods: {
-    updateClass() {
-      this.$store.dispatch('updateClass', {
-        className: this.selectedClass,
+    ...mapActions(['selectClass']),
+
+    handleSelectClass() {
+      this.selectClass({
+        index: this.classIndex,
+        name: this.characterClass.name,
         level: this.characterClass.level,
+        character: this.character,
       })
+    },
+
+    removeClass() {
+      // TBD
     },
   },
 }

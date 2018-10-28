@@ -19,7 +19,7 @@
       class="border-primary"
       solo
       flat
-      :items="Array.from(new Array(20), (x, i) => i + 1)"
+      :items="oneToTwenty"
       v-model="character.initiative"
       clearable
       @change="fixTabWidth"
@@ -32,11 +32,19 @@
 
 <script>
 import { mapMutations } from 'vuex'
-import { setImmediate } from 'timers'
+import { oneToTwenty } from '../common/functions'
 
 export default {
   name: 'initiative',
+
   props: ['character'],
+
+  data() {
+    return {
+      oneToTwenty: oneToTwenty(),
+    }
+  },
+
   methods: {
     ...mapMutations(['triggerChangeDetection']),
 

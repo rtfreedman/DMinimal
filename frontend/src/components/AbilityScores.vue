@@ -1,5 +1,5 @@
 <template>
-  <v-container pt-0>
+  <v-container pt-0 px-3>
     <v-layout justify-space-between align-center>
       <v-layout align-center>
         <h3>ABILITY SCORES</h3>
@@ -9,11 +9,25 @@
             flat
             slot="activator"
             color="primary"
+            class="mr-0"
             @click="rollStats()"
           >
             <v-icon>mdi-dice-multiple</v-icon>
           </v-btn>
           <span>ROLL ABILITIES</span>
+        </v-tooltip>
+        <v-tooltip bottom>
+          <v-btn
+            icon
+            flat
+            slot="activator"
+            color="primary"
+            class="ml-0"
+            @click="editStats()"
+          >
+            <v-icon>mdi-pencil</v-icon>
+          </v-btn>
+          <span>EDIT ABILITIES</span>
         </v-tooltip>
       </v-layout>
       <h3>PROFICIENCY BONUS: {{ character.proficiency }}</h3>
@@ -31,12 +45,11 @@
       >
         <v-layout justify-center>
           <div>
-            <strong>{{ statName }}</strong>
+            <strong>{{ `${statName} (${statVal + getMod(statVal)})` }}</strong>
             <h1>{{ statVal }}</h1>
           </div>
           <h4
-            class="mx-1"
-            style="margin-top: 36px"
+            style="margin-top: 36px; margin-left: -7px;"
           >+ {{ getMod(statVal) }}</h4>
         </v-layout>
       </v-layout>
@@ -70,7 +83,7 @@
             flat
             @click="offsetStat(selectedStat, 1)"
           >+</v-btn>
-          <span>{{scores[selectedStat]}}</span>
+          <span>{{ scores[selectedStat] }}</span>
           <v-btn
             flat
             @click="offsetStat(selectedStat, -1)"
@@ -90,16 +103,23 @@
 <script>
 export default {
   name: 'AbilityScores',
+
   props: ['character', 'scores', 'index'],
+
+  data() {
+    return {
+      selectedStat: 'STR',
+      diceResult: [],
+      droppedDice: '',
+      statsDialog: false,
+    }
+  },
+
   methods: {
     getMod(val) {
-      const modifier = Math.floor((val - 10) / 2)
-      if (modifier > 0) {
-        return '+' + modifier
-      } else {
-        return '' + modifier
-      }
+      return Math.floor((val - 10) / 2)
     },
+
     offsetStat(stat, offset) {
       this.$store.commit('offsetStat', {
         stat,
@@ -107,6 +127,7 @@ export default {
         index: this.index,
       })
     },
+
     rollStat(stat) {
       const rolls = []
       for (let i = 0; i < 4; i++) {
@@ -127,13 +148,13 @@ export default {
         return 'mdi-dice-' + val.toString()
       })
     },
-  },
-  data() {
-    return {
-      selectedStat: 'STR',
-      diceResult: [],
-      droppedDice: '',
-      statsDialog: false,
+
+    rollStats() {
+      // TBD
+    },
+
+    editStats() {
+      // TBD
     }
   },
 }

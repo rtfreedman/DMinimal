@@ -5,7 +5,8 @@
       justify-center
       column
       fill-height
-      m-3
+      mx-4
+      mb-3
     >
       <h3>
         SPELL ATTACK MODIFIER: d20
@@ -16,10 +17,13 @@
       </h3>
       <h3>SPELL SAVE DIFFICULTY CLASS: {{ spellSaveDifficultyClass }}</h3>
     </v-layout>
+    <v-divider color="#ffd700" class="mx-4"></v-divider>
+    <h3 class="text-xs-center my-1">SPELL SLOTS</h3>
+    <v-divider color="#ffd700" class="mx-4"></v-divider>
     <app-spell-slots
       :character="character"
       :characterClass="characterClass"
-    ></app-spell-slots>
+    />
   </div>
 </template>
 

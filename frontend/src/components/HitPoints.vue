@@ -147,13 +147,6 @@ import { hitDice } from '../common/constants'
 export default {
   props: ['character'],
 
-  mounted() {
-    this.getHealth(false)
-    this.offset = this.maxHitPoints
-    this.heal()
-    this.offset = '0'
-  },
-
   data() {
     return {
       localHitPoints: this.character.hitPoints,
