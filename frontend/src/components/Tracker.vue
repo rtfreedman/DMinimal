@@ -74,6 +74,7 @@
       <app-cast-spell-dialog
         :character="character"
         :spellClass="spellClass"
+        @close="showSpellDialog = false"
       />
     </v-dialog>
   </v-card>

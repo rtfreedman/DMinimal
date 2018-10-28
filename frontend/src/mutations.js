@@ -31,7 +31,7 @@ export default {
   },
 
   setSpellInfo(state, spellInfo) {
-    state.spells.currentSpellInfo = spellInfo
+    state.currentSpellInfo = spellInfo
   },
 
   setSpells(state, { spells, spellClass }) {

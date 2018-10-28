@@ -8,7 +8,7 @@
         @input="handleSelect"
         solo
         hide-details
-        style="max-width: 300px"
+        style="max-width: 300px; margin-left: -5px;"
       />
       <v-select
         placeholder="Level"

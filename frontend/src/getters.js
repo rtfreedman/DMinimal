@@ -5,4 +5,5 @@ export default {
   spells: state => state.spells,
   currentSpellInfo: state => state.currentSpellInfo,
   currentSpellClass: state => state.currentSpellClass,
+  currentSpellKeys: state => Object.keys(state.currentSpellInfo),
 }
