@@ -20,11 +20,11 @@ export default {
       .catch(handleError)
   },
 
-  selectClass(_, { index, name, level, character }) {
+  retrieveSlots(_, { index, name, level, character }) {
     magicAPI
       .getSlots([{ class: name, level }])
       .then(data => {
-        character.setClass(index, name, data.Slots)
+        character.setSlots(index, name, data.Slots)
       })
       .catch(handleError)
   },

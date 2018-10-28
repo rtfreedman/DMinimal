@@ -30,6 +30,7 @@ export default {
     }
   },
 
+  // convert to class method
   changeClassLevel(state, { newLevel, charIndex, classIndex }) {
     // charIndex classIndex newLevel
     let levelOffset =
@@ -41,9 +42,7 @@ export default {
       this.commit('setMaxHP', {
         charIndex,
         hitpoints: (this.state.characters[charIndex].maxHitpoints +=
-          hitDice[
-            this.state.characters[charIndex].classes[classIndex].name
-          ] +
+          hitDice[this.state.characters[charIndex].classes[classIndex].name] +
           (this.state.characters[charIndex].abilityScores.CON - 10) / 2),
       })
       levelOffset -= 1
@@ -68,9 +67,8 @@ export default {
         charIndex,
         hitpoints: (this.state.characters[charIndex].maxHitpoints +=
           (Math.ceil(
-            hitDice[
-              this.state.characters[charIndex].classes[classIndex].name
-            ] / 2,
+            hitDice[this.state.characters[charIndex].classes[classIndex].name] /
+              2,
           ) +
             (this.state.characters[charIndex].abilityScores.CON - 10) / 2) *
           levelOffset),
@@ -82,23 +80,6 @@ export default {
       classIndex,
     })
     this.commit('proficiencyBonus', charIndex)
-  },
-  changeName(state, { index, name }) {
-    // index name
-    this.state.characters[index].name = name
-  },
-  decrementSlot(state, { classIndex, charIndex, level }) {
-    // charIndex classIndex level
-    if (
-      this.state.characters[charIndex].classes[classIndex].workingSlots[level] >
-      0
-    ) {
-      this.state.characters[charIndex].classes[classIndex].workingSlots[level]--
-    }
-  },
-  incrementSlot(state, { classIndex, charIndex, level }) {
-    // charIndex classIndex level
-    this.state.characters[charIndex].classes[classIndex].workingSlots[level]++
   },
 
   offsetStat(state, payload) {
