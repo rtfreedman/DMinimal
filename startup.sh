@@ -6,4 +6,4 @@ sleep 60
 echo "Creating postgres tables..."
 psql -U wizerd -h 0.0.0.0 -p 5429 -d dnd -f createTables.sql # going to require a password
 echo "Ingesting dnd data..."
-python3 scrape/json_postgres_import.py
+python3 data/json_postgres_import.py

@@ -1,1 +1,544 @@
-{"legendary_actions": [{"attack_bonus": 0, "desc": "The aboleth makes a Wisdom (Perception) check.", "name": "Detect", "monster": "Aboleth"}, {"attack_bonus": 0, "desc": "The aboleth makes one tail attack.", "name": "Tail Swipe", "monster": "Aboleth"}, {"attack_bonus": 0, "desc": "One creature charmed by the aboleth takes 10 (3d6) psychic damage, and the aboleth regains hit points equal to the damage the creature takes.", "name": "Psychic Drain (Costs 2 Actions)", "monster": "Aboleth"}, {"attack_bonus": 0, "desc": "The dragon makes a Wisdom (Perception) check.", "name": "Detect", "monster": "Adult Black Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a tail attack.", "name": "Tail Attack", "monster": "Adult Black Dragon"}, {"attack_bonus": 0, "desc": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.", "name": "Wing Attack (Costs 2 Actions)", "monster": "Adult Black Dragon"}, {"attack_bonus": 0, "desc": "The dracolich makes a Wisdom (Perception) check.", "name": "Detect", "monster": "Adult Blue Dracolich"}, {"attack_bonus": 0, "desc": "The dracolich makes a tail attack.", "name": "Tail Attack", "monster": "Adult Blue Dracolich"}, {"attack_bonus": 0, "desc": "The dracolich beats its tattered wings. Each creature within 10 ft. of the dracolich must succeed on a DC 21 Dexterity saving throw or take 14 (2d6 + 7) bludgeoning damage and be knocked prone. After beating its wings this way, the dracolich can fly up to half its flying speed.", "name": "Wing Attack (Costs 2 Actions)", "monster": "Adult Blue Dracolich"}, {"attack_bonus": 0, "desc": "The dragon makes a Wisdom (Perception) check.", "name": "Detect", "monster": "Adult Blue Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a tail attack.", "name": "Tail Attack", "monster": "Adult Blue Dragon"}, {"attack_bonus": 0, "desc": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 20 Dexterity saving throw or take 14 (2d6 + 7) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.", "name": "Wing Attack (Costs 2 Actions)", "monster": "Adult Blue Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a Wisdom (Perception) check.", "name": "Detect", "monster": "Adult Bronze Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a tail attack.", "name": "Tail Attack", "monster": "Adult Bronze Dragon"}, {"attack_bonus": 0, "desc": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 20 Dexterity saving throw or take 14 (2d6 + 7) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.", "name": "Wing Attack (Costs 2 Actions)", "monster": "Adult Bronze Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a Wisdom (Perception) check.", "name": "Detect", "monster": "Adult Copper Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a tail attack.", "name": "Tail Attack", "monster": "Adult Copper Dragon"}, {"attack_bonus": 0, "desc": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.", "name": "Wing Attack (Costs 2 Actions)", "monster": "Adult Copper Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a Wisdom (Perception) check.", "name": "Detect", "monster": "Adult Gold Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a tail attack.", "name": "Tail Attack", "monster": "Adult Gold Dragon"}, {"attack_bonus": 0, "desc": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 22 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.", "name": "Wing Attack (Costs 2 Actions)", "monster": "Adult Gold Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a Wisdom (Perception) check.", "name": "Detect", "monster": "Adult Green Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a tail attack.", "name": "Tail Attack", "monster": "Adult Green Dragon"}, {"attack_bonus": 0, "desc": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.", "name": "Wing Attack (Costs 2 Actions)", "monster": "Adult Green Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a Wisdom (Perception) check.", "name": "Detect", "monster": "Adult Red Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a tail attack.", "name": "Tail Attack", "monster": "Adult Red Dragon"}, {"attack_bonus": 0, "desc": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 22 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.", "name": "Wing Attack (Costs 2 Actions)", "monster": "Adult Red Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a Wisdom (Perception) check.", "name": "Detect", "monster": "Adult Silver Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a tail attack.", "name": "Tail Attack", "monster": "Adult Silver Dragon"}, {"attack_bonus": 0, "desc": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 22 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.", "name": "Wing Attack (Costs 2 Actions)", "monster": "Adult Silver Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a Wisdom (Perception) check.", "name": "Detect", "monster": "Adult White Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a tail attack.", "name": "Tail Attack", "monster": "Adult White Dragon"}, {"attack_bonus": 0, "desc": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.", "name": "Wing Attack (Costs 2 Actions)", "monster": "Adult White Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a Wisdom (Perception) check.", "name": "Detect", "monster": "Ancient Black Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a tail attack.", "name": "Tail Attack", "monster": "Ancient Black Dragon"}, {"attack_bonus": 0, "desc": "The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 23 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.", "name": "Wing Attack (Costs 2 Actions)", "monster": "Ancient Black Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a Wisdom (Perception) check.", "name": "Detect", "monster": "Ancient Blue Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a tail attack.", "name": "Tail Attack", "monster": "Ancient Blue Dragon"}, {"attack_bonus": 0, "desc": "The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 24 Dexterity saving throw or take 16 (2d6 + 9) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.", "name": "Wing Attack (Costs 2 Actions)", "monster": "Ancient Blue Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a Wisdom (Perception) check.", "name": "Detect", "monster": "Ancient Brass Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a tail attack.", "name": "Tail Attack", "monster": "Ancient Brass Dragon"}, {"attack_bonus": 0, "desc": "The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 22 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.", "name": "Wing Attack (Costs 2 Actions)", "monster": "Ancient Brass Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a Wisdom (Perception) check.", "name": "Detect", "monster": "Ancient Bronze Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a tail attack.", "name": "Tail Attack", "monster": "Ancient Bronze Dragon"}, {"attack_bonus": 0, "desc": "The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 24 Dexterity saving throw or take 16 (2d6 + 9) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.", "name": "Wing Attack (Costs 2 Actions)", "monster": "Ancient Bronze Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a Wisdom (Perception) check.", "name": "Detect", "monster": "Ancient Copper Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a tail attack.", "name": "Tail Attack", "monster": "Ancient Copper Dragon"}, {"attack_bonus": 0, "desc": "The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 23 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.", "name": "Wing Attack (Costs 2 Actions)", "monster": "Ancient Copper Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a Wisdom (Perception) check.", "name": "Detect", "monster": "Ancient Gold Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a tail attack.", "name": "Tail Attack", "monster": "Ancient Gold Dragon"}, {"attack_bonus": 0, "desc": "The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 25 Dexterity saving throw or take 17 (2d6 + 10) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.", "name": "Wing Attack (Costs 2 Actions)", "monster": "Ancient Gold Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a Wisdom (Perception) check.", "name": "Detect", "monster": "Ancient Green Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a tail attack.", "name": "Tail Attack", "monster": "Ancient Green Dragon"}, {"attack_bonus": 0, "desc": "The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 23 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.", "name": "Wing Attack (Costs 2 Actions)", "monster": "Ancient Green Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a Wisdom (Perception) check.", "name": "Detect", "monster": "Ancient Red Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a tail attack.", "name": "Tail Attack", "monster": "Ancient Red Dragon"}, {"attack_bonus": 0, "desc": "The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 25 Dexterity saving throw or take 17 (2d6 + 10) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.", "name": "Wing Attack (Costs 2 Actions)", "monster": "Ancient Red Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a Wisdom (Perception) check.", "name": "Detect", "monster": "Ancient Silver Dragon"}, {"attack_bonus": 0, "desc": "The dragon makes a tail attack.", "name": "Tail Attack", "monster": "Ancient Silver Dragon"}, {"attack_bonus": 0, "desc": "The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 25 Dexterity saving throw or take 17 (2d6 + 10) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.", "name": "Wing Attack (Costs 2 Actions)", "monster": "Ancient Silver Dragon"}, {"attack_bonus": 0, "desc": "The sphinx makes one claw attack.", "name": "Claw Attack", "monster": "Androsphinx"}, {"attack_bonus": 0, "desc": "The sphinx magically teleports, along with any equipment it is wearing or carrying, up to 120 feet to an unoccupied space it can see.", "name": "Teleport (Costs 2 Actions)", "monster": "Androsphinx"}, {"attack_bonus": 0, "desc": "The sphinx casts a spell from its list of prepared spells, using a spell slot as normal.", "name": "Cast a Spell (Costs 3 Actions)", "monster": "Androsphinx"}, {"attack_bonus": 0, "desc": "The sphinx makes one claw attack.", "name": "Claw Attack", "monster": "Gynosphinx"}, {"attack_bonus": 0, "desc": "The sphinx magically teleports, along with any equipment it is wearing or carrying, up to 120 feet to an unoccupied space it can see.", "name": "Teleport (Costs 2 Actions)", "monster": "Gynosphinx"}, {"attack_bonus": 0, "desc": "The sphinx casts a spell from its list of prepared spells, using a spell slot as normal.", "name": "Cast a Spell (Costs 3 Actions)", "monster": "Gynosphinx"}, {"attack_bonus": 0, "desc": "The kraken makes one tentacle attack or uses its Fling.", "name": "Tentacle Attack or Fling", "monster": "Kraken"}, {"attack_bonus": 0, "desc": "The kraken uses Lightning Storm.", "name": "Lightning Storm (Costs 2 Actions)", "monster": "Kraken"}, {"attack_bonus": 0, "desc": "While underwater, the kraken expels an ink cloud in a 60-foot radius. The cloud spreads around corners, and that area is heavily obscured to creatures other than the kraken. Each creature other than the kraken that ends its turn there must succeed on a DC 23 Constitution saving throw, taking 16 (3d10) poison damage on a failed save, or half as much damage on a successful one. A strong current disperses the cloud, which otherwise disappears at the end of the kraken's next turn.", "name": "Ink Cloud (Costs 3 Actions)", "monster": "Kraken"}, {"attack_bonus": 0, "desc": "The lich casts a cantrip.", "name": "Cantrip", "monster": "Lich"}, {"attack_bonus": 0, "desc": "The lich uses its Paralyzing Touch.", "name": "Paralyzing Touch (Costs 2 Actions)", "monster": "Lich"}, {"attack_bonus": 0, "desc": "The lich fixes its gaze on one creature it can see within 10 feet of it. The target must succeed on a DC 18 Wisdom saving throw against this magic or become frightened for 1 minute. The frightened target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a target's saving throw is successful or the effect ends for it, the target is immune to the lich's gaze for the next 24 hours.", "name": "Frightening Gaze (Costs 2 Actions)", "monster": "Lich"}, {"attack_bonus": 0, "damage_dice": "6d6", "desc": "Each living creature within 20 feet of the lich must make a DC 18 Constitution saving throw against this magic, taking 21 (6d6) necrotic damage on a failed save, or half as much damage on a successful one.", "name": "Disrupt Life (Costs 3 Actions)", "monster": "Lich"}, {"attack_bonus": 0, "desc": "The mummy lord makes one attack with its rotting fist or uses its Dreadful Glare.", "name": "Attack", "monster": "Mummy Lord"}, {"attack_bonus": 0, "desc": "Blinding dust and sand swirls magically around the mummy lord. Each creature within 5 feet of the mummy lord must succeed on a DC 16 Constitution saving throw or be blinded until the end of the creature's next turn.", "name": "Blinding Dust", "monster": "Mummy Lord"}, {"attack_bonus": 0, "desc": "The mummy lord utters a blasphemous word. Each non-undead creature within 10 feet of the mummy lord that can hear the magical utterance must succeed on a DC 16 Constitution saving throw or be stunned until the end of the mummy lord's next turn.", "name": "Blasphemous Word (Costs 2 Actions)", "monster": "Mummy Lord"}, {"attack_bonus": 0, "desc": "The mummy lord magically unleashes negative energy. Creatures within 60 feet of the mummy lord, including ones behind barriers and around corners, can't regain hit points until the end of the mummy lord's next turn.", "name": "Channel Negative Energy (Costs 2 Actions)", "monster": "Mummy Lord"}, {"attack_bonus": 0, "desc": "The mummy lord magically transforms into a whirlwind of sand, moves up to 60 feet, and reverts to its normal form. While in whirlwind form, the mummy lord is immune to all damage, and it can't be grappled, petrified, knocked prone, restrained, or stunned. Equipment worn or carried by the mummy lord remain in its possession.", "name": "Whirlwind of Sand (Costs 2 Actions)", "monster": "Mummy Lord"}, {"attack_bonus": 0, "desc": "The solar magically teleports, along with any equipment it is wearing or carrying, up to 120 ft. to an unoccupied space it can see.", "name": "Teleport", "monster": "Solar"}, {"attack_bonus": 0, "desc": "The solar emits magical, divine energy. Each creature of its choice in a 10 -foot radius must make a DC 23 Dexterity saving throw, taking 14 (4d6) fire damage plus 14 (4d6) radiant damage on a failed save, or half as much damage on a successful one.", "name": "Searing Burst (Costs 2 Actions)", "monster": "Solar"}, {"attack_bonus": 0, "desc": "The solar targets one creature it can see within 30 ft. of it. If the target can see it, the target must succeed on a DC 15 Constitution saving throw or be blinded until magic such as the lesser restoration spell removes the blindness.", "name": "Blinding Gaze (Costs 3 Actions)", "monster": "Solar"}, {"attack_bonus": 0, "desc": "The tarrasque makes one claw attack or tail attack.", "name": "Attack", "monster": "Tarrasque"}, {"attack_bonus": 0, "desc": "The tarrasque moves up to half its speed.", "name": "Move", "monster": "Tarrasque"}, {"attack_bonus": 0, "desc": "The tarrasque makes one bite attack or uses its Swallow.", "name": "Chomp (Costs 2 Actions)", "monster": "Tarrasque"}, {"attack_bonus": 0, "desc": "The unicorn makes one attack with its hooves.", "name": "Hooves", "monster": "Unicorn"}, {"attack_bonus": 0, "desc": "The unicorn creates a shimmering, magical field around itself or another creature it can see within 60 ft. of it. The target gains a +2 bonus to AC until the end of the unicorn's next turn.", "name": "Shimmering Shield (Costs 2 Actions)", "monster": "Unicorn"}, {"attack_bonus": 0, "desc": "The unicorn magically regains 11 (2d8 + 2) hit points.", "name": "Heal Self (Costs 3 Actions)", "monster": "Unicorn"}, {"attack_bonus": 0, "desc": "The vampire moves up to its speed without provoking opportunity attacks.", "name": "Move", "monster": "Vampire"}, {"attack_bonus": 0, "desc": "The vampire makes one unarmed strike.", "name": "Unarmed Strike", "monster": "Vampire"}, {"attack_bonus": 0, "desc": "The vampire makes one bite attack.", "name": "Bite (Costs 2 Actions)", "monster": "Vampire"}]}
+{
+  "legendary_actions": [
+    {
+      "attack_bonus": 0,
+      "description": "The aboleth makes a Wisdom (Perception) check.",
+      "monster": "Aboleth",
+      "name": "Detect"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The aboleth makes one tail attack.",
+      "monster": "Aboleth",
+      "name": "Tail Swipe"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "One creature charmed by the aboleth takes 10 (3d6) psychic damage, and the aboleth regains hit points equal to the damage the creature takes.",
+      "monster": "Aboleth",
+      "name": "Psychic Drain (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a Wisdom (Perception) check.",
+      "monster": "Adult Black Dragon",
+      "name": "Detect"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a tail attack.",
+      "monster": "Adult Black Dragon",
+      "name": "Tail Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+      "monster": "Adult Black Dragon",
+      "name": "Wing Attack (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dracolich makes a Wisdom (Perception) check.",
+      "monster": "Adult Blue Dracolich",
+      "name": "Detect"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dracolich makes a tail attack.",
+      "monster": "Adult Blue Dracolich",
+      "name": "Tail Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dracolich beats its tattered wings. Each creature within 10 ft. of the dracolich must succeed on a DC 21 Dexterity saving throw or take 14 (2d6 + 7) bludgeoning damage and be knocked prone. After beating its wings this way, the dracolich can fly up to half its flying speed.",
+      "monster": "Adult Blue Dracolich",
+      "name": "Wing Attack (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a Wisdom (Perception) check.",
+      "monster": "Adult Blue Dragon",
+      "name": "Detect"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a tail attack.",
+      "monster": "Adult Blue Dragon",
+      "name": "Tail Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 20 Dexterity saving throw or take 14 (2d6 + 7) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+      "monster": "Adult Blue Dragon",
+      "name": "Wing Attack (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a Wisdom (Perception) check.",
+      "monster": "Adult Bronze Dragon",
+      "name": "Detect"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a tail attack.",
+      "monster": "Adult Bronze Dragon",
+      "name": "Tail Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 20 Dexterity saving throw or take 14 (2d6 + 7) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+      "monster": "Adult Bronze Dragon",
+      "name": "Wing Attack (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a Wisdom (Perception) check.",
+      "monster": "Adult Copper Dragon",
+      "name": "Detect"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a tail attack.",
+      "monster": "Adult Copper Dragon",
+      "name": "Tail Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+      "monster": "Adult Copper Dragon",
+      "name": "Wing Attack (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a Wisdom (Perception) check.",
+      "monster": "Adult Gold Dragon",
+      "name": "Detect"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a tail attack.",
+      "monster": "Adult Gold Dragon",
+      "name": "Tail Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 22 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+      "monster": "Adult Gold Dragon",
+      "name": "Wing Attack (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a Wisdom (Perception) check.",
+      "monster": "Adult Green Dragon",
+      "name": "Detect"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a tail attack.",
+      "monster": "Adult Green Dragon",
+      "name": "Tail Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+      "monster": "Adult Green Dragon",
+      "name": "Wing Attack (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a Wisdom (Perception) check.",
+      "monster": "Adult Red Dragon",
+      "name": "Detect"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a tail attack.",
+      "monster": "Adult Red Dragon",
+      "name": "Tail Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 22 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+      "monster": "Adult Red Dragon",
+      "name": "Wing Attack (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a Wisdom (Perception) check.",
+      "monster": "Adult Silver Dragon",
+      "name": "Detect"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a tail attack.",
+      "monster": "Adult Silver Dragon",
+      "name": "Tail Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 22 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+      "monster": "Adult Silver Dragon",
+      "name": "Wing Attack (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a Wisdom (Perception) check.",
+      "monster": "Adult White Dragon",
+      "name": "Detect"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a tail attack.",
+      "monster": "Adult White Dragon",
+      "name": "Tail Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+      "monster": "Adult White Dragon",
+      "name": "Wing Attack (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a Wisdom (Perception) check.",
+      "monster": "Ancient Black Dragon",
+      "name": "Detect"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a tail attack.",
+      "monster": "Ancient Black Dragon",
+      "name": "Tail Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 23 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+      "monster": "Ancient Black Dragon",
+      "name": "Wing Attack (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a Wisdom (Perception) check.",
+      "monster": "Ancient Blue Dragon",
+      "name": "Detect"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a tail attack.",
+      "monster": "Ancient Blue Dragon",
+      "name": "Tail Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 24 Dexterity saving throw or take 16 (2d6 + 9) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+      "monster": "Ancient Blue Dragon",
+      "name": "Wing Attack (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a Wisdom (Perception) check.",
+      "monster": "Ancient Brass Dragon",
+      "name": "Detect"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a tail attack.",
+      "monster": "Ancient Brass Dragon",
+      "name": "Tail Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 22 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+      "monster": "Ancient Brass Dragon",
+      "name": "Wing Attack (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a Wisdom (Perception) check.",
+      "monster": "Ancient Bronze Dragon",
+      "name": "Detect"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a tail attack.",
+      "monster": "Ancient Bronze Dragon",
+      "name": "Tail Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 24 Dexterity saving throw or take 16 (2d6 + 9) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+      "monster": "Ancient Bronze Dragon",
+      "name": "Wing Attack (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a Wisdom (Perception) check.",
+      "monster": "Ancient Copper Dragon",
+      "name": "Detect"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a tail attack.",
+      "monster": "Ancient Copper Dragon",
+      "name": "Tail Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 23 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+      "monster": "Ancient Copper Dragon",
+      "name": "Wing Attack (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a Wisdom (Perception) check.",
+      "monster": "Ancient Gold Dragon",
+      "name": "Detect"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a tail attack.",
+      "monster": "Ancient Gold Dragon",
+      "name": "Tail Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 25 Dexterity saving throw or take 17 (2d6 + 10) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+      "monster": "Ancient Gold Dragon",
+      "name": "Wing Attack (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a Wisdom (Perception) check.",
+      "monster": "Ancient Green Dragon",
+      "name": "Detect"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a tail attack.",
+      "monster": "Ancient Green Dragon",
+      "name": "Tail Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 23 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+      "monster": "Ancient Green Dragon",
+      "name": "Wing Attack (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a Wisdom (Perception) check.",
+      "monster": "Ancient Red Dragon",
+      "name": "Detect"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a tail attack.",
+      "monster": "Ancient Red Dragon",
+      "name": "Tail Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 25 Dexterity saving throw or take 17 (2d6 + 10) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+      "monster": "Ancient Red Dragon",
+      "name": "Wing Attack (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a Wisdom (Perception) check.",
+      "monster": "Ancient Silver Dragon",
+      "name": "Detect"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon makes a tail attack.",
+      "monster": "Ancient Silver Dragon",
+      "name": "Tail Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 25 Dexterity saving throw or take 17 (2d6 + 10) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+      "monster": "Ancient Silver Dragon",
+      "name": "Wing Attack (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The sphinx makes one claw attack.",
+      "monster": "Androsphinx",
+      "name": "Claw Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The sphinx magically teleports, along with any equipment it is wearing or carrying, up to 120 feet to an unoccupied space it can see.",
+      "monster": "Androsphinx",
+      "name": "Teleport (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The sphinx casts a spell from its list of prepared spells, using a spell slot as normal.",
+      "monster": "Androsphinx",
+      "name": "Cast a Spell (Costs 3 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The sphinx makes one claw attack.",
+      "monster": "Gynosphinx",
+      "name": "Claw Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The sphinx magically teleports, along with any equipment it is wearing or carrying, up to 120 feet to an unoccupied space it can see.",
+      "monster": "Gynosphinx",
+      "name": "Teleport (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The sphinx casts a spell from its list of prepared spells, using a spell slot as normal.",
+      "monster": "Gynosphinx",
+      "name": "Cast a Spell (Costs 3 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The kraken makes one tentacle attack or uses its Fling.",
+      "monster": "Kraken",
+      "name": "Tentacle Attack or Fling"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The kraken uses Lightning Storm.",
+      "monster": "Kraken",
+      "name": "Lightning Storm (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "While underwater, the kraken expels an ink cloud in a 60-foot radius. The cloud spreads around corners, and that area is heavily obscured to creatures other than the kraken. Each creature other than the kraken that ends its turn there must succeed on a DC 23 Constitution saving throw, taking 16 (3d10) poison damage on a failed save, or half as much damage on a successful one. A strong current disperses the cloud, which otherwise disappears at the end of the kraken's next turn.",
+      "monster": "Kraken",
+      "name": "Ink Cloud (Costs 3 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The lich casts a cantrip.",
+      "monster": "Lich",
+      "name": "Cantrip"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The lich uses its Paralyzing Touch.",
+      "monster": "Lich",
+      "name": "Paralyzing Touch (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The lich fixes its gaze on one creature it can see within 10 feet of it. The target must succeed on a DC 18 Wisdom saving throw against this magic or become frightened for 1 minute. The frightened target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a target's saving throw is successful or the effect ends for it, the target is immune to the lich's gaze for the next 24 hours.",
+      "monster": "Lich",
+      "name": "Frightening Gaze (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "Each living creature within 20 feet of the lich must make a DC 18 Constitution saving throw against this magic, taking 21 (6d6) necrotic damage on a failed save, or half as much damage on a successful one.",
+      "monster": "Lich",
+      "name": "Disrupt Life (Costs 3 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The mummy lord makes one attack with its rotting fist or uses its Dreadful Glare.",
+      "monster": "Mummy Lord",
+      "name": "Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "Blinding dust and sand swirls magically around the mummy lord. Each creature within 5 feet of the mummy lord must succeed on a DC 16 Constitution saving throw or be blinded until the end of the creature's next turn.",
+      "monster": "Mummy Lord",
+      "name": "Blinding Dust"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The mummy lord utters a blasphemous word. Each non-undead creature within 10 feet of the mummy lord that can hear the magical utterance must succeed on a DC 16 Constitution saving throw or be stunned until the end of the mummy lord's next turn.",
+      "monster": "Mummy Lord",
+      "name": "Blasphemous Word (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The mummy lord magically unleashes negative energy. Creatures within 60 feet of the mummy lord, including ones behind barriers and around corners, can't regain hit points until the end of the mummy lord's next turn.",
+      "monster": "Mummy Lord",
+      "name": "Channel Negative Energy (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The mummy lord magically transforms into a whirlwind of sand, moves up to 60 feet, and reverts to its normal form. While in whirlwind form, the mummy lord is immune to all damage, and it can't be grappled, petrified, knocked prone, restrained, or stunned. Equipment worn or carried by the mummy lord remain in its possession.",
+      "monster": "Mummy Lord",
+      "name": "Whirlwind of Sand (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The solar magically teleports, along with any equipment it is wearing or carrying, up to 120 ft. to an unoccupied space it can see.",
+      "monster": "Solar",
+      "name": "Teleport"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The solar emits magical, divine energy. Each creature of its choice in a 10 -foot radius must make a DC 23 Dexterity saving throw, taking 14 (4d6) fire damage plus 14 (4d6) radiant damage on a failed save, or half as much damage on a successful one.",
+      "monster": "Solar",
+      "name": "Searing Burst (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The solar targets one creature it can see within 30 ft. of it. If the target can see it, the target must succeed on a DC 15 Constitution saving throw or be blinded until magic such as the lesser restoration spell removes the blindness.",
+      "monster": "Solar",
+      "name": "Blinding Gaze (Costs 3 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The tarrasque makes one claw attack or tail attack.",
+      "monster": "Tarrasque",
+      "name": "Attack"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The tarrasque moves up to half its speed.",
+      "monster": "Tarrasque",
+      "name": "Move"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The tarrasque makes one bite attack or uses its Swallow.",
+      "monster": "Tarrasque",
+      "name": "Chomp (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The unicorn makes one attack with its hooves.",
+      "monster": "Unicorn",
+      "name": "Hooves"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The unicorn creates a shimmering, magical field around itself or another creature it can see within 60 ft. of it. The target gains a +2 bonus to AC until the end of the unicorn's next turn.",
+      "monster": "Unicorn",
+      "name": "Shimmering Shield (Costs 2 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The unicorn magically regains 11 (2d8 + 2) hit points.",
+      "monster": "Unicorn",
+      "name": "Heal Self (Costs 3 Actions)"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The vampire moves up to its speed without provoking opportunity attacks.",
+      "monster": "Vampire",
+      "name": "Move"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The vampire makes one unarmed strike.",
+      "monster": "Vampire",
+      "name": "Unarmed Strike"
+    },
+    {
+      "attack_bonus": 0,
+      "description": "The vampire makes one bite attack.",
+      "monster": "Vampire",
+      "name": "Bite (Costs 2 Actions)"
+    }
+  ]
+}
