@@ -1,5 +1,4 @@
 import { Character } from './common/models'
-import { hitDice } from './common/constants'
 
 export default {
   // set application state on restore action
@@ -38,58 +37,6 @@ export default {
     state.spells = spells
     state.currentSpellInfo = {}
     state.currentSpellClass = spellClass
-  },
-
-  // convert to class method
-  changeClassLevel(state, { newLevel, charIndex, classIndex }) {
-    // charIndex classIndex newLevel
-    let levelOffset =
-      newLevel - this.state.characters[charIndex].classes[classIndex].level
-    if (
-      classIndex === 0 &&
-      this.state.characters[charIndex].classes[classIndex].level === 0
-    ) {
-      this.commit('setMaxHP', {
-        charIndex,
-        hitpoints: (this.state.characters[charIndex].maxHitpoints +=
-          hitDice[this.state.characters[charIndex].classes[classIndex].name] +
-          (this.state.characters[charIndex].abilityScores.CON - 10) / 2),
-      })
-      levelOffset -= 1
-    }
-    if (this.state.characters[charIndex].rollHealth) {
-      // health was calculated by rolling. Roll again.
-      this.commit('setMaxHP', {
-        charIndex,
-        hitpoints: (this.state.characters[charIndex].maxHitpoints +=
-          (Math.random() *
-            (hitDice[
-              this.state.characters[charIndex].classes[classIndex].name
-            ] -
-              1) +
-            1 +
-            (this.state.characters[charIndex].abilityScores.CON - 10) / 2) *
-          levelOffset),
-      })
-    } else {
-      // health took average. do that.
-      this.commit('setMaxHP', {
-        charIndex,
-        hitpoints: (this.state.characters[charIndex].maxHitpoints +=
-          (Math.ceil(
-            hitDice[this.state.characters[charIndex].classes[classIndex].name] /
-              2,
-          ) +
-            (this.state.characters[charIndex].abilityScores.CON - 10) / 2) *
-          levelOffset),
-      })
-    }
-    this.state.characters[charIndex].classes[classIndex].level = newLevel
-    this.commit('updateSlots', {
-      charIndex,
-      classIndex,
-    })
-    this.commit('proficiencyBonus', charIndex)
   },
 
   offsetStat(state, payload) {
@@ -137,17 +84,6 @@ export default {
       payload.offset
   },
 
-  proficiencyBonus(state, charIndex) {
-    let totalLevel = 0
-    for (const c in this.state.characters[charIndex].classes) {
-      if (this.state.characters[charIndex].classes[c].hasOwnProperty('level')) {
-        totalLevel += this.state.characters[charIndex].classes[c].level
-      }
-    }
-    this.state.characters[charIndex].proficiency =
-      Math.floor(totalLevel / 5) + 2
-  },
-
   setDeathThrows(state, payload) {
     // charIndex throwVal
     this.state.characters[payload.charIndex].deathThrows = payload.throwVal
@@ -184,15 +120,6 @@ export default {
     this.state.characters[payload.charIndex].hitpoints = payload.hitpoints
   },
 
-  setMaxHP(state, payload) {
-    // charIndex hitpoints
-    if (payload.hitpoints >= 0) {
-      this.state.characters[payload.charIndex].maxHitpoints = Math.floor(
-        payload.hitpoints,
-      )
-    }
-  },
-
   setInitiative(state, payload) {
     // charIndex initiative
     this.state.characters[payload.charIndex].initiative = payload.initiative
@@ -210,6 +137,7 @@ export default {
   hideSnackbar() {
     this.state.snackbar.show = false
   },
+
   showSnackbar(state, payload) {
     // message, optional: func buttonMessage color
     this.state.snackbar.message = payload.message

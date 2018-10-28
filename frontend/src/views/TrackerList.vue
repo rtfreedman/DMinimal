@@ -65,7 +65,11 @@
               @click="showDeleteDialog = false; deleteCharacter = null"
               flat
             >No</v-btn>
-            <v-btn @click="confirmDelete" color="error" flat>Yes</v-btn>
+            <v-btn
+              @click="confirmDelete"
+              color="error"
+              flat
+            >Yes</v-btn>
           </v-layout>
         </v-card-actions>
       </v-card>
@@ -82,7 +86,7 @@ Characters:
 import { mapGetters, mapMutations, mapActions } from 'vuex'
 import Tracker from '@/components/Tracker'
 import MessageSnackbar from '@/components/MessageSnackbar'
-import { setImmediate } from 'timers'
+
 export default {
   name: 'trackerList',
 
@@ -145,7 +149,6 @@ export default {
       this.deleteCharacter = null
       setImmediate(() => {
         if (this.selectedTab > this.characters.length - 1) {
-          console.log(this.selectedTab, this.characters.length)
           this.selectedTab = this.characters.length - 1
         }
       })
