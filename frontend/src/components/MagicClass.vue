@@ -1,13 +1,8 @@
 <template>
-  <div>
-    <v-layout
-      align-start
-      justify-center
-      column
-      fill-height
-      mx-4
-      mb-3
-    >
+  <div
+    v-if="characterClass.level && characterClass.name"
+  >
+    <v-layout column mb-3 ml-4>
       <h3>
         SPELL ATTACK MODIFIER: d20
         <span
@@ -19,7 +14,7 @@
     </v-layout>
     <v-divider color="#ffd700" class="mx-4"></v-divider>
     <h3 class="text-xs-center my-1">SPELL SLOTS</h3>
-    <v-divider color="#ffd700" class="mx-4"></v-divider>
+    <v-divider color="#ffd700" class="mx-4 mb-1"></v-divider>
     <app-spell-slots
       :character="character"
       :characterClass="characterClass"

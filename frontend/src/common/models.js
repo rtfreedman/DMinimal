@@ -3,7 +3,7 @@ import $store from '@/store'
 export class Class {
   constructor() {
     this.name = null
-    this.level = 1
+    this.level = null
     this.slots = {
       1: 0,
       2: 0,
