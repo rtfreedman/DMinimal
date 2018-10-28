@@ -10,10 +10,10 @@ import (
 
 // SetupSpells sets up the handler funcs for API requests for the /magic/ location
 func SetupSpells(r *mux.Router) {
-	r.HandleFunc("/magic/spells/{spellname}", getSpellInformation).Methods("GET")
-	r.HandleFunc("/magic/spells", getSpellList).Methods("GET")
-	r.HandleFunc("/magic/slots", getSpellSlots).Methods("POST")
-	r.HandleFunc("/classes", getClasses).Methods("GET")
+	r.HandleFunc("/api/magic/spells/{spellname}", getSpellInformation).Methods("GET")
+	r.HandleFunc("/api/magic/spells", getSpellList).Methods("GET")
+	r.HandleFunc("/api/magic/slots", getSpellSlots).Methods("POST")
+	r.HandleFunc("/api/magic/classes", getClasses).Methods("GET")
 }
 
 func getSpellInformation(w http.ResponseWriter, r *http.Request) {
