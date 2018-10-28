@@ -2,7 +2,7 @@
   <v-layout
     align-center
     justify-space-around
-    pa-2
+    px-2 pt-1
   >
     <div
       v-for="(slot, level) in characterClass.workingSlots"

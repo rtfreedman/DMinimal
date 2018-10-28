@@ -68,12 +68,14 @@ export default {
     ...mapActions(['retrieveSlots']),
 
     handleSelect() {
-      this.retrieveSlots({
-        index: this.classIndex,
-        name: this.characterClass.name,
-        level: this.characterClass.level,
-        character: this.character,
-      })
+      if (this.characterClass.name && this.characterClass.level) {
+        this.retrieveSlots({
+          index: this.classIndex,
+          name: this.characterClass.name,
+          level: this.characterClass.level,
+          character: this.character,
+        })
+      }
 
       // do all that other shit
     },
