@@ -11,7 +11,7 @@ import (
 // SetupMonsters attaches the monster routes
 func SetupMonsters(r *mux.Router) {
 	r.HandleFunc("/monsters", getMonstersList).Methods("GET")
-	r.HandleFunc("/monsters/{monster}", getMonsterInfo)
+	r.HandleFunc("/monsters/{monster}", getMonsterInfo).Methods("Get")
 }
 
 func getMonstersList(w http.ResponseWriter, r *http.Request) {

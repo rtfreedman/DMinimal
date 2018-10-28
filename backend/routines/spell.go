@@ -122,7 +122,6 @@ func SpellList() (ret []string, err error) {
 			continue
 		}
 		if name.Valid {
-			fmt.Println(name.String)
 			ret = append(ret, name.String)
 		}
 	}
