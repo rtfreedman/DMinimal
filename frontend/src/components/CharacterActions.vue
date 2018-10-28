@@ -10,7 +10,7 @@
           slot="activator"
           @click="chracter.rest()"
         >
-          <v-icon>mdi-sleep</v-icon>
+          <v-icon>hotel</v-icon>
         </v-btn>
         <span>LONG REST</span>
       </v-tooltip>
@@ -22,21 +22,9 @@
           slot="activator"
           @click="shortRest()"
         >
-          <v-icon>mdi-bell-sleep</v-icon>
+          <v-icon>restore</v-icon>
         </v-btn>
         <span>SHORT REST</span>
-      </v-tooltip>
-      <v-tooltip bottom>
-        <v-btn
-          color="primary"
-          flat
-          slot="activator"
-          icon
-          @click="castSpell()"
-        >
-          <v-icon>mdi-auto-fix</v-icon>
-        </v-btn>
-        <span>CAST SPELL</span>
       </v-tooltip>
       <v-tooltip bottom>
         <v-btn
@@ -57,6 +45,7 @@
         >Not currently concentrating</span>
       </v-tooltip>
     </v-toolbar>
+    <!-- concentrating dialog -->
     <v-dialog
       v-model="showConcentrationDialog"
       max-width="300"
@@ -118,15 +107,11 @@ export default {
       const acc = {}
       for (const c in this.character.classes) {
         if (
-          hitDice.hasOwnProperty(
-            this.character.classes[c].name.split(' ')[0],
-          )
+          hitDice.hasOwnProperty(this.character.classes[c].name.split(' ')[0])
         ) {
           continue
         }
-        const hitDie = hitDice[
-          this.character.classes[c].name.split(' ')[0]
-        ]
+        const hitDie = hitDice[this.character.classes[c].name.split(' ')[0]]
         if (!acc.hasOwnProperty(hitDie)) {
           acc[hitDie] = 0
         }
@@ -152,10 +137,6 @@ export default {
 
     stopConcentrating() {
       this.$store.commit('stopConcentrating', this.index)
-    },
-
-    castSpell() {
-      this.$refs.spellCast.spellPreflight()
     },
   },
 }

@@ -30,6 +30,16 @@ export default {
     }
   },
 
+  setSpellInfo(state, spellInfo) {
+    state.spells.currentSpellInfo = spellInfo
+  },
+
+  setSpells(state, { spells, spellClass }) {
+    state.spells = spells
+    state.currentSpellInfo = {}
+    state.currentSpellClass = spellClass
+  },
+
   // convert to class method
   changeClassLevel(state, { newLevel, charIndex, classIndex }) {
     // charIndex classIndex newLevel
@@ -126,6 +136,7 @@ export default {
     this.state.characters[payload.index].abilityScores[payload.stat] +=
       payload.offset
   },
+
   proficiencyBonus(state, charIndex) {
     let totalLevel = 0
     for (const c in this.state.characters[charIndex].classes) {
@@ -136,14 +147,17 @@ export default {
     this.state.characters[charIndex].proficiency =
       Math.floor(totalLevel / 5) + 2
   },
+
   setDeathThrows(state, payload) {
     // charIndex throwVal
     this.state.characters[payload.charIndex].deathThrows = payload.throwVal
   },
+
   setLifeThrows(state, payload) {
     // charIndex throwVal
     this.state.characters[payload.charIndex].lifeThrows = payload.throwVal
   },
+
   setHP(state, payload) {
     // charIndex hitpoints
     if (payload.hitpoints > 0) {
@@ -169,6 +183,7 @@ export default {
     }
     this.state.characters[payload.charIndex].hitpoints = payload.hitpoints
   },
+
   setMaxHP(state, payload) {
     // charIndex hitpoints
     if (payload.hitpoints >= 0) {
@@ -177,26 +192,20 @@ export default {
       )
     }
   },
+
   setInitiative(state, payload) {
     // charIndex initiative
     this.state.characters[payload.charIndex].initiative = payload.initiative
   },
+
   setRollState(state, payload) {
     this.state.characters[payload.charIndex].rollHealth = payload.rollHealth
   },
+
   stopConcentrating(state, index) {
     this.state.characters[index].concentrating = ''
   },
-  // spell mutations
-  setSpellOpts(state, { spellOpts, className }) {
-    // className spellOpts
-    this.state.spellsInfo.currSpellInfo = {}
-    this.state.spellsInfo.spellList = spellOpts
-    this.state.spellsInfo.className = className
-  },
-  setSpellInfo(state, spellInfo) {
-    this.state.spellsInfo.currSpellInfo = spellInfo
-  },
+
   // snackbar mutations
   hideSnackbar() {
     this.state.snackbar.show = false
