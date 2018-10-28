@@ -52,8 +52,8 @@ export class Character {
     }
   }
 
-  setClass(clIndex, name, slots) {
-    const cl = this.classes[clIndex]
+  setSlots(index, name, slots) {
+    const cl = this.classes[index]
     cl.name = name
     cl.slots = slots
     cl.workingSlots = Object.assign({}, slots)
@@ -85,5 +85,9 @@ export class Character {
       return
     }
     this.classes.push(new Class(name))
+  }
+
+  removeClass(index) {
+    this.classes.splice(index, 1)
   }
 }

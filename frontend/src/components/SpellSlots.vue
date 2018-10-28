@@ -1,5 +1,9 @@
 <template>
-  <v-layout align-center justify-space-around pa-2>
+  <v-layout
+    align-center
+    justify-space-around
+    pa-2
+  >
     <div
       v-for="(slot, level) in characterClass.workingSlots"
       :key="level"
@@ -14,8 +18,8 @@
           flat
           small
           icon
-          @click="increment(level)"
-          color="yellow"
+          @click="incrementSlot(level)"
+          color="primary"
         >
           <v-icon>expand_less</v-icon>
         </v-btn>
@@ -24,8 +28,8 @@
           flat
           small
           icon
-          @click="decrement(level)"
-          color="yellow"
+          @click="decrementSlot(level)"
+          color="primary"
         >
           <v-icon>expand_more</v-icon>
         </v-btn>
@@ -38,19 +42,14 @@
 export default {
   props: ['character', 'characterClass'],
   methods: {
-    increment(level) {
-      // this.$store.commit('incrementSlot', {
-      //   charIndex: this.charIndex,
-      //   classIndex: this.classIndex,
-      //   level,
-      // })
+    incrementSlot(level) {
+      this.characterClass.workingSlots[level]++
     },
-    decrement(level) {
-      // this.$store.commit('decrementSlot', {
-      //   charIndex: this.charIndex,
-      //   classIndex: this.classIndex,
-      //   level,
-      // })
+
+    decrementSlot(level) {
+      if (this.characterClass.workingSlots[level] > 0) {
+        this.characterClass.workingSlots[level]--
+      }
     },
   },
 }

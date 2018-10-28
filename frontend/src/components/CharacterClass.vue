@@ -6,7 +6,7 @@
           placeholder="Class"
           :items="classOptions"
           v-model="characterClass.name"
-          @input="handleSelectClass"
+          @input="handleSelect"
           light
           solo
           hide-details
@@ -16,6 +16,7 @@
           placeholder="Level"
           :items="oneToTwenty"
           v-model="characterClass.level"
+          @input="handleSelect"
           light
           solo
           hide-details
@@ -23,6 +24,7 @@
         />
       </v-layout>
       <v-btn
+        v-if="character.classes.length > 1"
         icon
         flat
         @click="removeClass"
@@ -63,19 +65,21 @@ export default {
   },
 
   methods: {
-    ...mapActions(['selectClass']),
+    ...mapActions(['retrieveSlots']),
 
-    handleSelectClass() {
-      this.selectClass({
+    handleSelect() {
+      this.retrieveSlots({
         index: this.classIndex,
         name: this.characterClass.name,
         level: this.characterClass.level,
         character: this.character,
       })
+
+      // do all that other shit
     },
 
     removeClass() {
-      // TBD
+      this.character.removeClass(this.classIndex)
     },
   },
 }
