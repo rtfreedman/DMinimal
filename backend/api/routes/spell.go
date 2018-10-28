@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -8,20 +9,15 @@ import (
 	"github.com/rtfreedman/DMinimal/backend/util"
 )
 
-// func enableCors(w *http.ResponseWriter) {
-// 	(*w).Header().Set("Access-Control-Allow-Origin", "*")
-// }
-
 // SetupSpells sets up the handler funcs for API requests for the /magic/ location
 func SetupSpells(r *mux.Router) {
 	r.HandleFunc("/api/magic/spell/{spellname}", getSpellInformation).Methods("GET")
-	r.HandleFunc("/api/magic/search/", getSearch).Methods("POST")
+	r.HandleFunc("/api/magic/spells/", getSpells).Methods("POST")
 	r.HandleFunc("/api/magic/slots/", getSpellSlots).Methods("POST")
 	r.HandleFunc("/api/classes/", getClasses).Methods("GET")
 }
 
 func getSpellInformation(w http.ResponseWriter, r *http.Request) {
-	// enableCors(&w)
 	vars := mux.Vars(r)
 	if _, ok := vars["spellname"]; !ok {
 		util.WriteError("No spellname supplied", w)
@@ -35,30 +31,28 @@ func getSpellInformation(w http.ResponseWriter, r *http.Request) {
 	util.WriteJSONResponse("getSpellInformation", si, w)
 }
 
-func getSearch(w http.ResponseWriter, r *http.Request) {
-	// enableCors(&w)
+func getSpells(w http.ResponseWriter, r *http.Request) {
 	req := struct {
-		Classes       []string `json:"classes"`
-		SpellNamePart string   `json:"spellName"`
+		Class  string `json:"spellClass"`
+		Filter string `json:"filter"`
 	}{}
 	err := util.ReadJSONRequestBody(r, &req)
 	if err != nil {
 		util.WriteError("Malformed JSON input into getSearch API endpoint", w)
 		return
 	}
-	spellOpts, err := routines.SpellSearch(req.SpellNamePart, req.Classes)
+	spells, err := routines.SpellSearch(req.Filter, req.Class)
 	if err != nil {
 		util.WriteError(err.Error(), w)
 		return
 	}
-	util.WriteJSONResponse("getSearch", map[string][]string{
-		"spellOpts": spellOpts,
+	util.WriteJSONResponse("getSpells", map[string][]string{
+		"spells": spells,
 	}, w)
 	return
 }
 
 func getSpellSlots(w http.ResponseWriter, r *http.Request) {
-	// enableCors(&w)
 	req := map[string][]routines.Class{}
 	err := util.ReadJSONRequestBody(r, &req)
 	if err != nil {
@@ -78,6 +72,5 @@ func getSpellSlots(w http.ResponseWriter, r *http.Request) {
 func getClasses(w http.ResponseWriter, r *http.Request) {
 	classes := map[string][]string{}
 	classes["Classes"], classes["MagicClasses"] = routines.GetClassNames()
-	// enableCors(&w)
 	util.WriteJSONResponse("getClasses", classes, w)
 }

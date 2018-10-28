@@ -20,6 +20,27 @@ export default {
       .catch(handleError)
   },
 
+  retrieveSpells({ commit }, { spellClass, filter }) {
+    magicAPI
+      .getSpells(spellClass, filter)
+      .then(data => {
+        commit('setSpells', {
+          spells: data.spells,
+          spellClass,
+        })
+      })
+      .catch(handleError)
+  },
+
+  retrieveSpellInfo({ commit }, { spell }) {
+    magicAPI
+      .getSpell(spell)
+      .then(data => {
+        commit('setSpellInfo', data)
+      })
+      .catch(handleError)
+  },
+
   retrieveSlots(_, { index, name, level, character }) {
     magicAPI
       .getSlots([{ class: name, level }])

@@ -155,7 +155,7 @@ export default {
 
     editStats() {
       // TBD
-    }
+    },
   },
 }
 </script>

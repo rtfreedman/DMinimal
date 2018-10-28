@@ -8,7 +8,7 @@
     <v-layout px-3>
       <v-expansion-panel light>
         <v-expansion-panel-content
-          style="color: #303030; background-color: #ffd700; opacity: 0.8;"
+          style="color: #303030; background-color: #ffd700;"
         >
           <h3 slot="header">CHARACTER INFO</h3>
           <v-card
@@ -30,8 +30,8 @@
       </v-expansion-panel>
     </v-layout>
     <v-layout mb-3>
-        <app-initiative :character="character"/>
-        <app-hit-points :character="character"/>
+      <app-initiative :character="character"/>
+      <app-hit-points :character="character"/>
     </v-layout>
     <app-death-throws
       v-if="character.hitPoints <= 0 && character.maxHitPoints > 0"
@@ -63,13 +63,19 @@
         :characterClass="characterClass"
         :classIndex="classIndex"
         :character="character"
+        @castSpell="castSpell(characterClass)"
         class="mx-3 mb-3"
       />
     </v-layout>
-    <app-spell-cast
-      :character="character"
-      ref="spellCast"
-    />
+    <v-dialog
+      v-if="spellClass"
+      v-model="showSpellDialog"
+    >
+      <app-cast-spell-dialog
+        :character="character"
+        :spellClass="spellClass"
+      />
+    </v-dialog>
   </v-card>
 </template>
 
@@ -77,10 +83,10 @@
 import CharacterActions from './CharacterActions'
 import AbilityScores from './AbilityScores'
 import CharacterClass from './CharacterClass'
-import SpellCast from './SpellCast'
 import HitPoints from './HitPoints'
 import DeathSavingThrows from './DeathSavingThrows'
 import Initiative from './Initiative'
+import CastSpellDialog from './CastSpellDialog'
 
 export default {
   name: 'tracker',
@@ -92,15 +98,24 @@ export default {
     'app-ability-scores': AbilityScores,
     'app-character-class': CharacterClass,
     'app-death-throws': DeathSavingThrows,
-    'app-spell-cast': SpellCast,
     'app-hit-points': HitPoints,
     'app-initiative': Initiative,
+    'app-cast-spell-dialog': CastSpellDialog,
   },
 
   data() {
     return {
       localName: this.character.name,
+      spellClass: null,
+      showSpellDialog: false,
     }
+  },
+
+  methods: {
+    castSpell(characterClass) {
+      this.spellClass = characterClass
+      this.showSpellDialog = true
+    },
   },
 }
 </script>

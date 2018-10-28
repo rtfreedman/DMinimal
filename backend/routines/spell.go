@@ -138,25 +138,21 @@ func GetSpellInfo(spell string) (si SpellInfo, err error) {
 }
 
 // SpellSearch performs a search on the partial spell name name and in spell school for classes
-func SpellSearch(name string, classes []string) ([]string, error) {
-	for i := range classes {
-		// arcane trickster and eldritch knight learn from the wizard school of magic
-		// although there are some restrictions to which schools the spells must come, ultimately there is no
-		// broad restriction preventin them from learning any wizard spell
-		if classes[i] == "Rogue (Arcane Trickster)" || classes[i] == "Fighter (Eldritch Knight)" {
-			classes[i] = "Wizard"
-		}
+func SpellSearch(filter string, class string) ([]string, error) {
+	// arcane trickster and eldritch knight learn from the wizard school of magic
+	// although there are some restrictions to which schools the spells must come, ultimately there is no
+	// broad restriction preventing them from learning any wizard spell
+	if class == "Rogue (Arcane Trickster)" || class == "Fighter (Eldritch Knight)" {
+		class = "Wizard"
 	}
 	// form query
-	query := "SELECT name FROM spells WHERE name LIKE '%" + name + "%'"
-	if len(classes) > 0 {
-		classqueries := []string{}
-		for _, class := range classes {
-			classqueries = append(classqueries, "(classes @> ARRAY['"+class+"']::text[])")
-		}
-		query = query + " AND (" + strings.Join(classqueries, " OR ") + ")"
+	query := "SELECT name FROM spells WHERE "
+	if filter != "" {
+		filterQuery := "name LIKE '%" + filter + "%' AND "
+		query += filterQuery
 	}
-	query += ";"
+	classQuery := "classes @> ARRAY['" + class + "']::text[]"
+	query += classQuery + ";"
 	// search db with constructed query
 	rows, err := db.Query(query)
 	if err != nil {
@@ -164,6 +160,7 @@ func SpellSearch(name string, classes []string) ([]string, error) {
 	}
 	defer rows.Close()
 	// gather names from returned data
+
 	names := []string{}
 	for rows.Next() {
 		var name string

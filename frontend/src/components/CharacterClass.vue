@@ -1,40 +1,59 @@
 <template>
   <v-layout column class="border-primary">
-    <v-layout mb-2>
-      <v-layout justify-start pt-4 pl-4 pb-2>
-        <v-select
-          placeholder="Class"
-          :items="classOptions"
-          v-model="characterClass.name"
-          @input="handleSelect"
-          light
-          solo
-          hide-details
-          style="max-width: 300px"
-        />
-        <v-select
-          placeholder="Level"
-          :items="oneToTwenty"
-          v-model="characterClass.level"
-          @input="handleSelect"
-          light
-          solo
-          hide-details
-          style="max-width: 100px; margin-left: 10px;"
-        />
-      </v-layout>
+    <v-toolbar color="primary" height="70px">
+      <v-select
+        placeholder="Class"
+        :items="classOptions"
+        v-model="characterClass.name"
+        @input="handleSelect"
+        solo
+        hide-details
+        style="max-width: 300px"
+      />
+      <v-select
+        placeholder="Level"
+        :items="oneToTwenty"
+        v-model="characterClass.level"
+        @input="handleSelect"
+        solo
+        hide-details
+        style="max-width: 100px; margin-left: 10px;"
+      />
+      <v-spacer></v-spacer>
+      <!-- remove character -->
       <v-btn
         v-if="character.classes.length > 1"
         icon
+        color="secondary"
         flat
         @click="removeClass"
         class="ma-1"
       >
         <v-icon>close</v-icon>
       </v-btn>
+    </v-toolbar>
+    <!-- class options -->
+    <v-layout mx-4 align-center
+      v-if="characterClass.name && characterClass.level"
+    >
+      <v-tooltip
+        v-if="magicClassOptions.includes(characterClass.name)"
+        bottom
+      >
+        <v-btn
+          color="primary"
+          flat
+          slot="activator"
+          icon
+          @click="$emit('castSpell')"
+        >
+          <v-icon>mdi-auto-fix</v-icon>
+        </v-btn>
+        <span>CAST SPELL</span>
+      </v-tooltip>
     </v-layout>
-    <app-magic-class
-      v-if="magicClassOptions.includes(characterClass.name)"
+    <app-spell-slots
+      v-if="magicClassOptions.includes(characterClass.name) && characterClass.level"
       :character="character"
       :characterClass="characterClass"
     />
@@ -43,7 +62,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import MagicClass from './MagicClass'
+import SpellSlots from './SpellSlots'
 import { oneToTwenty } from '../common/functions'
 
 export default {
@@ -51,7 +70,7 @@ export default {
   props: ['characterClass', 'classIndex', 'character'],
 
   components: {
-    'app-magic-class': MagicClass,
+    'app-spell-slots': SpellSlots,
   },
 
   computed: {
@@ -82,6 +101,10 @@ export default {
 
     removeClass() {
       this.character.removeClass(this.classIndex)
+    },
+
+    castSpell() {
+      // TBD
     },
   },
 }
