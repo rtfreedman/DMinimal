@@ -2,10 +2,7 @@
   <v-app dark>
     <v-toolbar app class="py-2">
       <img src="./assets/logo.png" alt="">
-      <h1
-        style="color: #ccc; font-family: fantasy; font-size: 35px;"
-        class="mx-2 mt-3"
-      >DMinimal</h1>
+      <h1 class="mx-2 mt-3 brand">DMinimal</h1>
     </v-toolbar>
     <v-content>
       <router-view/>
@@ -14,17 +11,19 @@
 </template>
 
 <script>
-// Impact, fantasy;
-// Arnoldboecklin, fantasy;
-// Oldtown, fantasy;
-// Blippo, fantasy;
-// Brushstroke, fantasy;
-// fantasy;
-
 export default {
   name: 'App',
 }
 </script>
+
+<style scoped>
+.brand {
+  color: #ccc;
+  font-family: fantasy;
+  font-size: 35px;
+}
+</style>
+
 
 <style>
 .border-primary {

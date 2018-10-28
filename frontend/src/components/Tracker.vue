@@ -38,7 +38,6 @@
       :character="character"
     />
     <app-ability-scores
-      :scores="character.abilityScores"
       :character="character"
     />
     <v-layout align-center>
