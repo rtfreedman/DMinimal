@@ -61,12 +61,11 @@
         </v-card-text>
         <v-card-actions>
           <v-layout justify-end>
-            <v-btn @click="confirmDelete" flat>Yes</v-btn>
             <v-btn
-              color="primary"
               @click="showDeleteDialog = false; deleteCharacter = null"
               flat
             >No</v-btn>
+            <v-btn @click="confirmDelete" color="error" flat>Yes</v-btn>
           </v-layout>
         </v-card-actions>
       </v-card>

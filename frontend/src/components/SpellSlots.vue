@@ -1,9 +1,5 @@
 <template>
-  <v-layout
-    align-center
-    justify-space-around
-    grid-list-xs
-  >
+  <v-layout align-center justify-space-around pa-2>
     <div
       v-for="(slot, level) in characterClass.workingSlots"
       :key="level"
@@ -13,18 +9,26 @@
         justify-center
         column
       >
+        <h4 class="lvl">LVL {{ level }}</h4>
         <v-btn
           flat
+          small
+          icon
           @click="increment(level)"
           color="yellow"
-        >+</v-btn>
-        <span>{{ slot }}</span>
+        >
+          <v-icon>expand_less</v-icon>
+        </v-btn>
+        <h3>{{ slot }}</h3>
         <v-btn
           flat
+          small
+          icon
           @click="decrement(level)"
           color="yellow"
-        >-</v-btn>
-        <h4 class="lvl">Lv {{level}}</h4>
+        >
+          <v-icon>expand_more</v-icon>
+        </v-btn>
       </v-layout>
     </div>
   </v-layout>

@@ -12,12 +12,6 @@ export default {
     state.characters.push(new Character(state.nextCharacterId++))
   },
 
-  setClass(state, { charIndex, classIndex, className, slots }) {
-    const ch = state.characters[charIndex]
-    ch.setClass(classIndex, className, slots)
-    state.characters.splice(charIndex, 1, ch)
-  },
-
   removeCharacter(state, { id }) {
     const i = state.characters.findIndex(c => c.id === id)
     this.state.characters.splice(i, 1)

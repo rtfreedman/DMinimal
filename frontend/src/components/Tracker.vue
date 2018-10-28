@@ -58,10 +58,12 @@
     </v-layout>
     <v-layout column>
       <app-character-class
-        v-for="characterClass in character.classes"
+        v-for="(characterClass, classIndex) in character.classes"
         :key="characterClass.name"
         :characterClass="characterClass"
+        :classIndex="classIndex"
         :character="character"
+        class="mx-3 mb-3"
       />
     </v-layout>
     <app-spell-cast

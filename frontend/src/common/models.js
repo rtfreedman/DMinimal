@@ -1,8 +1,8 @@
 import $store from '@/store'
 
 export class Class {
-  constructor(name) {
-    this.name = name || 'Bard'
+  constructor() {
+    this.name = null
     this.level = 1
     this.slots = {
       1: 0,

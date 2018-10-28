@@ -12,7 +12,7 @@
         >
           <v-icon>mdi-sleep</v-icon>
         </v-btn>
-        <span>Long Rest</span>
+        <span>LONG REST</span>
       </v-tooltip>
       <v-tooltip bottom>
         <v-btn
@@ -36,7 +36,7 @@
         >
           <v-icon>mdi-auto-fix</v-icon>
         </v-btn>
-        <span>Cast Spell</span>
+        <span>CAST SPELL</span>
       </v-tooltip>
       <v-tooltip bottom>
         <v-btn
