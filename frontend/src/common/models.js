@@ -54,7 +54,7 @@ export class Character {
       CON: 10,
       CHR: 10,
     }
-    this.customModifiers = {
+    this.customAbilityOffsets = {
       STR: 0,
       INT: 0,
       WIS: 0,
