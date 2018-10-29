@@ -14,34 +14,6 @@ import (
 	"golang.org/x/crypto/ssh/terminal"
 )
 
-var tiers = map[string]float64{
-	"Bard": 1.0, "Cleric": 1.0, "Sorcerer": 1.0,
-	"Wizard": 1.0, "Druid": 1.0, "Paladin": 0.5, "Ranger": 0.5,
-	"Fighter (Eldritch Knight)": 0.333, "Rogue (Arcane Trickster)": 0.333,
-	"Warlock": 0.1,
-}
-
-// Class is a representation of the class of a character with level and classname populated
-type Class struct {
-	Level     int    `json:"level"`
-	ClassName string `json:"class"`
-}
-
-var db *sql.DB
-
-// Setup sets up the db connection object
-func Setup() {
-	password := getPassword()
-	connStr := fmt.Sprintf("user=wizerd dbname=dnd host=0.0.0.0 port=5429 password=%s sslmode=disable", password)
-	var err error
-	db, err = sql.Open("postgres", connStr)
-	if err != nil {
-		log.Fatal("Could not connect to Postgres DB : " + err.Error())
-	}
-	// so that "API running on port X is not in the same line the password acceptor was"
-	fmt.Println("")
-}
-
 func getPassword() string {
 	fmt.Print("Postgres Password: ")
 	bytePassword, err := terminal.ReadPassword(int(syscall.Stdin))
@@ -118,10 +90,9 @@ func (si *SpellInfo) clean() {
 func GetSpellInfo(spell string) (si SpellInfo, err error) {
 	keys := []string{"classes", "athigherlevels", "level", "name", "range", "components", "school", "castingtime", "description", "duration", "concentration"}
 	// string,[]string,int,string,string,string,string,string,string
-	query := "SELECT " + strings.Join(keys, ",") + " FROM spells WHERE name='" + spell + "';"
-	fmt.Println(query)
+	query := "SELECT " + strings.Join(keys, ",") + " FROM spells WHERE name=$1"
 	si = SpellInfo{}
-	rows, err := db.Query(query)
+	rows, err := db.Query(query, spell)
 	if err != nil {
 		return
 	}
@@ -137,38 +108,61 @@ func GetSpellInfo(spell string) (si SpellInfo, err error) {
 	return
 }
 
-// SpellSearch performs a search on the partial spell name name and in spell school for classes
-func SpellSearch(name string, classes []string) ([]string, error) {
-	for i := range classes {
-		// arcane trickster and eldritch knight learn from the wizard school of magic
-		// although there are some restrictions to which schools the spells must come, ultimately there is no
-		// broad restriction preventin them from learning any wizard spell
-		if classes[i] == "Rogue (Arcane Trickster)" || classes[i] == "Fighter (Eldritch Knight)" {
-			classes[i] = "Wizard"
-		}
-	}
-	// form query
-	query := "SELECT name FROM spells WHERE name LIKE '%" + name + "%'"
-	if len(classes) > 0 {
-		classqueries := []string{}
-		for _, class := range classes {
-			classqueries = append(classqueries, "(classes @> ARRAY['"+class+"']::text[])")
-		}
-		query = query + " AND (" + strings.Join(classqueries, " OR ") + ")"
-	}
-	query += ";"
-	// search db with constructed query
-	rows, err := db.Query(query)
+// SpellList returns a list of all spells
+func SpellList() (ret []string, err error) {
+	rows, err := db.Query("SELECT name FROM spells")
 	if err != nil {
-		return nil, err
+		return
 	}
 	defer rows.Close()
-	// gather names from returned data
-	names := []string{}
 	for rows.Next() {
-		var name string
-		rows.Scan(&name)
-		names = append(names, name)
+		var name sql.NullString
+		err = rows.Scan(&name)
+		if err != nil {
+			continue
+		}
+		if name.Valid {
+			ret = append(ret, name.String)
+		}
 	}
-	return names, nil
+	return
 }
+
+// // SpellSearch performs a search on the partial spell name name and in spell school for classes
+// func SpellSearch(name string, classes []string) ([]string, error) {
+// 	for i := range classes {
+// 		// arcane trickster and eldritch knight learn from the wizard school of magic
+// 		// although there are some restrictions to which schools the spells must come, ultimately there is no
+// 		// broad restriction preventin them from learning any wizard spell
+// 		if classes[i] == "Rogue (Arcane Trickster)" || classes[i] == "Fighter (Eldritch Knight)" {
+// 			classes[i] = "Wizard"
+// 		}
+// 	}
+// 	// form query
+// 	query := "SELECT name FROM spells WHERE name LIKE '%$1%'"
+// 	args := []interface{}{name}
+// 	if len(classes) > 0 {
+// 		counter := 2
+// 		classqueries := []string{}
+// 		for _, class := range classes {
+// 			classqueries = append(classqueries, "(classes @> ARRAY['$"+strconv.Itoa(counter)+"']::text[])")
+// 			counter++
+// 			args = append(args, class)
+// 		}
+// 		query += " AND (" + strings.Join(classqueries, " OR ") + ")"
+// 	}
+// 	// search db with constructed query
+// 	rows, err := db.Query(query, args...)
+// 	if err != nil {
+// 		return nil, err
+// 	}
+// 	defer rows.Close()
+// 	// gather names from returned data
+// 	names := []string{}
+// 	for rows.Next() {
+// 		var name string
+// 		rows.Scan(&name)
+// 		names = append(names, name)
+// 	}
+// 	return names, nil
+// }
