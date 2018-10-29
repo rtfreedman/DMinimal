@@ -197,7 +197,7 @@ export default {
       selectedStat: 'STR',
       diceResult: {},
       droppedDice: {},
-      showDialog: true,
+      showDialog: false,
     }
   },
 
