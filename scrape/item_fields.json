@@ -1,0 +1,744 @@
+{
+ "Adventuring Gear": [
+  "range",
+  "item_type",
+  "category",
+  "damage_type",
+  "duration",
+  "properties",
+  "save",
+  "description",
+  "weight",
+  "damage",
+  "item_rarity",
+  "target"
+ ],
+ "Consumable": [
+  "range",
+  "item_type",
+  "category",
+  "damage_type",
+  "duration",
+  "properties",
+  "save",
+  "subtype",
+  "description",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Armor (medium or heavy, but not hide)": [
+  "category",
+  "description",
+  "item_type"
+ ],
+ "Artisan's Tools": [
+  "item_type",
+  "category",
+  "subtype",
+  "description",
+  "weight",
+  "item_rarity"
+ ],
+ "Neck": [
+  "item_type",
+  "category",
+  "subtype",
+  "description",
+  "weight"
+ ],
+ "Wondrous Item, Neck": [
+  "modifiers",
+  "category",
+  "item_type",
+  "subtype",
+  "description",
+  "weight",
+  "item_rarity"
+ ],
+ "Shield": [
+  "item_type",
+  "category",
+  "modifiers",
+  "ac",
+  "subtype",
+  "description",
+  "weight",
+  "item_rarity"
+ ],
+ "Wondrous Item": [
+  "item_type",
+  "category",
+  "modifiers",
+  "duration",
+  "subtype",
+  "description",
+  "weight",
+  "item_rarity"
+ ],
+ "Armor": [
+  "item_type",
+  "category",
+  "modifiers",
+  "duration",
+  "stealth",
+  "ac",
+  "subtype",
+  "description",
+  "weight",
+  "item_rarity"
+ ],
+ "Cursed Item, Armor": [
+  "item_type",
+  "category",
+  "modifiers",
+  "stealth",
+  "subtype",
+  "ac",
+  "description",
+  "weight",
+  "item_rarity"
+ ],
+ "Ammunition": [
+  "item_type",
+  "category",
+  "modifiers",
+  "subtype",
+  "description",
+  "weight",
+  "item_rarity"
+ ],
+ "Container": [
+  "item_type",
+  "category",
+  "subtype",
+  "description",
+  "weight"
+ ],
+ "Musical Instrument": [
+  "item_type",
+  "category",
+  "subtype",
+  "description",
+  "weight",
+  "item_rarity"
+ ],
+ "Martial, Axe": [
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Melee Weapon": [
+  "range",
+  "modifiers",
+  "category",
+  "item_type",
+  "damage_type",
+  "secondary_damage",
+  "properties",
+  "description",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Wondrous Item, Belt": [
+  "modifiers",
+  "category",
+  "item_type",
+  "subtype",
+  "description",
+  "item_rarity"
+ ],
+ "Weapon (any axe)": [
+  "category",
+  "description",
+  "item_type"
+ ],
+ "Martial, Blowgun": [
+  "range",
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "description",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Ranged Weapon": [
+  "range",
+  "modifiers",
+  "category",
+  "item_type",
+  "damage_type",
+  "properties",
+  "description",
+  "weight",
+  "damage"
+ ],
+ "Wondrous Item, Feet": [
+  "item_type",
+  "category",
+  "subtype",
+  "description",
+  "item_rarity"
+ ],
+ "Wondrous Item, Arms": [
+  "item_type",
+  "category",
+  "modifiers",
+  "subtype",
+  "description",
+  "item_rarity"
+ ],
+ "Medium Armor": [
+  "modifiers",
+  "category",
+  "item_type",
+  "item_rarity",
+  "stealth",
+  "description",
+  "weight",
+  "ac"
+ ],
+ "Equipment Pack": [
+  "category",
+  "data-bundle",
+  "subtype",
+  "description",
+  "item_rarity"
+ ],
+ "Wondrous Item, Shoulders, Cape": [
+  "item_type",
+  "category",
+  "subtype",
+  "description",
+  "item_rarity"
+ ],
+ "Heavy Armor": [
+  "modifiers",
+  "category",
+  "item_type",
+  "stealth",
+  "description",
+  "weight",
+  "ac"
+ ],
+ "Wondrous Item, Head": [
+  "item_type",
+  "category",
+  "modifiers",
+  "subtype",
+  "description",
+  "item_rarity"
+ ],
+ "Wondrous Item, Shoulders": [
+  "item_type",
+  "category",
+  "modifiers",
+  "subtype",
+  "description",
+  "item_rarity"
+ ],
+ "Simple": [
+  "range",
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Clothing": [
+  "item_type",
+  "category",
+  "subtype",
+  "weight",
+  "item_rarity"
+ ],
+ "Arcane Focus": [
+  "item_type",
+  "category",
+  "subtype",
+  "description",
+  "weight",
+  "item_rarity"
+ ],
+ "Simple, Dagger": [
+  "range",
+  "item_type",
+  "category",
+  "modifiers",
+  "damage_type",
+  "secondary_damage",
+  "properties",
+  "save",
+  "subtype",
+  "description",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Sword": [
+  "item_type",
+  "category",
+  "subtype",
+  "description",
+  "item_rarity"
+ ],
+ "Gaming Set": [
+  "category",
+  "item_rarity",
+  "subtype",
+  "item_type"
+ ],
+ "Wondrous Item, Eyes": [
+  "item_type",
+  "category",
+  "subtype",
+  "description",
+  "item_rarity"
+ ],
+ "Martial, Flail": [
+  "item_type",
+  "category",
+  "damage_type",
+  "subtype",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Weapon (any sword)": [
+  "category",
+  "description",
+  "item_type"
+ ],
+ "Wondrous Item, Hands": [
+  "modifiers",
+  "category",
+  "item_type",
+  "subtype",
+  "description",
+  "item_rarity"
+ ],
+ "Weapon (any axe or sword)": [
+  "category",
+  "description",
+  "item_type"
+ ],
+ "Martial, Glaive": [
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Simple, Club": [
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Martial, Sword": [
+  "item_type",
+  "category",
+  "modifiers",
+  "damage_type",
+  "properties",
+  "subtype",
+  "description",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Martial, Halberd": [
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Martial, Maul, Hammer": [
+  "item_type",
+  "category",
+  "modifiers",
+  "damage_type",
+  "secondary_damage",
+  "properties",
+  "subtype",
+  "description",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Martial, Crossbow": [
+  "range",
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "description",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Simple, Axe": [
+  "range",
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Rod": [
+  "item_type",
+  "category",
+  "subtype",
+  "description",
+  "weight",
+  "item_rarity"
+ ],
+ "Wondrous": [
+  "category",
+  "description",
+  "item_type"
+ ],
+ "Simple, Javelin": [
+  "range",
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "description",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Martial, Lance": [
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "description",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Light Armor": [
+  "modifiers",
+  "category",
+  "item_type",
+  "stealth",
+  "description",
+  "weight",
+  "ac"
+ ],
+ "Simple, Crossbow": [
+  "range",
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "description",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Simple, Hammer": [
+  "range",
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Martial, Bow": [
+  "range",
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "description",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Simple, Mace": [
+  "item_type",
+  "category",
+  "modifiers",
+  "damage_type",
+  "secondary_damage",
+  "subtype",
+  "description",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Martial, Maul": [
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Martial, Morningstar": [
+  "item_type",
+  "category",
+  "damage_type",
+  "subtype",
+  "weight",
+  "damage"
+ ],
+ "Martial, Net": [
+  "range",
+  "item_type",
+  "category",
+  "properties",
+  "subtype",
+  "description",
+  "weight",
+  "item_rarity"
+ ],
+ "Potion": [
+  "item_type",
+  "category",
+  "subtype",
+  "description",
+  "weight",
+  "item_rarity"
+ ],
+ "Wondrous Item, Artifact": [
+  "item_type",
+  "category",
+  "subtype",
+  "description",
+  "item_rarity"
+ ],
+ "Martial, Pike": [
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Wondrous Item, Musical Instrument": [
+  "item_type",
+  "category",
+  "subtype",
+  "description",
+  "weight",
+  "item_rarity"
+ ],
+ "Simple, Staff": [
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Ring": [
+  "item_type",
+  "category",
+  "modifiers",
+  "subtype",
+  "description",
+  "item_rarity"
+ ],
+ "Wondrous Item, Robe": [
+  "item_type",
+  "category",
+  "modifiers",
+  "subtype",
+  "ac",
+  "description",
+  "item_rarity"
+ ],
+ "Robe": [
+  "item_type",
+  "category",
+  "subtype",
+  "weight",
+  "item_rarity"
+ ],
+ "Simple, Bow": [
+  "range",
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "description",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Simple, Sickle": [
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Simple, Sling": [
+  "range",
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "description",
+  "damage",
+  "item_rarity"
+ ],
+ "Simple, Spear": [
+  "range",
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Scroll": [
+  "category",
+  "item_rarity",
+  "description",
+  "item_type"
+ ],
+ "Druidic Focus": [
+  "item_type",
+  "category",
+  "subtype",
+  "description",
+  "weight",
+  "item_rarity"
+ ],
+ "Staff": [
+  "item_type",
+  "category",
+  "modifiers",
+  "subtype",
+  "description",
+  "weight",
+  "item_rarity"
+ ],
+ "Sword, Martial": [
+  "item_type",
+  "category",
+  "modifiers",
+  "damage_type",
+  "secondary_damage",
+  "properties",
+  "subtype",
+  "description",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Martial, Trident": [
+  "range",
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Trident, Martial": [
+  "range",
+  "item_type",
+  "category",
+  "damage_type",
+  "secondary_damage",
+  "properties",
+  "subtype",
+  "description",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Wand": [
+  "item_type",
+  "category",
+  "modifiers",
+  "subtype",
+  "description",
+  "weight",
+  "item_rarity"
+ ],
+ "Martial, Pick": [
+  "item_type",
+  "category",
+  "damage_type",
+  "subtype",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Martial, Hammer": [
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "weight",
+  "damage",
+  "item_rarity"
+ ],
+ "Martial, Whip": [
+  "item_type",
+  "category",
+  "damage_type",
+  "properties",
+  "subtype",
+  "weight",
+  "damage",
+  "item_rarity"
+ ]
+}
