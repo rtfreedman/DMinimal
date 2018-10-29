@@ -139,7 +139,7 @@ export default {
 
     longRestAll() {
       this.characters.forEach(c => {
-        c.rest()
+        c.longRest()
       })
     },
 

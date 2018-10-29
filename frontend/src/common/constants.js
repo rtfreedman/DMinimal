@@ -14,3 +14,5 @@ export const hitDice = {
 }
 export const chrClasses = ['Bard', 'Sorcerer', 'Paladin', 'Warlock']
 export const wisClasses = ['Cleric', 'Druid', 'Ranger']
+
+export const statNames = ['STR', 'CON', 'DEX', 'WIS', 'INT', 'CHR']

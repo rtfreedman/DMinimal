@@ -9,7 +9,13 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    characters: [new Character(1)],
     nextCharacterId: 2,
+    classOptions: [],
+    magicClassOptions: [],
+    spells: [],
+    currentSpellClass: null,
+    currentSpellInfo: {},
     snackbar: {
       show: false,
       color: 'red darken-1',
@@ -17,12 +23,6 @@ export default new Vuex.Store({
       buttonMessage: '',
       buttonFunction: undefined,
     },
-    spells: [],
-    currentSpellClass: null,
-    currentSpellInfo: {},
-    classOptions: [],
-    magicClassOptions: [],
-    characters: [new Character(1)],
   },
   getters,
   mutations,

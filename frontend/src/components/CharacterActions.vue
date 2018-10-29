@@ -8,7 +8,7 @@
           icon
           flat
           slot="activator"
-          @click="chracter.rest()"
+          @click="character.longRest()"
         >
           <v-icon>hotel</v-icon>
         </v-btn>
