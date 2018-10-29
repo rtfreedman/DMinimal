@@ -31,5 +31,10 @@ func getMonsterInfo(w http.ResponseWriter, r *http.Request) {
 		util.WriteError("No monster supplied", w)
 		return
 	}
-	// mi, err := routines.GetMonsterInfo(vars["monster"])
+	mi, err := routines.GetMonsterInfo(vars["monster"])
+	if err != nil {
+		util.WriteError(err.Error(), w)
+		return
+	}
+	util.WriteJSONResponse("getMonsterInfo", mi, w)
 }
