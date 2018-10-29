@@ -3,9 +3,9 @@ import json
 from collections import defaultdict
 from bs4 import BeautifulSoup
 
-item_list_url = "https://app.roll20.net/compendium/compendium/getList?bookName=dnd5e&pageName=Items%20List&_=1540652196846"
-single_item_url = "https://roll20.net/compendium/dnd5e/Items:{}"
-# column names found in html source, modified to be lower case and have no spaces
+item_list_url = ""
+single_item_url = ""
+# column names
 column_names = [i.lower().replace(" ", "_") for i in ["Item Type","Subtype","AC","Category","Damage","Damage Type","Duration","Item Rarity","Modifiers","Properties","Range","Requires Attunement","Save","Secondary Damage","Stealth","Target","Weight","data-Bundle"]]
 
 # get item list and parse
