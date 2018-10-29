@@ -35,7 +35,7 @@
           v-model="selectedLevel"
           label="Cast At Level"
           style="max-width: 120px"
-          :items="higherLevelOptions"
+          :items="levelOptions"
           hide-details
         ></v-select>
       </v-layout>
@@ -122,12 +122,12 @@ export default {
       return this.spellModifier + 8
     },
 
-    higherLevelOptions() {
+    levelOptions() {
       const levelOptions = []
-      Object.keys(this.spellClass.workingSlots).forEach(k => {
-        const level = this.spellClass.workingSlots[k]
-        if (k > 0 && parseInt(level, 10) > this.currentSpellInfo.Level) {
-          levelOptions.push(level)
+      Object.keys(this.spellClass.workingSlots).forEach(level => {
+        const slots = this.spellClass.workingSlots[level]
+        if (slots > 0 && parseInt(level, 10) >= this.currentSpellInfo.Level) {
+          levelOptions.push(parseInt(level, 10))
         }
       })
       return levelOptions
@@ -214,6 +214,14 @@ export default {
 
     handleSelect(spell) {
       this.retrieveSpellInfo({ spell })
+    },
+  },
+
+  watch: {
+    levelOptions(state) {
+      if (state.length) {
+        this.selectedLevel = Math.min(...state)
+      }
     },
   },
 }

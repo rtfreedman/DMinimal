@@ -24,11 +24,11 @@
           flat
           slot="activator"
           color="primary"
-          @click="character.multiclass()"
+          @click="character.addClass()"
         >
           <v-icon>add_circle_outline</v-icon>
         </v-btn>
-        <span>MULTICLASS</span>
+        <span>ADD CLASS</span>
       </v-tooltip>
     </v-layout>
     <v-layout column>

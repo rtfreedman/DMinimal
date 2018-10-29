@@ -1,10 +1,10 @@
 import $store from '@/store'
-import { hitDice } from '../common/constants'
+import { hitDice, classes } from '../common/constants'
 
 export class Class {
-  constructor(isPrimary) {
-    this.name = null
-    this.level = null
+  constructor(isPrimary, name) {
+    this.name = name
+    this.level = 1
     this.isPrimary = isPrimary || false
     this.slots = {
       1: 0,
@@ -45,7 +45,7 @@ export class Character {
     this.concentrating = ''
     this.good = null // -1 evil, 0 neutral, 1 good
     this.lawful = null // -1 chaotic, 0 neutral, 1 lawful
-    this.classes = [new Class()]
+    this.classes = [new Class(true, 'Bard')]
     this.abilityScores = {
       STR: 10,
       INT: 10,
@@ -87,16 +87,19 @@ export class Character {
     })
   }
 
-  multiclass(name) {
+  addClass() {
     // no more than 10 classes
     if (this.classes.length > 10) {
+      // TBD snackbar error
       return
     }
-    // no duplicate classes
-    if (this.classes.includes(name)) {
-      return
-    }
-    this.classes.push(new Class(name))
+
+    // default to next available class type
+    const existingClassNames = this.classes.map(c => c.name)
+    const nextClass = classes.find(c => !existingClassNames.includes(c))
+    const newClass = new Class(false, nextClass)
+    this.classes.push(newClass)
+    return newClass
   }
 
   removeClass(index) {

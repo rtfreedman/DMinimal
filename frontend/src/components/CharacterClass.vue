@@ -33,7 +33,9 @@
       </v-btn>
     </v-toolbar>
     <!-- class options -->
-    <v-layout mx-4 align-center
+    <v-layout
+      mx-4
+      align-center
       v-if="characterClass.name && characterClass.level"
     >
       <v-tooltip
@@ -81,6 +83,15 @@ export default {
     return {
       oneToTwenty: oneToTwenty(),
     }
+  },
+
+  created() {
+    this.retrieveSlots({
+      index: this.classIndex,
+      name: this.characterClass.name,
+      level: this.characterClass.level,
+      character: this.character,
+    })
   },
 
   methods: {
