@@ -143,6 +143,7 @@
 
 <script>
 import { hitDice } from '../common/constants'
+import { roll } from '../common/functions'
 
 export default {
   props: ['character'],
@@ -175,7 +176,7 @@ export default {
             value = dice
             firstLevel = false
           } else if (roll) {
-            value = Math.floor(Math.random() * (dice - 1)) + 1
+            value = roll(dice)
           } else {
             value = Math.ceil(dice / 2)
           }

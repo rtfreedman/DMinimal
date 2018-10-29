@@ -168,6 +168,9 @@
 
 <script>
 import Vue from 'vue'
+import { abilityNames } from '../common/constants'
+import { roll } from '../common/functions'
+import { statNames } from '../common/constants'
 
 export default {
   name: 'AbilityScores',
@@ -179,7 +182,7 @@ export default {
       selectedStat: 'STR',
       diceResult: {},
       droppedDice: {},
-      showDialog: true,
+      showDialog: false,
     }
   },
 
@@ -219,7 +222,7 @@ export default {
     rollStat(stat) {
       const rolls = []
       for (let i = 0; i < 4; i++) {
-        rolls.push(Math.floor(Math.random() * 6) + 1)
+        rolls.push(roll(6))
       }
       Vue.set(this.droppedDice, stat, 'mdi-dice-' + Math.min.apply(null, rolls))
       rolls.splice(rolls.indexOf(Math.min.apply(null, rolls)), 1)
@@ -232,7 +235,9 @@ export default {
     },
 
     rollStats() {
-      // TBD
+      statNames.forEach(s => {
+        this.rollStat(s)
+      })
     },
 
     editStats() {

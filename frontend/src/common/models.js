@@ -43,6 +43,8 @@ export class Character {
     this.proficiency = 0
     this.rollHealth = true
     this.concentrating = ''
+    this.good = null // -1 evil, 0 neutral, 1 good
+    this.lawful = null // -1 chaotic, 0 neutral, 1 lawful
     this.classes = [new Class()]
     this.abilityScores = {
       STR: 10,
@@ -69,7 +71,7 @@ export class Character {
     cl.workingSlots = Object.assign({}, slots)
   }
 
-  rest() {
+  longRest() {
     if (this.hitPoints === 0) {
       // you cannot gain the benefits of a long rest at 0 hitpoints
       $store.commit('showSnackbar', {

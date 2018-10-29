@@ -29,4 +29,8 @@ export default {
 .border-primary {
   border: 1px solid #ffd700;
 }
+
+.border-white {
+  border: 1px solid #ccc;
+}
 </style>
