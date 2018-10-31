@@ -176,7 +176,7 @@ export default {
             value = dice
             firstLevel = false
           } else if (roll) {
-            value = roll(dice)
+            value = roll(1, dice)
           } else {
             value = Math.ceil(dice / 2)
           }

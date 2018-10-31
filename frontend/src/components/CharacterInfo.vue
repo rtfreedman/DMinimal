@@ -18,12 +18,19 @@
             ></v-text-field>
             <v-layout
               class="border-white"
-              pt-3 px-3 mb-3
+              pt-3
+              px-3
+              mb-3
               column
             >
               <h3>
                 Alignment:
-                <span v-if="character.lawful !== null && character.good !== null">
+                <span
+                  v-if="character.lawful === 0 && character.good === 0"
+                >True Neutral</span>
+                <span
+                  v-else-if="character.lawful !== null && character.good !== null"
+                >
                   {{ lawfulScale[character.lawful + 1] }}
                   {{ goodScale[character.good + 1] }}
                 </span>

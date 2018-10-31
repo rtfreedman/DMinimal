@@ -52,7 +52,7 @@ export default {
       const dexModifier = Math.floor(
         (this.character.abilityScores.DEX - 10) / 2,
       )
-      this.character.initiative = dexModifier + roll(20)
+      this.character.initiative = dexModifier + roll(1, 20)
       this.fixTabWidth()
     },
 
