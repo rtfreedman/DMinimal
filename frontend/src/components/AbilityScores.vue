@@ -10,7 +10,7 @@
             slot="activator"
             color="primary"
             class="mr-0"
-            @click="rollStats()"
+            @click="rollStats"
           >
             <v-icon>mdi-dice-multiple</v-icon>
           </v-btn>
@@ -23,7 +23,7 @@
             slot="activator"
             color="primary"
             class="ml-0"
-            @click="editStats()"
+            @click="editStats"
           >
             <v-icon>mdi-pencil</v-icon>
           </v-btn>
@@ -50,7 +50,7 @@
           </div>
           <h4
             style="margin-top: 36px; margin-left: 5px;"
-          >{{ getModifier(stat, value) >= 0 ? '+' : '-' }} {{ Math.abs(getModifier(stat, value)) }}</h4>
+          >{{ character.getModifier(stat) >= 0 ? '+' : '-' }} {{ Math.abs(character.getModifier(stat)) }}</h4>
         </v-layout>
       </v-layout>
     </v-layout>
@@ -148,7 +148,7 @@
               </v-flex>
               <v-flex style="max-width: 30px"></v-flex>
               <v-flex style="max-width: 50px">
-                <h2>{{ getModifier(stat, value) }}</h2>
+                <h2>{{ character.getModifier(stat) }}</h2>
               </v-flex>
               <v-flex style="max-width: 30px"></v-flex>
               <v-flex
@@ -184,7 +184,7 @@
 <script>
 import Vue from 'vue'
 import { abilityNames } from '../common/constants'
-import { roll } from '../common/functions'
+import { rollNdS } from '../common/functions'
 import { statNames } from '../common/constants'
 
 export default {
@@ -194,7 +194,6 @@ export default {
 
   data() {
     return {
-      selectedStat: 'STR',
       diceResult: {},
       droppedDice: {},
       showDialog: false,
@@ -202,10 +201,6 @@ export default {
   },
 
   methods: {
-    getModifier(stat, value) {
-      return Math.floor((value + this.character.customAbilityOffsets[stat] - 10) / 2)
-    },
-
     incrStat(stat, value) {
       if (value < 20) {
         this.character.abilityScores[stat]++
@@ -229,7 +224,7 @@ export default {
     rollStat(stat) {
       const rolls = []
       for (let i = 0; i < 4; i++) {
-        rolls.push(roll(1, 6))
+        rolls.push(rollNdS(1, 6))
       }
       Vue.set(this.droppedDice, stat, 'mdi-dice-' + Math.min.apply(null, rolls))
       rolls.splice(rolls.indexOf(Math.min.apply(null, rolls)), 1)

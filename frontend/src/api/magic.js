@@ -3,7 +3,7 @@ import axios from 'axios'
 export default {
   getSlots(classes) {
     return axios
-      .post('/api/magic/slots/', { classes })
+      .post('/api/magic/slots', { classes })
       .then(response => response.data)
   },
 
@@ -18,8 +18,10 @@ export default {
       spellClass,
       filter,
     }
-    return axios
-      .post('/api/magic/spells/', body)
-      .then(response => response.data)
+    return axios.post('/api/magic/spells', body).then(response => response.data)
+  },
+
+  getClasses() {
+    return axios.get('/api/magic/classes').then(response => response.data)
   },
 }

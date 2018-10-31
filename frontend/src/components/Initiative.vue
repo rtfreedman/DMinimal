@@ -32,7 +32,7 @@
 
 <script>
 import { mapMutations } from 'vuex'
-import { oneToTwenty, roll } from '../common/functions'
+import { oneToTwenty, rollNdS } from '../common/functions'
 
 export default {
   name: 'initiative',
@@ -52,7 +52,7 @@ export default {
       const dexModifier = Math.floor(
         (this.character.abilityScores.DEX - 10) / 2,
       )
-      this.character.initiative = dexModifier + roll(1, 20)
+      this.character.initiative = dexModifier + rollNdS(1, 20)
       this.fixTabWidth()
     },
 

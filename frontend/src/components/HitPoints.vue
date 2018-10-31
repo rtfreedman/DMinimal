@@ -176,7 +176,7 @@ export default {
             value = dice
             firstLevel = false
           } else if (roll) {
-            value = roll(1, dice)
+            value = rollNdS(1, dice)
           } else {
             value = Math.ceil(dice / 2)
           }
@@ -218,6 +218,7 @@ export default {
         hitpoints: parseInt(this.hitPoints) + parseInt(this.offset),
       })
     },
+
     hurt() {
       if (isNaN(parseInt(this.hitPoints)) || isNaN(parseInt(this.offset))) {
         return

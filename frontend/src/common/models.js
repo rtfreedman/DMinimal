@@ -150,4 +150,9 @@ export class Character {
 
     this.setProficiencyBonus()
   }
+
+  getModifier(stat) {
+    const total = this.abilityScores[stat] + this.customAbilityOffsets[stat]
+    return Math.floor((total - 10) / 2)
+  }
 }

@@ -1,6 +1,5 @@
 import magicAPI from './api/magic'
 import stateAPI from './api/state'
-import classesAPI from './api/classes'
 
 function handleError(error) {
   console.error(error)
@@ -51,8 +50,8 @@ export default {
   },
 
   retrieveClassOptions({ commit }) {
-    classesAPI
-      .getClassOptions()
+    magicAPI
+      .getClasses()
       .then(data => {
         commit('setClassOptions', {
           classOptions: data.Classes,

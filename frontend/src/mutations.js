@@ -120,11 +120,6 @@ export default {
     this.state.characters[payload.charIndex].hitpoints = payload.hitpoints
   },
 
-  setInitiative(state, payload) {
-    // charIndex initiative
-    this.state.characters[payload.charIndex].initiative = payload.initiative
-  },
-
   setRollState(state, payload) {
     this.state.characters[payload.charIndex].rollHealth = payload.rollHealth
   },
