@@ -229,7 +229,7 @@ export default {
     rollStat(stat) {
       const rolls = []
       for (let i = 0; i < 4; i++) {
-        rolls.push(roll(6))
+        rolls.push(roll(1, 6))
       }
       Vue.set(this.droppedDice, stat, 'mdi-dice-' + Math.min.apply(null, rolls))
       rolls.splice(rolls.indexOf(Math.min.apply(null, rolls)), 1)
