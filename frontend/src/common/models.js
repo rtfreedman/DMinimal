@@ -1,4 +1,3 @@
-import $store from '@/store'
 import { hitDice, classes } from '../common/constants'
 
 export class Class {
@@ -63,6 +62,12 @@ export class Character {
     }
   }
 
+  updateInfo(updates) {
+    Object.keys(updates).forEach(k => {
+      this[k] = updates[k]
+    })
+  }
+
   setSlots(index, name, slots) {
     const cl = this.classes[index]
     cl.name = name
@@ -71,15 +76,6 @@ export class Character {
   }
 
   longRest() {
-    if (this.hitPoints === 0) {
-      // you cannot gain the benefits of a long rest at 0 hitpoints
-      $store.commit('showSnackbar', {
-        message: `${
-          this.name
-        } cannot gain the benefits of a long rest at 0 HP.`,
-      })
-      return
-    }
     this.hitPoints = this.maxHitPoints
     this.classes.forEach(c => {
       c.workingSlots = Object.assign({}, c.slots)

@@ -14,8 +14,9 @@
             <v-text-field
               v-model="localName"
               label="Name"
-              @blur="$emit('changeName', localName)"
-            ></v-text-field>
+              @blur="update"
+            >
+            </v-text-field>
             <v-layout
               class="border-white"
               pt-3
@@ -38,18 +39,20 @@
               <v-layout>
                 <v-radio-group
                   style="max-width: 150px"
-                  v-model="character.lawful"
+                  v-model="lawfulOrChaotic"
                 >
                   <v-radio
                     v-for="(n, i) in [-1, 0, 1]"
                     :key="n"
                     :label="lawfulScale[i]"
                     :value="n"
+                    @change="update"
                   ></v-radio>
                 </v-radio-group>
                 <v-radio-group
                   style="max-width: 150px"
-                  v-model="character.good"
+                  v-model="goodOrEvil"
+                  @change="update"
                 >
                   <v-radio
                     v-for="(n, i) in [-1, 0, 1]"
@@ -69,6 +72,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   props: ['character'],
 
@@ -81,6 +86,19 @@ export default {
       goodScale: ['Evil', 'Neutral', 'Good'],
     }
   },
+
+  methods: {
+    ...mapActions(['updateCharacterInfo']),
+
+    update() {
+      this.updateCharacterInfo({
+        character: this.character,
+        name: this.localName,
+        lawful: this.lawfulOrChaotic,
+        good: this.goodOrEvil,
+      })
+    }
+  }
 }
 </script>
 
