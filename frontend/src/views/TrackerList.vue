@@ -1,5 +1,11 @@
 <template>
   <v-container>
+    <v-btn @click="addClassTest">
+      Add Class Test
+    </v-btn>
+        <v-btn @click="removeClassTest">
+      Remove Class Test
+    </v-btn>
     <v-btn
       color="primary"
       flat
@@ -117,8 +123,26 @@ export default {
       'addCharacter',
       'removeCharacter',
       'triggerChangeDetection',
+      'mutateCharacter',
     ]),
     ...mapActions(['retrieveClassOptions']),
+
+    addClassTest() {
+      this.mutateCharacter({
+        character: this.characters[0],
+        method: 'addClass',
+        args: [],
+      })
+    },
+
+    removeClassTest() {
+      const lastIndex = this.characters[0].classes.length - 1
+      this.mutateCharacter({
+        character: this.characters[0],
+        method: 'removeClass',
+        args: [lastIndex],
+      })
+    },
 
     changeName(name, i) {
       this.characters[i - 1].name = name
