@@ -13,12 +13,11 @@ export default {
       .then(response => response.data)
   },
 
-  getSpells(spellClass, filter) {
+  getSpells(spellClass) {
     const body = {
       spellClass,
-      filter,
     }
-    return axios.get('/api/magic/spells', body).then(response => response.data)
+    return axios.put('/api/magic/spells', body).then(response => response.data)
   },
 
   getClasses() {
