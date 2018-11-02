@@ -1,11 +1,5 @@
 <template>
   <v-container>
-    <v-btn @click="addClassTest">
-      Add Class Test
-    </v-btn>
-        <v-btn @click="removeClassTest">
-      Remove Class Test
-    </v-btn>
     <v-btn
       color="primary"
       flat
@@ -14,14 +8,13 @@
     >Add Character</v-btn>
     <v-btn
       v-if="characters.length > 1"
-      @click="longRestAll"
+      @click="groupRest"
       flat
       color="primary"
     >Long Rest All</v-btn>
     <v-tabs
       slider-color="primary"
       v-model="selectedTab"
-      :hide-slider="hideSlider"
     >
       <v-tab
         v-for="i in characters.length"
@@ -51,7 +44,6 @@
         <v-card flat>
           <app-tracker
             :character="characters[i - 1]"
-            @changeName="changeName($event, i)"
           ></app-tracker>
         </v-card>
       </v-tab-item>
@@ -107,74 +99,37 @@ export default {
 
   data() {
     return {
-      showDeleteDialog: false,
       selectedTab: 0,
+      showDeleteDialog: false,
       deleteCharacter: null,
-      hideSlider: false,
     }
   },
 
-  beforeMount() {
+  created() {
     this.retrieveClassOptions()
   },
 
   methods: {
-    ...mapMutations([
+    ...mapActions([
       'addCharacter',
+      'groupRest',
       'removeCharacter',
-      'triggerChangeDetection',
-      'mutateCharacter',
+      'retrieveClassOptions',
     ]),
-    ...mapActions(['retrieveClassOptions']),
-
-    addClassTest() {
-      this.mutateCharacter({
-        character: this.characters[0],
-        method: 'addClass',
-        args: [],
-      })
-    },
-
-    removeClassTest() {
-      const lastIndex = this.characters[0].classes.length - 1
-      this.mutateCharacter({
-        character: this.characters[0],
-        method: 'removeClass',
-        args: [lastIndex],
-      })
-    },
-
-    changeName(name, i) {
-      this.characters[i - 1].name = name
-      this.triggerChangeDetection()
-      setImmediate(() => {
-        this.triggerChangeDetection(true)
-      })
-    },
 
     add() {
-      this.addCharacter()
-      // Vuex's use of the event loop is not well understood
-      // assignment is beating the characters array change detection
-      setImmediate(() => {
+      this.addCharacter().then(() => {
         this.selectedTab = this.characters.length - 1
       })
     },
 
-    longRestAll() {
-      this.characters.forEach(c => {
-        c.longRest()
-      })
-    },
-
     confirmDelete() {
-      this.removeCharacter({ id: this.deleteCharacter.id })
-      this.showDeleteDialog = false
-      this.deleteCharacter = null
-      setImmediate(() => {
+      this.removeCharacter({ id: this.deleteCharacter.id }).then(() => {
         if (this.selectedTab > this.characters.length - 1) {
           this.selectedTab = this.characters.length - 1
         }
+        this.showDeleteDialog = false
+        this.deleteCharacter = null
       })
     },
   },
