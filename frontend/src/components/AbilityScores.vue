@@ -183,7 +183,6 @@
 
 <script>
 import Vue from 'vue'
-import { abilityNames } from '../common/constants'
 import { rollNdS } from '../common/functions'
 import { statNames } from '../common/constants'
 

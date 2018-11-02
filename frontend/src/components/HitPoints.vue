@@ -143,7 +143,7 @@
 
 <script>
 import { hitDice } from '../common/constants'
-import { roll } from '../common/functions'
+import { rollNdS } from '../common/functions'
 
 export default {
   props: ['character'],
