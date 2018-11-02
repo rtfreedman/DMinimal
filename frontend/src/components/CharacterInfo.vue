@@ -8,7 +8,8 @@
         <v-card
           flat
           dark
-          class="text-xs-left ma-2"
+          class="text-xs-left"
+          style="margin: 1px"
         >
           <v-card-text>
             <v-text-field
