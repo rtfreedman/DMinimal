@@ -15,7 +15,7 @@
         <span>ROLL INITIATIVE</span>
       </v-tooltip>
     </v-layout>
-    <v-select
+    <v-autocomplete
       class="border-primary"
       solo
       flat
