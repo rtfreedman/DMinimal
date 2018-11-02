@@ -30,7 +30,7 @@
           <span>EDIT ABILITIES</span>
         </v-tooltip>
       </v-layout>
-      <h3>PROFICIENCY BONUS: {{ character.proficiency }}</h3>
+      <h3>PROFICIENCY BONUS: +{{ getProficiency() }}</h3>
     </v-layout>
     <v-layout
       justify-space-around
@@ -201,13 +201,11 @@ export default {
 
   methods: {
     incrStat(stat, value) {
-      if (value < 20) {
-        this.character.abilityScores[stat]++
-      }
+      this.character.abilityScores[stat]++
     },
 
     decrStat(stat, value) {
-      if (value > 1) {
+      if (value > 0) {
         this.character.abilityScores[stat]--
       }
     },
@@ -218,6 +216,17 @@ export default {
         offset,
         index: this.index,
       })
+    },
+
+    getProficiency() {
+      let totalLevel = 0
+      this.character.classes.forEach(c => {
+        if (c.level) {
+          totalLevel += c.level
+        }
+      })
+      let proficiency = Math.floor(totalLevel / 5) + 2
+      return proficiency
     },
 
     rollStat(stat) {

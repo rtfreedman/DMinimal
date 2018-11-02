@@ -18,7 +18,7 @@ export default {
       spellClass,
       filter,
     }
-    return axios.post('/api/magic/spells', body).then(response => response.data)
+    return axios.get('/api/magic/spells', body).then(response => response.data)
   },
 
   getClasses() {
