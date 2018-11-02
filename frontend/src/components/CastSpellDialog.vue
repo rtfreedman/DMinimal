@@ -146,7 +146,6 @@ export default {
   created() {
     this.retrieveSpells({
       spellClass: this.spellClass.name,
-      filter: '',
     })
   },
 

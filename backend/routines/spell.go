@@ -1,11 +1,11 @@
 package routines
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	"math"
 	"sort"
-	"strconv"
 	"strings"
 	"syscall"
 
@@ -109,29 +109,18 @@ func GetSpellInfo(spell string) (si SpellInfo, err error) {
 }
 
 // SpellList returns a list of all spells
-func SpellList(classes []string) (ret []string, err error) {
-	for i := range classes {
-		// arcane trickster and eldritch knight learn from the wizard school of magic
-		// although there are some restrictions to which schools the spells must come, ultimately there is no
-		// broad restriction preventin them from learning any wizard spell
-		if classes[i] == "Rogue (Arcane Trickster)" || classes[i] == "Fighter (Eldritch Knight)" {
-			classes[i] = "Wizard"
-		}
+func SpellList(class string) (ret []string, err error) {
+	if _, ok := tiers[class]; !ok {
+		err = errors.New("Non-magical class submitted to SpellList API endpoint")
+		return
+	}
+	if class == "Fighter (Eldritch Knight)" || class == "Rogue (Arcane Trickster)" {
+		class = "Wizard"
 	}
 	// form query
-	query := "SELECT name FROM spells WHERE (classes @> ARRAY["
-	var args []interface{}
-	if len(classes) > 0 {
-		for i, class := range classes {
-			query += "$" + strconv.Itoa(i+1) + ","
-			args = append(args, class)
-		}
-		query = query[0 : len(query)-1]
-		query += "])"
-	}
-	fmt.Println(query)
+	query := "SELECT name FROM spells WHERE (classes @> ARRAY[$1])"
 	// search db with constructed query
-	rows, err := db.Query(query, args...)
+	rows, err := db.Query(query, class)
 	if err != nil {
 		return nil, err
 	}

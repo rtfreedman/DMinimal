@@ -14,10 +14,9 @@ export default {
   },
 
   getSpells(spellClass) {
-    const body = {
-      spellClass,
-    }
-    return axios.put('/api/magic/spells', body).then(response => response.data)
+    return axios
+      .get(`/api/magic/spells/${spellClass}`)
+      .then(response => response.data)
   },
 
   getClasses() {
