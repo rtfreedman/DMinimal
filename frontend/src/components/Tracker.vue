@@ -5,7 +5,6 @@
     />
     <app-character-info
       :character="character"
-      @changeName="$emit('changeName', $event)"
     />
     <v-layout>
       <app-initiative :character="character"/>
