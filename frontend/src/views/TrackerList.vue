@@ -1,98 +1,158 @@
 <template>
   <v-container>
-    <v-btn flat @click="addCharacter()">+Character</v-btn>
-    <v-btn @click="longRestAll()" v-if="characters.length > 1" flat color="blue">Long Rest All</v-btn>
-    <v-tabs slider-color="yellow" v-model="selectedTab">
-      <v-tab v-for="c in characters.length" :key="'tab'+c">
-        <span v-if="characters[c - 1].name !== ''">{{shortenName(characters[c - 1].name)}}</span>
-        <span v-if="characters[c - 1].name === ''">Name</span>
-        <v-layout justify-start align-start row ma-1>
+    <v-btn
+      color="primary"
+      flat
+      @click="add"
+      class="ml-0"
+    >Add Character</v-btn>
+    <v-btn
+      v-if="characters.length > 1"
+      @click="longRestAll"
+      flat
+      color="primary"
+    >Long Rest All</v-btn>
+    <v-tabs
+      slider-color="primary"
+      v-model="selectedTab"
+      :hide-slider="hideSlider"
+    >
+      <v-tab
+        v-for="i in characters.length"
+        :key="i"
+      >
+        <span>{{ characters[i - 1].name.split(' ')[0] || 'Name' }}</span>
+        <v-layout justify-start align-start ma-1>
           <span
-            v-if="characters[c - 1].initiative !== null"
-            class="colorText"
-          >{{characters[c - 1].initiative}}</span>
+            v-if="characters[i - 1].initiative"
+            class="primary--text"
+          >({{ characters[i - 1].initiative }})</span>
         </v-layout>
         <v-btn
           v-if="characters.length > 1"
-          @click.stop="deleteCharacter = characters[selectedTab]; deleteDialog = true"
+          @click.stop="deleteCharacter = characters[i - 1]; showDeleteDialog = true"
           icon
+          dark
           small
-          flat
-          color="red"
         >
           <v-icon small>mdi-close</v-icon>
         </v-btn>
       </v-tab>
-      <v-tab-item v-for="c in characters.length" :key="'character' + c">
+      <v-tab-item
+        v-for="i in characters.length"
+        :key="i"
+      >
         <v-card flat>
-          <tracker :id="characters[c - 1].id" :index="selectedTab"></tracker>
+          <app-tracker
+            :character="characters[i - 1]"
+            @changeName="changeName($event, i)"
+          ></app-tracker>
         </v-card>
       </v-tab-item>
     </v-tabs>
-    <v-dialog v-model="deleteDialog" max-width="300">
+    <v-dialog
+      v-if="deleteCharacter"
+      v-model="showDeleteDialog"
+      max-width="300"
+    >
       <v-card>
         <v-card-text>
-          <h2>Are you sure you want to delete
-            <span v-if="deleteCharacter.name !== ''">{{deleteCharacter.name}}</span>
-            <span v-else>unnamed character</span>?
-          </h2>
+          <h2>Are you sure you want to delete {{ deleteCharacter.name || 'this character' }}?</h2>
         </v-card-text>
-        <v-layout column>
-          <v-btn @click="deleteDialog = false; removeCharacter(deleteCharacter)" flat>Yes</v-btn>
-          <v-btn @click="deleteDialog = false;" flat>No</v-btn>
-        </v-layout>
+        <v-card-actions>
+          <v-layout justify-end>
+            <v-btn
+              @click="showDeleteDialog = false; deleteCharacter = null"
+              flat
+            >No</v-btn>
+            <v-btn
+              @click="confirmDelete"
+              color="error"
+              flat
+            >Yes</v-btn>
+          </v-layout>
+        </v-card-actions>
       </v-card>
     </v-dialog>
-    <msg-snackbar/>
+    <app-msg-snackbar/>
+    <pre>
+Characters:
+{{ characters }}
+    </pre>
   </v-container>
 </template>
 
 <script>
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 import Tracker from '@/components/Tracker'
 import MessageSnackbar from '@/components/MessageSnackbar'
+
 export default {
-  name: 'TrackerList',
-  beforeMount() {
-    this.$store.commit('updateClassOpts')
-  },
+  name: 'trackerList',
+
   components: {
-    tracker: Tracker,
-    'msg-snackbar': MessageSnackbar,
+    'app-tracker': Tracker,
+    'app-msg-snackbar': MessageSnackbar,
   },
+
   computed: {
-    characters() {
-      return this.$store.state.characters
-    },
+    ...mapGetters(['characters']),
   },
+
   data() {
     return {
-      deleteDialog: false,
+      showDeleteDialog: false,
       selectedTab: 0,
-      deleteCharacter: '',
+      deleteCharacter: null,
+      hideSlider: false,
     }
   },
+
+  beforeMount() {
+    this.retrieveClassOptions()
+  },
+
   methods: {
-    addCharacter() {
-      this.$store.commit('addCharacter')
-      this.selectedTab = this.characters.length - 1
+    ...mapMutations([
+      'addCharacter',
+      'removeCharacter',
+      'triggerChangeDetection',
+    ]),
+    ...mapActions(['retrieveClassOptions']),
+
+    changeName(name, i) {
+      this.characters[i - 1].name = name
+      this.triggerChangeDetection()
+      setImmediate(() => {
+        this.triggerChangeDetection(true)
+      })
     },
-    shortenName(name) {
-      return name.split(' ')[0]
+
+    add() {
+      this.addCharacter()
+      // Vuex's use of the event loop is not well understood
+      // assignment is beating the characters array change detection
+      setImmediate(() => {
+        this.selectedTab = this.characters.length - 1
+      })
     },
+
     longRestAll() {
-      this.$store.commit('longRestAll')
+      this.characters.forEach(c => {
+        c.longRest()
+      })
     },
-    removeCharacter(c) {
-      this.$store.commit('removeCharacter', c.id)
+
+    confirmDelete() {
+      this.removeCharacter({ id: this.deleteCharacter.id })
+      this.showDeleteDialog = false
+      this.deleteCharacter = null
+      setImmediate(() => {
+        if (this.selectedTab > this.characters.length - 1) {
+          this.selectedTab = this.characters.length - 1
+        }
+      })
     },
   },
 }
 </script>
-
-<style scoped>
-.colorText {
-  color: yellow;
-  vertical-align: super;
-  font-size: 10px;
-}
-</style>

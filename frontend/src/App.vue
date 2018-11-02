@@ -1,32 +1,8 @@
 <template>
   <v-app dark>
-    <v-navigation-drawer
-      persistent
-      mini-variant
-      :clipped="clipped"
-      v-model="drawer"
-      disable-resize-watcher
-      app
-    >
-      <v-list>
-        <v-list-tile value="true" v-for="(item, i) in items" :key="i">
-          <a :href="item.loc">
-            <v-list-tile-action>
-              <v-tooltip right>
-                <v-btn slot="activator" flat icon>
-                  <v-icon v-html="item.icon"></v-icon>
-                </v-btn>
-                <span>{{item.title}}</span>
-              </v-tooltip>
-            </v-list-tile-action>
-          </a>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <v-toolbar app :clipped-left="clipped">
-      <v-toolbar-side-icon @click="drawer=!drawer"></v-toolbar-side-icon>
-      <v-toolbar-title v-text="title"></v-toolbar-title>
-      <v-spacer></v-spacer>
+    <v-toolbar app class="py-2">
+      <img src="./assets/logo.png" alt="">
+      <h1 class="mx-2 mt-3 brand">DMinimal</h1>
     </v-toolbar>
     <v-content>
       <router-view/>
@@ -35,29 +11,26 @@
 </template>
 
 <script>
-// adding a test comment
 export default {
-  data() {
-    return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'bubble_chart',
-          title: 'DMinimal',
-          loc: '/',
-        },
-      ],
-      miniVariant: false,
-      title: 'DMinimal',
-    }
-  },
-  methods: {
-    newpage() {
-      this.drawer = !this.drawer
-    },
-  },
   name: 'App',
 }
 </script>
+
+<style scoped>
+.brand {
+  color: #ccc;
+  font-family: fantasy;
+  font-size: 35px;
+}
+</style>
+
+
+<style>
+.border-primary {
+  border: 1px solid #ffd700;
+}
+
+.border-white {
+  border: 1px solid #ccc;
+}
+</style>

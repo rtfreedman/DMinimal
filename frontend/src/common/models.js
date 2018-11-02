@@ -1,7 +1,11 @@
+import $store from '@/store'
+import { hitDice, classes } from '../common/constants'
+
 export class Class {
-  constructor() {
-    this.classname = 'Bard'
+  constructor(isPrimary, name) {
+    this.name = name
     this.level = 1
+    this.isPrimary = isPrimary || false
     this.slots = {
       1: 0,
       2: 0,
@@ -33,13 +37,15 @@ export class Character {
     this.deathThrows = 0
     this.lifeThrows = 0
     this.initiative = null
-    this.hitpoints = 1
-    this.maxHitpoints = 1
+    this.hitPoints = 1
+    this.maxHitPoints = 1
     this.name = ''
     this.proficiency = 0
     this.rollHealth = true
     this.concentrating = ''
-    this.classes = [new Class()]
+    this.good = null // -1 evil, 0 neutral, 1 good
+    this.lawful = null // -1 chaotic, 0 neutral, 1 lawful
+    this.classes = [new Class(true, 'Bard')]
     this.abilityScores = {
       STR: 10,
       INT: 10,
@@ -48,5 +54,105 @@ export class Character {
       CON: 10,
       CHR: 10,
     }
+    this.customAbilityOffsets = {
+      STR: 0,
+      INT: 0,
+      WIS: 0,
+      DEX: 0,
+      CON: 0,
+      CHR: 0,
+    }
+  }
+
+  setSlots(index, name, slots) {
+    const cl = this.classes[index]
+    cl.name = name
+    cl.slots = slots
+    cl.workingSlots = Object.assign({}, slots)
+  }
+
+  longRest() {
+    if (this.hitPoints === 0) {
+      // you cannot gain the benefits of a long rest at 0 hitpoints
+      $store.commit('showSnackbar', {
+        message: `${
+          this.name
+        } cannot gain the benefits of a long rest at 0 HP.`,
+      })
+      return
+    }
+    this.hitPoints = this.maxHitPoints
+    this.classes.forEach(c => {
+      c.workingSlots = Object.assign({}, c.slots)
+    })
+  }
+
+  addClass() {
+    // no more than 10 classes
+    if (this.classes.length > 10) {
+      // TBD snackbar error
+      return
+    }
+
+    // default to next available class type
+    const existingClassNames = this.classes.map(c => c.name)
+    const nextClass = classes.find(c => !existingClassNames.includes(c))
+    const newClass = new Class(false, nextClass)
+    this.classes.push(newClass)
+    return newClass
+  }
+
+  removeClass(index) {
+    this.classes.splice(index, 1)
+  }
+
+  setProficiencyBonus() {
+    let totalLevel = 0
+    this.classes.forEach(c => {
+      if (c.level) {
+        totalLevel += c.level
+      }
+    })
+    this.proficiency = Math.floor(totalLevel / 5) + 2
+  }
+
+  levelUp(newLevel, classIndex) {
+    const affectedClass = this.classes[classIndex]
+    let levelOffset = newLevel - affectedClass.level
+
+    // update max hit points
+    if (affectedClass.isPrimary && affectedClass.level === 0) {
+      this.maxHitPoints = Math.floor(
+        this.maxHitPoints +
+          hitDice[affectedClass.name] +
+          (this.abilityScores.CON - 10) / 2,
+      )
+      levelOffset -= 1
+    }
+
+    const constitutionModifier = (this.abilityScores.CON - 10) / 2
+
+    if (this.rollHealth) {
+      // update max hit points for roll case
+      const roll = Math.random(hitDice[affectedClass.name] - 1) + 1
+
+      this.maxHitPoints = Math.floor(
+        levelOffset * (this.maxHitPoints + roll + constitutionModifier),
+      )
+    } else {
+      // update max hit points for average case
+      this.maxHitPoints =
+        levelOffset *
+        (this.maxHitPoints +
+          Math.ceil(hitDice[affectedClass.name] / 2) +
+          constitutionModifier)
+    }
+
+    this.setProficiencyBonus()
+  }
+
+  getModifier(stat) {
+    const total = this.abilityScores[stat] + this.customAbilityOffsets[stat]
+    return Math.floor((total - 10) / 2)
   }
 }
