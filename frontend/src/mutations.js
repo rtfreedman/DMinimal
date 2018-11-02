@@ -1,6 +1,13 @@
 import { Character } from './common/models'
 
 export default {
+  // wrapper for a Character class method
+  mutateCharacter(state, { character, method, args }) {
+    character[method](...args)
+    const i = state.characters.findIndex(c => c.id === character.id)
+    state.characters.splice(i, 1, character)
+  },
+
   // set application state on restore action
   setState(state, retrievedState) {
     state = retrievedState
