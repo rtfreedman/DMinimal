@@ -19,12 +19,12 @@ export default {
       .catch(handleError)
   },
 
-  retrieveSpells({ commit }, { spellClass, filter }) {
+  retrieveSpells({ commit }, { spellClass }) {
     magicAPI
-      .getSpells(spellClass, filter)
+      .getSpells(spellClass)
       .then(data => {
         commit('setSpells', {
-          spells: data.spells,
+          spells: data.spellOpts,
           spellClass,
         })
       })

@@ -10,8 +10,8 @@ import (
 
 // SetupSpells sets up the handler funcs for API requests for the /magic/ location
 func SetupSpells(r *mux.Router) {
-	r.HandleFunc("/api/magic/spells/{spellname}", getSpellInformation).Methods("GET")
-	r.HandleFunc("/api/magic/spells", getSpellList).Methods("GET")
+	r.HandleFunc("/api/magic/spell/{spellname}", getSpellInformation).Methods("GET")
+	r.HandleFunc("/api/magic/spells/{class}", getSpellList).Methods("GET")
 	r.HandleFunc("/api/magic/slots", getSpellSlots).Methods("POST")
 	r.HandleFunc("/api/magic/classes", getClasses).Methods("GET")
 }
@@ -31,13 +31,18 @@ func getSpellInformation(w http.ResponseWriter, r *http.Request) {
 }
 
 func getSpellList(w http.ResponseWriter, r *http.Request) {
-	spells, err := routines.SpellList()
+	vars := mux.Vars(r)
+	if _, ok := vars["class"]; !ok {
+		util.WriteError("No spellname supplied", w)
+		return
+	}
+	spellOpts, err := routines.SpellList(vars["class"])
 	if err != nil {
 		util.WriteError(err.Error(), w)
 		return
 	}
 	util.WriteJSONResponse("getSearch", map[string][]string{
-		"spellOpts": spells,
+		"spellOpts": spellOpts,
 	}, w)
 	return
 }

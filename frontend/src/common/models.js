@@ -40,7 +40,6 @@ export class Character {
     this.hitPoints = 1
     this.maxHitPoints = 1
     this.name = ''
-    this.proficiency = 0
     this.rollHealth = true
     this.concentrating = ''
     this.good = null // -1 evil, 0 neutral, 1 good
@@ -106,16 +105,6 @@ export class Character {
     this.classes.splice(index, 1)
   }
 
-  setProficiencyBonus() {
-    let totalLevel = 0
-    this.classes.forEach(c => {
-      if (c.level) {
-        totalLevel += c.level
-      }
-    })
-    this.proficiency = Math.floor(totalLevel / 5) + 2
-  }
-
   levelUp(newLevel, classIndex) {
     const affectedClass = this.classes[classIndex]
     let levelOffset = newLevel - affectedClass.level
@@ -147,8 +136,6 @@ export class Character {
           Math.ceil(hitDice[affectedClass.name] / 2) +
           constitutionModifier)
     }
-
-    this.setProficiencyBonus()
   }
 
   getModifier(stat) {

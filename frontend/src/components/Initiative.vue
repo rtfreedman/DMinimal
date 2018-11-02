@@ -15,11 +15,11 @@
         <span>ROLL INITIATIVE</span>
       </v-tooltip>
     </v-layout>
-    <v-select
+    <v-autocomplete
       class="border-primary"
       solo
       flat
-      :items="oneToTwenty"
+      :items="initiativeRange"
       v-model="character.initiative"
       clearable
       @change="fixTabWidth"
@@ -32,7 +32,7 @@
 
 <script>
 import { mapMutations } from 'vuex'
-import { oneToTwenty, rollNdS } from '../common/functions'
+import { initiativeRange, rollNdS } from '../common/functions'
 
 export default {
   name: 'initiative',
@@ -41,7 +41,7 @@ export default {
 
   data() {
     return {
-      oneToTwenty: oneToTwenty(),
+      initiativeRange: initiativeRange(),
     }
   },
 
