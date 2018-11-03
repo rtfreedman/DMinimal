@@ -2,12 +2,12 @@
   <v-card>
     <app-character-actions
       :character="character"
+      @characterRemoved="$emit('characterRemoved')"
     />
-    <app-character-info
+    <app-character-info class="mb-2"
       :character="character"
-      @changeName="$emit('changeName', $event)"
     />
-    <v-layout>
+    <v-layout mb-2>
       <app-initiative :character="character"/>
       <app-hit-points :character="character"/>
     </v-layout>

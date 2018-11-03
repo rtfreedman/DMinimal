@@ -1,3 +1,14 @@
+-- ryan REALLY doesn't like capitalizing his SQL keywords
+
+drop table if exists spells;
+drop table if exists users;
+drop table if exists userinfo;
+drop table if exists monsters;
+drop table if exists reactions;
+drop table if exists legendary_actions;
+drop table if exists special_abilities;
+drop table if exists actions;
+
 create table spells (id serial primary key,
 	range text,
 	school text,

@@ -8,7 +8,7 @@
           icon
           flat
           slot="activator"
-          @click="character.longRest()"
+          @click="dispatchLongRest(character)"
         >
           <v-icon>hotel</v-icon>
         </v-btn>
@@ -20,7 +20,7 @@
           icon
           flat
           slot="activator"
-          @click="shortRest()"
+          @click="showShortRestDialog = true"
         >
           <v-icon>restore</v-icon>
         </v-btn>
@@ -28,7 +28,7 @@
       </v-tooltip>
       <v-tooltip bottom>
         <v-btn
-          :disabled="!character.concentrating"
+          :disabled="!character.concentratingOn"
           @click="showConcentrationDialog = true"
           color="primary"
           icon
@@ -44,99 +44,102 @@
           v-if="!character.concentrating || character.concentrating === ''"
         >Not currently concentrating</span>
       </v-tooltip>
+      <v-spacer></v-spacer>
+      <v-tooltip bottom>
+        <v-btn
+          v-if="characters.length > 1"
+          @click="showRemoveCharacterDialog = true"
+          color="primary"
+          slot="activator"
+          icon
+          flat
+        >
+          <v-icon>delete</v-icon>
+        </v-btn>
+        <span>REMOVE CHARACTER</span>
+      </v-tooltip>
     </v-toolbar>
-    <!-- concentrating dialog -->
-    <v-dialog
+    <!-- short rest dialog -->
+    <v-dialog v-model="showShortRestDialog">
+      <app-short-rest-dialog
+        :character="character"
+        @close="showShortRestDialog = false"
+      />
+    </v-dialog>
+    <!-- confirm cease concentration dialog -->
+    <!-- <v-dialog
       v-model="showConcentrationDialog"
       max-width="300"
     >
-      <v-card>
-        <v-card-text>
-          <h2>Stop Concentrating on {{ character.concentrating }}?</h2>
-        </v-card-text>
-        <v-layout column>
-          <v-btn
-            @click="showConcentrationDialog = false; stopConcentrating()"
-            flat
-            color="primary"
-          >Yes</v-btn>
-          <v-btn
-            @click="showConcentrationDialog = false;"
-            flat
-            color="primary"
-          >No</v-btn>
-        </v-layout>
-      </v-card>
-    </v-dialog>
+      <app-concentration-dialog
+        :character="character"
+        @close="showConcentrationDialog = false"
+      />
+    </v-dialog>-->
+    <app-confirm-dialog
+      :show="showConcentrationDialog"
+      okColor="error"
+      @ok="dispatchConcentrate({ character, spellName: '' })"
+      @close="showConcentrationDialog = false"
+    >
+      <h3 slot="title">CEASE CONCENTRATION</h3>
+      <h3
+        slot="text"
+      >Cease concentration on {{ character.concentratingOn }}?</h3>
+      <span slot="ok">Yes</span>
+    </app-confirm-dialog>
+    <!-- confirm remove character dialog -->
+    <app-confirm-dialog
+      :show="showRemoveCharacterDialog"
+      okColor="error"
+      @ok="confirmDelete"
+      @close="showRemoveCharacterDialog = false"
+    >
+      <h3 slot="title">REMOVE CHARACTER</h3>
+      <h3
+        slot="text"
+      >Are you sure you want to remove this character? This cannot be undone.</h3>
+      <span slot="ok">Remove</span>
+    </app-confirm-dialog>
   </v-container>
 </template>
 
 <script>
-import { hitDice } from '../common/constants'
+import { mapGetters, mapActions } from 'vuex'
+import ShortRestDialog from './ShortRestDialog'
+import ConfirmDialog from './ConfirmDialog'
 
 export default {
+  components: {
+    'app-short-rest-dialog': ShortRestDialog,
+    'app-confirm-dialog': ConfirmDialog,
+  },
+
   props: ['character'],
+
+  computed: {
+    ...mapGetters(['characters']),
+  },
 
   data() {
     return {
       showConcentrationDialog: false,
-      shortRestDie: {},
+      showShortRestDialog: false,
+      showRemoveCharacterDialog: false,
     }
   },
 
   methods: {
-    resetCharacter() {
-      for (const c in this.character.classes) {
-        this.$store.commit('updateSlots', {
-          charIndex: this.index,
-          classIndex: c,
-        })
-      }
-    },
+    ...mapActions([
+      'dispatchLongRest',
+      'dispatchRemoveCharacter',
+      'dispatchConcentrate',
+    ]),
 
-    performShortRest() {
-      let restoredHealth = 0
-      for (const a in this.shortRestDie) {
-        restoredHealth += Math.floor(Math.random() * this.shortRestDie[a])
-      }
-      this.character.hitPoints += restoredHealth
-      this.$store.commit('hideSnackbar')
-    },
-
-    shortRest() {
-      const acc = {}
-      for (const c in this.character.classes) {
-        if (
-          hitDice.hasOwnProperty(this.character.classes[c].name.split(' ')[0])
-        ) {
-          continue
-        }
-        const hitDie = hitDice[this.character.classes[c].name.split(' ')[0]]
-        if (!acc.hasOwnProperty(hitDie)) {
-          acc[hitDie] = 0
-        }
-        acc[hitDie] += this.character.classes[c].level
-      }
-      let message = []
-      this.shortRestDie = []
-      for (const k in acc) {
-        message.push(acc[k].toString() + 'd' + k.toString())
-        this.shortRestDie.push.apply(
-          this.shortRestDie,
-          new Array(acc[k]).fill(k),
-        )
-      }
-      message = 'Restore ' + message.join(', ')
-      this.$store.commit('showSnackbar', {
-        color: 'green',
-        message,
-        func: this.performShortRest,
-        buttonMessage: 'Roll',
+    confirmDelete() {
+      this.dispatchRemoveCharacter({ id: this.character.id }).then(() => {
+        this.$emit('characterRemoved')
       })
-    },
-
-    stopConcentrating() {
-      this.$store.commit('stopConcentrating', this.index)
     },
   },
 }
