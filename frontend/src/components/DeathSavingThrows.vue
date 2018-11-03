@@ -58,8 +58,8 @@ export default {
         console.log(val)
         this.$store.commit('mutateCharacter', {
           character: this.character,
-          method: 'dying',
-          args: [],
+          method: 'setDeathThrows',
+          args: [val],
         })
       },
     },
@@ -71,8 +71,8 @@ export default {
         console.log(val)
         this.$store.commit('mutateCharacter', {
           character: this.character,
-          method: 'living',
-          args: [],
+          method: 'setLifeThrows',
+          args: [val],
         })
       },
     },

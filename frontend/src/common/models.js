@@ -85,12 +85,12 @@ export class Character {
     this.maxHitPoints = value
   }
 
-  dying() {
-    this.deathThrows += 1
+  setDeathThrows(val) {
+    this.deathThrows = val
   }
 
-  living() {
-    this.lifeThrows += 1
+  setLifeThrows(val) {
+    this.lifeThrows = val
   }
 
   die() {
