@@ -71,6 +71,10 @@ export class Character {
   }
 
   setHealth(value) {
+    if (parseInt(value) !== 0) {
+      this.lifeThrows = 0
+      this.deathThrows = 0
+    }
     if (parseInt(value) > parseInt(this.maxHitPoints)) {
       value = this.maxHitPoints
     }

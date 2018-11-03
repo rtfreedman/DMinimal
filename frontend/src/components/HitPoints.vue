@@ -301,9 +301,10 @@ export default {
       return true
     },
     resurrect() {
-      this.$store.commit('setHP', {
-        charIndex: this.charIndex,
-        hitpoints: 1,
+      this.$store.commit('mutateCharacter', {
+        character: this.character,
+        method: 'setHealth',
+        args: [1],
       })
       this.$store.commit('hideSnackbar')
     },
