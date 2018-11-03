@@ -44,6 +44,20 @@
           v-if="!character.concentrating || character.concentrating === ''"
         >Not currently concentrating</span>
       </v-tooltip>
+      <v-spacer></v-spacer>
+      <v-tooltip bottom>
+        <v-btn
+          v-if="characters.length > 1"
+          @click="showRemoveCharacterDialog = true"
+          color="primary"
+          slot="activator"
+          icon
+          flat
+        >
+          <v-icon>delete</v-icon>
+        </v-btn>
+        <span>REMOVE CHARACTER</span>
+      </v-tooltip>
     </v-toolbar>
     <!-- short rest dialog -->
     <v-dialog v-model="showShortRestDialog">
@@ -52,8 +66,8 @@
         @close="showShortRestDialog = false"
       />
     </v-dialog>
-    <!-- concentrating dialog -->
-    <v-dialog
+    <!-- confirm cease concentration dialog -->
+    <!-- <v-dialog
       v-model="showConcentrationDialog"
       max-width="300"
     >
@@ -61,37 +75,71 @@
         :character="character"
         @close="showConcentrationDialog = false"
       />
-    </v-dialog>
+    </v-dialog>-->
+    <app-confirm-dialog
+      :show="showConcentrationDialog"
+      okColor="error"
+      @ok="dispatchConcentrate({ character, spellName: '' })"
+      @close="showConcentrationDialog = false"
+    >
+      <h3 slot="title">CEASE CONCENTRATION</h3>
+      <h3
+        slot="text"
+      >Cease concentration on {{ character.concentratingOn }}?</h3>
+      <span slot="ok">Yes</span>
+    </app-confirm-dialog>
+    <!-- confirm remove character dialog -->
+    <app-confirm-dialog
+      :show="showRemoveCharacterDialog"
+      okColor="error"
+      @ok="confirmDelete"
+      @close="showRemoveCharacterDialog = false"
+    >
+      <h3 slot="title">REMOVE CHARACTER</h3>
+      <h3
+        slot="text"
+      >Are you sure you want to remove this character? This cannot be undone.</h3>
+      <span slot="ok">Remove</span>
+    </app-confirm-dialog>
   </v-container>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
-import { hitDice } from '../common/constants'
+import { mapGetters, mapActions } from 'vuex'
 import ShortRestDialog from './ShortRestDialog'
-import ConcentrationDialog from './ConcentrationDialog'
+import ConfirmDialog from './ConfirmDialog'
 
 export default {
   components: {
     'app-short-rest-dialog': ShortRestDialog,
-    'app-concentration-dialog': ConcentrationDialog,
+    'app-confirm-dialog': ConfirmDialog,
   },
 
   props: ['character'],
 
+  computed: {
+    ...mapGetters(['characters']),
+  },
+
   data() {
     return {
       showConcentrationDialog: false,
-      shortRestDie: {},
       showShortRestDialog: false,
+      showRemoveCharacterDialog: false,
     }
   },
 
   methods: {
-    ...mapActions(['dispatchLongRest']),
+    ...mapActions([
+      'dispatchLongRest',
+      'dispatchRemoveCharacter',
+      'dispatchConcentrate',
+    ]),
 
-    stopConcentrating() {
-      this.$store.commit('stopConcentrating', this.index)
+    confirmDelete() {
+      this.dispatchRemoveCharacter({ id: this.character.id }).then(() => {
+        this.$emit('characterRemoved')
+      })
     },
   },
 }
