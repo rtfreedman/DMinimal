@@ -21,11 +21,14 @@
       style="height: 50px; max-width: 120px"
     >
       <v-layout justify-center align-center>
-        <h1>{{ character.hitPoints }}</h1>
-        <h4
-          class="mx-1"
-          style="margin-top: 8px"
-        >/ {{ character.maxHitPoints }}</h4>
+        <v-text-field
+          class="hp"
+          solo
+          flat
+          height="10px"
+          :value="character.hitPoints"
+          v-model="localHitPoints"
+          type="number"/>
       </v-layout>
     </v-layout>
     <!-- dialog -->
@@ -90,7 +93,7 @@
                 reverse
                 :rules="[lessThanOrEqualToMax, mustBeNum, minNum]"
                 label="HP"
-                v-model="character.hitPoints"
+                v-model="localHitPoints"
               />
             </v-flex>
           </v-layout>
@@ -105,7 +108,7 @@
                 reverse
                 :rules="[mustBeNum, minNum]"
                 label="Max HP"
-                v-model="character.maxHitPoints"
+                v-model="localMaxHitPoints"
               />
             </v-flex>
           </v-layout>
@@ -150,12 +153,43 @@ export default {
 
   data() {
     return {
-      localHitPoints: this.character.hitPoints,
       offset: '0',
       showHitPointDialog: false,
     }
   },
-
+  computed: {
+    localHitPoints: {
+      get() {
+        return this.character.hitPoints
+      },
+      set(value) {
+        console.log(value)
+        if (parseInt(value) > parseInt(this.character.maxHitPoints)) {
+          value = this.character.maxHitPoints
+        }
+        if (value < 0) {
+          value = 0
+        }
+        this.$store.commit('mutateCharacter', {
+          character: this.character,
+          method: 'setHealth',
+          args: [value],
+        })
+      },
+    },
+    localMaxHitPoints: {
+      get() {
+        return this.character.maxHitPoints
+      },
+      set(value) {
+        this.$store.commit('mutateCharacter', {
+          character: this.character,
+          method: 'setMaxHealth',
+          args: [value],
+        })
+      },
+    },
+  },
   methods: {
     getHealth(roll) {
       if (this.character.classes.length === 0) {
@@ -203,7 +237,7 @@ export default {
         return
       }
 
-      if (this.hitPoints <= 0 && this.deathThrows === 3) {
+      if (this.localHitPoints <= 0 && this.character.deathThrows == 3) {
         this.$store.commit('showSnackbar', {
           color: 'black',
           message: 'You cannot heal death',
@@ -212,45 +246,41 @@ export default {
         })
         return
       }
-
-      this.character.hitPoints = this.$store.commit('setHP', {
-        charIndex: this.charIndex,
-        hitpoints: parseInt(this.hitPoints) + parseInt(this.offset),
-      })
+      this.localHitPoints += parseInt(this.offset)
     },
 
     hurt() {
-      if (isNaN(parseInt(this.hitPoints)) || isNaN(parseInt(this.offset))) {
+      if (isNaN(parseInt(this.localHitPoints)) || isNaN(parseInt(this.offset))) {
         return
       }
       if (parseInt(this.offset) === 0) {
         return
       }
-      if (this.hitPoints <= 0 && this.deathThrows < 3) {
-        this.$store.commit('setDeathThrows', {
-          charIndex: this.charIndex,
-          throwVal: this.deathThrows + 1,
+      if (this.localHitPoints <= 0 && this.deathThrows < 3) {
+        this.$store.commit('mutateCharacter', {
+          character: this.character,
+          method: 'dying',
+          args: [],
         })
         return
       }
-      let newHP = parseInt(this.hitPoints) - parseInt(this.offset)
+      let newHP = parseInt(this.localHitPoints) - parseInt(this.offset)
       if (
         parseInt(this.offset) >=
-        parseInt(this.hitPoints) + parseInt(this.maxHitPoints)
+        parseInt(this.localHitPoints) + parseInt(this.localMaxHitPoints)
       ) {
-        this.$store.commit('setDeathThrows', {
-          charIndex: this.charIndex,
-          throwVal: 3,
+        this.$store.commit('mutateCharacter', {
+          character: this.character,
+          method: 'die',
+          args: [],
         })
         newHP = 0
       }
-      this.$store.commit('setHP', {
-        charIndex: this.charIndex,
-        hitpoints: newHP,
-      })
+      this.localHitPoints = newHP
     },
+
     lessThanOrEqualToMax(val) {
-      if (parseInt(val) > this.maxHitPoints) {
+      if (parseInt(val) > this.localMaxHitPoints) {
         return 'HP must be less than Max HP'
       }
       return true
@@ -271,12 +301,22 @@ export default {
       return true
     },
     resurrect() {
-      this.$store.commit('setHP', {
-        charIndex: this.charIndex,
-        hitpoints: 1,
+      this.$store.commit('mutateCharacter', {
+        character: this.character,
+        method: 'setHealth',
+        args: [1],
       })
       this.$store.commit('hideSnackbar')
     },
   },
 }
 </script>
+
+
+<style lang="css" scoped>
+.hp {
+  margin-top: 28px;
+  font-size: 2em;
+  font-weight: bold;
+}
+</style>
