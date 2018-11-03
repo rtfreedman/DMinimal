@@ -35,8 +35,8 @@ export default {
       .catch(handleError)
   },
 
-  dispatchAddCharacter({ commit }) {
-    commit('addCharacter')
+  dispatchAddCharacter({ commit }, name) {
+    commit('addCharacter', name)
     // then save
     return new Promise(resolve => {
       setImmediate(() => {

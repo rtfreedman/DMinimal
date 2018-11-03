@@ -14,8 +14,8 @@ export default {
   },
 
   // character mutations
-  addCharacter(state) {
-    state.characters.push(new Character(state.nextCharacterId++))
+  addCharacter(state, name) {
+    state.characters.push(new Character(state.nextCharacterId++, name))
   },
 
   removeCharacter(state, { id }) {

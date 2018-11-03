@@ -2,6 +2,7 @@
   <v-card>
     <app-character-actions
       :character="character"
+      @characterRemoved="$emit('characterRemoved')"
     />
     <app-character-info
       :character="character"

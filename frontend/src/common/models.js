@@ -1,14 +1,14 @@
 import { hitDice, classes } from '../common/constants'
 
 export class Character {
-  constructor(id) {
+  constructor(id, name) {
     this.id = id
     this.deathThrows = 0
     this.lifeThrows = 0
     this.initiative = null
     this.hitPoints = 1
     this.maxHitPoints = 1
-    this.name = ''
+    this.name = name || 'Leroy Jenkins'
     this.rollHealth = true
     this.concentratingOn = ''
     this.good = null // -1 evil, 0 neutral, 1 good
