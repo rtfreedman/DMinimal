@@ -4,10 +4,10 @@
       :character="character"
       @characterRemoved="$emit('characterRemoved')"
     />
-    <app-character-info
+    <app-character-info class="mb-2"
       :character="character"
     />
-    <v-layout>
+    <v-layout mb-2>
       <app-initiative :character="character"/>
       <app-hit-points :character="character"/>
     </v-layout>

@@ -117,6 +117,18 @@ export default {
     // then save
   },
 
+  dispatchSetInitiative({ commit }, { character, initiative }) {
+    commit('mutateCharacter', {
+      character,
+      method: 'setInitiative',
+      args: [initiative],
+    })
+    commit('triggerChangeDetection')
+    setImmediate(() => {
+      commit('triggerChangeDetection', true)
+    })
+  },
+
   // THE LINE
 
   retrieveSpells({ commit }, { spellClass }) {

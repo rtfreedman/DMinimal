@@ -17,6 +17,7 @@
         label="Name"
         v-model="name"
         autofocus
+        @keyup.enter="name ? $emit('addCharacter', name) : () => {}"
       />
     </v-card-text>
     <v-layout justify-end pb-1>

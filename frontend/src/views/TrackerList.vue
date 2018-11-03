@@ -24,7 +24,7 @@
           <span>{{ characters[i - 1].name.split(' ')[0] || 'Name' }}</span>
           <span
             v-if="characters[i - 1].initiative"
-            class="primary--text"
+            class="primary--text ml-2"
           >({{ characters[i - 1].initiative }})</span>
         </v-layout>
       </v-tab>
