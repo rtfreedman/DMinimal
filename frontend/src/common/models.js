@@ -70,6 +70,25 @@ export class Character {
     cl.workingSlots = Object.assign({}, slots)
   }
 
+  setHealth(value) {
+    if (parseInt(value) > parseInt(this.maxHitPoints)) {
+      value = this.maxHitPoints
+    }
+    this.hitPoints = value
+  }
+
+  setMaxHealth(value) {
+    this.maxHitPoints = value
+  }
+
+  dying() {
+    this.deathThrows += 1
+  }
+
+  die() {
+    this.deathThrows = 3
+  }
+
   longRest() {
     if (this.hitPoints === 0) {
       // you cannot gain the benefits of a long rest at 0 hitpoints

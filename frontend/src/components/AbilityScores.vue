@@ -200,7 +200,7 @@ export default {
   },
 
   methods: {
-    incrStat(stat, value) {
+    incrStat(stat) {
       this.character.abilityScores[stat]++
     },
 
@@ -225,8 +225,7 @@ export default {
           totalLevel += c.level
         }
       })
-      let proficiency = Math.floor(totalLevel / 5) + 2
-      return proficiency
+      return Math.floor(totalLevel / 5) + 2
     },
 
     rollStat(stat) {
