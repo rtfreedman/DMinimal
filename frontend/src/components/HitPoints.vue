@@ -237,7 +237,7 @@ export default {
         return
       }
 
-      if (this.localHitPoints <= 0 && this.deathThrows === 3) {
+      if (this.localHitPoints <= 0 && this.character.deathThrows == 3) {
         this.$store.commit('showSnackbar', {
           color: 'black',
           message: 'You cannot heal death',

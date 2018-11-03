@@ -85,6 +85,10 @@ export class Character {
     this.deathThrows += 1
   }
 
+  living() {
+    this.lifeThrows += 1
+  }
+
   die() {
     this.deathThrows = 3
   }
