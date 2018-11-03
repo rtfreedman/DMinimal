@@ -143,6 +143,10 @@ export class Character {
     const total = this.abilityScores[stat] + this.customAbilityOffsets[stat]
     return Math.floor((total - 10) / 2)
   }
+
+  setInitiative(initiative) {
+    this.initiative = initiative
+  }
 }
 
 export class Class {

@@ -20,10 +20,9 @@
       solo
       flat
       :items="initiativeRange"
-      v-model="character.initiative"
+      v-model="initiative"
       clearable
-      @change="fixTabWidth"
-      @click:prepend-inner="rollInitiative"
+      @change="dispatchSetInitiative({ character, initiative })"
       style="width: 120px; font-size: 28px; font-weight: bold;"
       hide-details
     />
@@ -31,7 +30,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 import { oneToN, rollNdS } from '../common/functions'
 
 export default {
@@ -41,25 +40,19 @@ export default {
 
   data() {
     return {
+      initiative: this.character.initiative,
       initiativeRange: oneToN(50),
     }
   },
 
   methods: {
-    ...mapMutations(['triggerChangeDetection']),
+    ...mapActions(['dispatchSetInitiative']),
 
     rollInitiative() {
-      const dexModifier = Math.floor(
-        (this.character.abilityScores.DEX - 10) / 2,
-      )
-      this.character.initiative = dexModifier + rollNdS(1, 20)
-      this.fixTabWidth()
-    },
-
-    fixTabWidth() {
-      this.triggerChangeDetection()
-      setImmediate(() => {
-        this.triggerChangeDetection(true)
+      this.initiative = this.character.getModifier('DEX') + rollNdS(1, 20)
+      this.dispatchSetInitiative({
+        character: this.character,
+        initiative: this.initiative,
       })
     },
   },
