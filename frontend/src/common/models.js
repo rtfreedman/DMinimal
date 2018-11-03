@@ -1,35 +1,5 @@
 import { hitDice, classes } from '../common/constants'
 
-export class Class {
-  constructor(isPrimary, name) {
-    this.name = name
-    this.level = 1
-    this.isPrimary = isPrimary || false
-    this.slots = {
-      1: 0,
-      2: 0,
-      3: 0,
-      4: 0,
-      5: 0,
-      6: 0,
-      7: 0,
-      8: 0,
-      9: 0,
-    }
-    this.workingSlots = {
-      1: 0,
-      2: 0,
-      3: 0,
-      4: 0,
-      5: 0,
-      6: 0,
-      7: 0,
-      8: 0,
-      9: 0,
-    }
-  }
-}
-
 export class Character {
   constructor(id) {
     this.id = id
@@ -40,7 +10,7 @@ export class Character {
     this.maxHitPoints = 1
     this.name = ''
     this.rollHealth = true
-    this.concentrating = ''
+    this.concentratingOn = ''
     this.good = null // -1 evil, 0 neutral, 1 good
     this.lawful = null // -1 chaotic, 0 neutral, 1 lawful
     this.classes = [new Class(true, 'Bard')]
@@ -60,6 +30,10 @@ export class Character {
       CON: 0,
       CHR: 0,
     }
+  }
+
+  concentrateOn(spellName) {
+    this.concentratingOn = spellName
   }
 
   updateInfo(updates) {
@@ -107,6 +81,10 @@ export class Character {
     this.classes.forEach(c => {
       c.workingSlots = Object.assign({}, c.slots)
     })
+  }
+
+  shortRest(recoveredHitPoints) {
+    this.hitPoints += recoveredHitPoints
   }
 
   addClass() {
@@ -164,5 +142,36 @@ export class Character {
   getModifier(stat) {
     const total = this.abilityScores[stat] + this.customAbilityOffsets[stat]
     return Math.floor((total - 10) / 2)
+  }
+}
+
+export class Class {
+  constructor(isPrimary, name) {
+    this.name = name
+    this.level = 1
+    this.isPrimary = isPrimary || false
+    this.slots = {
+      1: 0,
+      2: 0,
+      3: 0,
+      4: 0,
+      5: 0,
+      6: 0,
+      7: 0,
+      8: 0,
+      9: 0,
+    }
+    this.workingSlots = {
+      1: 0,
+      2: 0,
+      3: 0,
+      4: 0,
+      5: 0,
+      6: 0,
+      7: 0,
+      8: 0,
+      9: 0,
+    }
+    this.availableHitDice = []
   }
 }

@@ -8,7 +8,7 @@
           icon
           flat
           slot="activator"
-          @click="character.longRest()"
+          @click="dispatchLongRest(character)"
         >
           <v-icon>hotel</v-icon>
         </v-btn>
@@ -20,7 +20,7 @@
           icon
           flat
           slot="activator"
-          @click="shortRest()"
+          @click="showShortRestDialog = true"
         >
           <v-icon>restore</v-icon>
         </v-btn>
@@ -28,7 +28,7 @@
       </v-tooltip>
       <v-tooltip bottom>
         <v-btn
-          :disabled="!character.concentrating"
+          :disabled="!character.concentratingOn"
           @click="showConcentrationDialog = true"
           color="primary"
           icon
@@ -45,95 +45,50 @@
         >Not currently concentrating</span>
       </v-tooltip>
     </v-toolbar>
+    <!-- short rest dialog -->
+    <v-dialog v-model="showShortRestDialog">
+      <app-short-rest-dialog
+        :character="character"
+        @close="showShortRestDialog = false"
+      />
+    </v-dialog>
     <!-- concentrating dialog -->
     <v-dialog
       v-model="showConcentrationDialog"
       max-width="300"
     >
-      <v-card>
-        <v-card-text>
-          <h2>Stop Concentrating on {{ character.concentrating }}?</h2>
-        </v-card-text>
-        <v-layout column>
-          <v-btn
-            @click="showConcentrationDialog = false; stopConcentrating()"
-            flat
-            color="primary"
-          >Yes</v-btn>
-          <v-btn
-            @click="showConcentrationDialog = false;"
-            flat
-            color="primary"
-          >No</v-btn>
-        </v-layout>
-      </v-card>
+      <app-concentration-dialog
+        :character="character"
+        @close="showConcentrationDialog = false"
+      />
     </v-dialog>
   </v-container>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import { hitDice } from '../common/constants'
+import ShortRestDialog from './ShortRestDialog'
+import ConcentrationDialog from './ConcentrationDialog'
 
 export default {
+  components: {
+    'app-short-rest-dialog': ShortRestDialog,
+    'app-concentration-dialog': ConcentrationDialog,
+  },
+
   props: ['character'],
 
   data() {
     return {
       showConcentrationDialog: false,
       shortRestDie: {},
+      showShortRestDialog: false,
     }
   },
 
   methods: {
-    resetCharacter() {
-      for (const c in this.character.classes) {
-        this.$store.commit('updateSlots', {
-          charIndex: this.index,
-          classIndex: c,
-        })
-      }
-    },
-
-    performShortRest() {
-      let restoredHealth = 0
-      for (const a in this.shortRestDie) {
-        restoredHealth += Math.floor(Math.random() * this.shortRestDie[a])
-      }
-      this.character.hitPoints += restoredHealth
-      this.$store.commit('hideSnackbar')
-    },
-
-    shortRest() {
-      const acc = {}
-      for (const c in this.character.classes) {
-        if (
-          hitDice.hasOwnProperty(this.character.classes[c].name.split(' ')[0])
-        ) {
-          continue
-        }
-        const hitDie = hitDice[this.character.classes[c].name.split(' ')[0]]
-        if (!acc.hasOwnProperty(hitDie)) {
-          acc[hitDie] = 0
-        }
-        acc[hitDie] += this.character.classes[c].level
-      }
-      let message = []
-      this.shortRestDie = []
-      for (const k in acc) {
-        message.push(acc[k].toString() + 'd' + k.toString())
-        this.shortRestDie.push.apply(
-          this.shortRestDie,
-          new Array(acc[k]).fill(k),
-        )
-      }
-      message = 'Restore ' + message.join(', ')
-      this.$store.commit('showSnackbar', {
-        color: 'green',
-        message,
-        func: this.performShortRest,
-        buttonMessage: 'Roll',
-      })
-    },
+    ...mapActions(['dispatchLongRest']),
 
     stopConcentrating() {
       this.$store.commit('stopConcentrating', this.index)

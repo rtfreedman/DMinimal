@@ -89,10 +89,10 @@ export default {
   },
 
   methods: {
-    ...mapActions(['updateCharacterInfo']),
+    ...mapActions(['dispatchUpdateCharacterInfo']),
 
     update() {
-      this.updateCharacterInfo({
+      this.dispatchUpdateCharacterInfo({
         character: this.character,
         name: this.localName,
         lawful: this.lawfulOrChaotic,
