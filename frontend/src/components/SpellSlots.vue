@@ -1,8 +1,8 @@
 <template>
   <v-layout column>
-    <v-divider color="#ffd700" class="mx-4"></v-divider>
+    <v-divider color="#ffd700"></v-divider>
     <h3 class="text-xs-center my-1">SPELL SLOTS</h3>
-    <v-divider color="#ffd700" class="mx-4 mb-1"></v-divider>
+    <v-divider color="#ffd700" class="mb-1"></v-divider>
     <v-layout
       align-center
       justify-space-around

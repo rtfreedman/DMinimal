@@ -8,7 +8,7 @@
     >Add Character</v-btn>
     <v-btn
       v-if="characters.length > 1"
-      @click="groupRest"
+      @click="dispatchGroupRest"
       flat
       color="primary"
     >Long Rest All</v-btn>
@@ -106,25 +106,25 @@ export default {
   },
 
   created() {
-    this.retrieveClassOptions()
+    this.dispatchRetrieveClassOptions()
   },
 
   methods: {
     ...mapActions([
-      'addCharacter',
-      'groupRest',
-      'removeCharacter',
-      'retrieveClassOptions',
+      'dispatchAddCharacter',
+      'dispatchGroupRest',
+      'dispatchRemoveCharacter',
+      'dispatchRetrieveClassOptions',
     ]),
 
     add() {
-      this.addCharacter().then(() => {
+      this.dispatcheAddCharacter().then(() => {
         this.selectedTab = this.characters.length - 1
       })
     },
 
     confirmDelete() {
-      this.removeCharacter({ id: this.deleteCharacter.id }).then(() => {
+      this.dispatchRemoveCharacter({ id: this.deleteCharacter.id }).then(() => {
         if (this.selectedTab > this.characters.length - 1) {
           this.selectedTab = this.characters.length - 1
         }

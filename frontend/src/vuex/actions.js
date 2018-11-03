@@ -1,16 +1,18 @@
-import magicAPI from './api/magic'
-import stateAPI from './api/state'
+import magicAPI from '../api/magic'
+import stateAPI from '../api/state'
 
 function handleError(error) {
   console.error(error)
 }
 
 export default {
-  save({ state }) {
+  // PLACEHOLDER
+
+  dispatchSave({ state }) {
     stateAPI.save(state).catch(handleError)
   },
 
-  restore({ commit }, { gameId }) {
+  dispatchRestore({ commit }, { gameId }) {
     stateAPI
       .restore(gameId)
       .then(data => {
@@ -19,7 +21,21 @@ export default {
       .catch(handleError)
   },
 
-  addCharacter({ commit }) {
+  // IN USE
+
+  dispatchRetrieveClassOptions({ commit }) {
+    magicAPI
+      .getClasses()
+      .then(data => {
+        commit('setClassOptions', {
+          classOptions: data.Classes,
+          magicClassOptions: data.MagicClasses,
+        })
+      })
+      .catch(handleError)
+  },
+
+  dispatchAddCharacter({ commit }) {
     commit('addCharacter')
     // then save
     return new Promise(resolve => {
@@ -29,7 +45,7 @@ export default {
     })
   },
 
-  removeCharacter({ commit }, id) {
+  dispatchRemoveCharacter({ commit }, id) {
     commit('removeCharacter', id)
     // then save
     return new Promise(resolve => {
@@ -39,7 +55,7 @@ export default {
     })
   },
 
-  groupRest({ state, commit }) {
+  dispatchGroupRest({ state, commit }) {
     const deadCharacters = []
     state.characters.forEach(character => {
       if (!character.hitPoints) {
@@ -59,7 +75,7 @@ export default {
     // then save
   },
 
-  updateCharacterInfo({ commit }, payload) {
+  dispatchUpdateCharacterInfo({ commit }, payload) {
     const character = payload.character
     delete payload.character
     commit('mutateCharacter', {
@@ -73,6 +89,35 @@ export default {
     })
     // then save
   },
+
+  dispatchLongRest({ commit }, character) {
+    commit('mutateCharacter', {
+      character,
+      method: 'longRest',
+      args: [],
+    })
+    // then save
+  },
+
+  dispatchShortRest({ commit }, { character, recoveredHitPoints }) {
+    commit('mutateCharacter', {
+      character,
+      method: 'shortRest',
+      args: [recoveredHitPoints],
+    })
+    // then save
+  },
+
+  dispatchConcentrate({ commit }, { character, spellName }) {
+    commit('mutateCharacter', {
+      character,
+      method: 'concentrateOn',
+      args: [spellName],
+    })
+    // then save
+  },
+
+  // THE LINE
 
   retrieveSpells({ commit }, { spellClass }) {
     magicAPI
@@ -100,18 +145,6 @@ export default {
       .getSlots([{ class: name, level }])
       .then(data => {
         character.setSlots(index, name, data.Slots)
-      })
-      .catch(handleError)
-  },
-
-  retrieveClassOptions({ commit }) {
-    magicAPI
-      .getClasses()
-      .then(data => {
-        commit('setClassOptions', {
-          classOptions: data.Classes,
-          magicClassOptions: data.MagicClasses,
-        })
       })
       .catch(handleError)
   },

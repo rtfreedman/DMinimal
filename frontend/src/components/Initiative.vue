@@ -32,7 +32,7 @@
 
 <script>
 import { mapMutations } from 'vuex'
-import { initiativeRange, rollNdS } from '../common/functions'
+import { oneToN, rollNdS } from '../common/functions'
 
 export default {
   name: 'initiative',
@@ -41,7 +41,7 @@ export default {
 
   data() {
     return {
-      initiativeRange: initiativeRange(),
+      initiativeRange: oneToN(50),
     }
   },
 

@@ -1,4 +1,4 @@
-import { Character } from './common/models'
+import { Character } from '../common/models'
 
 export default {
   // wrapper for a Character class method
