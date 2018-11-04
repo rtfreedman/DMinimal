@@ -1,4 +1,4 @@
-import { hitDice, classes } from '../common/constants'
+import { hitDice } from '../common/constants'
 
 export class Character {
   constructor(id, name) {
@@ -96,19 +96,9 @@ export class Character {
     this.hitPoints += recoveredHitPoints
   }
 
-  addClass() {
-    // no more than 10 classes
-    if (this.classes.length > 10) {
-      // TBD snackbar error
-      return
-    }
-
-    // default to next available class type
-    const existingClassNames = this.classes.map(c => c.name)
-    const nextClass = classes.find(c => !existingClassNames.includes(c))
-    const newClass = new Class(false, nextClass)
+  addClass(className, level) {
+    const newClass = new Class(false, className, level)
     this.classes.push(newClass)
-    return newClass
   }
 
   removeClass(index) {
@@ -159,9 +149,9 @@ export class Character {
 }
 
 export class Class {
-  constructor(isPrimary, name) {
+  constructor(isPrimary, name, level) {
     this.name = name
-    this.level = 1
+    this.level = level || 1
     this.isPrimary = isPrimary || false
     this.slots = {
       1: 0,

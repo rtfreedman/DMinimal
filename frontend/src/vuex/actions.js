@@ -6,8 +6,6 @@ function handleError(error) {
 }
 
 export default {
-  // PLACEHOLDER
-
   dispatchSave({ state }) {
     stateAPI.save(state).catch(handleError)
   },
@@ -20,8 +18,6 @@ export default {
       })
       .catch(handleError)
   },
-
-  // IN USE
 
   dispatchRetrieveClassOptions({ commit }) {
     magicAPI
@@ -145,15 +141,21 @@ export default {
     })
   },
 
-  dispatchAddClass({ commit }, { character }) {
+  dispatchAddClass({ commit }, { character, className, level }) {
     commit('mutateCharacter', {
       character,
       method: 'addClass',
-      args: [],
+      args: [className, level],
     })
   },
 
-  // THE LINE
+  dispatchRemoveClass({ commit }, { character, classIndex }) {
+    commit('mutateCharacter', {
+      character,
+      method: 'removeClass',
+      args: [classIndex],
+    })
+  },
 
   dispatchRetrieveSpells({ commit }, { spellClass }) {
     magicAPI

@@ -12,121 +12,169 @@
       </v-btn>
     </v-toolbar>
     <v-card-text>
-      <v-layout column class="text-xs-center">
-        <v-layout align-center>
-          <v-flex style="max-width: 70px"></v-flex>
-          <v-flex style="max-width: 130px">
-            <h3 class="monospace">BASE</h3>
-          </v-flex>
-          <v-flex style="max-width: 30px"></v-flex>
-          <v-flex style="max-width: 130px">
-            <h3 class="monospace">CUSTOM</h3>
-          </v-flex>
-          <v-flex style="max-width: 30px"></v-flex>
-          <v-flex style="max-width: 130px">
-            <h3 class="monospace">TOTAL</h3>
-          </v-flex>
-          <v-flex style="max-width: 30px"></v-flex>
-          <v-flex style="max-width: 130px">
-            <h3 class="monospace">MODIFIER</h3>
-          </v-flex>
-          <v-flex class="text-xs-center">
+      <v-layout class="text-xs-center">
+        <v-layout column class="bold">
+          <v-divider style="margin-top: 30px"></v-divider>
+          <v-layout
+            style="min-height: 30px"
+            justify-end
+            align-center
+            my-2
+          >
+            <span class="mr-3" style="padding-top: 2px">BASE</span>
+          </v-layout>
+          <v-layout
+            style="min-height: 30px"
+            justify-end
+            align-center
+            my-2
+          >
+            <span class="mr-3">CUSTOM</span>
+          </v-layout>
+          <v-layout
+            style="min-height: 30px"
+            justify-end
+            align-center
+            my-2
+          >
+            <span class="mr-3">TOTAL</span>
+          </v-layout>
+          <v-layout
+            style="min-height: 30px"
+            justify-end
+            align-center
+            my-2
+          >
+            <span class="mr-3">MODIFIER</span>
+          </v-layout>
+          <v-layout
+            style="min-height: 30px"
+            justify-end
+            align-center
+            my-2
+          >
             <v-tooltip bottom>
               <v-btn
+                class="my-0"
                 icon
+                small
                 flat
                 slot="activator"
                 color="primary"
-                class="mr-0"
                 @click="rollStats"
               >
                 <v-icon>mdi-dice-multiple</v-icon>
               </v-btn>
               <span>ROLL ABILITIES</span>
             </v-tooltip>
-          </v-flex>
+            <span class="mr-3">DICE</span>
+          </v-layout>
         </v-layout>
-        <v-divider></v-divider>
+        <v-divider vertical></v-divider>
         <v-layout
-          align-center
-          v-for="(value, stat) in character.abilityScores"
+          column
+          v-for="stat in statNames"
           :key="stat"
         >
-          <v-flex
-            style="max-width: 70px"
-            class="text-xs-left"
+          <v-layout
+            justify-center
+            align-center
+            class="bold"
+            style="min-height: 30px"
+          >{{ stat }}</v-layout>
+          <v-divider></v-divider>
+          <v-layout
+            my-2
+            justify-center
+            align-center
+            style="min-height: 30px"
           >
-            <h3
-              class="text-xs-center monospace"
-            >{{ stat }}</h3>
-          </v-flex>
-          <v-divider vertical></v-divider>
-          <v-flex style="max-width: 50px">
             <v-btn
               icon
               flat
+              small
               color="primary"
+              class="my-0"
               @click="dispatchSetStat({ character, stat, value: character.abilityScores[stat] - 1 })"
             >
               <v-icon small>remove</v-icon>
             </v-btn>
-          </v-flex>
-          <v-flex style="max-width: 30px">
-            <h2>{{ value }}</h2>
-          </v-flex>
-          <v-flex style="max-width: 50px">
+            <h4
+              style="width: 20px"
+            >{{ character.abilityScores[stat] }}</h4>
             <v-btn
               color="primary"
               icon
+              small
               flat
+              class="my-0"
               @click="dispatchSetStat({ character, stat, value: character.abilityScores[stat] + 1 })"
             >
               <v-icon small>add</v-icon>
             </v-btn>
-          </v-flex>
-          <v-flex style="max-width: 30px"></v-flex>
-          <v-flex style="max-width: 50px">
+          </v-layout>
+          <v-layout
+            style="min-height: 30px"
+            my-2
+            align-center
+            justify-center
+          >
             <v-btn
               icon
               flat
+              small
+              class="my-0"
               color="primary"
               @click="dispatchSetStatOffset({ character, stat, value: character.customAbilityOffsets[stat] - 1 })"
             >
               <v-icon small>remove</v-icon>
             </v-btn>
-          </v-flex>
-          <v-flex style="max-width: 30px">
-            <h2>{{ character.customAbilityOffsets[stat] }}</h2>
-          </v-flex>
-          <v-flex style="max-width: 50px">
+            <h4
+              style="width: 20px"
+            >{{ character.customAbilityOffsets[stat] }}</h4>
             <v-btn
               color="primary"
               icon
+              small
+              class="my-0"
               flat
               @click="dispatchSetStatOffset({ character, stat, value: character.customAbilityOffsets[stat] + 1 })"
             >
               <v-icon small>add</v-icon>
             </v-btn>
-          </v-flex>
-          <v-flex style="max-width: 30px"></v-flex>
-          <v-flex style="max-width: 125px">
-            <h2>{{ value + character.customAbilityOffsets[stat] }}</h2>
-          </v-flex>
-          <v-flex style="max-width: 30px"></v-flex>
-          <v-flex style="max-width: 130px">
-            <h2>{{ character.getModifier(stat) >= 0 ? "+" : "-" }} {{ Math.abs(character.getModifier(stat)) }}</h2>
-          </v-flex>
-          <v-flex style="max-width: 30px"></v-flex>
-          <v-divider vertical></v-divider>
-          <v-flex class="text-xs-center">
-            <v-icon
-              v-for="(val, index) in diceResult[stat]"
-              :key="index"
-            >{{ val }}</v-icon>
-            <v-icon
-              color="grey darken-1"
-            >{{ droppedDice[stat] }}</v-icon>
-          </v-flex>
+          </v-layout>
+          <v-layout
+            style="min-height: 30px"
+            justify-center
+            align-center
+            my-2
+          >
+            <h4>{{ character.abilityScores[stat] + character.customAbilityOffsets[stat] }}</h4>
+          </v-layout>
+          <v-layout
+            style="min-height: 30px"
+            justify-center
+            align-center
+            my-2
+          >
+            <h4>{{ character.getModifier(stat) >= 0 ? "+" : "-" }}{{ Math.abs(character.getModifier(stat)) }}</h4>
+          </v-layout>
+          <v-layout
+            style="min-height: 30px"
+            justify-center
+            align-center
+            my-2
+          >
+            <div style="height: 28px">
+              <v-icon
+                v-for="(val, index) in diceResult[stat]"
+                :key="index"
+              >{{ val }}</v-icon>
+              <v-icon
+                color="grey darken-1"
+              >{{ droppedDice[stat] }}</v-icon>
+            </div>
+          </v-layout>
         </v-layout>
       </v-layout>
     </v-card-text>
@@ -148,6 +196,7 @@ export default {
     return {
       diceResult: {},
       droppedDice: {},
+      statNames,
     }
   },
 
@@ -180,8 +229,7 @@ export default {
 </script>
 
 <style>
-.monospace {
-  font-family: Lucida Console, Courier, monospace;
-  font-size: 24px;
+.bold {
+  font-weight: bold;
 }
 </style>

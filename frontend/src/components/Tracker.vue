@@ -25,7 +25,8 @@
           flat
           slot="activator"
           color="primary"
-          @click="character.addClass()"
+          :disabled="character.classes.length >= 10"
+          @click="showClassDialog = true"
         >
           <v-icon>add_circle_outline</v-icon>
         </v-btn>
@@ -53,6 +54,13 @@
         @close="showSpellDialog = false"
       />
     </v-dialog>
+    <v-dialog v-model="showClassDialog">
+      <app-class-dialog
+        :character="character"
+        @close="showClassDialog = false"
+        @ok="dispatchAddClass($event); showClassDialog = false"
+      />
+    </v-dialog>
   </v-card>
 </template>
 
@@ -66,6 +74,7 @@ import HitPoints from './HitPoints'
 import DeathSavingThrows from './DeathSavingThrows'
 import Initiative from './Initiative'
 import CastSpellDialog from './CastSpellDialog'
+import ClassDialog from './ClassDialog'
 
 export default {
   name: 'tracker',
@@ -81,12 +90,14 @@ export default {
     'app-hit-points': HitPoints,
     'app-initiative': Initiative,
     'app-cast-spell-dialog': CastSpellDialog,
+    'app-class-dialog': ClassDialog,
   },
 
   data() {
     return {
       spellClass: null,
       showSpellDialog: false,
+      showClassDialog: false,
     }
   },
 
