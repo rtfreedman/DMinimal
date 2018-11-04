@@ -144,13 +144,13 @@ export default {
   },
 
   created() {
-    this.retrieveSpells({
+    this.dispatchRetrieveSpells({
       spellClass: this.spellClass.name,
     })
   },
 
   methods: {
-    ...mapActions(['retrieveSpellInfo', 'retrieveSpells']),
+    ...mapActions(['dispatchRetrieveSpellInfo', 'dispatchRetrieveSpells']),
 
     getModifier(val) {
       return Math.floor((val - 10) / 2)
@@ -212,7 +212,7 @@ export default {
     },
 
     handleSelect(spell) {
-      this.retrieveSpellInfo({ spell })
+      this.dispatchRetrieveSpellInfo({ spell })
     },
   },
 

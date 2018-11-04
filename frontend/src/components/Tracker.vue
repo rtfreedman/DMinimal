@@ -4,7 +4,8 @@
       :character="character"
       @characterRemoved="$emit('characterRemoved')"
     />
-    <app-character-info class="mb-2"
+    <app-character-info
+      class="mb-2"
       :character="character"
     />
     <v-layout mb-2>
@@ -56,6 +57,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import CharacterActions from './CharacterActions'
 import CharacterInfo from './CharacterInfo'
 import AbilityScores from './AbilityScores'
@@ -89,6 +91,8 @@ export default {
   },
 
   methods: {
+    ...mapActions(['dispatchAddClass']),
+
     castSpell(characterClass) {
       this.spellClass = characterClass
       this.showSpellDialog = true

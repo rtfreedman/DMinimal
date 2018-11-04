@@ -129,9 +129,33 @@ export default {
     })
   },
 
+  dispatchSetStat({ commit }, { character, stat, value }) {
+    commit('mutateCharacter', {
+      character,
+      method: 'setStat',
+      args: [stat, value],
+    })
+  },
+
+  dispatchSetStatOffset({ commit }, { character, stat, value }) {
+    commit('mutateCharacter', {
+      character,
+      method: 'setStatOffset',
+      args: [stat, value],
+    })
+  },
+
+  dispatchAddClass({ commit }, { character }) {
+    commit('mutateCharacter', {
+      character,
+      method: 'addClass',
+      args: [],
+    })
+  },
+
   // THE LINE
 
-  retrieveSpells({ commit }, { spellClass }) {
+  dispatchRetrieveSpells({ commit }, { spellClass }) {
     magicAPI
       .getSpells(spellClass)
       .then(data => {
@@ -143,7 +167,7 @@ export default {
       .catch(handleError)
   },
 
-  retrieveSpellInfo({ commit }, { spell }) {
+  dispatchRetrieveSpellInfo({ commit }, { spell }) {
     magicAPI
       .getSpell(spell)
       .then(data => {
@@ -152,7 +176,7 @@ export default {
       .catch(handleError)
   },
 
-  retrieveSlots(_, { index, name, level, character }) {
+  dispatchRetrieveSlots(_, { index, name, level, character }) {
     magicAPI
       .getSlots([{ class: name, level }])
       .then(data => {

@@ -13,6 +13,7 @@ export class Character {
     this.concentratingOn = ''
     this.good = null // -1 evil, 0 neutral, 1 good
     this.lawful = null // -1 chaotic, 0 neutral, 1 lawful
+    this.race = null
     this.classes = [new Class(true, 'Bard')]
     this.abilityScores = {
       STR: 10,
@@ -40,6 +41,14 @@ export class Character {
     Object.keys(updates).forEach(k => {
       this[k] = updates[k]
     })
+  }
+
+  setStat(stat, value) {
+    this.abilityScores[stat] = value
+  }
+
+  setStatOffset(stat, value) {
+    this.customAbilityOffsets[stat] = value
   }
 
   setSlots(index, name, slots) {

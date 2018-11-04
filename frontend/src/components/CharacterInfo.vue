@@ -16,8 +16,7 @@
               v-model="localName"
               label="Name"
               @blur="update"
-            >
-            </v-text-field>
+            ></v-text-field>
             <v-layout
               class="border-white"
               pt-3
@@ -64,6 +63,13 @@
                 </v-radio-group>
               </v-layout>
             </v-layout>
+            <v-autocomplete
+              v-model="race"
+              label="Race"
+              @change="update"
+              :items="races"
+              hide-details
+            />
             <v-textarea label="Bio"></v-textarea>
           </v-card-text>
         </v-card>
@@ -74,6 +80,7 @@
 
 <script>
 import { mapActions } from 'vuex'
+import { races } from '../common/constants'
 
 export default {
   props: ['character'],
@@ -85,6 +92,8 @@ export default {
       goodOrEvil: this.character.good,
       lawfulScale: ['Chaotic', 'Neutral', 'Lawful'],
       goodScale: ['Evil', 'Neutral', 'Good'],
+      race: this.character.race,
+      races,
     }
   },
 
@@ -97,9 +106,10 @@ export default {
         name: this.localName,
         lawful: this.lawfulOrChaotic,
         good: this.goodOrEvil,
+        race: this.race,
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

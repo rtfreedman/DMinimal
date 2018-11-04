@@ -5,7 +5,7 @@
         style="color: #303030; background-color: #ffd700;"
       >
         <template slot="header">
-          <h3>Level {{ characterClass.level}} {{ characterClass.name }}</h3>
+          <h3>LEVEL {{ characterClass.level}} {{ characterClass.name.toUpperCase() }}</h3>
         </template>
         <!-- class options -->
         <v-card
@@ -14,7 +14,31 @@
           class="text-xs-left"
           style="margin: 1px"
         >
-          <v-card-text>
+          <v-card-text class="pt-0">
+            <v-layout justify-end>
+              <v-menu>
+                <v-btn
+                  class="mr-0"
+                  icon
+                  color="primary"
+                  flat
+                  slot="activator"
+                >
+                  <v-icon>menu</v-icon>
+                </v-btn>
+                <v-list>
+                  <v-list-tile @click="levelUp">
+                    <v-list-tile-title>Level Up</v-list-tile-title>
+                  </v-list-tile>
+                  <v-list-tile @click="editClass">
+                    <v-list-tile-title>Edit</v-list-tile-title>
+                  </v-list-tile>
+                  <v-list-tile @click="removeClass">
+                    <v-list-tile-title>Remove</v-list-tile-title>
+                  </v-list-tile>
+                </v-list>
+              </v-menu>
+            </v-layout>
             <v-layout column>
               <v-divider color="#ffd700"></v-divider>
               <h3
@@ -68,11 +92,11 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['classOptions', 'magicClassOptions']),
+    ...mapGetters(['magicClassOptions']),
   },
 
   created() {
-    this.retrieveSlots({
+    this.dispatchRetrieveSlots({
       index: this.classIndex,
       name: this.characterClass.name,
       level: this.characterClass.level,
@@ -81,11 +105,11 @@ export default {
   },
 
   methods: {
-    ...mapActions(['retrieveSlots']),
+    ...mapActions(['dispatchRetrieveSlots']),
 
     handleSelect() {
       if (this.characterClass.name && this.characterClass.level) {
-        this.retrieveSlots({
+        this.dispatchRetrieveSlots({
           index: this.classIndex,
           name: this.characterClass.name,
           level: this.characterClass.level,
@@ -96,9 +120,11 @@ export default {
       // do all that other shit
     },
 
-    removeClass() {
-      this.character.removeClass(this.classIndex)
-    },
+    levelUp() {},
+
+    editClass() {},
+
+    removeClass() {},
 
     castSpell() {
       // TBD
