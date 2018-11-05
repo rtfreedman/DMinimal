@@ -51,6 +51,10 @@ export class Character {
     this.customAbilityOffsets[stat] = value
   }
 
+  setSlot(classIndex, slot, value) {
+    this.classes[classIndex].workingSlots[slot] = value
+  }
+
   setSlots(index, className, slots) {
     const cl = this.classes[index]
     cl.className = className

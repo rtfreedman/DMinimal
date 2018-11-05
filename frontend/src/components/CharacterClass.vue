@@ -84,6 +84,7 @@
               v-if="magicClassOptions.includes(characterClass.className) && characterClass.level"
               :character="character"
               :characterClass="characterClass"
+              :classIndex="classIndex"
             />
           </v-card-text>
         </v-card>

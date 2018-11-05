@@ -178,12 +178,24 @@ export default {
       .catch(handleError)
   },
 
-  dispatchRetrieveSlots(_, { index, name, level, character }) {
+  dispatchRetrieveSlots({ commit }, { index, name, level, character }) {
     magicAPI
       .getSlots([{ class: name, level }])
       .then(data => {
-        character.setSlots(index, name, data.Slots)
+        commit('mutateCharacter', {
+          character,
+          method: 'setSlots',
+          args: [index, name, data.Slots],
+        })
       })
       .catch(handleError)
+  },
+
+  dispatchSetSlot({ commit }, { character, classIndex, slot, value }) {
+    commit('mutateCharacter', {
+      character,
+      method: 'setSlot',
+      args: [classIndex, slot, value],
+    })
   },
 }

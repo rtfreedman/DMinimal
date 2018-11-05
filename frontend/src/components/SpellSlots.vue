@@ -10,30 +10,30 @@
       pt-1
     >
       <div
-        v-for="(slot, level) in characterClass.workingSlots"
-        :key="level"
+        v-for="(value, slot) in characterClass.workingSlots"
+        :key="slot"
       >
         <v-layout
           align-center
           justify-center
           column
         >
-          <h4 class="lvl">LVL {{ level }}</h4>
+          <h4 class="lvl">LVL {{ slot }}</h4>
           <v-btn
             flat
             small
             icon
-            @click="incrementSlot(level)"
+            @click="incrementSlot(slot)"
             color="primary"
           >
             <v-icon>expand_less</v-icon>
           </v-btn>
-          <h3>{{ slot }}</h3>
+          <h3>{{ value }}</h3>
           <v-btn
             flat
             small
             icon
-            @click="decrementSlot(level)"
+            @click="decrementSlot(slot)"
             color="primary"
           >
             <v-icon>expand_more</v-icon>
@@ -41,20 +41,38 @@
         </v-layout>
       </div>
     </v-layout>
+    <pre>{{ character }}</pre>
   </v-layout>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
-  props: ['character', 'characterClass'],
+  props: ['character', 'characterClass', 'classIndex'],
   methods: {
-    incrementSlot(level) {
-      this.characterClass.workingSlots[level]++
+    ...mapActions(['dispatchSetSlot']),
+
+    incrementSlot(slot) {
+      this.dispatchSetSlot({
+        character: this.character,
+        classIndex: this.classIndex,
+        slot,
+        value: this.characterClass.workingSlots[slot] + 1,
+      })
     },
 
-    decrementSlot(level) {
-      if (this.characterClass.workingSlots[level] > 0) {
-        this.characterClass.workingSlots[level]--
+    decrementSlot(slot) {
+      if (this.characterClass.workingSlots[slot] > 0) {
+        const classIndex = this.character.classes.find(
+          c => c.className === this.characterClass.className,
+        )
+        this.dispatchSetSlot({
+          character: this.character,
+          classIndex: this.classIndex,
+          slot,
+          value: this.characterClass.workingSlots[slot] - 1,
+        })
       }
     },
   },
