@@ -6,4 +6,5 @@ export default {
   currentSpellInfo: state => state.currentSpellInfo,
   currentSpellClass: state => state.currentSpellClass,
   currentSpellKeys: state => Object.keys(state.currentSpellInfo),
+  snackbar: state => state.snackbar,
 }

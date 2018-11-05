@@ -108,14 +108,23 @@ export default {
       'currentSpellKeys',
     ]),
 
+    // should put this on the model
+    proficiencyBonus() {
+      let totalLevel = 0
+      this.character.classes.forEach(c => {
+        totalLevel += c.level
+      })
+      return Math.floor(totalLevel / 5) + 2
+    },
+
     spellModifier() {
-      let modifier = this.getModifier(this.character.abilityScores.INT)
+      let modifier = this.character.getModifier('INT')
       if (chrClasses.includes(this.spellClass.className)) {
-        modifier = this.getModifier(this.character.abilityScores.CHR)
+        modifier = this.character.getModifier('CHR')
       } else if (wisClasses.includes(this.spellClass.className)) {
-        modifier = this.getModifier(this.character.abilityScores.WIS)
+        modifier = this.character.getModifier('WIS')
       }
-      return this.character.proficiency + modifier
+      return this.proficiencyBonus + modifier
     },
 
     spellSaveDifficultyClass() {
@@ -151,15 +160,6 @@ export default {
 
   methods: {
     ...mapActions(['dispatchRetrieveSpellInfo', 'dispatchRetrieveSpells']),
-
-    getModifier(val) {
-      return Math.floor((val - 10) / 2)
-    },
-
-    stopConcentrating() {
-      this.$store.commit('stopConcentrating', this.charIndex)
-      this.$store.commit('hideSnackbar')
-    },
 
     castSpell() {
       if (

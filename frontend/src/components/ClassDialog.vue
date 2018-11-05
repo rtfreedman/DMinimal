@@ -5,7 +5,7 @@
       card
       style="background-color: #ffd700"
     >
-      <h3>ADD CHARACTER CLASS</h3>
+      <h3>{{ !isEdit ? 'ADD' : 'EDIT' }} CHARACTER CLASS</h3>
       <v-spacer></v-spacer>
       <v-btn icon @click="$emit('close')">
         <v-icon>close</v-icon>
@@ -23,6 +23,7 @@
         label="Sub Class"
         :items="subClasses"
         v-model="subClassName"
+        clearable
         spellcheck="false"
       />
       <v-autocomplete
