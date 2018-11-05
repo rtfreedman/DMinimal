@@ -51,9 +51,9 @@ export class Character {
     this.customAbilityOffsets[stat] = value
   }
 
-  setSlots(index, name, slots) {
+  setSlots(index, className, slots) {
     const cl = this.classes[index]
-    cl.name = name
+    cl.className = className
     cl.slots = slots
     cl.workingSlots = Object.assign({}, slots)
   }
@@ -113,7 +113,7 @@ export class Character {
     if (affectedClass.isPrimary && affectedClass.level === 0) {
       this.maxHitPoints = Math.floor(
         this.maxHitPoints +
-          hitDice[affectedClass.name] +
+          hitDice[affectedClass.className] +
           (this.abilityScores.CON - 10) / 2,
       )
       levelOffset -= 1
@@ -123,7 +123,7 @@ export class Character {
 
     if (this.rollHealth) {
       // update max hit points for roll case
-      const roll = Math.random(hitDice[affectedClass.name] - 1) + 1
+      const roll = Math.random(hitDice[affectedClass.className] - 1) + 1
 
       this.maxHitPoints = Math.floor(
         levelOffset * (this.maxHitPoints + roll + constitutionModifier),
@@ -133,7 +133,7 @@ export class Character {
       this.maxHitPoints =
         levelOffset *
         (this.maxHitPoints +
-          Math.ceil(hitDice[affectedClass.name] / 2) +
+          Math.ceil(hitDice[affectedClass.className] / 2) +
           constitutionModifier)
     }
   }
@@ -149,8 +149,9 @@ export class Character {
 }
 
 export class Class {
-  constructor(isPrimary, name, level) {
-    this.name = name
+  constructor(isPrimary, className, subClassName, level) {
+    this.className = className
+    this.subClassName = subClassName || ''
     this.level = level || 1
     this.isPrimary = isPrimary || false
     this.slots = {

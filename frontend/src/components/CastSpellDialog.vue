@@ -4,7 +4,7 @@
     <v-layout align-center justify-space-between>
       <h1
         class="px-3 pt-2"
-      >CAST {{ spellClass.name.toUpperCase() }} SPELL</h1>
+      >CAST {{ spellClass.className.toUpperCase() }} SPELL</h1>
       <v-btn icon flat @click="$emit('close')">
         <v-icon>close</v-icon>
       </v-btn>
@@ -110,9 +110,9 @@ export default {
 
     spellModifier() {
       let modifier = this.getModifier(this.character.abilityScores.INT)
-      if (chrClasses.includes(this.spellClass.name)) {
+      if (chrClasses.includes(this.spellClass.className)) {
         modifier = this.getModifier(this.character.abilityScores.CHR)
-      } else if (wisClasses.includes(this.spellClass.name)) {
+      } else if (wisClasses.includes(this.spellClass.className)) {
         modifier = this.getModifier(this.character.abilityScores.WIS)
       }
       return this.character.proficiency + modifier
@@ -145,7 +145,7 @@ export default {
 
   created() {
     this.dispatchRetrieveSpells({
-      spellClass: this.spellClass.name,
+      spellClass: this.spellClass.className,
     })
   },
 

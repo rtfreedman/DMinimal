@@ -17,11 +17,13 @@
         label="Class"
         :items="availableClasses"
         v-model="className"
+        spellcheck="false"
       />
       <v-autocomplete
         label="Sub Class"
         :items="subClasses"
         v-model="subClassName"
+        spellcheck="false"
       />
       <v-autocomplete
         label="Level"
@@ -35,27 +37,32 @@
         color="primary"
         :disabled="!valid"
         @click="$emit('ok', { character, className, subClassName, level })"
-      >ADD</v-btn>
+      >{{ isEdit ? 'UPDATE' : 'ADD' }}</v-btn>
     </v-layout>
   </v-card>
 </template>
 
 <script>
-import { classes } from '../common/constants'
+import { classes, subClassMap } from '../common/constants'
 import { oneToN } from '../common/functions'
 
 export default {
-  props: ['character'],
+  props: ['character', 'characterClass'],
 
   computed: {
     availableClasses() {
-      const existingClassNames = this.character.classes.map(c => c.name)
-      return classes.filter(c => !existingClassNames.includes(c))
+      const existingClassNames = this.character.classes.map(c => c.className)
+      const unusedClasses = classes.filter(c => !existingClassNames.includes(c))
+      if (this.isEdit) {
+        return unusedClasses.concat(this.className)
+      } else {
+        return unusedClasses
+      }
     },
 
     // will rely on a map between class and subclass
     subClasses() {
-      return ['subclass1', 'subclass2']
+      return subClassMap[this.className]
     },
 
     valid() {
@@ -70,7 +77,23 @@ export default {
       subClassName: '',
       level: 1,
       levels: oneToN(20),
+      isEdit: false,
     }
+  },
+
+  watch: {
+    characterClass(state) {
+      if (state) {
+        this.className = state.className
+        this.subClassName = state.subClassName
+        this.level = state.level
+        this.isEdit = true
+      } else {
+        this.className = ''
+        this.subClassName = ''
+        this.level = 1
+      }
+    },
   },
 }
 </script>

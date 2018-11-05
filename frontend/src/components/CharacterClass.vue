@@ -5,7 +5,10 @@
         style="color: #303030; background-color: #ffd700;"
       >
         <template slot="header">
-          <h3>LEVEL {{ characterClass.level}} {{ characterClass.name.toUpperCase() }}</h3>
+          <h3>
+            <span>LEVEL {{ characterClass.level}} {{ characterClass.className.toUpperCase() }}</span>
+            <span v-if="characterClass.subClassName">- {{ characterClass.subClassName.toUpperCase() }}</span>
+          </h3>
         </template>
         <!-- class options -->
         <v-card
@@ -33,7 +36,9 @@
                     </v-list-tile-action>
                     <v-list-tile-title>LEVEL UP</v-list-tile-title>
                   </v-list-tile>
-                  <v-list-tile @click="editClass">
+                  <v-list-tile
+                    @click="$emit('edit')"
+                  >
                     <v-list-tile-action>
                       <v-icon>edit</v-icon>
                     </v-list-tile-action>
@@ -59,7 +64,7 @@
               <v-divider color="#ffd700"></v-divider>
               <v-layout justify-center>
                 <v-tooltip
-                  v-if="magicClassOptions.includes(characterClass.name)"
+                  v-if="magicClassOptions.includes(characterClass.className)"
                   bottom
                 >
                   <v-btn
@@ -76,7 +81,7 @@
               </v-layout>
             </v-layout>
             <app-spell-slots
-              v-if="magicClassOptions.includes(characterClass.name) && characterClass.level"
+              v-if="magicClassOptions.includes(characterClass.className) && characterClass.level"
               :character="character"
               :characterClass="characterClass"
             />
@@ -108,7 +113,7 @@ export default {
   created() {
     this.dispatchRetrieveSlots({
       index: this.classIndex,
-      name: this.characterClass.name,
+      name: this.characterClass.className,
       level: this.characterClass.level,
       character: this.character,
     })
@@ -118,8 +123,6 @@ export default {
     ...mapActions(['dispatchRetrieveSlots', 'dispatchRemoveClass']),
 
     levelUp() {},
-
-    editClass() {},
 
     castSpell() {
       // TBD

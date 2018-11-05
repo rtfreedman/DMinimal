@@ -36,14 +36,23 @@
     <v-layout column>
       <app-character-class
         v-for="(characterClass, classIndex) in character.classes"
-        :key="characterClass.name"
+        :key="characterClass.className"
         :characterClass="characterClass"
         :classIndex="classIndex"
         :character="character"
         @castSpell="castSpell(characterClass)"
+        @edit="editClass(characterClass)"
         class="mx-3 mb-3"
       />
     </v-layout>
+    <v-dialog v-model="showClassDialog">
+      <app-class-dialog
+        :character="character"
+        :characterClass="classUnderEdit"
+        @close="showClassDialog = false"
+        @ok="dispatchAddClass($event); showClassDialog = false"
+      />
+    </v-dialog>
     <v-dialog
       v-if="spellClass"
       v-model="showSpellDialog"
@@ -52,13 +61,6 @@
         :character="character"
         :spellClass="spellClass"
         @close="showSpellDialog = false"
-      />
-    </v-dialog>
-    <v-dialog v-model="showClassDialog">
-      <app-class-dialog
-        :character="character"
-        @close="showClassDialog = false"
-        @ok="dispatchAddClass($event); showClassDialog = false"
       />
     </v-dialog>
   </v-card>
@@ -98,15 +100,29 @@ export default {
       spellClass: null,
       showSpellDialog: false,
       showClassDialog: false,
+      classUnderEdit: null,
     }
   },
 
   methods: {
     ...mapActions(['dispatchAddClass']),
 
+    editClass(targetClass) {
+      this.showClassDialog = true
+      this.classUnderEdit = targetClass
+    },
+
     castSpell(characterClass) {
       this.spellClass = characterClass
       this.showSpellDialog = true
+    },
+  },
+
+  watch: {
+    showClassDialog(state) {
+      if (!state) {
+        this.classUnderEdit = null
+      }
     },
   },
 }
