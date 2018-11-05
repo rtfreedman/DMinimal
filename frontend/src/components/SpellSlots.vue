@@ -41,7 +41,6 @@
         </v-layout>
       </div>
     </v-layout>
-    <pre>{{ character }}</pre>
   </v-layout>
 </template>
 

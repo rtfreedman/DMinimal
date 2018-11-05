@@ -33,11 +33,19 @@
     </v-card-text>
     <v-layout justify-end pb-1>
       <v-btn
+        v-if="!isEdit"
         flat
         color="primary"
         :disabled="!valid"
-        @click="$emit('ok', { character, className, subClassName, level })"
-      >{{ isEdit ? 'UPDATE' : 'ADD' }}</v-btn>
+        @click="$emit('add', { character, className, subClassName, level })"
+      >ADD</v-btn>
+      <v-btn
+        v-else
+        flat
+        color="primary"
+        :disabled="!valid"
+        @click="$emit('update', { character, existingClassName, className, subClassName, level })"
+      >UPDATE</v-btn>
     </v-layout>
   </v-card>
 </template>
@@ -66,7 +74,7 @@ export default {
     },
 
     valid() {
-      return this.className !== '' && this.subClassName !== ''
+      return this.className !== ''
     },
   },
 
@@ -74,6 +82,7 @@ export default {
     return {
       classes,
       className: '',
+      existingClassName: '',
       subClassName: '',
       level: 1,
       levels: oneToN(20),
@@ -85,6 +94,7 @@ export default {
     characterClass(state) {
       if (state) {
         this.className = state.className
+        this.existingClassName = state.className
         this.subClassName = state.subClassName
         this.level = state.level
         this.isEdit = true

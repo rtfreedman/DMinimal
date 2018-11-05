@@ -7,7 +7,9 @@
         <template slot="header">
           <h3>
             <span>LEVEL {{ characterClass.level}} {{ characterClass.className.toUpperCase() }}</span>
-            <span v-if="characterClass.subClassName">- {{ characterClass.subClassName.toUpperCase() }}</span>
+            <span
+              v-if="characterClass.subClassName"
+            >- {{ characterClass.subClassName.toUpperCase() }}</span>
           </h3>
         </template>
         <!-- class options -->
@@ -49,7 +51,7 @@
                     :disabled="character.classes.length === 1"
                   >
                     <v-list-tile-action>
-                      <v-icon>delete</v-icon>
+                      <v-icon :color="character.classes.length === 1 ? '#999' : '#eee'">delete</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-title>REMOVE</v-list-tile-title>
                   </v-list-tile>
@@ -113,10 +115,10 @@ export default {
 
   created() {
     this.dispatchRetrieveSlots({
-      index: this.classIndex,
-      name: this.characterClass.className,
-      level: this.characterClass.level,
       character: this.character,
+      classIndex: this.classIndex,
+      className: this.characterClass.className,
+      level: this.characterClass.level,
     })
   },
 

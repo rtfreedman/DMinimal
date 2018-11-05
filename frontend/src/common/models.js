@@ -100,9 +100,18 @@ export class Character {
     this.hitPoints += recoveredHitPoints
   }
 
-  addClass(className, level) {
-    const newClass = new Class(false, className, level)
+  addClass(className, subClassName, level) {
+    const newClass = new Class(false, className, subClassName, level)
     this.classes.push(newClass)
+  }
+
+  updateClass(existingClassName, className, subClassName, level) {
+    const targetClass = this.classes.find(
+      c => c.className === existingClassName,
+    )
+    targetClass.className = className
+    targetClass.subClassName = subClassName
+    targetClass.level = level
   }
 
   removeClass(index) {

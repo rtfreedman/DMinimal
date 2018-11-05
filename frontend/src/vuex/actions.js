@@ -141,11 +141,31 @@ export default {
     })
   },
 
-  dispatchAddClass({ commit }, { character, className, level }) {
+  dispatchAddClass({ commit }, { character, className, subClassName, level }) {
     commit('mutateCharacter', {
       character,
       method: 'addClass',
-      args: [className, level],
+      args: [className, subClassName, level],
+    })
+  },
+
+  dispatchUpdateClass(
+    { commit, dispatch },
+    { character, existingClassName, className, subClassName, level },
+  ) {
+    commit('mutateCharacter', {
+      character,
+      method: 'updateClass',
+      args: [existingClassName, className, subClassName, level],
+    })
+    const classIndex = character.classes.findIndex(
+      c => c.className === className,
+    )
+    dispatch('dispatchRetrieveSlots', {
+      character,
+      classIndex,
+      className,
+      level,
     })
   },
 
@@ -178,14 +198,17 @@ export default {
       .catch(handleError)
   },
 
-  dispatchRetrieveSlots({ commit }, { index, name, level, character }) {
+  dispatchRetrieveSlots(
+    { commit },
+    { character, classIndex, className, level },
+  ) {
     magicAPI
-      .getSlots([{ class: name, level }])
+      .getSlots([{ class: className, level }])
       .then(data => {
         commit('mutateCharacter', {
           character,
           method: 'setSlots',
-          args: [index, name, data.Slots],
+          args: [classIndex, className, data.Slots],
         })
       })
       .catch(handleError)

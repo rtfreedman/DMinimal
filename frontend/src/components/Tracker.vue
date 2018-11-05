@@ -50,7 +50,8 @@
         :character="character"
         :characterClass="classUnderEdit"
         @close="showClassDialog = false"
-        @ok="dispatchAddClass($event); showClassDialog = false"
+        @add="dispatchAddClass($event); showClassDialog = false"
+        @update="dispatchUpdateClass($event); showClassDialog = false"
       />
     </v-dialog>
     <v-dialog
@@ -105,7 +106,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(['dispatchAddClass']),
+    ...mapActions(['dispatchAddClass', 'dispatchUpdateClass']),
 
     editClass(targetClass) {
       this.showClassDialog = true
