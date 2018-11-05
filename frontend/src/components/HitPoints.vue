@@ -204,7 +204,7 @@ export default {
         for (let l = 0; l < this.character.classes[c].level; l++) {
           totalHealth += constitutionOffset
           let value = 0
-          const dice = hitDice[this.character.classes[c].name.split(' ')[0]]
+          const dice = hitDice[this.character.classes[c].className.split(' ')[0]]
           if (firstLevel) {
             // take max health for first level
             value = dice

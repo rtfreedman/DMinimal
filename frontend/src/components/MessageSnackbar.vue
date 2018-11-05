@@ -1,39 +1,27 @@
 <template>
-  <v-snackbar :color="snackbarColor" v-model="show" :timeout="3000">
-    <h3>{{snackbarMessage}}</h3>
+  <v-snackbar
+    :color="snackbar.color"
+    v-model="snackbar.show"
+    :timeout="3000"
+  >
+    <h3>{{ snackbar.message }}</h3>
     <v-btn
-      v-if="typeof snackbarButtonFunction === 'function'"
+      v-if="typeof snackbar.buttonFunction === 'function'"
       flat
-      @click="snackbarButtonFunction"
-    >{{snackbarButtonMessage}}</v-btn>
+      @click="snackbar.buttonFunction"
+    >{{ snackbar.buttonMessage }}</v-btn>
   </v-snackbar>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   computed: {
-    snackbar() {
-      return this.$store.state.snackbar
-    },
-    show: {
-      get() {
-        return this.snackbar.show
-      },
-      set() {
-        this.$store.commit('hideSnackbar')
-      },
-    },
-    snackbarMessage() {
-      return this.snackbar.message
-    },
-    snackbarColor() {
-      return this.snackbar.color
-    },
-    snackbarButtonMessage() {
-      return this.snackbar.buttonMessage
-    },
-    snackbarButtonFunction() {
-      return this.snackbar.buttonFunction
+    ...mapGetters(['snackbar']),
+
+    hasAction() {
+     return !!this.snackbar.buttonFunction
     },
   },
 }

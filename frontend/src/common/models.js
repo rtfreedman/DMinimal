@@ -1,4 +1,4 @@
-import { hitDice, classes } from '../common/constants'
+import { hitDice } from '../common/constants'
 
 export class Character {
   constructor(id, name) {
@@ -13,6 +13,7 @@ export class Character {
     this.concentratingOn = ''
     this.good = null // -1 evil, 0 neutral, 1 good
     this.lawful = null // -1 chaotic, 0 neutral, 1 lawful
+    this.race = null
     this.classes = [new Class(true, 'Bard')]
     this.abilityScores = {
       STR: 10,
@@ -42,9 +43,21 @@ export class Character {
     })
   }
 
-  setSlots(index, name, slots) {
+  setStat(stat, value) {
+    this.abilityScores[stat] = value
+  }
+
+  setStatOffset(stat, value) {
+    this.customAbilityOffsets[stat] = value
+  }
+
+  setSlot(classIndex, slot, value) {
+    this.classes[classIndex].workingSlots[slot] = value
+  }
+
+  setSlots(index, className, slots) {
     const cl = this.classes[index]
-    cl.name = name
+    cl.className = className
     cl.slots = slots
     cl.workingSlots = Object.assign({}, slots)
   }
@@ -87,19 +100,18 @@ export class Character {
     this.hitPoints += recoveredHitPoints
   }
 
-  addClass() {
-    // no more than 10 classes
-    if (this.classes.length > 10) {
-      // TBD snackbar error
-      return
-    }
-
-    // default to next available class type
-    const existingClassNames = this.classes.map(c => c.name)
-    const nextClass = classes.find(c => !existingClassNames.includes(c))
-    const newClass = new Class(false, nextClass)
+  addClass(className, subClassName, level) {
+    const newClass = new Class(false, className, subClassName, level)
     this.classes.push(newClass)
-    return newClass
+  }
+
+  updateClass(existingClassName, className, subClassName, level) {
+    const targetClass = this.classes.find(
+      c => c.className === existingClassName,
+    )
+    targetClass.className = className
+    targetClass.subClassName = subClassName
+    targetClass.level = level
   }
 
   removeClass(index) {
@@ -114,7 +126,7 @@ export class Character {
     if (affectedClass.isPrimary && affectedClass.level === 0) {
       this.maxHitPoints = Math.floor(
         this.maxHitPoints +
-          hitDice[affectedClass.name] +
+          hitDice[affectedClass.className] +
           (this.abilityScores.CON - 10) / 2,
       )
       levelOffset -= 1
@@ -124,7 +136,7 @@ export class Character {
 
     if (this.rollHealth) {
       // update max hit points for roll case
-      const roll = Math.random(hitDice[affectedClass.name] - 1) + 1
+      const roll = Math.random(hitDice[affectedClass.className] - 1) + 1
 
       this.maxHitPoints = Math.floor(
         levelOffset * (this.maxHitPoints + roll + constitutionModifier),
@@ -134,7 +146,7 @@ export class Character {
       this.maxHitPoints =
         levelOffset *
         (this.maxHitPoints +
-          Math.ceil(hitDice[affectedClass.name] / 2) +
+          Math.ceil(hitDice[affectedClass.className] / 2) +
           constitutionModifier)
     }
   }
@@ -150,9 +162,10 @@ export class Character {
 }
 
 export class Class {
-  constructor(isPrimary, name) {
-    this.name = name
-    this.level = 1
+  constructor(isPrimary, className, subClassName, level) {
+    this.className = className
+    this.subClassName = subClassName || ''
+    this.level = level || 1
     this.isPrimary = isPrimary || false
     this.slots = {
       1: 0,

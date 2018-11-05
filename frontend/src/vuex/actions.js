@@ -6,8 +6,6 @@ function handleError(error) {
 }
 
 export default {
-  // PLACEHOLDER
-
   dispatchSave({ state }) {
     stateAPI.save(state).catch(handleError)
   },
@@ -20,8 +18,6 @@ export default {
       })
       .catch(handleError)
   },
-
-  // IN USE
 
   dispatchRetrieveClassOptions({ commit }) {
     magicAPI
@@ -129,9 +125,59 @@ export default {
     })
   },
 
-  // THE LINE
+  dispatchSetStat({ commit }, { character, stat, value }) {
+    commit('mutateCharacter', {
+      character,
+      method: 'setStat',
+      args: [stat, value],
+    })
+  },
 
-  retrieveSpells({ commit }, { spellClass }) {
+  dispatchSetStatOffset({ commit }, { character, stat, value }) {
+    commit('mutateCharacter', {
+      character,
+      method: 'setStatOffset',
+      args: [stat, value],
+    })
+  },
+
+  dispatchAddClass({ commit }, { character, className, subClassName, level }) {
+    commit('mutateCharacter', {
+      character,
+      method: 'addClass',
+      args: [className, subClassName, level],
+    })
+  },
+
+  dispatchUpdateClass(
+    { commit, dispatch },
+    { character, existingClassName, className, subClassName, level },
+  ) {
+    commit('mutateCharacter', {
+      character,
+      method: 'updateClass',
+      args: [existingClassName, className, subClassName, level],
+    })
+    const classIndex = character.classes.findIndex(
+      c => c.className === className,
+    )
+    dispatch('dispatchRetrieveSlots', {
+      character,
+      classIndex,
+      className,
+      level,
+    })
+  },
+
+  dispatchRemoveClass({ commit }, { character, classIndex }) {
+    commit('mutateCharacter', {
+      character,
+      method: 'removeClass',
+      args: [classIndex],
+    })
+  },
+
+  dispatchRetrieveSpells({ commit }, { spellClass }) {
     magicAPI
       .getSpells(spellClass)
       .then(data => {
@@ -143,7 +189,7 @@ export default {
       .catch(handleError)
   },
 
-  retrieveSpellInfo({ commit }, { spell }) {
+  dispatchRetrieveSpellInfo({ commit }, { spell }) {
     magicAPI
       .getSpell(spell)
       .then(data => {
@@ -152,12 +198,27 @@ export default {
       .catch(handleError)
   },
 
-  retrieveSlots(_, { index, name, level, character }) {
+  dispatchRetrieveSlots(
+    { commit },
+    { character, classIndex, className, level },
+  ) {
     magicAPI
-      .getSlots([{ class: name, level }])
+      .getSlots([{ class: className, level }])
       .then(data => {
-        character.setSlots(index, name, data.Slots)
+        commit('mutateCharacter', {
+          character,
+          method: 'setSlots',
+          args: [classIndex, className, data.Slots],
+        })
       })
       .catch(handleError)
+  },
+
+  dispatchSetSlot({ commit }, { character, classIndex, slot, value }) {
+    commit('mutateCharacter', {
+      character,
+      method: 'setSlot',
+      args: [classIndex, slot, value],
+    })
   },
 }

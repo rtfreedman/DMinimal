@@ -4,7 +4,8 @@
       :character="character"
       @characterRemoved="$emit('characterRemoved')"
     />
-    <app-character-info class="mb-2"
+    <app-character-info
+      class="mb-2"
       :character="character"
     />
     <v-layout mb-2>
@@ -24,7 +25,8 @@
           flat
           slot="activator"
           color="primary"
-          @click="character.addClass()"
+          :disabled="character.classes.length >= 10"
+          @click="showClassDialog = true"
         >
           <v-icon>add_circle_outline</v-icon>
         </v-btn>
@@ -34,14 +36,24 @@
     <v-layout column>
       <app-character-class
         v-for="(characterClass, classIndex) in character.classes"
-        :key="characterClass.name"
+        :key="characterClass.className"
         :characterClass="characterClass"
         :classIndex="classIndex"
         :character="character"
         @castSpell="castSpell(characterClass)"
+        @edit="editClass(characterClass)"
         class="mx-3 mb-3"
       />
     </v-layout>
+    <v-dialog v-model="showClassDialog">
+      <app-class-dialog
+        :character="character"
+        :characterClass="classUnderEdit"
+        @close="showClassDialog = false"
+        @add="dispatchAddClass($event); showClassDialog = false"
+        @update="dispatchUpdateClass($event); showClassDialog = false"
+      />
+    </v-dialog>
     <v-dialog
       v-if="spellClass"
       v-model="showSpellDialog"
@@ -56,6 +68,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import CharacterActions from './CharacterActions'
 import CharacterInfo from './CharacterInfo'
 import AbilityScores from './AbilityScores'
@@ -64,6 +77,7 @@ import HitPoints from './HitPoints'
 import DeathSavingThrows from './DeathSavingThrows'
 import Initiative from './Initiative'
 import CastSpellDialog from './CastSpellDialog'
+import ClassDialog from './ClassDialog'
 
 export default {
   name: 'tracker',
@@ -79,19 +93,37 @@ export default {
     'app-hit-points': HitPoints,
     'app-initiative': Initiative,
     'app-cast-spell-dialog': CastSpellDialog,
+    'app-class-dialog': ClassDialog,
   },
 
   data() {
     return {
       spellClass: null,
       showSpellDialog: false,
+      showClassDialog: false,
+      classUnderEdit: null,
     }
   },
 
   methods: {
+    ...mapActions(['dispatchAddClass', 'dispatchUpdateClass']),
+
+    editClass(targetClass) {
+      this.showClassDialog = true
+      this.classUnderEdit = targetClass
+    },
+
     castSpell(characterClass) {
       this.spellClass = characterClass
       this.showSpellDialog = true
+    },
+  },
+
+  watch: {
+    showClassDialog(state) {
+      if (!state) {
+        this.classUnderEdit = null
+      }
     },
   },
 }

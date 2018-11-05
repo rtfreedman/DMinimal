@@ -4,7 +4,7 @@
     <v-layout align-center justify-space-between>
       <h1
         class="px-3 pt-2"
-      >CAST {{ spellClass.name.toUpperCase() }} SPELL</h1>
+      >CAST {{ spellClass.className.toUpperCase() }} SPELL</h1>
       <v-btn icon flat @click="$emit('close')">
         <v-icon>close</v-icon>
       </v-btn>
@@ -108,14 +108,23 @@ export default {
       'currentSpellKeys',
     ]),
 
+    // should put this on the model
+    proficiencyBonus() {
+      let totalLevel = 0
+      this.character.classes.forEach(c => {
+        totalLevel += c.level
+      })
+      return Math.floor(totalLevel / 5) + 2
+    },
+
     spellModifier() {
-      let modifier = this.getModifier(this.character.abilityScores.INT)
-      if (chrClasses.includes(this.spellClass.name)) {
-        modifier = this.getModifier(this.character.abilityScores.CHR)
-      } else if (wisClasses.includes(this.spellClass.name)) {
-        modifier = this.getModifier(this.character.abilityScores.WIS)
+      let modifier = this.character.getModifier('INT')
+      if (chrClasses.includes(this.spellClass.className)) {
+        modifier = this.character.getModifier('CHR')
+      } else if (wisClasses.includes(this.spellClass.className)) {
+        modifier = this.character.getModifier('WIS')
       }
-      return this.character.proficiency + modifier
+      return this.proficiencyBonus + modifier
     },
 
     spellSaveDifficultyClass() {
@@ -144,22 +153,13 @@ export default {
   },
 
   created() {
-    this.retrieveSpells({
-      spellClass: this.spellClass.name,
+    this.dispatchRetrieveSpells({
+      spellClass: this.spellClass.className,
     })
   },
 
   methods: {
-    ...mapActions(['retrieveSpellInfo', 'retrieveSpells']),
-
-    getModifier(val) {
-      return Math.floor((val - 10) / 2)
-    },
-
-    stopConcentrating() {
-      this.$store.commit('stopConcentrating', this.charIndex)
-      this.$store.commit('hideSnackbar')
-    },
+    ...mapActions(['dispatchRetrieveSpellInfo', 'dispatchRetrieveSpells']),
 
     castSpell() {
       if (
@@ -212,7 +212,7 @@ export default {
     },
 
     handleSelect(spell) {
-      this.retrieveSpellInfo({ spell })
+      this.dispatchRetrieveSpellInfo({ spell })
     },
   },
 
