@@ -182,7 +182,7 @@ export default {
       .getSpells(spellClass)
       .then(data => {
         commit('setSpells', {
-          spells: data.spellOpts,
+          spells: data,
           spellClass,
         })
       })

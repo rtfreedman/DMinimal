@@ -41,9 +41,7 @@ func getSpellList(w http.ResponseWriter, r *http.Request) {
 		util.WriteError(err.Error(), w)
 		return
 	}
-	util.WriteJSONResponse("getSearch", map[string][]string{
-		"spellOpts": spellOpts,
-	}, w)
+	util.WriteJSONResponse("getSearch", spellOpts, w)
 	return
 }
 

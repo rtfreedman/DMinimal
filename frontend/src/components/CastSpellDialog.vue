@@ -1,14 +1,16 @@
 <template>
   <v-card>
-    <!-- title and close -->
-    <v-layout align-center justify-space-between>
-      <h1
-        class="px-3 pt-2"
-      >CAST {{ spellClass.className.toUpperCase() }} SPELL</h1>
-      <v-btn icon flat @click="$emit('close')">
+    <v-toolbar
+      light
+      card
+      style="background-color: #ffd700"
+    >
+      <h3>CAST {{ spellClass.className.toUpperCase() }} SPELL</h3>
+      <v-spacer></v-spacer>
+      <v-btn icon @click="close">
         <v-icon>close</v-icon>
       </v-btn>
-    </v-layout>
+    </v-toolbar>
     <!-- useful spell information -->
     <v-card-text>
       <v-layout column mb-2>
@@ -22,22 +24,37 @@
         <h3>SPELL SAVE DIFFICULTY CLASS: {{ spellSaveDifficultyClass }}</h3>
       </v-layout>
       <!-- select spell and level -->
-      <v-layout>
+      <v-layout
+        mb-3
+        align-center
+        justify-space-between
+      >
         <v-autocomplete
           label="Spell"
           v-model="spellInput"
-          :items="spells"
+          :items="spellItems"
+          style="max-width: 500px"
           @input="handleSelect"
         />
-        <v-spacer></v-spacer>
         <v-select
           v-if="spellInput"
           v-model="selectedLevel"
           label="Cast At Level"
           style="max-width: 120px"
+          class="ml-5"
+          :disabled="!slotsAvailable"
           :items="levelOptions"
-          hide-details
+          :hint="!slotsAvailable ? 'NO SLOT AVAILBLE' : ''"
+          persistent-hint
         ></v-select>
+        <v-btn
+          v-if="spellInput"
+          class="ml-5 mr-0"
+          color="primary"
+          outline
+          :disabled="!slotsAvailable"
+          @click="castSpell()"
+        >CAST SPELL</v-btn>
       </v-layout>
       <!-- information about the current spell -->
       <v-layout
@@ -50,20 +67,30 @@
           v-if="key !== 'Description' && key !== 'Name'"
           v-for="key in currentSpellKeys"
           :key="key"
+          column
         >
-          <v-flex xs4>{{ key }}</v-flex>
-          <v-flex
-            v-if="key === 'Concentration'"
-            xs8
-          >{{ currentSpellInfo.Concentration ? 'Required' : 'Not Required' }}</v-flex>
-          <v-flex
-            v-else-if="key === 'Classes'"
-            xs8
-          >{{ currentSpellInfo[key].join(", ") }}</v-flex>
-          <v-flex
-            xs8
-            v-else
-          >{{ currentSpellInfo[key] }}</v-flex>
+          <v-layout class="text-xs-right">
+            <v-flex xs6 py-1>{{ key }}</v-flex>
+            <v-divider vertical class="mx-3"></v-divider>
+            <v-flex
+              class="text-xs-left"
+              xs6
+              py-1
+              v-if="key === 'Concentration'"
+            >{{ currentSpellInfo.Concentration ? 'Required' : 'Not Required' }}</v-flex>
+            <v-flex
+              xs6
+              py-1
+              class="text-xs-left"
+              v-else-if="key === 'Classes'"
+            >{{ currentSpellInfo[key].join(", ") }}</v-flex>
+            <v-flex
+              xs6
+              py-1
+              class="text-xs-left"
+              v-else
+            >{{ currentSpellInfo[key] }}</v-flex>
+          </v-layout>
         </v-layout>
         <v-divider
           color="#ffd700"
@@ -77,18 +104,6 @@
         <v-layout>{{ currentSpellInfo.Description || 'No description available for this spell.' }}</v-layout>
       </v-layout>
     </v-card-text>
-    <!-- actions -->
-    <v-layout
-      v-if="currentSpellInfo.Name"
-      justify-end
-      mx-2
-    >
-      <v-btn
-        color="primary"
-        flat
-        @click="castSpell()"
-      >Cast</v-btn>
-    </v-layout>
   </v-card>
 </template>
 
@@ -101,7 +116,7 @@ export default {
 
   computed: {
     ...mapGetters([
-      'spells',
+      'spellOptions',
       'magicClassOptions',
       'currentSpellInfo',
       'currentSpellClass',
@@ -131,6 +146,13 @@ export default {
       return this.spellModifier + 8
     },
 
+    spellItems() {
+      return this.spellOptions.map(s => ({
+        text: `${s.name} (Level ${s.level})`,
+        value: s.name,
+      }))
+    },
+
     levelOptions() {
       const levelOptions = []
       Object.keys(this.spellClass.workingSlots).forEach(level => {
@@ -146,9 +168,10 @@ export default {
   data() {
     return {
       selectedLevel: null,
-      spellInput: '',
+      spellInput: null,
       snackbarMessage: '',
       showSnackbar: false,
+      slotsAvailable: false,
     }
   },
 
@@ -214,12 +237,22 @@ export default {
     handleSelect(spell) {
       this.dispatchRetrieveSpellInfo({ spell })
     },
+
+    close() {
+      this.selectedLevel = null
+      this.spellInput = ''
+      this.slotsAvailable = false
+      this.$emit('close')
+    },
   },
 
   watch: {
     levelOptions(state) {
       if (state.length) {
         this.selectedLevel = Math.min(...state)
+        this.slotsAvailable = true
+      } else {
+        this.slotsAvailable = false
       }
     },
   },

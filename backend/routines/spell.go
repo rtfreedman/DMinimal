@@ -61,18 +61,18 @@ func GetClassNames() ([]string, []string) {
 
 // SpellInfo contains information about spells
 type SpellInfo struct {
-	AtHigherLevels string `json:"AtHigherLevels,omitempty"`
 	classString    string
 	Classes        []string `json:"Classes,omitempty"`
 	Concentration  bool     `json:"Concentration,omitempty"`
 	Level          int      `json:"Level"`
 	Name           string   `json:"Name"`
 	School         string   `json:"School,omitempty"`
-	SpellRange     string   `json:"SpellRange,omitempty"`
+	SpellRange     string   `json:"Spell Range,omitempty"`
 	Components     string   `json:"Components,omitempty"`
-	CastingTime    string   `json:"CastingTime,omitempty"`
+	CastingTime    string   `json:"Casting Time,omitempty"`
 	Description    string   `json:"Description,omitempty"`
 	Duration       string   `json:"Duration,omitempty"`
+	AtHigherLevels string   `json:"Higher Level Bonus,omitempty"`
 }
 
 func (si *SpellInfo) clean() {
@@ -109,28 +109,33 @@ func GetSpellInfo(spell string) (si SpellInfo, err error) {
 }
 
 // SpellList returns a list of all spells
-func SpellList(class string) (ret []string, err error) {
+func SpellList(class string) ([]map[string]string, error) {
 	if _, ok := tiers[class]; !ok {
-		err = errors.New("Non-magical class submitted to SpellList API endpoint")
-		return
+		return nil, errors.New("Non-magical class submitted to SpellList API endpoint")
 	}
 	if class == "Fighter (Eldritch Knight)" || class == "Rogue (Arcane Trickster)" {
 		class = "Wizard"
 	}
 	// form query
-	query := "SELECT name FROM spells WHERE (classes @> ARRAY[$1])"
+	query := "SELECT name, level FROM spells WHERE (classes @> ARRAY[$1])"
 	// search db with constructed query
 	rows, err := db.Query(query, class)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
-	// gather names from returned data
-	names := []string{}
+	spells := []map[string]string{}
 	for rows.Next() {
+		spell := make(map[string]string)
 		var name string
-		rows.Scan(&name)
-		names = append(names, name)
+		var level string
+		err := rows.Scan(&name, &level)
+		if err != nil {
+			return nil, err
+		}
+		spell["name"] = name
+		spell["level"] = level
+		spells = append(spells, spell)
 	}
-	return names, nil
+	return spells, nil
 }

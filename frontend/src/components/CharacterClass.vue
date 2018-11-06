@@ -21,7 +21,7 @@
         >
           <v-card-text class="pt-0">
             <v-layout justify-end>
-              <v-menu>
+              <v-menu left offset-y>
                 <v-btn
                   class="mr-0"
                   icon
@@ -51,7 +51,9 @@
                     :disabled="character.classes.length === 1"
                   >
                     <v-list-tile-action>
-                      <v-icon :color="character.classes.length === 1 ? '#999' : '#eee'">delete</v-icon>
+                      <v-icon
+                        :color="character.classes.length === 1 ? '#999' : '#eee'"
+                      >delete</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-title>REMOVE</v-list-tile-title>
                   </v-list-tile>
