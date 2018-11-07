@@ -33,6 +33,13 @@ export class Character {
     }
   }
 
+  castSpell(classIndex, slot, spellInfo) {
+    this.classes[classIndex].workingSlots[slot]--
+    if (spellInfo.Concentration) {
+      this.concentratingOn = spellInfo.Name
+    }
+  }
+
   concentrateOn(spellName) {
     this.concentratingOn = spellName
   }

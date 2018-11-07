@@ -182,7 +182,7 @@ export default {
       .getSpells(spellClass)
       .then(data => {
         commit('setSpells', {
-          spells: data.spellOpts,
+          spells: data,
           spellClass,
         })
       })
@@ -219,6 +219,14 @@ export default {
       character,
       method: 'setSlot',
       args: [classIndex, slot, value],
+    })
+  },
+
+  dispatchCastSpell({ commit }, { character, classIndex, slot, spellInfo }) {
+    commit('mutateCharacter', {
+      character,
+      method: 'castSpell',
+      args: [classIndex, slot, spellInfo],
     })
   },
 }
