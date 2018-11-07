@@ -8,7 +8,7 @@ export class Character {
     this.initiative = null
     this.hitPoints = 1
     this.maxHitPoints = 1
-    this.name = name || 'Leroy Jenkins'
+    this.name = name || 'Leeroy Jenkins'
     this.rollHealth = true
     this.concentratingOn = ''
     this.good = null // -1 evil, 0 neutral, 1 good
