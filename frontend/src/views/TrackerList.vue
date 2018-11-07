@@ -55,6 +55,9 @@
         @addCharacter="addCharacter($event)"
       />
     </v-dialog>
+    <v-dialog v-model="showAddMonsterDialog">
+      {{monsterOptions}}
+    </v-dialog>
     <pre>
 Characters:
 {{ characters }}
@@ -78,7 +81,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['characters']),
+    ...mapGetters(['characters','monsterOptions']),
   },
 
   data() {
@@ -99,6 +102,7 @@ export default {
       'dispatchAddCharacter',
       'dispatchGroupRest',
       'dispatchRetrieveClassOptions',
+      'dispatchRetrieveMonsterOptions',
     ]),
 
     addCharacter(name) {
