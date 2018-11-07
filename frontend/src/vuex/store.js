@@ -10,6 +10,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     characters: [new Character(1)],
+    monsters: [],
+    monsterOptions: [],
     nextCharacterId: 2,
     classOptions: [],
     magicClassOptions: [],

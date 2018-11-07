@@ -30,7 +30,10 @@ export default {
     state.characters.splice(i, 1, character)
   },
 
-  // hacking required for vuetify tabs
+  setMonsterOpts(state, { monsters }) {
+    state.monsterOptions = monsters
+  },
+
   triggerChangeDetection(state, remove) {
     if (!remove) {
       state.characters.push(state.characters[0])

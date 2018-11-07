@@ -1,5 +1,6 @@
 import magicAPI from '../api/magic'
 import stateAPI from '../api/state'
+import monsterAPI from '../api/monsters'
 
 function handleError(error) {
   console.error(error)
@@ -16,6 +17,15 @@ export default {
       .then(data => {
         commit('setState', data)
       })
+      .catch(handleError)
+  },
+
+  // IN USE
+
+  dispatchRetrieveMonsterOptions({ commit }) {
+    monsterAPI
+      .getMonsters()
+      .then(data => commit('setMonsterOpts', { monsters: data.Monsters }))
       .catch(handleError)
   },
 
