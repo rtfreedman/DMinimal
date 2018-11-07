@@ -28,6 +28,10 @@ export default {
     state.magicClassOptions = magicClassOptions
   },
 
+  setMonsterOpts(state, { monsters }) {
+    state.monsterOptions = monsters
+  },
+
   triggerChangeDetection(state, remove) {
     if (!remove) {
       state.characters.push(state.characters[0])
