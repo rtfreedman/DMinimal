@@ -7,6 +7,12 @@
       class="ml-0"
     >Add Character</v-btn>
     <v-btn
+      color="primary"
+      flat
+      @click="showAddMonsterDialog = true"
+      class="ml-0"
+    >Add Monster</v-btn>
+    <v-btn
       v-if="characters.length > 1"
       @click="dispatchGroupRest"
       flat
@@ -79,6 +85,7 @@ export default {
     return {
       selectedTab: 0,
       showAddCharacterDialog: false,
+      showAddMonsterDialog: false,
     }
   },
 
