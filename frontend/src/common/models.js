@@ -10,7 +10,7 @@ export class Character {
     this.maxHitPoints = 1
     this.name = name || 'Leroy Jenkins'
     this.rollHealth = true
-    this.concentratingOn = 'Foo'
+    this.concentratingOn = ''
     this.good = null // -1 evil, 0 neutral, 1 good
     this.lawful = null // -1 chaotic, 0 neutral, 1 lawful
     this.race = null
