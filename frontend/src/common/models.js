@@ -199,3 +199,9 @@ export class Class {
     this.availableHitDice = []
   }
 }
+
+export class Monster {
+  constructor(stuff) {
+    this.stuff = stuff
+  }
+}

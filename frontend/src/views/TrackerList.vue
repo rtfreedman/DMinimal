@@ -91,6 +91,7 @@ export default {
 
   created() {
     this.dispatchRetrieveClassOptions()
+    this.dispatchRetrieveMonsterOptions()
   },
 
   methods: {
