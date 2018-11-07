@@ -7,7 +7,7 @@
     >
       <h3>CAST {{ spellClass.className.toUpperCase() }} SPELL</h3>
       <v-spacer></v-spacer>
-      <v-btn icon @click="close">
+      <v-btn icon @click="$emit('close')">
         <v-icon>close</v-icon>
       </v-btn>
     </v-toolbar>
@@ -25,20 +25,20 @@
       </v-layout>
       <!-- select spell and level -->
       <v-layout
-        mb-3
+        :mb-3="!slotsAvailable"
         align-center
         justify-space-between
       >
         <v-autocomplete
           label="Spell"
-          v-model="spellInput"
+          v-model="castSpellState.spell"
           :items="spellItems"
           style="max-width: 500px"
           @input="handleSelect"
         />
         <v-select
-          v-if="spellInput"
-          v-model="selectedLevel"
+          v-if="castSpellState.spell"
+          v-model="castSpellState.level"
           label="Cast At Level"
           style="max-width: 120px"
           class="ml-5"
@@ -48,17 +48,22 @@
           persistent-hint
         ></v-select>
         <v-btn
-          v-if="spellInput"
+          v-if="castSpellState.spell"
           class="ml-5 mr-0"
           color="primary"
           outline
           :disabled="!slotsAvailable"
-          @click="castSpell()"
+          @click="castSpell"
         >CAST SPELL</v-btn>
       </v-layout>
+      <!-- concentration requirement -->
+      <h3
+        class="text mb-3 error--text"
+        v-if="slotsAvailable && character.concentratingOn && currentSpellInfo.Concentration"
+      >This spell requires concentration, but this character is already concentrating on {{ character.concentratingOn }}. Inform the player that their current spell will be interrupted.</h3>
       <!-- information about the current spell -->
       <v-layout
-        v-if="currentSpellInfo.Name"
+        v-if="castSpellState.spell && currentSpellInfo.Name"
         class="border-primary"
         column
         pa-3
@@ -112,7 +117,7 @@ import { mapGetters, mapActions } from 'vuex'
 import { chrClasses, wisClasses } from '../common/constants'
 
 export default {
-  props: ['character', 'spellClass'],
+  props: ['character', 'spellClassIndex', 'castSpellState'],
 
   computed: {
     ...mapGetters([
@@ -130,6 +135,10 @@ export default {
         totalLevel += c.level
       })
       return Math.floor(totalLevel / 5) + 2
+    },
+
+    spellClass() {
+      return this.character.classes[this.spellClassIndex]
     },
 
     spellModifier() {
@@ -167,8 +176,6 @@ export default {
 
   data() {
     return {
-      selectedLevel: null,
-      spellInput: null,
       snackbarMessage: '',
       showSnackbar: false,
       slotsAvailable: false,
@@ -182,66 +189,23 @@ export default {
   },
 
   methods: {
-    ...mapActions(['dispatchRetrieveSpellInfo', 'dispatchRetrieveSpells']),
-
-    castSpell() {
-      if (
-        this.concentrating &&
-        this.currSpellInfo.hasOwnProperty('Concentration')
-      ) {
-        // launch concentration snackbar
-        this.$store.commit('showSnackbar', {
-          message: 'Concentrating on ' + this.concentrating,
-          func: this.stopConcentrating,
-          buttonMessage: 'Stop Concentrating',
-        })
-        return
-      }
-      if (
-        this.spellClass.workingSlots[this.currSpellInfo.Level.toString()] !== 0
-      ) {
-        this.$store.commit('decrementSlot', {
-          charIndex: this.charIndex,
-          classIndex: this.selectedClassIndex,
-          level: this.currSpellInfo.Level,
-        })
-        this.spellSearchDialog = false
-        return
-      }
-      let slotsAvailable = false
-      for (let i = this.currSpellInfo.Level + 1; i < 10; i++) {
-        if (this.spellCast.workingSlots[i.toString()] > 0) {
-          slotsAvailable = true
-          break
-        }
-      }
-      const payload = {
-        message: 'No slots available at spell level',
-      }
-      if (slotsAvailable) {
-        payload['func'] = this.openAtHigherLevelDialog
-        payload['buttonMessage'] = 'Cast at Higher Level?'
-      }
-      this.$store.commit('showSnackbar', payload)
-    },
-
-    castSpellAtLvl(level) {
-      this.$store.commit('decrementSlot', {
-        charIndex: this.charIndex,
-        classIndex: this.selectedClassIndex,
-        level,
-      })
-      this.$emit('castSpellAtLevel', {})
-    },
+    ...mapActions([
+      'dispatchRetrieveSpellInfo',
+      'dispatchRetrieveSpells',
+      'dispatchCastSpell',
+    ]),
 
     handleSelect(spell) {
       this.dispatchRetrieveSpellInfo({ spell })
     },
 
-    close() {
-      this.selectedLevel = null
-      this.spellInput = ''
-      this.slotsAvailable = false
+    castSpell() {
+      this.dispatchCastSpell({
+        character: this.character,
+        classIndex: this.spellClassIndex,
+        slot: this.castSpellState.level,
+        spellInfo: this.currentSpellInfo,
+      })
       this.$emit('close')
     },
   },
@@ -249,7 +213,7 @@ export default {
   watch: {
     levelOptions(state) {
       if (state.length) {
-        this.selectedLevel = Math.min(...state)
+        this.castSpellState.level = Math.min(...state)
         this.slotsAvailable = true
       } else {
         this.slotsAvailable = false

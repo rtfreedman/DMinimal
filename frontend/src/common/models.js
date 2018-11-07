@@ -10,7 +10,7 @@ export class Character {
     this.maxHitPoints = 1
     this.name = name || 'Leroy Jenkins'
     this.rollHealth = true
-    this.concentratingOn = ''
+    this.concentratingOn = 'Foo'
     this.good = null // -1 evil, 0 neutral, 1 good
     this.lawful = null // -1 chaotic, 0 neutral, 1 lawful
     this.race = null
@@ -30,6 +30,13 @@ export class Character {
       DEX: 0,
       CON: 0,
       CHR: 0,
+    }
+  }
+
+  castSpell(classIndex, slot, spellInfo) {
+    this.classes[classIndex].workingSlots[slot]--
+    if (spellInfo.Concentration) {
+      this.concentratingOn = spellInfo.Name
     }
   }
 

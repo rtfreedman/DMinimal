@@ -221,4 +221,12 @@ export default {
       args: [classIndex, slot, value],
     })
   },
+
+  dispatchCastSpell({ commit }, { character, classIndex, slot, spellInfo }) {
+    commit('mutateCharacter', {
+      character,
+      method: 'castSpell',
+      args: [classIndex, slot, spellInfo],
+    })
+  },
 }

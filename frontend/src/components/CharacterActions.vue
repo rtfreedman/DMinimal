@@ -38,10 +38,10 @@
           <v-icon>remove_red_eye</v-icon>
         </v-btn>
         <span
-          v-if="character.concentrating"
-        >Concentrating on {{ character.concentrating }}</span>
+          v-if="character.concentratingOn"
+        >Concentrating on {{ character.concentratingOn }}</span>
         <span
-          v-if="!character.concentrating || character.concentrating === ''"
+          v-if="!character.concentratingOn || character.concentratingOn === ''"
         >Not currently concentrating</span>
       </v-tooltip>
       <v-spacer></v-spacer>

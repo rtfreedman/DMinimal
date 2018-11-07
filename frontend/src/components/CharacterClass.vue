@@ -99,7 +99,6 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { oneToTwenty } from '../common/functions'
 
 import SpellSlots from './SpellSlots'
 

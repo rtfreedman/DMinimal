@@ -40,7 +40,7 @@
         :characterClass="characterClass"
         :classIndex="classIndex"
         :character="character"
-        @castSpell="castSpell(characterClass)"
+        @castSpell="castSpell(classIndex)"
         @edit="editClass(characterClass)"
         class="mx-3 mb-3"
       />
@@ -55,12 +55,13 @@
       />
     </v-dialog>
     <v-dialog
-      v-if="spellClass"
+      v-if="spellClassIndex !== null"
       v-model="showSpellDialog"
     >
       <app-cast-spell-dialog
         :character="character"
-        :spellClass="spellClass"
+        :spellClassIndex="spellClassIndex"
+        :castSpellState="castSpellState"
         @close="showSpellDialog = false"
       />
     </v-dialog>
@@ -98,10 +99,14 @@ export default {
 
   data() {
     return {
-      spellClass: null,
+      spellClassIndex: null,
       showSpellDialog: false,
       showClassDialog: false,
       classUnderEdit: null,
+      castSpellState: {
+        spell: null,
+        level: null,
+      },
     }
   },
 
@@ -113,8 +118,8 @@ export default {
       this.classUnderEdit = targetClass
     },
 
-    castSpell(characterClass) {
-      this.spellClass = characterClass
+    castSpell(classIndex) {
+      this.spellClassIndex = classIndex
       this.showSpellDialog = true
     },
   },
@@ -123,6 +128,16 @@ export default {
     showClassDialog(state) {
       if (!state) {
         this.classUnderEdit = null
+      }
+    },
+
+    showSpellDialog(state) {
+      if (!state) {
+        this.spellClassIndex = null
+        this.castSpellState = {
+          spell: null,
+          level: null,
+        }
       }
     },
   },
