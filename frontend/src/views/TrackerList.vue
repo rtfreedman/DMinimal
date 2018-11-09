@@ -81,7 +81,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['characters','monsterOptions']),
+    ...mapGetters(['characters', 'monsters', 'monsterOptions']),
   },
 
   data() {
