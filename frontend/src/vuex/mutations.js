@@ -33,7 +33,7 @@ export default {
   setMonsterOpts(state, { monsters }) {
     state.monsterOptions = monsters
   },
-  
+
   // hacking required for vuetify tabs
   triggerChangeDetection(state, remove) {
     if (!remove) {

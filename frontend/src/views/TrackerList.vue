@@ -56,7 +56,9 @@
       />
     </v-dialog>
     <v-dialog v-model="showAddMonsterDialog">
-      {{monsterOptions}}
+      <app-add-monster-dialog
+        @close="showAddMonsterDialog = false"
+      />
     </v-dialog>
     <pre>
 Characters:
@@ -66,16 +68,19 @@ Characters:
 </template>
 
 <script>
-import { mapGetters, mapMutations, mapActions } from 'vuex'
+// removed mapMutations
+import { mapGetters, mapActions } from 'vuex'
 import Tracker from '@/components/Tracker'
 import MessageSnackbar from '@/components/MessageSnackbar'
-import AddCharacterDialog from '@/components/AddCharacterDialog.vue'
+import AddCharacterDialog from '@/components/AddCharacterDialog'
+import AddMonsterDialog from '@/components/AddMonsterDialog'
 
 export default {
   name: 'trackerList',
 
   components: {
     'app-add-character-dialog': AddCharacterDialog,
+    'app-add-monster-dialog': AddMonsterDialog,
     'app-tracker': Tracker,
     'app-msg-snackbar': MessageSnackbar,
   },
