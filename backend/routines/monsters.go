@@ -38,25 +38,25 @@ func GetMonsterInfo(monster string) (val map[string]interface{}, err error) {
 	oi, err := getMonsterOtherTableInfo(monster, false, "reactions")
 	if err == nil {
 		for i := range oi {
-			addOtherInfoToMap("reactions", oi[i], val)
+			addOtherInfoToMap("Reactions", oi[i], val)
 		}
 	}
 	oi, err = getMonsterOtherTableInfo(monster, false, "legendary_actions")
 	if err == nil {
 		for i := range oi {
-			addOtherInfoToMap("legendary_actions", oi[i], val)
+			addOtherInfoToMap("Legendary Actions", oi[i], val)
 		}
 	}
 	oi, err = getMonsterOtherTableInfo(monster, false, "special_abilities")
 	if err == nil {
 		for i := range oi {
-			addOtherInfoToMap("special_abilities", oi[i], val)
+			addOtherInfoToMap("Special Abilities", oi[i], val)
 		}
 	}
 	oi, err = getMonsterOtherTableInfo(monster, true, "actions")
 	if err == nil {
 		for i := range oi {
-			addOtherInfoToMap("actions", oi[i], val)
+			addOtherInfoToMap("Actions", oi[i], val)
 		}
 	}
 	reshapeMonster(val)
@@ -72,7 +72,12 @@ func reshapeMonster(monster map[string]interface{}) {
 			delete(monster, score)
 		}
 	}
-	monster["abilityScores"] = abilityScores
+	for k, v := range monster {
+		if v == "" {
+			delete(monster, k)
+		}
+	}
+	monster["Ability Scores"] = abilityScores
 }
 
 type monsterInfo struct {
@@ -137,58 +142,58 @@ func addMonsterInfoToMap(mi monsterInfo, val map[string]interface{}) {
 		val["WIS"] = mi.WIS.Int64
 	}
 	if mi.armorClass.Valid {
-		val["armorClass"] = mi.armorClass.Int64
+		val["Armor Class"] = mi.armorClass.Int64
 	}
 	if mi.history.Valid {
-		val["history"] = mi.history.Int64
+		val["History"] = mi.history.Int64
 	}
 	if mi.hitPoints.Valid {
-		val["hitPoints"] = mi.hitPoints.Int64
+		val["Hitpoints"] = mi.hitPoints.Int64
 	}
 	if mi.perception.Valid {
-		val["perception"] = mi.perception.Int64
+		val["Perception"] = mi.perception.Int64
 	}
 	if mi.challengeRating.Valid {
-		val["challengeRating"] = mi.challengeRating.Float64
+		val["Challenge Rating"] = mi.challengeRating.Float64
 	}
 	if mi.alignment.Valid {
-		val["alignment"] = mi.alignment.String
+		val["Alignment"] = mi.alignment.String
 	}
 	if mi.conditionImmunities.Valid {
-		val["conditionImmunities"] = mi.conditionImmunities.String
+		val["Condition Immunities"] = mi.conditionImmunities.String
 	}
 	if mi.damageImmunities.Valid {
-		val["damageImmunities"] = mi.damageImmunities.String
+		val["Damage Immunities"] = mi.damageImmunities.String
 	}
 	if mi.damageResistances.Valid {
-		val["damageResistances"] = mi.damageResistances.String
+		val["Damage Resistances"] = mi.damageResistances.String
 	}
 	if mi.damageVulnerabilities.Valid {
-		val["damageVulnerabilities"] = mi.damageVulnerabilities.String
+		val["Damage Vulnerabilities"] = mi.damageVulnerabilities.String
 	}
 	if mi.hitDice.Valid {
-		val["hitDice"] = mi.hitDice.String
+		val["Hit Dice"] = mi.hitDice.String
 	}
 	if mi.languages.Valid {
-		val["languages"] = mi.languages.String
+		val["Languages"] = mi.languages.String
 	}
 	if mi.monster.Valid {
-		val["monster"] = mi.monster.String
+		val["Monster"] = mi.monster.String
 	}
 	if mi.senses.Valid {
-		val["senses"] = mi.senses.String
+		val["Senses"] = mi.senses.String
 	}
 	if mi.size.Valid {
-		val["size"] = mi.size.String
+		val["Size"] = mi.size.String
 	}
 	if mi.speed.Valid {
-		val["speed"] = mi.speed.String
+		val["Speed"] = mi.speed.String
 	}
 	if mi.subtype.Valid {
-		val["subtype"] = mi.subtype.String
+		val["Subtype"] = mi.subtype.String
 	}
 	if mi.typeString.Valid {
-		val["typeString"] = mi.typeString.String
+		val["Type"] = mi.typeString.String
 	}
 }
 
@@ -219,19 +224,19 @@ func getMonsterOtherTableInfo(monsterName string, isAction bool, tableName strin
 func addOtherInfoToMap(key string, oi otherInfo, val map[string]interface{}) {
 	newMap := map[string]interface{}{}
 	if oi.damageBonus.Valid {
-		newMap["damageBonus"] = oi.damageBonus.Int64
+		newMap["Damage Bonus"] = oi.damageBonus.Int64
 	}
 	if oi.damageDice.Valid {
-		newMap["damageDice"] = oi.damageDice.String
+		newMap["Damage Dice"] = oi.damageDice.String
 	}
 	if oi.description.Valid {
-		newMap["description"] = oi.description.String
+		newMap["Description"] = oi.description.String
 	}
 	if oi.monster.Valid {
-		newMap["monster"] = oi.monster.String
+		newMap["Monster"] = oi.monster.String
 	}
 	if oi.name.Valid {
-		newMap["name"] = oi.name.String
+		newMap["Name"] = oi.name.String
 	}
 	if _, ok := val[key]; !ok {
 		val[key] = []map[string]interface{}{}
