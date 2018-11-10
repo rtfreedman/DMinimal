@@ -29,6 +29,7 @@
         <v-layout
           v-for="key in currentMonsterKeys"
           :key="key"
+          v-if="typeof currentMonsterInfo[key] === 'string' || typeof currentMonsterInfo[key] === 'number'"
           column
         >
           <v-layout class="text-xs-right">
