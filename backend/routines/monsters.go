@@ -59,7 +59,20 @@ func GetMonsterInfo(monster string) (val map[string]interface{}, err error) {
 			addOtherInfoToMap("actions", oi[i], val)
 		}
 	}
+	reshapeMonster(val)
 	return
+}
+
+func reshapeMonster(monster map[string]interface{}) {
+	scores := []string{"CHR", "CON", "DEX", "INT", "STR", "WIS"}
+	abilityScores := map[string]interface{}{}
+	for _, score := range scores {
+		if _, ok := monster[score]; ok {
+			abilityScores[score] = monster[score]
+			delete(monster, score)
+		}
+	}
+	monster["abilityScores"] = abilityScores
 }
 
 type monsterInfo struct {
