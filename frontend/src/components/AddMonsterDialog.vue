@@ -20,6 +20,26 @@
         @input="handleSelect"
       />
       <!-- @keyup.enter="name ? $emit('addCharacter', name) : () => {}" -->
+      <v-layout
+        v-if="currentMonsterKeys.length > 1"
+        class="border-primary"
+        column
+        pa-3
+      >
+        <v-layout
+          v-for="key in currentMonsterKeys"
+          :key="key"
+          column
+        >
+          <v-layout class="text-xs-right">
+            <v-flex xs6 py-1>{{ key }}</v-flex>
+            <v-divider vertical class="mx-3"></v-divider>
+            <v-flex xs6 py-1 class="text-xs-left">{{ currentMonsterInfo[key] }}</v-flex>
+          </v-layout>
+          <v-layout class="text-xs-left">
+          </v-layout>
+        </v-layout>
+      </v-layout>
     </v-card-text>
     {{currentMonsterInfo}}
   </v-card>
@@ -29,7 +49,12 @@
 import { mapGetters, mapActions } from 'vuex'
 export default {
   computed: {
-    ...mapGetters(['monsters', 'currentMonsterInfo', 'monsterOptions']),
+    ...mapGetters([
+      'monsters',
+      'currentMonsterInfo',
+      'monsterOptions',
+      'currentMonsterKeys',
+    ]),
   },
   data() {
     return {
