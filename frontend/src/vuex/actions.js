@@ -29,6 +29,13 @@ export default {
       .catch(handleError)
   },
 
+  dispatchRetrieveMonsterInfo({ commit }, { name }) {
+    monsterAPI
+      .getMonster(name)
+      .then(data => commit('setMonsterInfo', data))
+      .catch(handleError)
+  },
+
   dispatchRetrieveClassOptions({ commit }) {
     magicAPI
       .getClasses()
@@ -54,6 +61,16 @@ export default {
   dispatchRemoveCharacter({ commit }, id) {
     commit('removeCharacter', id)
     // then save
+    return new Promise(resolve => {
+      setImmediate(() => {
+        resolve()
+      })
+    })
+  },
+
+  dispatchAddMonster({ commit }, monster) {
+    commit('addMonster', monster)
+    // then save (?)
     return new Promise(resolve => {
       setImmediate(() => {
         resolve()

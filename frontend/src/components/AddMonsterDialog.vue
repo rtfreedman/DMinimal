@@ -21,15 +21,15 @@
       />
       <!-- @keyup.enter="name ? $emit('addCharacter', name) : () => {}" -->
     </v-card-text>
-
+    {{currentMonsterInfo}}
   </v-card>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   computed: {
-    ...mapGetters(['monsters', 'monsterOptions']),
+    ...mapGetters(['monsters', 'currentMonsterInfo', 'monsterOptions']),
   },
   data() {
     return {
@@ -37,8 +37,9 @@ export default {
     }
   },
   methods: {
-    handleSelect() {
-      // TODO
+    ...mapActions(['dispatchRetrieveMonsterInfo']),
+    handleSelect(name) {
+      this.dispatchRetrieveMonsterInfo({ name })
     },
   },
 }

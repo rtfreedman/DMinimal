@@ -105,6 +105,7 @@ export default {
   methods: {
     ...mapActions([
       'dispatchAddCharacter',
+      'dispatchAddMonster',
       'dispatchGroupRest',
       'dispatchRetrieveClassOptions',
       'dispatchRetrieveMonsterOptions',
@@ -115,6 +116,13 @@ export default {
       this.showAddCharacterDialog = false
       this.dispatchAddCharacter(name).then(() => {
         this.selectedTab = this.characters.length - 1
+      })
+    },
+
+    addMonster(name) {
+      this.showAddMonsterDialog = false
+      this.dispatchAddMonster(name).then(() => {
+        // tabs :/
       })
     },
 
