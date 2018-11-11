@@ -88,7 +88,6 @@ type monsterInfo struct {
 	STR                   sql.NullInt64
 	WIS                   sql.NullInt64
 	armorClass            sql.NullInt64
-	history               sql.NullInt64
 	hitPoints             sql.NullInt64
 	perception            sql.NullInt64
 	challengeRating       sql.NullFloat64
@@ -105,6 +104,8 @@ type monsterInfo struct {
 	speed                 sql.NullString
 	subtype               sql.NullString
 	typeString            sql.NullString
+	savingThrows          sql.NullString
+	skills                sql.NullString
 }
 
 type otherInfo struct {
@@ -116,8 +117,8 @@ type otherInfo struct {
 }
 
 func getMonsterTableInfo(monsterName string) (mi monsterInfo, err error) {
-	row := db.QueryRow("SELECT CHR, CON, DEX, INT, STR, WIS, armor_class, history, hit_points, perception, challenge_rating, alignment, condition_immunities, damage_immunities, damage_resistances, damage_vulnerabilities, hit_dice, languages, monster, senses, size, speed, subtype, type from monsters WHERE monster=$1", monsterName)
-	err = row.Scan(&mi.CHR, &mi.CON, &mi.DEX, &mi.INT, &mi.STR, &mi.WIS, &mi.armorClass, &mi.history, &mi.hitPoints, &mi.perception, &mi.challengeRating, &mi.alignment, &mi.conditionImmunities, &mi.damageImmunities, &mi.damageResistances, &mi.damageVulnerabilities, &mi.hitDice, &mi.languages, &mi.monster, &mi.senses, &mi.size, &mi.speed, &mi.subtype, &mi.typeString)
+	row := db.QueryRow("SELECT CHR, CON, DEX, INT, STR, WIS, armor_class, hit_points, perception, challenge_rating, alignment, condition_immunities, damage_immunities, damage_resistances, damage_vulnerabilities, hit_dice, languages, monster, senses, size, speed, subtype, type, saving_throws, skills from monsters WHERE monster=$1", monsterName)
+	err = row.Scan(&mi.CHR, &mi.CON, &mi.DEX, &mi.INT, &mi.STR, &mi.WIS, &mi.armorClass, &mi.hitPoints, &mi.perception, &mi.challengeRating, &mi.alignment, &mi.conditionImmunities, &mi.damageImmunities, &mi.damageResistances, &mi.damageVulnerabilities, &mi.hitDice, &mi.languages, &mi.monster, &mi.senses, &mi.size, &mi.speed, &mi.subtype, &mi.typeString, &mi.savingThrows, &mi.skills)
 	return
 }
 
@@ -143,9 +144,6 @@ func addMonsterInfoToMap(mi monsterInfo, val map[string]interface{}) {
 	}
 	if mi.armorClass.Valid {
 		val["Armor Class"] = mi.armorClass.Int64
-	}
-	if mi.history.Valid {
-		val["History"] = mi.history.Int64
 	}
 	if mi.hitPoints.Valid {
 		val["Hitpoints"] = mi.hitPoints.Int64
@@ -194,6 +192,12 @@ func addMonsterInfoToMap(mi monsterInfo, val map[string]interface{}) {
 	}
 	if mi.typeString.Valid {
 		val["Type"] = mi.typeString.String
+	}
+	if mi.savingThrows.Valid {
+		val["Saving Throws"] = mi.savingThrows.String
+	}
+	if mi.skills.Valid {
+		val["Skills"] = mi.skills.String
 	}
 }
 
