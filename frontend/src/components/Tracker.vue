@@ -11,6 +11,8 @@
     <v-layout mb-2>
       <app-initiative :character="character"/>
       <app-hit-points :character="character"/>
+      <app-speed :character="character"/>
+      <app-armor-class :character="character"/>
     </v-layout>
     <app-death-throws
       v-if="character.hitPoints <= 0 && character.maxHitPoints > 0"
@@ -75,6 +77,8 @@ import CharacterInfo from './CharacterInfo'
 import AbilityScores from './AbilityScores'
 import CharacterClass from './CharacterClass'
 import HitPoints from './HitPoints'
+import Speed from './Speed'
+import ArmorClass from './ArmorClass'
 import DeathSavingThrows from './DeathSavingThrows'
 import Initiative from './Initiative'
 import CastSpellDialog from './CastSpellDialog'
@@ -93,6 +97,8 @@ export default {
     'app-death-throws': DeathSavingThrows,
     'app-hit-points': HitPoints,
     'app-initiative': Initiative,
+    'app-armor-class': ArmorClass,
+    'app-speed': Speed,
     'app-cast-spell-dialog': CastSpellDialog,
     'app-class-dialog': ClassDialog,
   },

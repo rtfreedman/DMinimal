@@ -14,6 +14,8 @@ export class Character {
     this.good = null // -1 evil, 0 neutral, 1 good
     this.lawful = null // -1 chaotic, 0 neutral, 1 lawful
     this.race = null
+    this.speed = null
+    this.armorClass = null
     this.classes = [new Class(true, 'Bard')]
     this.abilityScores = {
       STR: 10,
@@ -31,6 +33,14 @@ export class Character {
       CON: 0,
       CHR: 0,
     }
+  }
+
+  setSpeed(speed) {
+    this.speed = speed
+  }
+
+  setArmorClass(armorClass) {
+    this.armorClass = armorClass
   }
 
   castSpell(classIndex, slot, spellInfo) {

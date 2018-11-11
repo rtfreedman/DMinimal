@@ -1,5 +1,5 @@
 <template>
-  <v-layout column mx-3 style="max-width: 150px">
+  <v-layout column ml-3 style="max-width: 150px">
     <v-layout align-center>
       <h3>INITIATIVE</h3>
       <v-tooltip bottom>
