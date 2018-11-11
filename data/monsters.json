@@ -14,14 +14,15 @@
       "damage_immunities": "",
       "damage_resistances": "",
       "damage_vulnerabilities": "",
-      "history": 12,
       "hit_dice": "18d10",
       "hit_points": 135,
       "languages": "Deep Speech, telepathy 120 ft.",
       "monster": "Aboleth",
       "perception": 10,
+      "saving_throws": "Con +6, Int +8, Wis +6",
       "senses": "darkvision 120 ft., passive perception 20",
       "size": "Large",
+      "skills": "History +12, Perception +10",
       "speed": "10 ft., swim 40 ft.",
       "subtype": "",
       "type": "aberration"
@@ -46,6 +47,7 @@
       "monster": "Acolyte",
       "senses": "passive perception 12",
       "size": "Medium",
+      "skills": "Medicine +4, Religion +2",
       "speed": "30 ft.",
       "subtype": "any race",
       "type": "humanoid"
@@ -69,8 +71,10 @@
       "languages": "Common, Draconic",
       "monster": "Adult Black Dragon",
       "perception": 11,
+      "saving_throws": "Dex +7, Con +10, Wis +6, Cha +8",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 21",
       "size": "Huge",
+      "skills": "Perception +11, Stealth +7",
       "speed": "40 ft., fly 80 ft., swim 40 ft.",
       "subtype": "",
       "type": "dragon"
@@ -119,8 +123,10 @@
       "languages": "Common, Draconic",
       "monster": "Adult Blue Dragon",
       "perception": 12,
+      "saving_throws": "Dex +5, Con +11, Wis +7, Cha +9",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 22",
       "size": "Huge",
+      "skills": "Perception +12, Stealth +5",
       "speed": "40 ft., burrow 30 ft., fly 80 ft.",
       "subtype": "",
       "type": "dragon"
@@ -139,14 +145,15 @@
       "damage_immunities": "fire",
       "damage_resistances": "",
       "damage_vulnerabilities": "",
-      "history": 7,
       "hit_dice": "15d12",
       "hit_points": 172,
       "languages": "Common, Draconic",
       "monster": "Adult Brass Dragon",
       "perception": 11,
+      "saving_throws": "Dex +5, Con +10, Wis +6, Cha +8",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 21",
       "size": "Huge",
+      "skills": "History +7, Perception +11, Persuasion +8, Stealth +5",
       "speed": "40 ft., burrow 40 ft., fly 80 ft.",
       "subtype": "",
       "type": "dragon"
@@ -170,8 +177,10 @@
       "languages": "Common, Draconic",
       "monster": "Adult Bronze Dragon",
       "perception": 12,
+      "saving_throws": "Dex +5, Con +11, Wis +7, Cha +9",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 22",
       "size": "Huge",
+      "skills": "Insight +7, Perception +12, Stealth +5",
       "speed": "40 ft., fly 80 ft., swim 40 ft.",
       "subtype": "",
       "type": "dragon"
@@ -195,8 +204,10 @@
       "languages": "Common, Draconic",
       "monster": "Adult Copper Dragon",
       "perception": 12,
+      "saving_throws": "Dex +6, Con +10, Wis +7, Cha +8",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 22",
       "size": "Huge",
+      "skills": "Deception +8, Perception +12, Stealth +6",
       "speed": "40 ft., climb 40 ft., fly 80 ft.",
       "subtype": "",
       "type": "dragon"
@@ -220,8 +231,10 @@
       "languages": "Common, Draconic",
       "monster": "Adult Gold Dragon",
       "perception": 14,
+      "saving_throws": "Dex +8, Con +13, Wis +8, Cha +13",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 24",
       "size": "Huge",
+      "skills": "Insight +8, Perception +14, Persuasion +13, Stealth +8",
       "speed": "40 ft., fly 80 ft., swim 40 ft.",
       "subtype": "",
       "type": "dragon"
@@ -245,8 +258,10 @@
       "languages": "Common, Draconic",
       "monster": "Adult Green Dragon",
       "perception": 12,
+      "saving_throws": "Dex +6, Con +10, Wis +7, Cha +8",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 22",
       "size": "Huge",
+      "skills": "Deception +8, Insight +7, Perception +12, Persuasion +8, Stealth +6",
       "speed": "40 ft., fly 80 ft., swim 40 ft.",
       "subtype": "",
       "type": "dragon"
@@ -270,8 +285,10 @@
       "languages": "Common, Draconic",
       "monster": "Adult Red Dragon",
       "perception": 13,
+      "saving_throws": "Dex +6, Con +13, Wis +7, Cha +11",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 23",
       "size": "Huge",
+      "skills": "Perception +13, Stealth +6",
       "speed": "40 ft., climb 40 ft., fly 80 ft.",
       "subtype": "",
       "type": "dragon"
@@ -290,14 +307,15 @@
       "damage_immunities": "cold",
       "damage_resistances": "",
       "damage_vulnerabilities": "",
-      "history": 8,
       "hit_dice": "18d12",
       "hit_points": 243,
       "languages": "Common, Draconic",
       "monster": "Adult Silver Dragon",
       "perception": 11,
+      "saving_throws": "Dex +5, Con +12, Wis +6, Cha +10",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 21",
       "size": "Huge",
+      "skills": "Arcana +8, History +8, Perception +11, Stealth +5",
       "speed": "40 ft., fly 80 ft.",
       "subtype": "",
       "type": "dragon"
@@ -321,8 +339,10 @@
       "languages": "Common, Draconic",
       "monster": "Adult White Dragon",
       "perception": 11,
+      "saving_throws": "Dex +5, Con +11, Wis +6, Cha +6",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 21",
       "size": "Huge",
+      "skills": "Perception +11, Stealth +5",
       "speed": "40 ft., burrow 30 ft., fly 80 ft., swim 40 ft.",
       "subtype": "",
       "type": "dragon"
@@ -370,8 +390,10 @@
       "languages": "Common, Draconic",
       "monster": "Ancient Black Dragon",
       "perception": 16,
+      "saving_throws": "Dex +9, Con +14, Wis +9, Cha +11",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 26",
       "size": "Gargantuan",
+      "skills": "Perception +16, Stealth +9",
       "speed": "40 ft., fly 80 ft., swim 40 ft.",
       "subtype": "",
       "type": "dragon"
@@ -395,8 +417,10 @@
       "languages": "Common, Draconic",
       "monster": "Ancient Blue Dragon",
       "perception": 17,
+      "saving_throws": "Dex +7, Con +15, Wis +10, Cha +12",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 27",
       "size": "Gargantuan",
+      "skills": "Perception +17, Stealth +7",
       "speed": "40 ft., burrow 40 ft., fly 80 ft.",
       "subtype": "",
       "type": "dragon"
@@ -415,14 +439,15 @@
       "damage_immunities": "fire",
       "damage_resistances": "",
       "damage_vulnerabilities": "",
-      "history": 9,
       "hit_dice": "17d20",
       "hit_points": 297,
       "languages": "Common, Draconic",
       "monster": "Ancient Brass Dragon",
       "perception": 14,
+      "saving_throws": "Dex +6, Con +13, Wis +8, Cha +10",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 24",
       "size": "Gargantuan",
+      "skills": "History +9, Perception +14, Persuasion +10, Stealth +6",
       "speed": "40 ft., burrow 40 ft., fly 80 ft.",
       "subtype": "",
       "type": "dragon"
@@ -446,8 +471,10 @@
       "languages": "Common, Draconic",
       "monster": "Ancient Bronze Dragon",
       "perception": 17,
+      "saving_throws": "Dex +7, Con +15, Wis +10, Cha +12",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 27",
       "size": "Gargantuan",
+      "skills": "Insight +10, Perception +17, Stealth +7",
       "speed": "40 ft., fly 80 ft., swim 40 ft.",
       "subtype": "",
       "type": "dragon"
@@ -471,8 +498,10 @@
       "languages": "Common, Draconic",
       "monster": "Ancient Copper Dragon",
       "perception": 17,
+      "saving_throws": "Dex +8, Con +14, Wis +10, Cha +11",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 27",
       "size": "Gargantuan",
+      "skills": "Deception +11, Perception +17, Stealth +8",
       "speed": "40 ft., climb 40 ft., fly 80 ft.",
       "subtype": "",
       "type": "dragon"
@@ -496,8 +525,10 @@
       "languages": "Common, Draconic",
       "monster": "Ancient Gold Dragon",
       "perception": 17,
+      "saving_throws": "Dex +9, Con +16, Wis +10, Cha +16",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 27",
       "size": "Gargantuan",
+      "skills": "Insight +10, Perception +17, Persuasion +16, Stealth +9",
       "speed": "40 ft., fly 80 ft., swim 40 ft.",
       "subtype": "",
       "type": "dragon"
@@ -521,8 +552,10 @@
       "languages": "Common, Draconic",
       "monster": "Ancient Green Dragon",
       "perception": 17,
+      "saving_throws": "Dex +8, Con +14, Wis +10, Cha +11",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 27",
       "size": "Gargantuan",
+      "skills": "Deception +11, Insight +10, Perception +17, Persuasion +11, Stealth +8",
       "speed": "40 ft., fly 80 ft., swim 40 ft.",
       "subtype": "",
       "type": "dragon"
@@ -546,8 +579,10 @@
       "languages": "Common, Draconic",
       "monster": "Ancient Red Dragon",
       "perception": 16,
+      "saving_throws": "Dex +7, Con +16, Wis +9, Cha +13",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 26",
       "size": "Gargantuan",
+      "skills": "Perception +16, Stealth +7",
       "speed": "40 ft., climb 40 ft., fly 80 ft.",
       "subtype": "",
       "type": "dragon"
@@ -566,14 +601,15 @@
       "damage_immunities": "cold",
       "damage_resistances": "",
       "damage_vulnerabilities": "",
-      "history": 11,
       "hit_dice": "25d20",
       "hit_points": 487,
       "languages": "Common, Draconic",
       "monster": "Ancient Silver Dragon",
       "perception": 16,
+      "saving_throws": "Dex +7, Con +16, Wis +9, Cha +13",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 26",
       "size": "Gargantuan",
+      "skills": "Arcana +11, History +11, Perception +16, Stealth +7",
       "speed": "40 ft., fly 80 ft.",
       "subtype": "",
       "type": "dragon"
@@ -597,8 +633,10 @@
       "languages": "Common, Draconic",
       "monster": "Ancient White Dragon",
       "perception": 13,
+      "saving_throws": "Dex +6, Con +14, Wis +7, Cha +8",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 23",
       "size": "Gargantuan",
+      "skills": "Perception +13, Stealth +6",
       "speed": "40 ft., burrow 40 ft., fly 80 ft., swim 40 ft.",
       "subtype": "",
       "type": "dragon"
@@ -622,8 +660,10 @@
       "languages": "Common, Sphinx",
       "monster": "Androsphinx",
       "perception": 10,
+      "saving_throws": "Dex +6, Con +11, Int +9, Wis +10",
       "senses": "truesight 120 ft., passive perception 20",
       "size": "Large",
+      "skills": "Arcana +9, Perception +10, Religion +15",
       "speed": "40 ft., fly 60 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -697,6 +737,7 @@
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Medium",
+      "skills": "Athletics +5, Perception +3",
       "speed": "30 ft., climb 30 ft.",
       "subtype": "",
       "type": "beast"
@@ -715,13 +756,14 @@
       "damage_immunities": "",
       "damage_resistances": "damage from spells; non magical bludgeoning, piercing, and slashing (from stoneskin)",
       "damage_vulnerabilities": "",
-      "history": 13,
       "hit_dice": "18d8",
       "hit_points": 99,
       "languages": "any six languages",
       "monster": "Archmage",
+      "saving_throws": "Int +9, Wis +6",
       "senses": "passive perception 12",
       "size": "Medium",
+      "skills": "Arcana +13, History +13",
       "speed": "30 ft.",
       "subtype": "any race",
       "type": "humanoid"
@@ -745,8 +787,10 @@
       "languages": "Thieves' cant plus any two languages",
       "monster": "Assassin",
       "perception": 3,
+      "saving_throws": "Dex +6, Int +4",
       "senses": "passive perception 13",
       "size": "Medium",
+      "skills": "Acrobatics +6, Deception +3, Perception +3, Stealth +9",
       "speed": "30 ft.",
       "subtype": "any race",
       "type": "humanoid"
@@ -841,6 +885,7 @@
       "hit_points": 39,
       "languages": "Ignan",
       "monster": "Azer",
+      "saving_throws": "Con +4",
       "senses": "passive perception 11",
       "size": "Medium",
       "speed": "30 ft.",
@@ -913,6 +958,7 @@
       "hit_points": 262,
       "languages": "Abyssal, telepathy 120 ft.",
       "monster": "Balor",
+      "saving_throws": "Str +14, Con +12, Wis +9, Cha +12",
       "senses": "truesight 120 ft., passive perception 13",
       "size": "Huge",
       "speed": "40 ft., fly 80 ft.",
@@ -961,8 +1007,10 @@
       "hit_points": 65,
       "languages": "any two languages",
       "monster": "Bandit Captain",
+      "saving_throws": "Str +4, Dex +5, Wis +2",
       "senses": "passive perception 10",
       "size": "Medium",
+      "skills": "Athletics +4, Deception +4",
       "speed": "30 ft.",
       "subtype": "any race",
       "type": "humanoid"
@@ -986,8 +1034,10 @@
       "languages": "Infernal, telepathy 120 ft.",
       "monster": "Barbed Devil",
       "perception": 8,
+      "saving_throws": "Str +6, Con +7, Wis +5, Cha +5",
       "senses": "darkvision 120 ft., passive perception 18",
       "size": "Medium",
+      "skills": "Deception +5, Insight +5, Perception +8",
       "speed": "30 ft.",
       "subtype": "devil",
       "type": "fiend"
@@ -1058,6 +1108,7 @@
       "hit_points": 52,
       "languages": "Infernal, telepathy 120 ft.",
       "monster": "Bearded Devil",
+      "saving_throws": "Str +5, Con +4, Wis +2",
       "senses": "darkvision 120 ft., passive perception 10",
       "size": "Medium",
       "speed": "30 ft.",
@@ -1085,6 +1136,7 @@
       "perception": 6,
       "senses": "darkvision 90 ft., passive perception 16",
       "size": "Huge",
+      "skills": "Perception +6, Stealth +7",
       "speed": "50 ft., climb 40 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -1156,8 +1208,10 @@
       "languages": "Draconic",
       "monster": "Black Dragon Wyrmling",
       "perception": 4,
+      "saving_throws": "Dex +4, Con +3, Wis +2, Cha +3",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 14",
       "size": "Medium",
+      "skills": "Perception +4, Stealth +4",
       "speed": "30 ft., fly 60 ft., swim 30 ft.",
       "subtype": "",
       "type": "dragon"
@@ -1207,6 +1261,7 @@
       "perception": 3,
       "senses": "passive perception 10",
       "size": "Medium",
+      "skills": "Perception +3, Stealth +5",
       "speed": "40 ft.",
       "subtype": "",
       "type": "fey"
@@ -1232,6 +1287,7 @@
       "perception": 4,
       "senses": "passive perception 14",
       "size": "Small",
+      "skills": "Perception +4",
       "speed": "10 ft., fly 60 ft.",
       "subtype": "",
       "type": "beast"
@@ -1255,8 +1311,10 @@
       "languages": "Draconic",
       "monster": "Blue Dragon Wyrmling",
       "perception": 4,
+      "saving_throws": "Dex +2, Con +4, Wis +2, Cha +4",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 14",
       "size": "Medium",
+      "skills": "Perception +4, Stealth +2",
       "speed": "30 ft., burrow 15 ft., fly 60 ft.",
       "subtype": "",
       "type": "dragon"
@@ -1303,8 +1361,10 @@
       "hit_points": 142,
       "languages": "Infernal, telepathy 120 ft.",
       "monster": "Bone Devil",
+      "saving_throws": "Int +5, Wis +6, Cha +7",
       "senses": "darkvision 120 ft., passive perception 9",
       "size": "Large",
+      "skills": "Deception +7, Insight +6",
       "speed": "40 ft., fly 40 ft.",
       "subtype": "devil",
       "type": "fiend"
@@ -1328,8 +1388,10 @@
       "languages": "Draconic",
       "monster": "Brass Dragon Wyrmling",
       "perception": 4,
+      "saving_throws": "Dex +2, Con +3, Wis +2, Cha +3",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 14",
       "size": "Medium",
+      "skills": "Perception +4, Stealth +2",
       "speed": "30 ft., burrow 15 ft., fly 60 ft.",
       "subtype": "",
       "type": "dragon"
@@ -1353,8 +1415,10 @@
       "languages": "Draconic",
       "monster": "Bronze Dragon Wyrmling",
       "perception": 4,
+      "saving_throws": "Dex +2, Con +4, Wis +2, Cha +4",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 14",
       "size": "Medium",
+      "skills": "Perception +4, Stealth +2",
       "speed": "30 ft., fly 60 ft., swim 30 ft.",
       "subtype": "",
       "type": "dragon"
@@ -1380,6 +1444,7 @@
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Large",
+      "skills": "Perception +3",
       "speed": "40 ft., climb 30 ft.",
       "subtype": "",
       "type": "beast"
@@ -1404,6 +1469,7 @@
       "monster": "Bugbear",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Medium",
+      "skills": "Stealth +6, Survival +2",
       "speed": "30 ft.",
       "subtype": "goblinoid",
       "type": "humanoid"
@@ -1429,6 +1495,7 @@
       "perception": 6,
       "senses": "darkvision 60 ft., tremorsense 60 ft., passive perception 16",
       "size": "Large",
+      "skills": "Perception +6",
       "speed": "40 ft., burrow 40 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -1503,6 +1570,7 @@
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Tiny",
+      "skills": "Perception +3, Stealth +4",
       "speed": "40 ft., climb 30 ft.",
       "subtype": "",
       "type": "beast"
@@ -1553,6 +1621,7 @@
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Large",
+      "skills": "Athletics +6, Perception +3, Survival +3",
       "speed": "50 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -1575,6 +1644,7 @@
       "hit_points": 85,
       "languages": "Infernal, telepathy 120 ft.",
       "monster": "Chain Devil",
+      "saving_throws": "Con +7, Wis +4, Cha +5",
       "senses": "darkvision 120 ft., passive perception 8",
       "size": "Medium",
       "speed": "30 ft.",
@@ -1602,6 +1672,7 @@
       "perception": 8,
       "senses": "darkvision 60 ft., passive perception 18",
       "size": "Large",
+      "skills": "Perception +8",
       "speed": "30 ft., fly 60 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -1627,6 +1698,7 @@
       "perception": 4,
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Large",
+      "skills": "Perception +4",
       "speed": "30 ft., swim 30 ft.",
       "subtype": "",
       "type": "aberration"
@@ -1675,6 +1747,7 @@
       "monster": "Cloaker",
       "senses": "darkvision 60 ft., passive perception 11",
       "size": "Large",
+      "skills": "Stealth +5",
       "speed": "10 ft., fly 40 ft.",
       "subtype": "",
       "type": "aberration"
@@ -1698,8 +1771,10 @@
       "languages": "Common, Giant",
       "monster": "Cloud Giant",
       "perception": 7,
+      "saving_throws": "Con +10, Wis +7, Cha +7",
       "senses": "passive perception 17",
       "size": "Huge",
+      "skills": "Insight +7, Perception +7",
       "speed": "40 ft.",
       "subtype": "",
       "type": "giant"
@@ -1795,8 +1870,10 @@
       "languages": "Draconic",
       "monster": "Copper Dragon Wyrmling",
       "perception": 4,
+      "saving_throws": "Dex +3, Con +3, Wis +2, Cha +3",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 14",
       "size": "Medium",
+      "skills": "Perception +4, Stealth +3",
       "speed": "30 ft., climb 30 ft., fly 60 ft.",
       "subtype": "",
       "type": "dragon"
@@ -1819,6 +1896,7 @@
       "hit_points": 97,
       "languages": "all, telepathy 120 ft.",
       "monster": "Couatl",
+      "saving_throws": "Con +5, Wis +7, Cha +6",
       "senses": "truesight 120 ft., passive perception 15",
       "size": "Medium",
       "speed": "30 ft., fly 90 ft.",
@@ -1845,6 +1923,7 @@
       "monster": "Crab",
       "senses": "blindsight 30 ft., passive perception 9",
       "size": "Tiny",
+      "skills": "Stealth +2",
       "speed": "20 ft., swim 20 ft.",
       "subtype": "",
       "type": "beast"
@@ -1869,6 +1948,7 @@
       "monster": "Crocodile",
       "senses": "passive perception 10",
       "size": "Large",
+      "skills": "Stealth +2",
       "speed": "20 ft., swim 20 ft.",
       "subtype": "",
       "type": "beast"
@@ -1893,6 +1973,7 @@
       "monster": "Cult Fanatic",
       "senses": "passive perception 11",
       "size": "Medium",
+      "skills": "Deception +4, Persuasion +4, Religion +2",
       "speed": "30 ft.",
       "subtype": "any race",
       "type": "humanoid"
@@ -1917,6 +1998,7 @@
       "monster": "Cultist",
       "senses": "passive perception 10",
       "size": "Medium",
+      "skills": "Deception +2, Religion +2",
       "speed": "30 ft.",
       "subtype": "any race",
       "type": "humanoid"
@@ -1941,6 +2023,7 @@
       "monster": "Darkmantle",
       "senses": "blindsight 60 ft., passive perception 10",
       "size": "Small",
+      "skills": "Stealth +3",
       "speed": "10 ft., fly 30 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -1966,6 +2049,7 @@
       "perception": 5,
       "senses": "darkvision 120 ft., passive perception 15",
       "size": "Medium",
+      "skills": "Perception +5, Stealth +4",
       "speed": "40 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -1991,6 +2075,7 @@
       "perception": 2,
       "senses": "darkvision 120 ft., passive perception 12",
       "size": "Small",
+      "skills": "Investigation +3, Perception +2, Stealth +4",
       "speed": "20 ft.",
       "subtype": "gnome",
       "type": "humanoid"
@@ -2038,8 +2123,10 @@
       "languages": "all, telepathy 120 ft.",
       "monster": "Deva",
       "perception": 9,
+      "saving_throws": "Wis +9, Cha +9",
       "senses": "darkvision 120 ft., passive perception 19",
       "size": "Medium",
+      "skills": "Insight +9, Perception +9",
       "speed": "30 ft., fly 90 ft.",
       "subtype": "",
       "type": "celestial"
@@ -2065,6 +2152,7 @@
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Large",
+      "skills": "Perception +3, Stealth +4",
       "speed": "50 ft.",
       "subtype": "",
       "type": "beast"
@@ -2087,6 +2175,7 @@
       "hit_points": 161,
       "languages": "Auran",
       "monster": "Djinni",
+      "saving_throws": "Dex +6, Wis +7, Cha +9",
       "senses": "darkvision 120 ft., passive perception 13",
       "size": "Large",
       "speed": "30 ft., fly 90 ft.",
@@ -2113,6 +2202,7 @@
       "monster": "Doppelganger",
       "senses": "darkvision 60 ft., passive perception 11",
       "size": "Medium",
+      "skills": "Deception +6, Insight +3",
       "speed": "30 ft.",
       "subtype": "shapechanger",
       "type": "monstrosity"
@@ -2159,6 +2249,7 @@
       "hit_points": 341,
       "languages": "Aquan, Draconic",
       "monster": "Dragon Turtle",
+      "saving_throws": "Dex +6, Con +11, Wis +7",
       "senses": "darkvision 120 ft., passive perception 11",
       "size": "Gargantuan",
       "speed": "20 ft., swim 40 ft.",
@@ -2210,6 +2301,7 @@
       "perception": 5,
       "senses": "darkvision 120 ft., passive perception 15",
       "size": "Large",
+      "skills": "Perception +5, Stealth +9",
       "speed": "30 ft., climb 30 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -2235,6 +2327,7 @@
       "perception": 2,
       "senses": "darkvision 120 ft., passive perception 12",
       "size": "Medium",
+      "skills": "Perception +2, Stealth +4",
       "speed": "30 ft.",
       "subtype": "elf",
       "type": "humanoid"
@@ -2260,6 +2353,7 @@
       "perception": 4,
       "senses": "passive perception 14",
       "size": "Medium",
+      "skills": "Medicine +4, Nature +3, Perception +4",
       "speed": "30 ft.",
       "subtype": "any race",
       "type": "humanoid"
@@ -2285,6 +2379,7 @@
       "perception": 4,
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Medium",
+      "skills": "Perception +4, Stealth +5",
       "speed": "30 ft.",
       "subtype": "",
       "type": "fey"
@@ -2334,6 +2429,7 @@
       "perception": 2,
       "senses": "darkvision 60 ft., passive perception 12",
       "size": "Small",
+      "skills": "Perception +2, Stealth +4",
       "speed": "30 ft., fly 30 ft.",
       "subtype": "",
       "type": "elemental"
@@ -2359,6 +2455,7 @@
       "perception": 4,
       "senses": "passive perception 14",
       "size": "Small",
+      "skills": "Perception +4",
       "speed": "10 ft., fly 60 ft.",
       "subtype": "",
       "type": "beast"
@@ -2405,6 +2502,7 @@
       "hit_points": 200,
       "languages": "Ignan",
       "monster": "Efreeti",
+      "saving_throws": "Int +7, Wis +6, Cha +7",
       "senses": "darkvision 120 ft., passive perception 12",
       "size": "Large",
       "speed": "40 ft., fly 60 ft.",
@@ -2477,6 +2575,7 @@
       "hit_points": 153,
       "languages": "Infernal, telepathy 120 ft.",
       "monster": "Erinyes",
+      "saving_throws": "Dex +7, Con +8, Wis +6, Cha +8",
       "senses": "truesight 120 ft., passive perception 12",
       "size": "Medium",
       "speed": "30 ft., fly 60 ft.",
@@ -2504,6 +2603,7 @@
       "perception": 3,
       "senses": "darkvision 60 ft., passive perception 13",
       "size": "Medium",
+      "skills": "Perception +3, Stealth +4, Survival +3",
       "speed": "30 ft., climb 30 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -2529,6 +2629,7 @@
       "perception": 4,
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Large",
+      "skills": "Perception +4",
       "speed": "40 ft.",
       "subtype": "",
       "type": "giant"
@@ -2576,8 +2677,10 @@
       "languages": "Giant",
       "monster": "Fire Giant",
       "perception": 6,
+      "saving_throws": "Dex +3, Con +10, Cha +5",
       "senses": "passive perception 16",
       "size": "Huge",
+      "skills": "Athletics +11, Perception +6",
       "speed": "30 ft.",
       "subtype": "",
       "type": "giant"
@@ -2648,6 +2751,7 @@
       "hit_points": 17,
       "languages": "",
       "monster": "Flying Sword",
+      "saving_throws": "Dex +4",
       "senses": "blindsight 60 ft. (blind beyond this radius), passive perception 7",
       "size": "Small",
       "speed": "0 ft., fly 50 ft. It can hover.",
@@ -2675,6 +2779,7 @@
       "perception": 1,
       "senses": "darkvision 30 ft., passive perception 11",
       "size": "Tiny",
+      "skills": "Perception +1, Stealth +3",
       "speed": "20 ft., swim 20 ft.",
       "subtype": "",
       "type": "beast"
@@ -2698,8 +2803,10 @@
       "languages": "Giant",
       "monster": "Frost Giant",
       "perception": 3,
+      "saving_throws": "Con +8, Wis +3, Cha +4",
       "senses": "passive perception 13",
       "size": "Huge",
+      "skills": "Athletics +9, Perception +3",
       "speed": "40 ft.",
       "subtype": "",
       "type": "giant"
@@ -2845,6 +2952,7 @@
       "perception": 4,
       "senses": "passive perception 14",
       "size": "Huge",
+      "skills": "Athletics +9, Perception +4",
       "speed": "40 ft., climb 40 ft.",
       "subtype": "",
       "type": "beast"
@@ -2966,6 +3074,7 @@
       "perception": 2,
       "senses": "blindsight 10 ft., passive perception 12",
       "size": "Huge",
+      "skills": "Perception +2",
       "speed": "30 ft., swim 30 ft.",
       "subtype": "",
       "type": "beast"
@@ -2990,6 +3099,7 @@
       "monster": "Giant Crab",
       "senses": "blindsight 30 ft., passive perception 9",
       "size": "Medium",
+      "skills": "Stealth +4",
       "speed": "30 ft., swim 30 ft.",
       "subtype": "",
       "type": "beast"
@@ -3014,6 +3124,7 @@
       "monster": "Giant Crocodile",
       "senses": "passive perception 10",
       "size": "Huge",
+      "skills": "Stealth +5",
       "speed": "30 ft., swim 50 ft.",
       "subtype": "",
       "type": "beast"
@@ -3039,6 +3150,7 @@
       "perception": 4,
       "senses": "passive perception 14",
       "size": "Large",
+      "skills": "Perception +4",
       "speed": "10 ft., fly 80 ft.",
       "subtype": "",
       "type": "beast"
@@ -3064,6 +3176,7 @@
       "perception": 4,
       "senses": "passive perception 14",
       "size": "Huge",
+      "skills": "Perception +4",
       "speed": "60 ft.",
       "subtype": "",
       "type": "beast"
@@ -3113,6 +3226,7 @@
       "perception": 2,
       "senses": "darkvision 30 ft., passive perception 12",
       "size": "Medium",
+      "skills": "Perception +2, Stealth +3",
       "speed": "30 ft., swim 30 ft.",
       "subtype": "",
       "type": "beast"
@@ -3162,6 +3276,7 @@
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Large",
+      "skills": "Perception +3",
       "speed": "50 ft.",
       "subtype": "",
       "type": "beast"
@@ -3211,6 +3326,7 @@
       "perception": 4,
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Large",
+      "skills": "Perception +4, Stealth +5",
       "speed": "10 ft., swim 60 ft.",
       "subtype": "",
       "type": "beast"
@@ -3236,6 +3352,7 @@
       "perception": 5,
       "senses": "darkvision 120 ft., passive perception 15",
       "size": "Large",
+      "skills": "Perception +5, Stealth +4",
       "speed": "5 ft., fly 60 ft.",
       "subtype": "",
       "type": "beast"
@@ -3261,6 +3378,7 @@
       "perception": 2,
       "senses": "blindsight 10 ft., passive perception 12",
       "size": "Medium",
+      "skills": "Perception +2",
       "speed": "30 ft., swim 30 ft.",
       "subtype": "",
       "type": "beast"
@@ -3382,6 +3500,7 @@
       "perception": 3,
       "senses": "blindsight 60 ft., passive perception 13",
       "size": "Huge",
+      "skills": "Perception +3",
       "speed": "swim 50 ft.",
       "subtype": "",
       "type": "beast"
@@ -3406,6 +3525,7 @@
       "monster": "Giant Spider",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 10",
       "size": "Large",
+      "skills": "Stealth +7",
       "speed": "30 ft., climb 30 ft.",
       "subtype": "",
       "type": "beast"
@@ -3455,6 +3575,7 @@
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Large",
+      "skills": "Perception +3",
       "speed": "10 ft., fly 60 ft.",
       "subtype": "",
       "type": "beast"
@@ -3504,6 +3625,7 @@
       "perception": 3,
       "senses": "darkvision 60 ft., passive perception 13",
       "size": "Medium",
+      "skills": "Perception +3, Stealth +5",
       "speed": "40 ft.",
       "subtype": "",
       "type": "beast"
@@ -3529,6 +3651,7 @@
       "perception": 3,
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 13",
       "size": "Medium",
+      "skills": "Perception +3, Stealth +7",
       "speed": "40 ft., climb 40 ft.",
       "subtype": "",
       "type": "beast"
@@ -3575,6 +3698,7 @@
       "hit_points": 157,
       "languages": "Abyssal, telepathy 120 ft.",
       "monster": "Glabrezu",
+      "saving_throws": "Str +9, Con +9, Wis +7, Cha +7",
       "senses": "truesight 120 ft., passive perception 13",
       "size": "Large",
       "speed": "40 ft.",
@@ -3599,8 +3723,10 @@
       "hit_points": 112,
       "languages": "any one language (usually Common)",
       "monster": "Gladiator",
+      "saving_throws": "Str +7, Dex +5, Con +6",
       "senses": "passive perception 11",
       "size": "Medium",
+      "skills": "Athletics +10, Intimidation +5",
       "speed": "30 ft.",
       "subtype": "any race",
       "type": "humanoid"
@@ -3673,6 +3799,7 @@
       "monster": "Goblin",
       "senses": "darkvision 60 ft., passive perception 9",
       "size": "Small",
+      "skills": "Stealth +6",
       "speed": "30 ft.",
       "subtype": "goblinoid",
       "type": "humanoid"
@@ -3696,8 +3823,10 @@
       "languages": "Draconic",
       "monster": "Gold Dragon Wyrmling",
       "perception": 4,
+      "saving_throws": "Dex +4, Con +5, Wis +2, Cha +5",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 14",
       "size": "Medium",
+      "skills": "Perception +4, Stealth +4",
       "speed": "30 ft., fly 60 ft., swim 30 ft.",
       "subtype": "",
       "type": "dragon"
@@ -3723,6 +3852,7 @@
       "perception": 4,
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Large",
+      "skills": "Perception +4",
       "speed": "40 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -3747,6 +3877,7 @@
       "monster": "Gray Ooze",
       "senses": "blindsight 60 ft. (blind beyond this radius), passive perception 8",
       "size": "Medium",
+      "skills": "Stealth +2",
       "speed": "10 ft., climb 10 ft.",
       "subtype": "",
       "type": "ooze"
@@ -3770,8 +3901,10 @@
       "languages": "Draconic",
       "monster": "Green Dragon Wyrmling",
       "perception": 4,
+      "saving_throws": "Dex +3, Con +3, Wis +2, Cha +3",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 14",
       "size": "Medium",
+      "skills": "Perception +4, Stealth +3",
       "speed": "30 ft., fly 60 ft., swim 30 ft.",
       "subtype": "",
       "type": "dragon"
@@ -3797,6 +3930,7 @@
       "perception": 4,
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Medium",
+      "skills": "Arcana +3, Deception +4, Perception +4, Stealth +3",
       "speed": "30 ft.",
       "subtype": "",
       "type": "fey"
@@ -3846,6 +3980,7 @@
       "perception": 5,
       "senses": "darkvision 60 ft., passive perception 15",
       "size": "Large",
+      "skills": "Perception +5",
       "speed": "30 ft., fly 80 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -3871,6 +4006,7 @@
       "perception": 3,
       "senses": "blindsight 30 ft. or 10 ft. while deafened (blind beyond this radius), passive perception 13",
       "size": "Medium",
+      "skills": "Athletics +5, Perception +3, Stealth +3",
       "speed": "30 ft.",
       "subtype": "grimlock",
       "type": "humanoid"
@@ -3896,6 +4032,7 @@
       "perception": 2,
       "senses": "passive perception 12",
       "size": "Medium",
+      "skills": "Perception +2",
       "speed": "30 ft.",
       "subtype": "any race",
       "type": "humanoid"
@@ -3918,6 +4055,7 @@
       "hit_points": 127,
       "languages": "Celestial, Common",
       "monster": "Guardian Naga",
+      "saving_throws": "Dex +8, Con +7, Int +7, Wis +8, Cha +8",
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Large",
       "speed": "40 ft.",
@@ -3938,7 +4076,6 @@
       "damage_immunities": "psychic",
       "damage_resistances": "bludgeoning, piercing, and slashing from nonmagical weapons",
       "damage_vulnerabilities": "",
-      "history": 12,
       "hit_dice": "16d10",
       "hit_points": 136,
       "languages": "Common, Sphinx",
@@ -3946,6 +4083,7 @@
       "perception": 8,
       "senses": "truesight 120 ft., passive perception 18",
       "size": "Large",
+      "skills": "Arcana +12, History +12, Perception +8, Religion +8",
       "speed": "40 ft., fly 60 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -3970,6 +4108,7 @@
       "monster": "Half-Red Dragon Veteran",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 12",
       "size": "Medium",
+      "skills": "Athletics +5, Perception +2",
       "speed": "30 ft.",
       "subtype": "human",
       "type": "humanoid"
@@ -4019,6 +4158,7 @@
       "perception": 4,
       "senses": "passive perception 14",
       "size": "Tiny",
+      "skills": "Perception +4",
       "speed": "10 ft., fly 60 ft.",
       "subtype": "",
       "type": "beast"
@@ -4044,6 +4184,7 @@
       "perception": 5,
       "senses": "darkvision 60 ft., passive perception 15",
       "size": "Medium",
+      "skills": "Perception +5",
       "speed": "50 ft.",
       "subtype": "",
       "type": "fiend"
@@ -4066,6 +4207,7 @@
       "hit_points": 136,
       "languages": "Abyssal, telepathy 120 ft.",
       "monster": "Hezrou",
+      "saving_throws": "Str +7, Con +8, Wis +4",
       "senses": "darkvision 120 ft., passive perception 11",
       "size": "Large",
       "speed": "30 ft.",
@@ -4093,6 +4235,7 @@
       "perception": 2,
       "senses": "passive perception 12",
       "size": "Huge",
+      "skills": "Perception +2",
       "speed": "40 ft.",
       "subtype": "",
       "type": "giant"
@@ -4118,6 +4261,7 @@
       "perception": 5,
       "senses": "passive perception 15",
       "size": "Large",
+      "skills": "Perception +5",
       "speed": "40 ft, fly 60 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -4188,6 +4332,7 @@
       "hit_points": 148,
       "languages": "Infernal, telepathy 120 ft.",
       "monster": "Horned Devil",
+      "saving_throws": "Str +10, Dex +7, Wis +7, Cha +7",
       "senses": "darkvision 120 ft., passive perception 13",
       "size": "Large",
       "speed": "20 ft., fly 60 ft.",
@@ -4215,6 +4360,7 @@
       "perception": 2,
       "senses": "darkvision 30 ft., passive perception 12",
       "size": "Large",
+      "skills": "Perception +2",
       "speed": "swim 40 ft.",
       "subtype": "",
       "type": "beast"
@@ -4240,6 +4386,7 @@
       "perception": 6,
       "senses": "darkvision 60 ft., passive perception 16",
       "size": "Huge",
+      "skills": "Perception +6",
       "speed": "30 ft., swim 30 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -4265,6 +4412,7 @@
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Medium",
+      "skills": "Perception +3",
       "speed": "50 ft.",
       "subtype": "",
       "type": "beast"
@@ -4287,6 +4435,7 @@
       "hit_points": 180,
       "languages": "Infernal, telepathy 120 ft.",
       "monster": "Ice Devil",
+      "saving_throws": "Dex +7, Con +9, Wis +7, Cha +9",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 12",
       "size": "Large",
       "speed": "40 ft.",
@@ -4314,6 +4463,7 @@
       "perception": 2,
       "senses": "darkvision 60 ft., passive perception 12",
       "size": "Small",
+      "skills": "Perception +2, Stealth +3",
       "speed": "30 ft., fly 30 ft.",
       "subtype": "",
       "type": "elemental"
@@ -4338,6 +4488,7 @@
       "monster": "Imp",
       "senses": "darkvision 120 ft., passive perception 11",
       "size": "Tiny",
+      "skills": "Deception +4, Insight +3, Persuasion +4, Stealth +5",
       "speed": "20 ft., fly 40 ft.",
       "subtype": "devil",
       "type": "fiend"
@@ -4363,6 +4514,7 @@
       "perception": 8,
       "senses": "darkvision 60 ft., passive perception 18",
       "size": "Medium",
+      "skills": "Perception +8, Stealth +10",
       "speed": "50 ft., fly 50 ft. (hover)",
       "subtype": "",
       "type": "elemental"
@@ -4412,6 +4564,7 @@
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Small",
+      "skills": "Perception +3",
       "speed": "40 ft.",
       "subtype": "",
       "type": "beast"
@@ -4437,6 +4590,7 @@
       "perception": 3,
       "senses": "blindsight 120 ft., passive perception 13",
       "size": "Huge",
+      "skills": "Perception +3",
       "speed": "swim 60 ft.",
       "subtype": "",
       "type": "beast"
@@ -4459,6 +4613,7 @@
       "hit_points": 52,
       "languages": "any one language (usually Common)",
       "monster": "Knight",
+      "saving_throws": "Con +4, Wis +2",
       "senses": "passive perception 10",
       "size": "Medium",
       "speed": "30 ft.",
@@ -4507,6 +4662,7 @@
       "hit_points": 472,
       "languages": "understands Abyssal, Celestial, Infernal, and Primordial but can't speak, telepathy 120 ft.",
       "monster": "Kraken",
+      "saving_throws": "Str +17, Dex +7, Con +14, Int +13, Wis +11",
       "senses": "truesight 120 ft., passive perception 14",
       "size": "Gargantuan",
       "speed": "20 ft., swim 60 ft.",
@@ -4533,6 +4689,7 @@
       "monster": "Lamia",
       "senses": "darkvision 60 ft., passive perception 12",
       "size": "Large",
+      "skills": "Deception +7, Insight +4, Stealth +3",
       "speed": "30 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -4575,14 +4732,15 @@
       "damage_immunities": "poison; bludgeoning, piercing, and slashing from nonmagical weapons",
       "damage_resistances": "cold, lightning, necrotic",
       "damage_vulnerabilities": "",
-      "history": 12,
       "hit_dice": "18d8",
       "hit_points": 135,
       "languages": "Common plus up to five other languages",
       "monster": "Lich",
       "perception": 9,
+      "saving_throws": "Con +10, Int +12, Wis +9",
       "senses": "truesight 120 ft., passive perception 19",
       "size": "Medium",
+      "skills": "Arcana +18, History +12, Insight +9, Perception +9",
       "speed": "30 ft.",
       "subtype": "",
       "type": "undead"
@@ -4608,6 +4766,7 @@
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Large",
+      "skills": "Perception +3, Stealth +6",
       "speed": "50 ft.",
       "subtype": "",
       "type": "beast"
@@ -4657,6 +4816,7 @@
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Medium",
+      "skills": "Perception +3, Stealth +4, Survival +5",
       "speed": "30 ft., swim 30 ft.",
       "subtype": "lizardfolk",
       "type": "humanoid"
@@ -4675,13 +4835,14 @@
       "damage_immunities": "",
       "damage_resistances": "",
       "damage_vulnerabilities": "",
-      "history": 6,
       "hit_dice": "9d8",
       "hit_points": 40,
       "languages": "any four languages",
       "monster": "Mage",
+      "saving_throws": "Int +6, Wis +4",
       "senses": "passive perception 11",
       "size": "Medium",
+      "skills": "Arcana +6, History +6",
       "speed": "30 ft.",
       "subtype": "any race",
       "type": "humanoid"
@@ -4706,6 +4867,7 @@
       "monster": "Magma Mephit",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Small",
+      "skills": "Stealth +3",
       "speed": "30 ft., fly 30 ft.",
       "subtype": "",
       "type": "elemental"
@@ -4800,6 +4962,7 @@
       "hit_points": 189,
       "languages": "Abyssal, telepathy 120 ft.",
       "monster": "Marilith",
+      "saving_throws": "Str +9, Con +10, Wis +8, Cha +10",
       "senses": "truesight 120 ft., passive perception 13",
       "size": "Large",
       "speed": "40 ft.",
@@ -4827,6 +4990,7 @@
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Medium",
+      "skills": "Perception +3",
       "speed": "40 ft.",
       "subtype": "",
       "type": "beast"
@@ -4852,6 +5016,7 @@
       "perception": 4,
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Medium",
+      "skills": "Deception +5, Insight +4, Perception +4, Stealth +5",
       "speed": "30 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -4877,6 +5042,7 @@
       "perception": 2,
       "senses": "passive perception 12",
       "size": "Medium",
+      "skills": "Perception +2",
       "speed": "10 ft., swim 40 ft.",
       "subtype": "merfolk",
       "type": "humanoid"
@@ -4925,6 +5091,7 @@
       "monster": "Mimic",
       "senses": "darkvision 60 ft., passive perception 11",
       "size": "Medium",
+      "skills": "Stealth +5",
       "speed": "15 ft.",
       "subtype": "shapechanger",
       "type": "monstrosity"
@@ -4950,6 +5117,7 @@
       "perception": 7,
       "senses": "darkvision 60 ft., passive perception 17",
       "size": "Large",
+      "skills": "Perception +7",
       "speed": "40 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -5020,6 +5188,7 @@
       "hit_points": 58,
       "languages": "the languages it knew in life",
       "monster": "Mummy",
+      "saving_throws": "Wis +2",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Medium",
       "speed": "20 ft.",
@@ -5040,13 +5209,14 @@
       "damage_immunities": "necrotic, poison; bludgeoning, piercing, and slashing from nonmagical weapons",
       "damage_resistances": "",
       "damage_vulnerabilities": "bludgeoning",
-      "history": 5,
       "hit_dice": "13d8",
       "hit_points": 97,
       "languages": "the languages it knew in life",
       "monster": "Mummy Lord",
+      "saving_throws": "Con +8, Int +5, Wis +9, Cha +8",
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Medium",
+      "skills": "History +5, Religion +5",
       "speed": "20 ft.",
       "subtype": "",
       "type": "undead"
@@ -5069,6 +5239,7 @@
       "hit_points": 184,
       "languages": "Abyssal, telepathy 120 ft.",
       "monster": "Nalfeshnee",
+      "saving_throws": "Con +11, Int +9, Wis +6, Cha +7",
       "senses": "truesight 120 ft., passive perception 11",
       "size": "Large",
       "speed": "20 ft., fly 30 ft.",
@@ -5096,6 +5267,7 @@
       "perception": 6,
       "senses": "darkvision 120 ft., passive perception 16",
       "size": "Medium",
+      "skills": "Deception +7, Insight +6, Perception +6, Stealth +6",
       "speed": "30 ft.",
       "subtype": "",
       "type": "fiend"
@@ -5144,6 +5316,7 @@
       "monster": "Noble",
       "senses": "passive perception 12",
       "size": "Medium",
+      "skills": "Deception +5, Insight +4, Persuasion +5",
       "speed": "30 ft.",
       "subtype": "any race",
       "type": "humanoid"
@@ -5193,6 +5366,7 @@
       "perception": 2,
       "senses": "darkvision 30 ft., passive perception 12",
       "size": "Small",
+      "skills": "Perception +2, Stealth +4",
       "speed": "5 ft., swim 30 ft.",
       "subtype": "",
       "type": "beast"
@@ -5239,6 +5413,7 @@
       "hit_points": 85,
       "languages": "understands Common and Giant but can't speak",
       "monster": "Ogre Zombie",
+      "saving_throws": "Wis +0",
       "senses": "darkvision 60 ft., passive perception 8",
       "size": "Large",
       "speed": "30 ft.",
@@ -5264,8 +5439,10 @@
       "languages": "Common, Giant",
       "monster": "Oni",
       "perception": 4,
+      "saving_throws": "Dex +3, Con +6, Wis +4, Cha +5",
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Large",
+      "skills": "Arcana +5, Deception +8, Perception +4",
       "speed": "30 ft., fly 30 ft.",
       "subtype": "",
       "type": "giant"
@@ -5290,6 +5467,7 @@
       "monster": "Orc",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Medium",
+      "skills": "Intimidation +2",
       "speed": "30 ft.",
       "subtype": "orc",
       "type": "humanoid"
@@ -5312,6 +5490,7 @@
       "hit_points": 114,
       "languages": "Otyugh",
       "monster": "Otyugh",
+      "saving_throws": "Con +7",
       "senses": "darkvision 120 ft., passive perception 11",
       "size": "Large",
       "speed": "30 ft.",
@@ -5339,6 +5518,7 @@
       "perception": 3,
       "senses": "darkvision 120 ft., passive perception 13",
       "size": "Tiny",
+      "skills": "Perception +3, Stealth +3",
       "speed": "5 ft., fly 60 ft.",
       "subtype": "",
       "type": "beast"
@@ -5364,6 +5544,7 @@
       "perception": 3,
       "senses": "darkvision 60 ft., passive perception 13",
       "size": "Large",
+      "skills": "Perception +3",
       "speed": "40 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -5389,6 +5570,7 @@
       "perception": 4,
       "senses": "passive perception 14",
       "size": "Medium",
+      "skills": "Perception +4, Stealth +6",
       "speed": "50 ft., climb 40 ft.",
       "subtype": "",
       "type": "beast"
@@ -5412,8 +5594,10 @@
       "languages": "understands Celestial, Common, Elvish, and Sylvan but can't speak",
       "monster": "Pegasus",
       "perception": 6,
+      "saving_throws": "Dex +4, Wis +4, Cha +3",
       "senses": "passive perception 16",
       "size": "Large",
+      "skills": "Perception +6",
       "speed": "60 ft., fly 90 ft.",
       "subtype": "",
       "type": "celestial"
@@ -5438,6 +5622,7 @@
       "monster": "Phase Spider",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Large",
+      "skills": "Stealth +6",
       "speed": "30 ft., climb 30 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -5460,6 +5645,7 @@
       "hit_points": 300,
       "languages": "Infernal, telepathy 120 ft.",
       "monster": "Pit Fiend",
+      "saving_throws": "Dex +8, Con +13, Wis +10",
       "senses": "truesight 120 ft., passive perception 14",
       "size": "Large",
       "speed": "30 ft., fly 60 ft.",
@@ -5485,8 +5671,10 @@
       "languages": "all, telepathy 120 ft.",
       "monster": "Planetar",
       "perception": 11,
+      "saving_throws": "Con +12, Wis +11, Cha +12",
       "senses": "truesight 120 ft., passive perception 21",
       "size": "Large",
+      "skills": "Perception +11",
       "speed": "40 ft., fly 120 ft.",
       "subtype": "",
       "type": "celestial"
@@ -5512,6 +5700,7 @@
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Large",
+      "skills": "Perception +3, Stealth +4",
       "speed": "20 ft., swim 40 ft.",
       "subtype": "",
       "type": "beast"
@@ -5561,6 +5750,7 @@
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Large",
+      "skills": "Perception +3",
       "speed": "40 ft., swim 30 ft.",
       "subtype": "",
       "type": "beast"
@@ -5609,6 +5799,7 @@
       "monster": "Priest",
       "senses": "passive perception 13",
       "size": "Medium",
+      "skills": "Medicine +7, Persuasion +3, Religion +4",
       "speed": "25 ft.",
       "subtype": "any race",
       "type": "humanoid"
@@ -5634,6 +5825,7 @@
       "perception": 3,
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 13",
       "size": "Tiny",
+      "skills": "Perception +3, Stealth +4",
       "speed": "15 ft., fly 60 ft.",
       "subtype": "",
       "type": "dragon"
@@ -5656,6 +5848,7 @@
       "hit_points": 247,
       "languages": "",
       "monster": "Purple Worm",
+      "saving_throws": "Con +11, Wis +4",
       "senses": "blindsight 30 ft., tremorsense 60 ft., passive perception 9",
       "size": "Gargantuan",
       "speed": "50 ft., burrow 30 ft.",
@@ -5682,6 +5875,7 @@
       "monster": "Quasit",
       "senses": "darkvision 120 ft., passive perception 10",
       "size": "Tiny",
+      "skills": "Stealth +5",
       "speed": "40 ft.",
       "subtype": "demon",
       "type": "fiend"
@@ -5730,6 +5924,7 @@
       "monster": "Rakshasa",
       "senses": "darkvision 60 ft., passive perception 13",
       "size": "Medium",
+      "skills": "Deception +10, Insight +8",
       "speed": "40 ft.",
       "subtype": "",
       "type": "fiend"
@@ -5779,6 +5974,7 @@
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Tiny",
+      "skills": "Perception +3",
       "speed": "10 ft., fly 50 ft.",
       "subtype": "",
       "type": "beast"
@@ -5802,8 +5998,10 @@
       "languages": "Draconic",
       "monster": "Red Dragon Wyrmling",
       "perception": 4,
+      "saving_throws": "Dex +2, Con +5, Wis +2, Cha +4",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 14",
       "size": "Medium",
+      "skills": "Perception +4, Stealth +2",
       "speed": "30 ft., climb 30 ft., fly 60 ft.",
       "subtype": "",
       "type": "dragon"
@@ -5829,6 +6027,7 @@
       "perception": 2,
       "senses": "blindsight 30 ft., passive perception 12",
       "size": "Medium",
+      "skills": "Perception +2",
       "speed": "swim 40 ft.",
       "subtype": "",
       "type": "beast"
@@ -5924,8 +6123,10 @@
       "languages": "",
       "monster": "Roc",
       "perception": 4,
+      "saving_throws": "Dex +4, Con +9, Wis +4, Cha +3",
       "senses": "passive perception 14",
       "size": "Gargantuan",
+      "skills": "Perception +4",
       "speed": "20 ft., fly 120 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -5951,6 +6152,7 @@
       "perception": 6,
       "senses": "darkvision 60 ft., passive perception 16",
       "size": "Large",
+      "skills": "Perception +6, Stealth +5",
       "speed": "10 ft., climb 10 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -6024,6 +6226,7 @@
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Large",
+      "skills": "Perception +3, Stealth +6",
       "speed": "40 ft.",
       "subtype": "",
       "type": "beast"
@@ -6049,6 +6252,7 @@
       "perception": 5,
       "senses": "darkvision 120 ft., passive perception 15",
       "size": "Medium",
+      "skills": "Perception +5",
       "speed": "30 ft., swim 40 ft.",
       "subtype": "sahuagin",
       "type": "humanoid"
@@ -6098,6 +6302,7 @@
       "perception": 2,
       "senses": "passive perception 12",
       "size": "Medium",
+      "skills": "Perception +2, Performance +6, Stealth +5",
       "speed": "40 ft.",
       "subtype": "",
       "type": "fey"
@@ -6147,6 +6352,7 @@
       "perception": 5,
       "senses": "passive perception 15",
       "size": "Medium",
+      "skills": "Nature +4, Perception +5, Stealth +6, Survival +5",
       "speed": "30 ft.",
       "subtype": "any race",
       "type": "humanoid"
@@ -6219,6 +6425,7 @@
       "monster": "Shadow",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Medium",
+      "skills": "Stealth +4",
       "speed": "40 ft.",
       "subtype": "",
       "type": "undead"
@@ -6243,6 +6450,7 @@
       "monster": "Shambling Mound",
       "senses": "blindsight 60 ft. (blind beyond this radius), passive perception 10",
       "size": "Large",
+      "skills": "Stealth +2",
       "speed": "20 ft., swim 20 ft.",
       "subtype": "",
       "type": "plant"
@@ -6314,8 +6522,10 @@
       "languages": "Draconic",
       "monster": "Silver Dragon Wyrmling",
       "perception": 4,
+      "saving_throws": "Dex +2, Con +5, Wis +2, Cha +4",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 14",
       "size": "Medium",
+      "skills": "Perception +4, Stealth +2",
       "speed": "30 ft., fly 60 ft.",
       "subtype": "",
       "type": "dragon"
@@ -6363,8 +6573,10 @@
       "languages": "all, telepathy 120 ft.",
       "monster": "Solar",
       "perception": 14,
+      "saving_throws": "Int +14, Wis +14, Cha +17",
       "senses": "truesight 120 ft., passive perception 24",
       "size": "Large",
+      "skills": "Perception +14",
       "speed": "50 ft., fly 150 ft.",
       "subtype": "",
       "type": "celestial"
@@ -6413,6 +6625,7 @@
       "monster": "Spider",
       "senses": "darkvision 30 ft., passive perception 12",
       "size": "Tiny",
+      "skills": "Stealth +4",
       "speed": "20 ft., climb 20 ft.",
       "subtype": "",
       "type": "beast"
@@ -6435,6 +6648,7 @@
       "hit_points": 75,
       "languages": "Abyssal, Common",
       "monster": "Spirit Naga",
+      "saving_throws": "Dex +6, Con +5, Wis +5, Cha +6",
       "senses": "darkvision 60 ft., passive perception 12",
       "size": "Large",
       "speed": "40 ft.",
@@ -6462,6 +6676,7 @@
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Tiny",
+      "skills": "Perception +3, Stealth +8",
       "speed": "10 ft., fly 40 ft.",
       "subtype": "",
       "type": "fey"
@@ -6487,6 +6702,7 @@
       "perception": 6,
       "senses": "passive perception 16",
       "size": "Medium",
+      "skills": "Deception +5, Insight +4, Investigation +5, Perception +6, Persuasion +5, Sleight Of Hand +4, Stealth +4",
       "speed": "30 ft.",
       "subtype": "any race",
       "type": "humanoid"
@@ -6558,8 +6774,10 @@
       "languages": "Giant",
       "monster": "Stone Giant",
       "perception": 4,
+      "saving_throws": "Dex +5, Con +8, Wis +4",
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Huge",
+      "skills": "Athletics +12, Perception +4",
       "speed": "40 ft.",
       "subtype": "",
       "type": "giant"
@@ -6602,14 +6820,15 @@
       "damage_immunities": "lightning, thunder",
       "damage_resistances": "cold",
       "damage_vulnerabilities": "",
-      "history": 8,
       "hit_dice": "20d12",
       "hit_points": 230,
       "languages": "Common, Giant",
       "monster": "Storm Giant",
       "perception": 9,
+      "saving_throws": "Str +14, Con +10, Wis +9, Cha +9",
       "senses": "passive perception 19",
       "size": "Huge",
+      "skills": "Arcana +8, Athletics +14, History +8, Perception +9",
       "speed": "50 ft., swim 50 ft.",
       "subtype": "",
       "type": "giant"
@@ -6897,6 +7116,7 @@
       "hit_points": 676,
       "languages": "",
       "monster": "Tarrasque",
+      "saving_throws": "Int +5, Wis +9, Cha +9",
       "senses": "blindsight 120 ft., passive perception 10",
       "size": "Gargantuan",
       "speed": "40 ft.",
@@ -6923,6 +7143,7 @@
       "monster": "Thug",
       "senses": "passive perception 10",
       "size": "Medium",
+      "skills": "Intimidation +2",
       "speed": "30 ft.",
       "subtype": "any race",
       "type": "humanoid"
@@ -6948,6 +7169,7 @@
       "perception": 3,
       "senses": "darkvision 60 ft., passive perception 13",
       "size": "Large",
+      "skills": "Perception +3, Stealth +6",
       "speed": "40 ft.",
       "subtype": "",
       "type": "beast"
@@ -7045,6 +7267,7 @@
       "perception": 2,
       "senses": "darkvision 60 ft., passive perception 12",
       "size": "Large",
+      "skills": "Perception +2",
       "speed": "30 ft.",
       "subtype": "",
       "type": "giant"
@@ -7070,6 +7293,7 @@
       "perception": 4,
       "senses": "passive perception 14",
       "size": "Huge",
+      "skills": "Perception +4",
       "speed": "50 ft.",
       "subtype": "",
       "type": "beast"
@@ -7117,8 +7341,10 @@
       "languages": "the languages it knew in life",
       "monster": "Vampire",
       "perception": 7,
+      "saving_throws": "Dex +9, Wis +7, Cha +9",
       "senses": "darkvision 120 ft., passive perception 17",
       "size": "Medium",
+      "skills": "Perception +7, Stealth +9",
       "speed": "30 ft.",
       "subtype": "shapechanger",
       "type": "undead"
@@ -7142,8 +7368,10 @@
       "languages": "the languages it knew in life",
       "monster": "Vampire Spawn",
       "perception": 3,
+      "saving_throws": "Dex +6, Wis +3",
       "senses": "darkvision 60 ft., passive perception 13",
       "size": "Medium",
+      "skills": "Perception +3, Stealth +6",
       "speed": "30 ft.",
       "subtype": "",
       "type": "undead"
@@ -7169,6 +7397,7 @@
       "perception": 2,
       "senses": "passive perception 12",
       "size": "Medium",
+      "skills": "Athletics +5, Perception +2",
       "speed": "30 ft.",
       "subtype": "any race",
       "type": "humanoid"
@@ -7215,6 +7444,7 @@
       "hit_points": 104,
       "languages": "Abyssal, telepathy 120 ft.",
       "monster": "Vrock",
+      "saving_throws": "Dex +5, Wis +4, Cha +2",
       "senses": "darkvision 120 ft., passive perception 11",
       "size": "Large",
       "speed": "40 ft., fly 60 ft.",
@@ -7242,6 +7472,7 @@
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Medium",
+      "skills": "Perception +3",
       "speed": "10 ft., fly 50 ft.",
       "subtype": "",
       "type": "beast"
@@ -7339,6 +7570,7 @@
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Tiny",
+      "skills": "Perception +3, Stealth +5",
       "speed": "30 ft.",
       "subtype": "",
       "type": "beast"
@@ -7364,6 +7596,7 @@
       "perception": 7,
       "senses": "passive perception 17",
       "size": "Medium",
+      "skills": "Perception +7",
       "speed": "30 ft. (40 ft., climb 30 ft. in bear or hybrid form)",
       "subtype": "human",
       "type": "humanoid"
@@ -7389,6 +7622,7 @@
       "perception": 2,
       "senses": "passive perception 12",
       "size": "Medium",
+      "skills": "Perception +2",
       "speed": "30 ft. (40 ft. in boar form)",
       "subtype": "human",
       "type": "humanoid"
@@ -7414,6 +7648,7 @@
       "perception": 2,
       "senses": "darkvision 60 ft. (rat form only), passive perception 12",
       "size": "Medium",
+      "skills": "Perception +2, Stealth +4",
       "speed": "30 ft.",
       "subtype": "human",
       "type": "humanoid"
@@ -7439,6 +7674,7 @@
       "perception": 5,
       "senses": "darkvision 60 ft., passive perception 15",
       "size": "Medium",
+      "skills": "Perception +5, Stealth +4",
       "speed": "30 ft. (40 ft. in tiger form)",
       "subtype": "human",
       "type": "humanoid"
@@ -7464,6 +7700,7 @@
       "perception": 4,
       "senses": "passive perception 14",
       "size": "Medium",
+      "skills": "Perception +4",
       "speed": "30 ft. (40 ft. in wolf form)",
       "subtype": "human",
       "type": "humanoid"
@@ -7487,8 +7724,10 @@
       "languages": "Draconic",
       "monster": "White Dragon Wyrmling",
       "perception": 4,
+      "saving_throws": "Dex +2, Con +4, Wis +2, Cha +2",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 14",
       "size": "Medium",
+      "skills": "Perception +4, Stealth +2",
       "speed": "30 ft., burrow 15 ft., fly 60 ft., swim 30 ft.",
       "subtype": "",
       "type": "dragon"
@@ -7514,6 +7753,7 @@
       "perception": 3,
       "senses": "darkvision 60 ft., passive perception 13",
       "size": "Medium",
+      "skills": "Perception +3, Stealth +4",
       "speed": "30 ft.",
       "subtype": "",
       "type": "undead"
@@ -7563,6 +7803,7 @@
       "perception": 5,
       "senses": "passive perception 15",
       "size": "Large",
+      "skills": "Perception +5, Stealth +3",
       "speed": "50 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -7588,6 +7829,7 @@
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Medium",
+      "skills": "Perception +3, Stealth +4",
       "speed": "40 ft.",
       "subtype": "",
       "type": "beast"
@@ -7613,6 +7855,7 @@
       "perception": 4,
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Large",
+      "skills": "Perception +4",
       "speed": "50 ft.",
       "subtype": "",
       "type": "monstrosity"
@@ -7662,6 +7905,7 @@
       "perception": 4,
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Large",
+      "skills": "Perception +4",
       "speed": "20 ft., fly 80 ft.",
       "subtype": "",
       "type": "dragon"
@@ -7687,6 +7931,7 @@
       "perception": 6,
       "senses": "darkvision 60 ft., tremorsense 60 ft., passive perception 16",
       "size": "Medium",
+      "skills": "Perception +6, Stealth +3",
       "speed": "20 ft., burrow 20 ft.",
       "subtype": "",
       "type": "elemental"
@@ -7710,8 +7955,10 @@
       "languages": "Common, Draconic",
       "monster": "Young Black Dragon",
       "perception": 6,
+      "saving_throws": "Dex +5, Con +6, Wis +3, Cha +5",
       "senses": "blindsight 30 ft., darkvision 120 ft., passive perception 16",
       "size": "Large",
+      "skills": "Perception +6, Stealth +5",
       "speed": "40 ft., fly 80 ft., swim 40 ft.",
       "subtype": "",
       "type": "dragon"
@@ -7735,8 +7982,10 @@
       "languages": "Common, Draconic",
       "monster": "Young Blue Dragon",
       "perception": 9,
+      "saving_throws": "Dex +4, Con +8, Wis +5, Cha +7",
       "senses": "blindsight 30 ft., darkvision 120 ft., passive perception 19",
       "size": "Large",
+      "skills": "Perception +9, Stealth +4",
       "speed": "40 ft., burrow 40 ft., fly 80 ft.",
       "subtype": "",
       "type": "dragon"
@@ -7760,8 +8009,10 @@
       "languages": "Common, Draconic",
       "monster": "Young Brass Dragon",
       "perception": 6,
+      "saving_throws": "Dex +3, Con +6, Wis +3, Cha +5",
       "senses": "blindsight 30 ft., darkvision 120 ft., passive perception 16",
       "size": "Large",
+      "skills": "Perception +6, Persuasion +5, Stealth +3",
       "speed": "40 ft., burrow 20 ft., fly 80 ft.",
       "subtype": "",
       "type": "dragon"
@@ -7785,8 +8036,10 @@
       "languages": "Common, Draconic",
       "monster": "Young Bronze Dragon",
       "perception": 7,
+      "saving_throws": "Dex +3, Con +7, Wis +4, Cha +6",
       "senses": "blindsight 30 ft., darkvision 120 ft., passive perception 17",
       "size": "Large",
+      "skills": "Insight +4, Perception +7, Stealth +3",
       "speed": "40 ft., fly 80 ft., swim 40 ft.",
       "subtype": "",
       "type": "dragon"
@@ -7810,8 +8063,10 @@
       "languages": "Common, Draconic",
       "monster": "Young Copper Dragon",
       "perception": 7,
+      "saving_throws": "Dex +4, Con +6, Wis +4, Cha +5",
       "senses": "blindsight 30 ft., darkvision 120 ft., passive perception 17",
       "size": "Large",
+      "skills": "Deception +5, Perception +7, Stealth +4",
       "speed": "40 ft., climb 40 ft., fly 80 ft.",
       "subtype": "",
       "type": "dragon"
@@ -7835,8 +8090,10 @@
       "languages": "Common, Draconic",
       "monster": "Young Gold Dragon",
       "perception": 9,
+      "saving_throws": "Dex +6, Con +9, Wis +5, Cha +9",
       "senses": "blindsight 30 ft., darkvision 120 ft., passive perception 19",
       "size": "Large",
+      "skills": "Insight +5, Perception +9, Persuasion +9, Stealth +6",
       "speed": "40 ft., fly 80 ft., swim 40 ft.",
       "subtype": "",
       "type": "dragon"
@@ -7860,8 +8117,10 @@
       "languages": "Common, Draconic",
       "monster": "Young Green Dragon",
       "perception": 7,
+      "saving_throws": "Dex +4, Con +6, Wis +4, Cha +5",
       "senses": "blindsight 30 ft., darkvision 120 ft., passive perception 17",
       "size": "Large",
+      "skills": "Deception +5, Perception +7, Stealth +4",
       "speed": "40 ft., fly 80 ft., swim 40 ft.",
       "subtype": "",
       "type": "dragon"
@@ -7885,8 +8144,10 @@
       "languages": "Common, Draconic",
       "monster": "Young Red Dragon",
       "perception": 8,
+      "saving_throws": "Dex +4, Con +9, Wis +4, Cha +8",
       "senses": "blindsight 30 ft., darkvision 120 ft., passive perception 18",
       "size": "Large",
+      "skills": "Perception +8, Stealth +4",
       "speed": "40 ft., climb 40 ft., fly 80 ft.",
       "subtype": "",
       "type": "dragon"
@@ -7905,14 +8166,15 @@
       "damage_immunities": "cold",
       "damage_resistances": "",
       "damage_vulnerabilities": "",
-      "history": 6,
       "hit_dice": "16d10",
       "hit_points": 168,
       "languages": "Common, Draconic",
       "monster": "Young Silver Dragon",
       "perception": 8,
+      "saving_throws": "Dex +4, Con +9, Wis +4, Cha +8",
       "senses": "blindsight 30 ft., darkvision 120 ft., passive perception 18",
       "size": "Large",
+      "skills": "Arcana +6, History +6, Perception +8, Stealth +4",
       "speed": "40 ft., fly 80 ft.",
       "subtype": "",
       "type": "dragon"
@@ -7936,8 +8198,10 @@
       "languages": "Common, Draconic",
       "monster": "Young White Dragon",
       "perception": 6,
+      "saving_throws": "Dex +3, Con +7, Wis +3, Cha +4",
       "senses": "blindsight 30 ft., darkvision 120 ft., passive perception 16",
       "size": "Large",
+      "skills": "Perception +6, Stealth +3",
       "speed": "40 ft., burrow 20 ft., fly 80 ft., swim 40 ft.",
       "subtype": "",
       "type": "dragon"
@@ -7960,6 +8224,7 @@
       "hit_points": 22,
       "languages": "understands all languages it spoke in life but can't speak",
       "monster": "Zombie",
+      "saving_throws": "Wis +0",
       "senses": "darkvision 60 ft., passive perception 8",
       "size": "Medium",
       "speed": "20 ft.",
