@@ -19,7 +19,7 @@
         style="max-width: 500px"
         @input="handleSelect"
       />
-      <!-- @keyup.enter="name ? $emit('addCharacter', name) : () => {}" -->
+      <!-- GENERAL INFO -->
       <v-layout
         v-if="currentMonsterKeys.length > 1"
         class="border-primary"
@@ -41,8 +41,34 @@
           </v-layout>
         </v-layout>
       </v-layout>
+      <!-- END GENERAL INFO -->
+      <!-- ABILITY SCORES -->
+      <v-layout
+        v-if="currentMonsterKeys.length > 1"
+        class="border-primary"
+        row
+        pa-3
+      >
+        <v-layout
+          column
+          v-if="currentMonsterKeys.length > 1 && currentMonsterKeys.includes('Ability Scores')"
+          v-for="(value, stat) in currentMonsterInfo['Ability Scores']"
+          :key="stat"
+          class="text-xs-center"
+        >
+          <v-layout justify-center>
+            <div>
+              <strong>{{ stat }}</strong>
+              <h1>{{ value }}</h1>
+            </div>
+            <h4
+              style="margin-top: 36px; margin-left: 5px;"
+            >{{ getModifier(value) >= 0 ? '+' : '-' }} {{ Math.abs(getModifier(value)) }}</h4>
+          </v-layout>
+        </v-layout>
+      </v-layout>
+      <!-- END ABILITY SCORES -->
     </v-card-text>
-    {{currentMonsterInfo}}
   </v-card>
 </template>
 
@@ -57,15 +83,13 @@ export default {
       'currentMonsterKeys',
     ]),
   },
-  data() {
-    return {
-      name: '',
-    }
-  },
   methods: {
     ...mapActions(['dispatchRetrieveMonsterInfo']),
     handleSelect(name) {
       this.dispatchRetrieveMonsterInfo({ name })
+    },
+    getModifier(val) {
+      return Math.floor((val - 10) / 2)
     },
   },
 }
