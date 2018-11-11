@@ -1,5 +1,5 @@
 <template>
-  <v-layout column mx-3 style="max-width: 150px">
+  <v-layout column style="max-width: 150px">
     <v-layout align-center>
       <h3>HIT POINTS</h3>
       <v-tooltip bottom>
@@ -28,7 +28,8 @@
           height="10px"
           :value="character.hitPoints"
           v-model="localHitPoints"
-          type="number"/>
+          type="number"
+        />
       </v-layout>
     </v-layout>
     <!-- dialog -->
@@ -204,7 +205,8 @@ export default {
         for (let l = 0; l < this.character.classes[c].level; l++) {
           totalHealth += constitutionOffset
           let value = 0
-          const dice = hitDice[this.character.classes[c].className.split(' ')[0]]
+          const dice =
+            hitDice[this.character.classes[c].className.split(' ')[0]]
           if (firstLevel) {
             // take max health for first level
             value = dice
@@ -250,7 +252,10 @@ export default {
     },
 
     hurt() {
-      if (isNaN(parseInt(this.localHitPoints)) || isNaN(parseInt(this.offset))) {
+      if (
+        isNaN(parseInt(this.localHitPoints)) ||
+        isNaN(parseInt(this.offset))
+      ) {
         return
       }
       if (parseInt(this.offset) === 0) {

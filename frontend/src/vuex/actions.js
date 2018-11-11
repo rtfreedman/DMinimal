@@ -125,6 +125,22 @@ export default {
     })
   },
 
+  dispatchSetArmorClass({ commit }, { character, armorClass }) {
+    commit('mutateCharacter', {
+      character,
+      method: 'setArmorClass',
+      args: [armorClass],
+    })
+  },
+
+  dispatchSetSpeed({ commit }, { character, speed }) {
+    commit('mutateCharacter', {
+      character,
+      method: 'setSpeed',
+      args: [speed],
+    })
+  },
+
   dispatchSetStat({ commit }, { character, stat, value }) {
     commit('mutateCharacter', {
       character,

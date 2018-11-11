@@ -16,7 +16,8 @@
               v-model="localName"
               label="Name"
               @blur="update"
-            ></v-text-field>
+              spellcheck="false"
+            />
             <v-layout
               class="border-white"
               pt-3
@@ -67,10 +68,11 @@
               v-model="race"
               label="Race"
               @change="update"
-              :items="races"
+              :items="raceItems"
               hide-details
+              spellcheck="false"
             />
-            <v-textarea label="Bio"></v-textarea>
+            <v-textarea label="Bio"/>
           </v-card-text>
         </v-card>
       </v-expansion-panel-content>
@@ -84,6 +86,15 @@ import { races } from '../common/constants'
 
 export default {
   props: ['character'],
+
+  computed: {
+    raceItems() {
+      return this.races.map(r => ({
+        text: r.name,
+        value: r,
+      }))
+    },
+  },
 
   data() {
     return {
@@ -106,7 +117,8 @@ export default {
         name: this.localName,
         lawful: this.lawfulOrChaotic,
         good: this.goodOrEvil,
-        race: this.race,
+        race: this.race.name,
+        speed: this.race.speed,
       })
     },
   },

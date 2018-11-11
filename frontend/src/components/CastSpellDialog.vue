@@ -75,7 +75,7 @@
           column
         >
           <v-layout class="text-xs-right">
-            <v-flex xs6 py-1>{{ key }}</v-flex>
+            <v-flex xs6 py-1 :class="{'primary--text': atHigherLevel && key === 'Higher Level Bonus'}">{{ key }}</v-flex>
             <v-divider vertical class="mx-3"></v-divider>
             <v-flex
               class="text-xs-left"
@@ -93,6 +93,7 @@
               xs6
               py-1
               class="text-xs-left"
+              :class="{'primary--text': atHigherLevel && key === 'Higher Level Bonus'}"
               v-else
             >{{ currentSpellInfo[key] }}</v-flex>
           </v-layout>
@@ -171,6 +172,12 @@ export default {
         }
       })
       return levelOptions
+    },
+
+    atHigherLevel() {
+      if (this.currentSpellInfo && this.castSpellState) {
+        return this.currentSpellInfo.Level < this.castSpellState.level
+      }
     },
   },
 
