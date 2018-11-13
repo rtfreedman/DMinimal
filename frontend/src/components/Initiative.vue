@@ -1,75 +1,59 @@
 <template>
-  <v-layout row>
-    <v-flex xs2>
-      <v-layout row>
-        <v-tooltip top>
-          <v-btn icon slot="activator" @click="rollInitiative()">
-            <v-icon>mdi-dice-multiple</v-icon>
-          </v-btn>
-          <span>Roll Initiative!</span>
-        </v-tooltip>
-        <!-- Initiative v-model'd input -->
-        <v-text-field reverse label="Initiative" :rules="[validate]" v-model="initiative"/>
-        <!-- Conditional clear button -->
-        <v-btn icon @click="clearInitiative()">
-          <v-icon>mdi-close</v-icon>
+  <v-layout column ml-3 style="max-width: 150px">
+    <v-layout align-center>
+      <h3>INITIATIVE</h3>
+      <v-tooltip bottom>
+        <v-btn
+          icon
+          flat
+          slot="activator"
+          color="primary"
+          @click="rollInitiative"
+        >
+          <v-icon>mdi-dice-multiple</v-icon>
         </v-btn>
-      </v-layout>
-    </v-flex>
+        <span>ROLL INITIATIVE</span>
+      </v-tooltip>
+    </v-layout>
+    <v-autocomplete
+      class="border-primary"
+      solo
+      flat
+      :items="initiativeRange"
+      v-model="initiative"
+      clearable
+      @change="dispatchSetInitiative({ character, initiative })"
+      style="width: 120px; font-size: 28px; font-weight: bold;"
+      hide-details
+    />
   </v-layout>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+import { oneToN, rollNdS } from '../common/functions'
+
 export default {
   name: 'initiative',
-  props: ['charIndex'],
-  computed: {
-    character() {
-      return this.$store.state.characters[this.charIndex]
-    },
-    initiative: {
-      get() {
-        return this.character.initiative
-      },
-      set(val) {
-        if (this.validate(val) !== true) {
-          return
-        }
-        let newInitiative = null
-        if (val !== null) {
-          newInitiative = parseInt(val)
-        }
-        this.$store.commit('setInitiative', {
-          charIndex: this.charIndex,
-          initiative: newInitiative,
-        })
-      },
-    },
+
+  props: ['character'],
+
+  data() {
+    return {
+      initiative: this.character.initiative,
+      initiativeRange: oneToN(50),
+    }
   },
+
   methods: {
-    validate(val) {
-      if (typeof val === 'string' && val.toLowerCase().includes('e')) {
-        return 'Scientific notation not allowed'
-      }
-      if (val === null) {
-        return true
-      }
-      if (isNaN(parseInt(val))) {
-        return 'Input is not a number'
-      }
-      if (parseInt(val) < 0) {
-        return 'No negative numbers'
-      }
-      return true
-    },
+    ...mapActions(['dispatchSetInitiative']),
+
     rollInitiative() {
-      this.initiative =
-        Math.floor((this.character.abilityScores.DEX - 10) / 2) +
-        Math.floor(Math.random() * 20) +
-        1
-    },
-    clearInitiative() {
-      this.initiative = null
+      this.initiative = this.character.getModifier('DEX') + rollNdS(1, 20)
+      this.dispatchSetInitiative({
+        character: this.character,
+        initiative: this.initiative,
+      })
     },
   },
 }
