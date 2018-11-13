@@ -69,3 +69,55 @@ create table actions (attack_bonus integer,
 	monster varchar,
 	name varchar
 );
+CREATE TABLE weapons (
+	id serial PRIMARY KEY,
+	name text NOT NULL,
+	weapon_type text NOT NULL,
+	damage_dice_type integer NOT NULL,
+	damage_dice_count integer NOT NULL,
+	secondary_damage_dice_type integer,
+	secondary_damage_dice_count integer,
+	damage_type text NOT NULL,
+	range integer[],
+	rarity text NOT NULL,
+	properties text[],
+	modifiers text[],
+	weight float,
+	description text
+);
+CREATE TABLE armor (
+	id serial PRIMARY KEY,
+	name text NOT NULL,
+	ac integer NOT NULL,
+	stealth text,
+	weight float NOT NULL,
+	description text	
+);
+CREATE TABLE adventuring_gear (
+	id serial PRIMARY KEY,
+	name text NOT NULL,
+	weight float,
+	save text,
+	target text,
+	duration text,
+	range integer[],
+	damage_type text,
+	damage_dice_type integer,
+	damage_dice_count integer,
+	rarity text,
+	subtype text,
+	properties text[],
+	description text
+);
+CREATE TABLE equipment_packs (
+	id serial PRIMARY KEY,
+	name text,
+	rarity text,
+	description text
+);
+CREATE TABLE equipment_pack_items (
+	id serial PRIMARY KEY,
+	equipment_pack_id integer REFERENCES equipment_packs,
+	adventuring_gear_id integer REFERENCES adventuring_gear,
+	count integer
+);
