@@ -38,28 +38,46 @@ func GetMonsterInfo(monster string) (val map[string]interface{}, err error) {
 	oi, err := getMonsterOtherTableInfo(monster, false, "reactions")
 	if err == nil {
 		for i := range oi {
-			addOtherInfoToMap("reactions", oi[i], val)
+			addOtherInfoToMap("Reactions", oi[i], val)
 		}
 	}
 	oi, err = getMonsterOtherTableInfo(monster, false, "legendary_actions")
 	if err == nil {
 		for i := range oi {
-			addOtherInfoToMap("legendary_actions", oi[i], val)
+			addOtherInfoToMap("Legendary Actions", oi[i], val)
 		}
 	}
 	oi, err = getMonsterOtherTableInfo(monster, false, "special_abilities")
 	if err == nil {
 		for i := range oi {
-			addOtherInfoToMap("special_abilities", oi[i], val)
+			addOtherInfoToMap("Special Abilities", oi[i], val)
 		}
 	}
 	oi, err = getMonsterOtherTableInfo(monster, true, "actions")
 	if err == nil {
 		for i := range oi {
-			addOtherInfoToMap("actions", oi[i], val)
+			addOtherInfoToMap("Actions", oi[i], val)
 		}
 	}
+	reshapeMonster(val)
 	return
+}
+
+func reshapeMonster(monster map[string]interface{}) {
+	scores := []string{"CHR", "CON", "DEX", "INT", "STR", "WIS"}
+	abilityScores := map[string]interface{}{}
+	for _, score := range scores {
+		if _, ok := monster[score]; ok {
+			abilityScores[score] = monster[score]
+			delete(monster, score)
+		}
+	}
+	for k, v := range monster {
+		if v == "" {
+			delete(monster, k)
+		}
+	}
+	monster["Ability Scores"] = abilityScores
 }
 
 type monsterInfo struct {
@@ -70,7 +88,6 @@ type monsterInfo struct {
 	STR                   sql.NullInt64
 	WIS                   sql.NullInt64
 	armorClass            sql.NullInt64
-	history               sql.NullInt64
 	hitPoints             sql.NullInt64
 	perception            sql.NullInt64
 	challengeRating       sql.NullFloat64
@@ -87,6 +104,8 @@ type monsterInfo struct {
 	speed                 sql.NullString
 	subtype               sql.NullString
 	typeString            sql.NullString
+	savingThrows          sql.NullString
+	skills                sql.NullString
 }
 
 type otherInfo struct {
@@ -98,8 +117,8 @@ type otherInfo struct {
 }
 
 func getMonsterTableInfo(monsterName string) (mi monsterInfo, err error) {
-	row := db.QueryRow("SELECT CHR, CON, DEX, INT, STR, WIS, armor_class, history, hit_points, perception, challenge_rating, alignment, condition_immunities, damage_immunities, damage_resistances, damage_vulnerabilities, hit_dice, languages, monster, senses, size, speed, subtype, type from monsters WHERE monster=$1", monsterName)
-	err = row.Scan(&mi.CHR, &mi.CON, &mi.DEX, &mi.INT, &mi.STR, &mi.WIS, &mi.armorClass, &mi.history, &mi.hitPoints, &mi.perception, &mi.challengeRating, &mi.alignment, &mi.conditionImmunities, &mi.damageImmunities, &mi.damageResistances, &mi.damageVulnerabilities, &mi.hitDice, &mi.languages, &mi.monster, &mi.senses, &mi.size, &mi.speed, &mi.subtype, &mi.typeString)
+	row := db.QueryRow("SELECT CHR, CON, DEX, INT, STR, WIS, armor_class, hit_points, perception, challenge_rating, alignment, condition_immunities, damage_immunities, damage_resistances, damage_vulnerabilities, hit_dice, languages, monster, senses, size, speed, subtype, type, saving_throws, skills from monsters WHERE monster=$1", monsterName)
+	err = row.Scan(&mi.CHR, &mi.CON, &mi.DEX, &mi.INT, &mi.STR, &mi.WIS, &mi.armorClass, &mi.hitPoints, &mi.perception, &mi.challengeRating, &mi.alignment, &mi.conditionImmunities, &mi.damageImmunities, &mi.damageResistances, &mi.damageVulnerabilities, &mi.hitDice, &mi.languages, &mi.monster, &mi.senses, &mi.size, &mi.speed, &mi.subtype, &mi.typeString, &mi.savingThrows, &mi.skills)
 	return
 }
 
@@ -124,67 +143,70 @@ func addMonsterInfoToMap(mi monsterInfo, val map[string]interface{}) {
 		val["WIS"] = mi.WIS.Int64
 	}
 	if mi.armorClass.Valid {
-		val["armorClass"] = mi.armorClass.Int64
-	}
-	if mi.history.Valid {
-		val["history"] = mi.history.Int64
+		val["Armor Class"] = mi.armorClass.Int64
 	}
 	if mi.hitPoints.Valid {
-		val["hitPoints"] = mi.hitPoints.Int64
+		val["Hitpoints"] = mi.hitPoints.Int64
 	}
 	if mi.perception.Valid {
-		val["perception"] = mi.perception.Int64
+		val["Perception"] = mi.perception.Int64
 	}
 	if mi.challengeRating.Valid {
-		val["challengeRating"] = mi.challengeRating.Float64
+		val["Challenge Rating"] = mi.challengeRating.Float64
 	}
 	if mi.alignment.Valid {
-		val["alignment"] = mi.alignment.String
+		val["Alignment"] = mi.alignment.String
 	}
 	if mi.conditionImmunities.Valid {
-		val["conditionImmunities"] = mi.conditionImmunities.String
+		val["Condition Immunities"] = mi.conditionImmunities.String
 	}
 	if mi.damageImmunities.Valid {
-		val["damageImmunities"] = mi.damageImmunities.String
+		val["Damage Immunities"] = mi.damageImmunities.String
 	}
 	if mi.damageResistances.Valid {
-		val["damageResistances"] = mi.damageResistances.String
+		val["Damage Resistances"] = mi.damageResistances.String
 	}
 	if mi.damageVulnerabilities.Valid {
-		val["damageVulnerabilities"] = mi.damageVulnerabilities.String
+		val["Damage Vulnerabilities"] = mi.damageVulnerabilities.String
 	}
 	if mi.hitDice.Valid {
-		val["hitDice"] = mi.hitDice.String
+		val["Hit Dice"] = mi.hitDice.String
 	}
 	if mi.languages.Valid {
-		val["languages"] = mi.languages.String
+		val["Languages"] = mi.languages.String
 	}
 	if mi.monster.Valid {
-		val["monster"] = mi.monster.String
+		val["Monster"] = mi.monster.String
 	}
 	if mi.senses.Valid {
-		val["senses"] = mi.senses.String
+		val["Senses"] = mi.senses.String
 	}
 	if mi.size.Valid {
-		val["size"] = mi.size.String
+		val["Size"] = mi.size.String
 	}
 	if mi.speed.Valid {
-		val["speed"] = mi.speed.String
+		val["Speed"] = mi.speed.String
 	}
 	if mi.subtype.Valid {
-		val["subtype"] = mi.subtype.String
+		val["Subtype"] = mi.subtype.String
 	}
 	if mi.typeString.Valid {
-		val["typeString"] = mi.typeString.String
+		val["Type"] = mi.typeString.String
+	}
+	if mi.savingThrows.Valid {
+		val["Saving Throws"] = mi.savingThrows.String
+	}
+	if mi.skills.Valid {
+		val["Skills"] = mi.skills.String
 	}
 }
 
 // I can't bother to come up with a better name
 func getMonsterOtherTableInfo(monsterName string, isAction bool, tableName string) (oi []otherInfo, err error) {
 	// since I'm always supplying table name I don't need to worry about sql injection
-	queryString := "SELECT description, monster, name FROM " + tableName + " WHERE monster=$1"
+	queryString := "SELECT description, name FROM " + tableName + " WHERE monster=$1"
 	if isAction {
-		queryString = "SELECT damage_bonus, damage_dice, description, monster, name FROM " + tableName + " WHERE monster=$1"
+		queryString = "SELECT damage_bonus, damage_dice, description, name FROM " + tableName + " WHERE monster=$1"
 	}
 	var rows *sql.Rows
 	rows, err = db.Query(queryString, monsterName)
@@ -194,9 +216,9 @@ func getMonsterOtherTableInfo(monsterName string, isAction bool, tableName strin
 	for rows.Next() {
 		var oiItem otherInfo
 		if isAction {
-			err = rows.Scan(&oiItem.damageBonus, &oiItem.damageDice, &oiItem.description, &oiItem.monster, &oiItem.name)
+			err = rows.Scan(&oiItem.damageBonus, &oiItem.damageDice, &oiItem.description, &oiItem.name)
 		} else {
-			err = rows.Scan(&oiItem.description, &oiItem.monster, &oiItem.name)
+			err = rows.Scan(&oiItem.description, &oiItem.name)
 		}
 		oi = append(oi, oiItem)
 	}
@@ -206,19 +228,19 @@ func getMonsterOtherTableInfo(monsterName string, isAction bool, tableName strin
 func addOtherInfoToMap(key string, oi otherInfo, val map[string]interface{}) {
 	newMap := map[string]interface{}{}
 	if oi.damageBonus.Valid {
-		newMap["damageBonus"] = oi.damageBonus.Int64
+		newMap["Damage Bonus"] = oi.damageBonus.Int64
 	}
 	if oi.damageDice.Valid {
-		newMap["damageDice"] = oi.damageDice.String
+		newMap["Damage Dice"] = oi.damageDice.String
 	}
 	if oi.description.Valid {
-		newMap["description"] = oi.description.String
+		newMap["Description"] = oi.description.String
 	}
 	if oi.monster.Valid {
-		newMap["monster"] = oi.monster.String
+		newMap["Monster"] = oi.monster.String
 	}
 	if oi.name.Valid {
-		newMap["name"] = oi.name.String
+		newMap["Name"] = oi.name.String
 	}
 	if _, ok := val[key]; !ok {
 		val[key] = []map[string]interface{}{}
