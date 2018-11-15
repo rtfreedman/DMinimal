@@ -68,6 +68,48 @@
         </v-layout>
       </v-layout>
       <!-- END ABILITY SCORES -->
+      <!-- OTHERS -->
+      <v-layout
+        class="border-primary"
+        column
+        pa-3
+      >
+        <v-expansion-panel light
+          v-if="currentMonsterKeys.length > 1 && key !== 'Monster' && key !== 'Ability Scores' && typeof currentMonsterInfo[key] !== 'string' && typeof currentMonsterInfo[key] !== 'number'"
+          v-for="key in currentMonsterKeys"
+          :key="key"
+        >
+          <v-expansion-panel-content
+            style="color: #303030; background-color: #ffd700;"
+            >
+            <h3 slot="header">{{key}}</h3>
+            <v-expansion-panel dark>
+              <v-expansion-panel-content
+                style="color: #303030; background-color: #efc700;"
+                v-for="(subkey, index) in currentMonsterInfo[key]"
+                :key="index"
+              >
+                <h3 slot="header">{{subkey["Name"]}}</h3>
+                
+                <v-layout
+                  v-for="(value, supersubkey) in subkey"
+                  :key="supersubkey"
+                  v-if="supersubkey !== 'Name' && supersubkey !== 'Monster'"
+                  column
+                >
+                  <v-layout class="text-xs-right">
+                    <v-flex xs6 py-1>{{ supersubkey }}</v-flex>
+                    <v-divider vertical class="mx-3"></v-divider>
+                    <v-flex xs6 py-1 class="text-xs-left">{{ value }}</v-flex>
+                  </v-layout>
+                  <v-layout class="text-xs-left"/>
+                </v-layout>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-layout>
+      <!-- END OTHERS -->
     </v-card-text>
   </v-card>
 </template>
