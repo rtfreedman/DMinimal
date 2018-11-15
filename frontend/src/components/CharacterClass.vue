@@ -9,7 +9,7 @@
             <span>LEVEL {{ characterClass.level}} {{ characterClass.className.toUpperCase() }}</span>
             <span
               v-if="characterClass.subClassName"
-            >- {{ characterClass.subClassName.toUpperCase() }}</span>
+            > - {{ characterClass.subClassName.toUpperCase() }}</span>
           </h3>
         </template>
         <!-- class options -->
