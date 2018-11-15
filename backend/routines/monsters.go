@@ -204,9 +204,9 @@ func addMonsterInfoToMap(mi monsterInfo, val map[string]interface{}) {
 // I can't bother to come up with a better name
 func getMonsterOtherTableInfo(monsterName string, isAction bool, tableName string) (oi []otherInfo, err error) {
 	// since I'm always supplying table name I don't need to worry about sql injection
-	queryString := "SELECT description, monster, name FROM " + tableName + " WHERE monster=$1"
+	queryString := "SELECT description, name FROM " + tableName + " WHERE monster=$1"
 	if isAction {
-		queryString = "SELECT damage_bonus, damage_dice, description, monster, name FROM " + tableName + " WHERE monster=$1"
+		queryString = "SELECT damage_bonus, damage_dice, description, name FROM " + tableName + " WHERE monster=$1"
 	}
 	var rows *sql.Rows
 	rows, err = db.Query(queryString, monsterName)
@@ -216,9 +216,9 @@ func getMonsterOtherTableInfo(monsterName string, isAction bool, tableName strin
 	for rows.Next() {
 		var oiItem otherInfo
 		if isAction {
-			err = rows.Scan(&oiItem.damageBonus, &oiItem.damageDice, &oiItem.description, &oiItem.monster, &oiItem.name)
+			err = rows.Scan(&oiItem.damageBonus, &oiItem.damageDice, &oiItem.description, &oiItem.name)
 		} else {
-			err = rows.Scan(&oiItem.description, &oiItem.monster, &oiItem.name)
+			err = rows.Scan(&oiItem.description, &oiItem.name)
 		}
 		oi = append(oi, oiItem)
 	}
