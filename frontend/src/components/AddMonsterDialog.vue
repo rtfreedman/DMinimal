@@ -70,6 +70,7 @@
       <!-- END ABILITY SCORES -->
       <!-- OTHERS -->
       <v-layout
+        v-if="currentMonsterKeys.length > 1"
         class="border-primary"
         column
         pa-3
