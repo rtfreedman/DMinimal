@@ -94,7 +94,7 @@
                 <v-layout
                   v-for="(value, supersubkey) in subdict"
                   :key="supersubkey"
-                  v-if="supersubkey !== 'Name' && supersubkey !== 'Monster'"
+                  v-if="supersubkey !== 'Name'"
                   column
                 >
                   <v-layout class="text-xs-right">
