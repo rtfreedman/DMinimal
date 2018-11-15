@@ -86,13 +86,13 @@
             <v-expansion-panel dark>
               <v-expansion-panel-content
                 style="color: #303030; background-color: #efc700;"
-                v-for="(subkey, index) in currentMonsterInfo[key]"
-                :key="index"
+                v-for="(subdict, subkey) in currentMonsterInfo[key]"
+                :key="subkey"
               >
-                <h3 slot="header">{{subkey["Name"]}}</h3>
+                <h3 slot="header">{{subdict["Name"]}}</h3>
                 
                 <v-layout
-                  v-for="(value, supersubkey) in subkey"
+                  v-for="(value, supersubkey) in subdict"
                   :key="supersubkey"
                   v-if="supersubkey !== 'Name' && supersubkey !== 'Monster'"
                   column
