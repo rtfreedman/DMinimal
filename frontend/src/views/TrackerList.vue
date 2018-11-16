@@ -13,20 +13,14 @@
       class="ml-0"
     >Add Monster</v-btn>
     <v-btn
-      v-if="characters.length > 1"
-      @click="dispatchGroupRest"
+      v-if="characters.length > 1 && !trigger"
+      @click="groupRest"
       flat
       color="primary"
     >Long Rest All</v-btn>
-    <v-tabs
-      slider-color="primary"
-      v-model="selectedTab"
-    >
-      <v-tab
-        v-for="i in characters.length"
-        :key="i"
-      >
-        <v-layout align-center>
+    <v-tabs slider-color="primary" v-model="selectedTab">
+      <v-tab v-for="i in characters.length" :key="i">
+        <v-layout align-center v-if="!trigger">
           <span>{{ characters[i - 1].name.split(' ')[0] || 'Name' }}</span>
           <span
             v-if="characters[i - 1].initiative"
@@ -34,10 +28,7 @@
           >({{ characters[i - 1].initiative }})</span>
         </v-layout>
       </v-tab>
-      <v-tab-item
-        v-for="i in characters.length"
-        :key="i"
-      >
+      <v-tab-item v-for="i in characters.length" :key="i">
         <v-card flat>
           <app-tracker
             :character="characters[i - 1]"
@@ -49,6 +40,7 @@
     <app-msg-snackbar/>
     <v-dialog v-model="showAddCharacterDialog">
       <!-- v-if allows autofocus on each open and clears name -->
+
       <app-add-character-dialog
         v-if="showAddCharacterDialog"
         @close="showAddCharacterDialog = false"
@@ -86,7 +78,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['characters', 'monsters', 'monsterOptions']),
+    ...mapGetters(['characters', 'monsters', 'monsterOptions', 'trigger']),
   },
 
   data() {
@@ -98,30 +90,30 @@ export default {
   },
 
   created() {
-    this.dispatchRetrieveClassOptions()
-    this.dispatchRetrieveMonsterOptions()
+    this.retrieveClassOptions()
+    this.retrieveMonsterOptions()
   },
 
   methods: {
     ...mapActions([
-      'dispatchAddCharacter',
-      'dispatchAddMonster',
-      'dispatchGroupRest',
-      'dispatchRetrieveClassOptions',
-      'dispatchRetrieveMonsterOptions',
+      'addCharacter',
+      'addMonster',
+      'groupRest',
+      'retrieveClassOptions',
+      'retrieveMonsterOptions',
     ]),
 
     addCharacter(name) {
       // TBD: validate
       this.showAddCharacterDialog = false
-      this.dispatchAddCharacter(name).then(() => {
+      this.addCharacter(name).then(() => {
         this.selectedTab = this.characters.length - 1
       })
     },
 
     addMonster(name) {
       this.showAddMonsterDialog = false
-      this.dispatchAddMonster(name).then(() => {
+      this.addMonster(name).then(() => {
         // tabs :/
       })
     },

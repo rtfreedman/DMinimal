@@ -1,10 +1,6 @@
 <template>
   <v-card>
-    <v-toolbar
-      light
-      card
-      style="background-color: #ffd700"
-    >
+    <v-toolbar light card style="background-color: #ffd700">
       <h3>SHORT REST</h3>
       <v-spacer></v-spacer>
       <v-btn icon @click="$emit('close')">
@@ -23,12 +19,7 @@
       <v-layout>TBD: expend available hit dice</v-layout>
     </v-card-text>
     <v-layout justify-end pb-1>
-      <v-btn
-        flat
-        color="primary"
-        :disabled="!recoveryHitPoints"
-        @click="shortRest"
-      >TAKE REST</v-btn>
+      <v-btn flat color="primary" :disabled="!recoveryHitPoints" @click="shortRest">TAKE REST</v-btn>
     </v-layout>
   </v-card>
 </template>
@@ -48,12 +39,13 @@ export default {
   },
 
   methods: {
-    ...mapActions(['dispatchShortRest']),
+    ...mapActions(['characterAction']),
 
     shortRest() {
-      this.dispatchShortRest({
+      this.characterAction({
         character: this.character,
-        recoveredHitPoints: this.recoveryHitPoints,
+        method: 'shortRest',
+        args: [this.recoveryHitPoints],
       })
       this.$emit('close')
       this.recoveryHitPoints = null

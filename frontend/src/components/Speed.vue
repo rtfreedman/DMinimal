@@ -1,8 +1,5 @@
 <template>
-  <v-layout
-    column
-    style="margin-top: 12px; max-width: 150px;"
-  >
+  <v-layout column style="margin-top: 12px; max-width: 150px;">
     <h3 style="margin-bottom: 12px">SPEED</h3>
     <v-layout
       align-center
@@ -11,21 +8,11 @@
       style="width: 118px; height: 50px; font-size: 28px; font-weight: bold;"
     >
       <template v-if="character.speed !== null">
-        <v-btn
-          flat
-          small
-          icon
-          @click="decrementSpeed"
-        >
+        <v-btn flat small icon @click="decrementSpeed">
           <v-icon>expand_more</v-icon>
         </v-btn>
         <span>{{ character.speed }}</span>
-        <v-btn
-          flat
-          small
-          icon
-          @click="incrementSpeed"
-        >
+        <v-btn flat small icon @click="incrementSpeed">
           <v-icon>expand_less</v-icon>
         </v-btn>
       </template>
@@ -40,19 +27,21 @@ export default {
   name: 'speed',
   props: ['character'],
   methods: {
-    ...mapActions(['dispatchSetSpeed']),
+    ...mapActions(['characterAction']),
 
     decrementSpeed() {
-      this.dispatchSetSpeed({
+      this.characterAction({
         character: this.character,
-        speed: this.character.speed - 1,
+        method: 'setSpeed',
+        args: [this.character.speed - 1],
       })
     },
 
     incrementSpeed() {
-      this.dispatchSetSpeed({
+      this.chracterAction({
         character: this.character,
-        speed: this.character.speed + 1,
+        method: 'setSpeed',
+        args: [this.character.speed + 1],
       })
     },
   },

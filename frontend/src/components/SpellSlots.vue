@@ -26,24 +26,30 @@ import { mapActions } from 'vuex'
 export default {
   props: ['character', 'characterClass', 'classIndex'],
   methods: {
-    ...mapActions(['dispatchSetSlot']),
+    ...mapActions(['characterAction']),
 
     incrementSlot(slot) {
-      this.dispatchSetSlot({
+      this.characterAction({
         character: this.character,
-        classIndex: this.classIndex,
-        slot,
-        value: this.characterClass.workingSlots[slot] + 1,
+        method: 'setSlot',
+        args: [
+          this.classIndex,
+          slot,
+          this.characterClass.workingSlots[slot] + 1,
+        ],
       })
     },
 
     decrementSlot(slot) {
       if (this.characterClass.workingSlots[slot] > 0) {
-        this.dispatchSetSlot({
+        this.characterAction({
           character: this.character,
-          classIndex: this.classIndex,
-          slot,
-          value: this.characterClass.workingSlots[slot] - 1,
+          method: 'setSlot',
+          args: [
+            this.classIndex,
+            slot,
+            this.characterClass.workingSlots[slot] - 1,
+          ],
         })
       }
     },

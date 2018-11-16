@@ -1,10 +1,6 @@
 <template>
   <v-card>
-    <v-toolbar
-      light
-      card
-      style="background-color: #ffd700"
-    >
+    <v-toolbar light card style="background-color: #ffd700">
       <h3>CAST {{ spellClass.className.toUpperCase() }} SPELL</h3>
       <v-spacer></v-spacer>
       <v-btn icon @click="$emit('close')">
@@ -16,19 +12,13 @@
       <v-layout column mb-2>
         <h3>
           SPELL ATTACK MODIFIER: d20
-          <span
-            v-if="spellModifier >= 0"
-          >+</span>
+          <span v-if="spellModifier >= 0">+</span>
           {{ spellModifier }}
         </h3>
         <h3>SPELL SAVE DIFFICULTY CLASS: {{ spellSaveDifficultyClass }}</h3>
       </v-layout>
       <!-- select spell and level -->
-      <v-layout
-        :mb-3="!slotsAvailable"
-        align-center
-        justify-space-between
-      >
+      <v-layout :mb-3="!slotsAvailable" align-center justify-space-between>
         <v-autocomplete
           label="Spell"
           v-model="castSpellState.spell"
@@ -75,7 +65,11 @@
           column
         >
           <v-layout class="text-xs-right">
-            <v-flex xs6 py-1 :class="{'primary--text': atHigherLevel && key === 'Higher Level Bonus'}">{{ key }}</v-flex>
+            <v-flex
+              xs6
+              py-1
+              :class="{'primary--text': atHigherLevel && key === 'Higher Level Bonus'}"
+            >{{ key }}</v-flex>
             <v-divider vertical class="mx-3"></v-divider>
             <v-flex
               class="text-xs-left"
@@ -98,15 +92,9 @@
             >{{ currentSpellInfo[key] }}</v-flex>
           </v-layout>
         </v-layout>
-        <v-divider
-          color="#ffd700"
-          class="mx-3 mt-3"
-        ></v-divider>
+        <v-divider color="#ffd700" class="mx-3 mt-3"></v-divider>
         <h3 class="text-xs-center">DESCRIPTION</h3>
-        <v-divider
-          color="#ffd700"
-          class="mx-3 mb-3"
-        ></v-divider>
+        <v-divider color="#ffd700" class="mx-3 mb-3"></v-divider>
         <v-layout>{{ currentSpellInfo.Description || 'No description available for this spell.' }}</v-layout>
       </v-layout>
     </v-card-text>
@@ -190,28 +178,27 @@ export default {
   },
 
   created() {
-    this.dispatchRetrieveSpells({
+    this.retrieveSpells({
       spellClass: this.spellClass.className,
     })
   },
 
   methods: {
-    ...mapActions([
-      'dispatchRetrieveSpellInfo',
-      'dispatchRetrieveSpells',
-      'dispatchCastSpell',
-    ]),
+    ...mapActions(['retrieveSpellInfo', 'retrieveSpells', 'characterAction']),
 
     handleSelect(spell) {
-      this.dispatchRetrieveSpellInfo({ spell })
+      this.retrieveSpellInfo({ spell })
     },
 
     castSpell() {
-      this.dispatchCastSpell({
+      this.characterAction({
         character: this.character,
-        classIndex: this.spellClassIndex,
-        slot: this.castSpellState.level,
-        spellInfo: this.currentSpellInfo,
+        method: 'castSpell',
+        args: [
+          this.spellClassIndex,
+          this.castSpellState.level,
+          this.currentSpellInfo,
+        ],
       })
       this.$emit('close')
     },

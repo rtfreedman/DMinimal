@@ -1,10 +1,6 @@
 <template>
   <v-card>
-    <v-toolbar
-      light
-      card
-      style="background-color: #ffd700"
-    >
+    <v-toolbar light card style="background-color: #ffd700">
       <h3>NEW Monster</h3>
       <v-spacer></v-spacer>
       <v-btn icon @click="$emit('close')">
@@ -20,12 +16,7 @@
         @input="handleSelect"
       />
       <!-- GENERAL INFO -->
-      <v-layout
-        v-if="currentMonsterKeys.length > 1"
-        class="border-primary"
-        column
-        pa-3
-      >
+      <v-layout v-if="currentMonsterKeys.length > 1" class="border-primary" column pa-3>
         <v-layout
           v-for="key in currentMonsterKeys"
           :key="key"
@@ -37,18 +28,12 @@
             <v-divider vertical class="mx-3"></v-divider>
             <v-flex xs6 py-1 class="text-xs-left">{{ currentMonsterInfo[key] }}</v-flex>
           </v-layout>
-          <v-layout class="text-xs-left">
-          </v-layout>
+          <v-layout class="text-xs-left"></v-layout>
         </v-layout>
       </v-layout>
       <!-- END GENERAL INFO -->
       <!-- ABILITY SCORES -->
-      <v-layout
-        v-if="currentMonsterKeys.length > 1"
-        class="border-primary"
-        row
-        pa-3
-      >
+      <v-layout v-if="currentMonsterKeys.length > 1" class="border-primary" row pa-3>
         <v-layout
           column
           v-if="currentMonsterKeys.length > 1 && currentMonsterKeys.includes('Ability Scores')"
@@ -69,20 +54,14 @@
       </v-layout>
       <!-- END ABILITY SCORES -->
       <!-- OTHERS -->
-      <v-layout
-        v-if="currentMonsterKeys.length > 1"
-        class="border-primary"
-        column
-        pa-3
-      >
-        <v-expansion-panel light
+      <v-layout v-if="currentMonsterKeys.length > 1" class="border-primary" column pa-3>
+        <v-expansion-panel
+          light
           v-if="currentMonsterKeys.length > 1 && key !== 'Monster' && key !== 'Ability Scores' && typeof currentMonsterInfo[key] !== 'string' && typeof currentMonsterInfo[key] !== 'number'"
           v-for="key in currentMonsterKeys"
           :key="key"
         >
-          <v-expansion-panel-content
-            style="color: #303030; background-color: #ffd700;"
-            >
+          <v-expansion-panel-content style="color: #303030; background-color: #ffd700;">
             <h3 slot="header">{{key}}</h3>
             <v-expansion-panel dark>
               <v-expansion-panel-content
@@ -91,7 +70,6 @@
                 :key="subkey"
               >
                 <h3 slot="header">{{subdict["Name"]}}</h3>
-                
                 <v-layout
                   v-for="(value, supersubkey) in subdict"
                   :key="supersubkey"
@@ -127,9 +105,9 @@ export default {
     ]),
   },
   methods: {
-    ...mapActions(['dispatchRetrieveMonsterInfo']),
+    ...mapActions(['retrieveMonsterInfo']),
     handleSelect(name) {
-      this.dispatchRetrieveMonsterInfo({ name })
+      this.retrieveMonsterInfo({ name })
     },
     getModifier(val) {
       return Math.floor((val - 10) / 2)

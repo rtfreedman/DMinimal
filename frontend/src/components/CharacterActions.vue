@@ -8,7 +8,7 @@
           icon
           flat
           slot="activator"
-          @click="dispatchLongRest(character)"
+          @click="longRest()"
         >
           <v-icon>hotel</v-icon>
         </v-btn>
@@ -47,7 +47,7 @@
       <v-spacer></v-spacer>
       <v-tooltip bottom>
         <v-btn
-          v-if="characters.length > 1"
+          v-if="characters.length > 1 && !trigger"
           @click="showRemoveCharacterDialog = true"
           color="primary"
           slot="activator"
@@ -79,7 +79,7 @@
     <app-confirm-dialog
       :show="showConcentrationDialog"
       okColor="error"
-      @ok="dispatchConcentrate({ character, spellName: '' })"
+      @ok="concentrate()"
       @close="showConcentrationDialog = false"
     >
       <h3 slot="title">CEASE CONCENTRATION</h3>
@@ -118,7 +118,7 @@ export default {
   props: ['character'],
 
   computed: {
-    ...mapGetters(['characters']),
+    ...mapGetters(['characters', 'trigger']),
   },
 
   data() {
@@ -130,14 +130,26 @@ export default {
   },
 
   methods: {
-    ...mapActions([
-      'dispatchLongRest',
-      'dispatchRemoveCharacter',
-      'dispatchConcentrate',
-    ]),
+    ...mapActions(['characterAction', 'removeCharacter']),
+
+    concentrate() {
+      this.characterAction({
+        character: this.character,
+        method: 'concentrateOn',
+        args: [''],
+      })
+    },
+
+    longRest() {
+      this.characterAction({
+        character: this.character,
+        method: 'longRest',
+        args: [],
+      })
+    },
 
     confirmDelete() {
-      this.dispatchRemoveCharacter({ id: this.character.id }).then(() => {
+      this.removeCharacter({ id: this.character.id }).then(() => {
         this.$emit('characterRemoved')
       })
     },

@@ -32,7 +32,7 @@
                     <v-list-tile-title>EDIT</v-list-tile-title>
                   </v-list-tile>
                   <v-list-tile
-                    @click="dispatchRemoveClass({ character, classIndex })"
+                    @click="characterAction({ character, method: 'removeClass', args: [classIndex] })"
                     :disabled="character.classes.length === 1"
                   >
                     <v-list-tile-action>
@@ -87,7 +87,7 @@ export default {
   },
 
   created() {
-    this.dispatchRetrieveSlots({
+    this.retrieveSlots({
       character: this.character,
       classIndex: this.classIndex,
       className: this.characterClass.className,
@@ -96,11 +96,7 @@ export default {
   },
 
   methods: {
-    ...mapActions([
-      'dispatchRetrieveSlots',
-      'dispatchRemoveClass',
-      'characterAction',
-    ]),
+    ...mapActions(['retrieveSlots', 'characterAction']),
 
     levelUp() {
       this.characterAction({
