@@ -21,7 +21,7 @@ export default {
     ...mapGetters(['snackbar']),
 
     hasAction() {
-     return !!this.snackbar.buttonFunction
+      return !!this.snackbar.buttonFunction
     },
   },
 }

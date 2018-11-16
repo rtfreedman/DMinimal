@@ -6,6 +6,6 @@
 
 <script>
 export default {
-    props: ['monster']
+  props: ['monster'],
 }
 </script>

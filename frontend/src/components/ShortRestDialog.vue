@@ -40,8 +40,6 @@ import { oneToN } from '../common/functions'
 export default {
   props: ['character'],
 
-  
-
   data() {
     return {
       options: oneToN(100),

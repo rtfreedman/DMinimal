@@ -3,39 +3,15 @@
     <v-divider color="#ffd700"></v-divider>
     <h3 class="text-xs-center my-1">SPELL SLOTS</h3>
     <v-divider color="#ffd700" class="mb-1"></v-divider>
-    <v-layout
-      align-center
-      justify-space-around
-      px-2
-      pt-1
-    >
-      <div
-        v-for="(value, slot) in characterClass.workingSlots"
-        :key="slot"
-      >
-        <v-layout
-          align-center
-          justify-center
-          column
-        >
+    <v-layout align-center justify-space-around px-2 pt-1>
+      <div v-for="(value, slot) in characterClass.workingSlots" :key="slot">
+        <v-layout align-center justify-center column>
           <h4 class="lvl">LVL {{ slot }}</h4>
-          <v-btn
-            flat
-            small
-            icon
-            @click="incrementSlot(slot)"
-            color="primary"
-          >
+          <v-btn flat small icon @click="incrementSlot(slot)" color="primary">
             <v-icon>expand_less</v-icon>
           </v-btn>
           <h3>{{ value }}</h3>
-          <v-btn
-            flat
-            small
-            icon
-            @click="decrementSlot(slot)"
-            color="primary"
-          >
+          <v-btn flat small icon @click="decrementSlot(slot)" color="primary">
             <v-icon>expand_more</v-icon>
           </v-btn>
         </v-layout>
@@ -63,9 +39,6 @@ export default {
 
     decrementSlot(slot) {
       if (this.characterClass.workingSlots[slot] > 0) {
-        const classIndex = this.character.classes.find(
-          c => c.className === this.characterClass.className,
-        )
         this.dispatchSetSlot({
           character: this.character,
           classIndex: this.classIndex,

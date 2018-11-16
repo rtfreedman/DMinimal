@@ -1,34 +1,21 @@
 <template>
   <v-layout column class="border-primary">
     <v-expansion-panel light :value="0">
-      <v-expansion-panel-content
-        style="color: #303030; background-color: #ffd700;"
-      >
+      <v-expansion-panel-content style="color: #303030; background-color: #ffd700;">
         <template slot="header">
           <h3>
             <span>LEVEL {{ characterClass.level}} {{ characterClass.className.toUpperCase() }}</span>
             <span
               v-if="characterClass.subClassName"
-            > - {{ characterClass.subClassName.toUpperCase() }}</span>
+            >- {{ characterClass.subClassName.toUpperCase() }}</span>
           </h3>
         </template>
         <!-- class options -->
-        <v-card
-          flat
-          dark
-          class="text-xs-left"
-          style="margin: 1px"
-        >
+        <v-card flat dark class="text-xs-left" style="margin: 1px">
           <v-card-text class="pt-0">
             <v-layout justify-end>
               <v-menu left offset-y>
-                <v-btn
-                  class="mr-0"
-                  icon
-                  color="primary"
-                  flat
-                  slot="activator"
-                >
+                <v-btn class="mr-0" icon color="primary" flat slot="activator">
                   <v-icon>menu</v-icon>
                 </v-btn>
                 <v-list>
@@ -38,9 +25,7 @@
                     </v-list-tile-action>
                     <v-list-tile-title>LEVEL UP</v-list-tile-title>
                   </v-list-tile>
-                  <v-list-tile
-                    @click="$emit('edit')"
-                  >
+                  <v-list-tile @click="$emit('edit')">
                     <v-list-tile-action>
                       <v-icon>edit</v-icon>
                     </v-list-tile-action>
@@ -51,9 +36,7 @@
                     :disabled="character.classes.length === 1"
                   >
                     <v-list-tile-action>
-                      <v-icon
-                        :color="character.classes.length === 1 ? '#999' : '#eee'"
-                      >delete</v-icon>
+                      <v-icon :color="character.classes.length === 1 ? '#999' : '#eee'">delete</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-title>REMOVE</v-list-tile-title>
                   </v-list-tile>
@@ -62,22 +45,11 @@
             </v-layout>
             <v-layout column>
               <v-divider color="#ffd700"></v-divider>
-              <h3
-                class="text-xs-center my-1"
-              >CLASS ACTIONS</h3>
+              <h3 class="text-xs-center my-1">CLASS ACTIONS</h3>
               <v-divider color="#ffd700"></v-divider>
               <v-layout justify-center>
-                <v-tooltip
-                  v-if="magicClassOptions.includes(characterClass.className)"
-                  bottom
-                >
-                  <v-btn
-                    color="primary"
-                    flat
-                    slot="activator"
-                    icon
-                    @click="$emit('castSpell')"
-                  >
+                <v-tooltip v-if="magicClassOptions.includes(characterClass.className)" bottom>
+                  <v-btn color="primary" flat slot="activator" icon @click="$emit('castSpell')">
                     <v-icon>mdi-auto-fix</v-icon>
                   </v-btn>
                   <span>CAST SPELL</span>
@@ -124,9 +96,19 @@ export default {
   },
 
   methods: {
-    ...mapActions(['dispatchRetrieveSlots', 'dispatchRemoveClass']),
+    ...mapActions([
+      'dispatchRetrieveSlots',
+      'dispatchRemoveClass',
+      'characterAction',
+    ]),
 
-    levelUp() {},
+    levelUp() {
+      this.characterAction({
+        character: this.character,
+        method: 'levelUp',
+        args: [this.classIndex],
+      })
+    },
 
     castSpell() {
       // TBD
