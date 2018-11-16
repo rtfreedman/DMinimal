@@ -134,6 +134,7 @@ export default {
     showClassDialog(state) {
       if (!state) {
         this.classUnderEdit = null
+        console.log('c', this.classUnderEdit)
       }
     },
 
