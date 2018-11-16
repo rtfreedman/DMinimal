@@ -103,6 +103,7 @@ export default {
         this.className = ''
         this.subClassName = ''
         this.level = 1
+        this.isEdit = false
       }
     },
   },
