@@ -9,4 +9,3 @@ export const rollNdS = (numDie, numSides) => {
   }
   return total
 }
-

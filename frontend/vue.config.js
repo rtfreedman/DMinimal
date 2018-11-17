@@ -1,5 +1,1 @@
-module.exports = {
-  devServer: {
-    port: 8050,
-  },
-}
+module.exports = {}

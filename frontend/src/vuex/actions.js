@@ -7,6 +7,10 @@ function handleError(error) {
 }
 
 export default {
+  characterAction({ commit }, payload) {
+    commit('MUTATE_CHARACTER', payload)
+  },
+
   dispatchSave({ state }) {
     stateAPI.save(state).catch(handleError)
   },

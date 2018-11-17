@@ -3,23 +3,13 @@
     <v-layout align-center>
       <h3>HIT POINTS</h3>
       <v-tooltip bottom>
-        <v-btn
-          icon
-          flat
-          slot="activator"
-          color="primary"
-          @click="showHitPointDialog = true"
-        >
+        <v-btn icon flat slot="activator" color="primary" @click="showHitPointDialog = true">
           <v-icon small>mdi-heart</v-icon>
         </v-btn>
         <span>ADJUST HIT POINTS</span>
       </v-tooltip>
     </v-layout>
-    <v-layout
-      column
-      class="border-primary"
-      style="height: 50px; max-width: 120px"
-    >
+    <v-layout column class="border-primary" style="height: 50px; max-width: 120px">
       <v-layout justify-center align-center>
         <v-text-field
           class="hp"
@@ -33,48 +23,25 @@
       </v-layout>
     </v-layout>
     <!-- dialog -->
-    <v-dialog
-      v-model="showHitPointDialog"
-      max-width="500"
-    >
+    <v-dialog v-model="showHitPointDialog" max-width="500">
       <v-card>
         <v-card-title>
           <h2>Health</h2>
         </v-card-title>
         <v-card-text>
-          <v-layout
-            align-center
-            justify-center
-            fill-height
-          >
+          <v-layout align-center justify-center fill-height>
             <v-tooltip top>
               <!-- TODO Replace with broken shield icon -->
-              <v-btn
-                large
-                icon
-                flat
-                slot="activator"
-                @click="hurt"
-              >
+              <v-btn large icon flat slot="activator" @click="hurt">
                 <v-icon>mdi-sword</v-icon>
               </v-btn>
               <span>Take Damage</span>
             </v-tooltip>
             <v-flex xs1>
-              <v-text-field
-                single-line
-                :rules="[mustBeNum, minNum]"
-                v-model="offset"
-              />
+              <v-text-field single-line :rules="[mustBeNum, minNum]" v-model="offset"/>
             </v-flex>
             <v-tooltip top>
-              <v-btn
-                large
-                icon
-                flat
-                slot="activator"
-                @click="heal"
-              >
+              <v-btn large icon flat slot="activator" @click="heal">
                 <v-icon>mdi-medical-bag</v-icon>
               </v-btn>
               <span>Heal</span>
@@ -82,11 +49,7 @@
           </v-layout>
         </v-card-text>
         <v-card-text>
-          <v-layout
-            align-center
-            justify-space-between
-            fill-height
-          >
+          <v-layout align-center justify-space-between fill-height>
             <h3>Current Health :</h3>
             <v-flex xs2>
               <v-text-field
@@ -98,10 +61,7 @@
               />
             </v-flex>
           </v-layout>
-          <v-layout
-            align-center
-            justify-space-between
-          >
+          <v-layout align-center justify-space-between>
             <h3>Maximum Health :</h3>
             <v-flex xs2>
               <v-text-field
@@ -117,23 +77,13 @@
         <v-card-text>
           <v-layout justify-end>
             <v-tooltip top>
-              <v-btn
-                icon
-                flat
-                slot="activator"
-                @click="getHealth(true)"
-              >
+              <v-btn icon flat slot="activator" @click="getHealth(true)">
                 <v-icon>mdi-dice-multiple</v-icon>
               </v-btn>
               <span>Roll Health</span>
             </v-tooltip>
             <v-tooltip top>
-              <v-btn
-                icon
-                flat
-                slot="activator"
-                @click="getHealth(false)"
-              >
+              <v-btn icon flat slot="activator" @click="getHealth(false)">
                 <v-icon>mdi-heart-half-full</v-icon>
               </v-btn>
               <span>Take Avg for Health</span>
