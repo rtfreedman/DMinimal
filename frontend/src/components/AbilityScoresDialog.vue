@@ -11,19 +11,44 @@
       <v-layout class="text-xs-center">
         <v-layout column class="bold">
           <v-divider style="margin-top: 30px"></v-divider>
-          <v-layout style="min-height: 30px" justify-end align-center my-2>
+          <v-layout
+            style="min-height: 30px"
+            justify-end
+            align-center
+            my-2
+          >
             <span class="mr-3" style="padding-top: 2px">BASE</span>
           </v-layout>
-          <v-layout style="min-height: 30px" justify-end align-center my-2>
+          <v-layout
+            style="min-height: 30px"
+            justify-end
+            align-center
+            my-2
+          >
             <span class="mr-3">CUSTOM</span>
           </v-layout>
-          <v-layout style="min-height: 30px" justify-end align-center my-2>
+          <v-layout
+            style="min-height: 30px"
+            justify-end
+            align-center
+            my-2
+          >
             <span class="mr-3">TOTAL</span>
           </v-layout>
-          <v-layout style="min-height: 30px" justify-end align-center my-2>
+          <v-layout
+            style="min-height: 30px"
+            justify-end
+            align-center
+            my-2
+          >
             <span class="mr-3">MODIFIER</span>
           </v-layout>
-          <v-layout style="min-height: 30px" justify-end align-center my-2>
+          <v-layout
+            style="min-height: 30px"
+            justify-end
+            align-center
+            my-2
+          >
             <v-tooltip bottom>
               <v-btn
                 class="my-0"
@@ -42,37 +67,108 @@
           </v-layout>
         </v-layout>
         <v-divider vertical></v-divider>
-        <v-layout column v-for="stat in statNames" :key="stat">
-          <v-layout justify-center align-center class="bold" style="min-height: 30px">{{ stat }}</v-layout>
+        <v-layout
+          column
+          v-for="stat in statNames"
+          :key="stat"
+        >
+          <v-layout
+            justify-center
+            align-center
+            class="bold"
+            style="min-height: 30px"
+          >{{ stat }}</v-layout>
           <v-divider></v-divider>
-          <v-layout my-2 justify-center align-center style="min-height: 30px">
-            <v-btn icon flat small color="primary" class="my-0" @click="decrementStat(stat)">
+          <v-layout
+            my-2
+            justify-center
+            align-center
+            style="min-height: 30px"
+          >
+            <v-btn
+              icon
+              flat
+              small
+              color="primary"
+              class="my-0"
+              @click="decrementStat(stat)"
+            >
               <v-icon small>remove</v-icon>
             </v-btn>
-            <h4 style="width: 20px">{{ character.abilityScores[stat] }}</h4>
-            <v-btn color="primary" icon small flat class="my-0" @click="incrementStat(stat)">
+            <h4
+              style="width: 20px"
+            >{{ character.abilityScores[stat] }}</h4>
+            <v-btn
+              color="primary"
+              icon
+              small
+              flat
+              class="my-0"
+              @click="incrementStat(stat)"
+            >
               <v-icon small>add</v-icon>
             </v-btn>
           </v-layout>
-          <v-layout style="min-height: 30px" my-2 align-center justify-center>
-            <v-btn icon flat small class="my-0" color="primary" @click="decrementStatOffset(stat)">
+          <v-layout
+            style="min-height: 30px"
+            my-2
+            align-center
+            justify-center
+          >
+            <v-btn
+              icon
+              flat
+              small
+              class="my-0"
+              color="primary"
+              @click="decrementStatOffset(stat)"
+            >
               <v-icon small>remove</v-icon>
             </v-btn>
-            <h4 style="width: 20px">{{ character.customAbilityOffsets[stat] }}</h4>
-            <v-btn color="primary" icon small class="my-0" flat @click="incrementStatOffset(stat)">
+            <h4
+              style="width: 20px"
+            >{{ character.customAbilityOffsets[stat] }}</h4>
+            <v-btn
+              color="primary"
+              icon
+              small
+              class="my-0"
+              flat
+              @click="incrementStatOffset(stat)"
+            >
               <v-icon small>add</v-icon>
             </v-btn>
           </v-layout>
-          <v-layout style="min-height: 30px" justify-center align-center my-2>
+          <v-layout
+            style="min-height: 30px"
+            justify-center
+            align-center
+            my-2
+          >
             <h4>{{ character.abilityScores[stat] + character.customAbilityOffsets[stat] }}</h4>
           </v-layout>
-          <v-layout style="min-height: 30px" justify-center align-center my-2>
+          <v-layout
+            style="min-height: 30px"
+            justify-center
+            align-center
+            my-2
+          >
             <h4>{{ character.getModifier(stat) >= 0 ? "+" : "-" }}{{ Math.abs(character.getModifier(stat)) }}</h4>
           </v-layout>
-          <v-layout style="min-height: 30px" justify-center align-center my-2>
+          <v-layout
+            style="min-height: 30px"
+            justify-center
+            align-center
+            my-2
+          >
             <div style="height: 28px">
-              <v-icon v-for="(val, index) in diceResult[stat]" :key="index">{{ val }}</v-icon>
-              <v-icon color="grey darken-1">{{ droppedDice[stat] }}</v-icon>
+              <v-icon
+                v-for="(val, index) in diceResult[stat]"
+                :key="index"
+              >{{ val }}</v-icon>
+              <v-icon
+                color="grey darken-1"
+              >{{ droppedDice[stat] }}</v-icon>
             </div>
           </v-layout>
         </v-layout>
