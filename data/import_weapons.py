@@ -14,13 +14,7 @@ def json_to_sql(name, content):
     """Fixes json keys for postgres ingest"""
     sql_dict = {"name": name}
     for key, value in content.items():
-        if key in ["damage", "secondary_damage"]:
-            damage_split = value.split("d")
-            if len(damage_split) == 1:
-                damage_split = [value, value]
-            sql_dict[f"{key}_dice_count"] = int(damage_split[0])
-            sql_dict[f"{key}_dice_type"] = int(damage_split[1])
-        elif key == "range":
+        if key == "range":
             sql_dict[key] = [int(r) for r in value.split("/")]
         elif key == "modifiers":
             sql_dict[key] = value.split(", ")
@@ -41,8 +35,7 @@ def json_to_sql(name, content):
 
     # handle the net
     if "damage" not in content:
-        sql_dict["damage_dice_count"] = 0
-        sql_dict["damage_dice_type"] = 0
+        sql_dict["damage"] = "0d0"
 
     return sql_dict
 
