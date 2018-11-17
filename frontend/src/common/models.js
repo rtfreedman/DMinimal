@@ -7,8 +7,9 @@ export class Character {
     this.lifeThrows = 0
     this.initiative = null
     this.hitPoints = 1
+    this.hitDice = [{ class: 'Bard', value: hitDice['Bard'] }]
     this.maxHitPoints = 1
-    this.name = name || 'Leroy Jenkins'
+    this.name = name || 'Leeroy Jenkins'
     this.rollHealth = true
     this.concentratingOn = ''
     this.good = null // -1 evil, 0 neutral, 1 good
@@ -135,37 +136,40 @@ export class Character {
     this.classes.splice(index, 1)
   }
 
-  levelUp(newLevel, classIndex) {
-    const affectedClass = this.classes[classIndex]
-    let levelOffset = newLevel - affectedClass.level
+  levelUp(classIndex) {
+    const cls = this.classes[classIndex]
+    this.hitDice.push({ class: cls.className, value: hitDice[cls.className] })
+    cls.level += 1
 
-    // update max hit points
-    if (affectedClass.isPrimary && affectedClass.level === 0) {
-      this.maxHitPoints = Math.floor(
-        this.maxHitPoints +
-          hitDice[affectedClass.className] +
-          (this.abilityScores.CON - 10) / 2,
-      )
-      levelOffset -= 1
-    }
+    // let levelOffset = newLevel - affectedClass.level
 
-    const constitutionModifier = (this.abilityScores.CON - 10) / 2
+    // // update max hit points
+    // if (affectedClass.isPrimary && affectedClass.level === 0) {
+    //   this.maxHitPoints = Math.floor(
+    //     this.maxHitPoints +
+    //       hitDice[affectedClass.className] +
+    //       (this.abilityScores.CON - 10) / 2,
+    //   )
+    //   levelOffset -= 1
+    // }
 
-    if (this.rollHealth) {
-      // update max hit points for roll case
-      const roll = Math.random(hitDice[affectedClass.className] - 1) + 1
+    // const constitutionModifier = (this.abilityScores.CON - 10) / 2
 
-      this.maxHitPoints = Math.floor(
-        levelOffset * (this.maxHitPoints + roll + constitutionModifier),
-      )
-    } else {
-      // update max hit points for average case
-      this.maxHitPoints =
-        levelOffset *
-        (this.maxHitPoints +
-          Math.ceil(hitDice[affectedClass.className] / 2) +
-          constitutionModifier)
-    }
+    // if (this.rollHealth) {
+    //   // update max hit points for roll case
+    //   const roll = Math.random(hitDice[affectedClass.className] - 1) + 1
+
+    //   this.maxHitPoints = Math.floor(
+    //     levelOffset * (this.maxHitPoints + roll + constitutionModifier),
+    //   )
+    // } else {
+    //   // update max hit points for average case
+    //   this.maxHitPoints =
+    //     levelOffset *
+    //     (this.maxHitPoints +
+    //       Math.ceil(hitDice[affectedClass.className] / 2) +
+    //       constitutionModifier)
+    // }
   }
 
   getModifier(stat) {
@@ -207,5 +211,11 @@ export class Class {
       9: 0,
     }
     this.availableHitDice = []
+  }
+}
+
+export class Monster {
+  constructor(stuff) {
+    this.stuff = stuff
   }
 }

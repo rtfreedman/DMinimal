@@ -1,5 +1,9 @@
 export default {
   characters: state => state.characters,
+  monsters: state => state.monsters,
+  currentMonsterInfo: state => state.currentMonsterInfo,
+  currentMonsterKeys: state => Object.keys(state.currentMonsterInfo),
+  monsterOptions: state => state.monsterOptions,
   classOptions: state => state.classOptions,
   magicClassOptions: state => state.magicClassOptions,
   spells: state => state.spells,

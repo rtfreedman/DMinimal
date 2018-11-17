@@ -1,6 +1,12 @@
-import { Character } from '../common/models'
+import { Character, Monster } from '../common/models'
 
 export default {
+  MUTATE_CHARACTER(state, { character, method, args }) {
+    character[method](...args)
+    const i = state.characters.findIndex(c => c.id === character.id)
+    state.characters.splice(i, 1, character)
+  },
+
   // set application state on restore action
   setState(state, retrievedState) {
     state = retrievedState
@@ -23,11 +29,23 @@ export default {
     this.state.characters.splice(i, 1)
   },
 
+  addMonster(state, { monster }) {
+    state.monsters.push(new Monster(state.nextMonsterId++, monster))
+  },
+
   // wrapper for a Character class method
   mutateCharacter(state, { character, method, args }) {
     character[method](...args)
     const i = state.characters.findIndex(c => c.id === character.id)
     state.characters.splice(i, 1, character)
+  },
+
+  setMonsterOpts(state, { monsters }) {
+    state.monsterOptions = monsters
+  },
+
+  setMonsterInfo(state, monsterInfo) {
+    state.currentMonsterInfo = monsterInfo
   },
 
   // hacking required for vuetify tabs

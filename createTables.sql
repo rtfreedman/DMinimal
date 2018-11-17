@@ -51,7 +51,6 @@ create table monsters (CHR integer,
 	damage_immunities varchar,
 	damage_resistances varchar,
 	damage_vulnerabilities varchar,
-	history integer,
 	hit_dice varchar,
 	hit_points integer,
 	languages varchar,
@@ -61,7 +60,9 @@ create table monsters (CHR integer,
 	size varchar,
 	speed varchar,
 	subtype varchar,
-	type varchar
+	type varchar,
+	saving_throws varchar,
+	skills varchar
 );
 create table reactions (attack_bonus integer,
 	description varchar,

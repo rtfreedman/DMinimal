@@ -7,6 +7,12 @@
       class="ml-0"
     >Add Character</v-btn>
     <v-btn
+      color="primary"
+      flat
+      @click="showAddMonsterDialog = true"
+      class="ml-0"
+    >Add Monster</v-btn>
+    <v-btn
       v-if="characters.length > 1"
       @click="dispatchGroupRest"
       flat
@@ -49,6 +55,11 @@
         @addCharacter="addCharacter($event)"
       />
     </v-dialog>
+    <v-dialog v-model="showAddMonsterDialog">
+      <app-add-monster-dialog
+        @close="showAddMonsterDialog = false"
+      />
+    </v-dialog>
     <pre>
 Characters:
 {{ characters }}
@@ -57,40 +68,47 @@ Characters:
 </template>
 
 <script>
-import { mapGetters, mapMutations, mapActions } from 'vuex'
+// removed mapMutations
+import { mapGetters, mapActions } from 'vuex'
 import Tracker from '@/components/Tracker'
 import MessageSnackbar from '@/components/MessageSnackbar'
-import AddCharacterDialog from '@/components/AddCharacterDialog.vue'
+import AddCharacterDialog from '@/components/AddCharacterDialog'
+import AddMonsterDialog from '@/components/AddMonsterDialog'
 
 export default {
   name: 'trackerList',
 
   components: {
     'app-add-character-dialog': AddCharacterDialog,
+    'app-add-monster-dialog': AddMonsterDialog,
     'app-tracker': Tracker,
     'app-msg-snackbar': MessageSnackbar,
   },
 
   computed: {
-    ...mapGetters(['characters']),
+    ...mapGetters(['characters', 'monsters', 'monsterOptions']),
   },
 
   data() {
     return {
       selectedTab: 0,
       showAddCharacterDialog: false,
+      showAddMonsterDialog: false,
     }
   },
 
   created() {
     this.dispatchRetrieveClassOptions()
+    this.dispatchRetrieveMonsterOptions()
   },
 
   methods: {
     ...mapActions([
       'dispatchAddCharacter',
+      'dispatchAddMonster',
       'dispatchGroupRest',
       'dispatchRetrieveClassOptions',
+      'dispatchRetrieveMonsterOptions',
     ]),
 
     addCharacter(name) {
@@ -98,6 +116,13 @@ export default {
       this.showAddCharacterDialog = false
       this.dispatchAddCharacter(name).then(() => {
         this.selectedTab = this.characters.length - 1
+      })
+    },
+
+    addMonster(name) {
+      this.showAddMonsterDialog = false
+      this.dispatchAddMonster(name).then(() => {
+        // tabs :/
       })
     },
 

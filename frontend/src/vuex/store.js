@@ -10,12 +10,16 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     characters: [new Character(1)],
+    monsters: [],
+    monsterOptions: [],
     nextCharacterId: 2,
+    nextMonsterId: 2,
     classOptions: [],
     magicClassOptions: [],
     spells: [],
     currentSpellClass: null,
     currentSpellInfo: {},
+    currentMonsterInfo: {},
     snackbar: {
       show: false,
       color: 'red darken-1',
