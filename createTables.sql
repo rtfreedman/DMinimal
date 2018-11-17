@@ -95,6 +95,6 @@ CREATE TABLE weapons (
 	rarity text DEFAULT 'Standard',
 	properties jsonb DEFAULT '{}'::jsonb,
 	modifiers text[] DEFAULT '{}'::text[],
-	weight float DEFAULT 0.0,
+	weight real DEFAULT 0.0,
 	description text DEFAULT ''
 );

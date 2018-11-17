@@ -25,35 +25,46 @@ type Weapon struct {
 	Modifiers       []string               `json:"modifiers,omitempty"`
 	Description     string                 `json:"description,omitempty"`
 	propertiesRaw   []byte
+	modifiersRaw    []sql.NullString
 	rangeRaw        []sql.NullInt64
 }
 
 func (w *Weapon) clean() (err error) {
-	// fix int array
+	// fix range int array
 	for _, value := range w.rangeRaw {
 		if value.Valid {
 			w.Range = append(w.Range, value.Int64)
 		}
 	}
 
+	// fix modifiers
+	for _, value := range w.modifiersRaw {
+		if value.Valid {
+			w.Modifiers = append(w.Modifiers, value.String)
+		}
+	}
+
 	// unmarshal jsonb field
-	err = json.Unmarshal(w.propertiesRaw, &w.Properties)
+	if len(w.propertiesRaw) > 0 {
+		err = json.Unmarshal([]byte(w.propertiesRaw), &w.Properties)
+	}
 
 	return
 }
 
 // GetWeaponInfo gets the information for a single weapon
 func GetWeaponInfo(weaponName string) (w *Weapon, err error) {
-	fields := []string{"name", "weapon_type", "proficiency", "damage", "secondary_damage", "damage_type", "save", "range", "rarity", "properties", "modifiers", "weight", "description"}
+	fields := []string{"name", "weapon_type", "proficiency", "damage", "secondary_damage", "damage_type", "save", "range", "rarity", "modifiers", "weight", "description", "properties"}
 	w = &Weapon{}
 	query := fmt.Sprintf("SELECT %s FROM weapons WHERE lower(name) = lower($1)", strings.Join(fields, ","))
+
 	rows, err := db.Query(query, weaponName)
 	if err != nil {
 		return
 	}
 	defer rows.Close()
 	for rows.Next() {
-		rows.Scan(&w.Name, &w.Type, &w.Proficiency, &w.Damage, &w.SecondaryDamage, &w.DamageType, &w.Save, pq.Array(&w.rangeRaw), &w.Rarity, &w.propertiesRaw, &w.Modifiers, &w.Weight, &w.Description)
+		rows.Scan(&w.Name, &w.Type, &w.Proficiency, &w.Damage, &w.SecondaryDamage, &w.DamageType, &w.Save, pq.Array(&w.rangeRaw), &w.Rarity, pq.Array(&w.modifiersRaw), &w.Weight, &w.Description, &w.propertiesRaw)
 	}
 
 	// clean up
@@ -64,9 +75,8 @@ func GetWeaponInfo(weaponName string) (w *Weapon, err error) {
 
 // GetWeapons gets an array of weapons based on optional parameters
 func GetWeapons() (weapons []*Weapon, err error) {
-	fields := []string{"name", "weapon_type", "proficiency", "damage", "secondary_damage", "damage_type", "save", "range", "rarity", "properties", "modifiers", "weight", "description"}
+	fields := []string{"name", "weapon_type", "proficiency", "damage", "secondary_damage", "damage_type", "save", "range", "rarity", "modifiers", "weight", "description", "properties"}
 	query := fmt.Sprintf("SELECT %s FROM weapons", strings.Join(fields, ","))
-	fmt.Println(query)
 	rows, err := db.Query(query)
 	if err != nil {
 		return
@@ -75,7 +85,7 @@ func GetWeapons() (weapons []*Weapon, err error) {
 	for rows.Next() {
 		// create the new wespon, scan into it and cleanup
 		w := &Weapon{}
-		rows.Scan(&w.Name, &w.Type, &w.Proficiency, &w.Damage, &w.SecondaryDamage, &w.DamageType, &w.Save, pq.Array(&w.rangeRaw), &w.Rarity, &w.propertiesRaw, &w.Modifiers, &w.Weight, &w.Description)
+		rows.Scan(&w.Name, &w.Type, &w.Proficiency, &w.Damage, &w.SecondaryDamage, &w.DamageType, &w.Save, pq.Array(&w.rangeRaw), &w.Rarity, pq.Array(&w.modifiersRaw), &w.Weight, &w.Description, &w.propertiesRaw)
 		w.clean()
 		weapons = append(weapons, w)
 	}

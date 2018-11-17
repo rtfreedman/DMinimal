@@ -14,6 +14,10 @@ def json_to_sql(name, content):
     """Fixes json keys for postgres ingest"""
     sql_dict = {"name": name}
     for key, value in content.items():
+        # fix tabs in the data
+        value = value.replace("\t", ". ")
+
+        # not a switch statement
         if key == "range":
             sql_dict[key] = [int(r) for r in value.split("/")]
         elif key == "modifiers":
