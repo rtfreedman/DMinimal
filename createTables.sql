@@ -8,6 +8,11 @@ drop table if exists reactions;
 drop table if exists legendary_actions;
 drop table if exists special_abilities;
 drop table if exists actions;
+drop table if exists weapons cascade;
+drop table if exists armor cascade;
+drop table if exists adventuring_gear cascade;
+drop table if exists equipment_packs cascade;
+drop table if exists equipment_pack_items cascade;
 
 create table spells (id serial primary key,
 	range text,
@@ -84,14 +89,16 @@ CREATE TABLE weapons (
 	id serial PRIMARY KEY,
 	name text NOT NULL,
 	weapon_type text NOT NULL,
+	proficiency text NOT NULL,
 	damage_dice_type integer NOT NULL,
 	damage_dice_count integer NOT NULL,
 	secondary_damage_dice_type integer,
 	secondary_damage_dice_count integer,
-	damage_type text NOT NULL,
+	damage_type text DEFAULT 'No Damage',
+	save text,
 	range integer[],
-	rarity text NOT NULL,
-	properties text[],
+	rarity text DEFAULT 'Standard',
+	properties jsonb,
 	modifiers text[],
 	weight float,
 	description text

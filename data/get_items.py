@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 item_list_url = ""
 single_item_url = ""
 # column names
-column_names = [i.lower().replace(" ", "_") for i in ["Item Type","Subtype","AC","Category","Damage","Damage Type","Duration","Item Rarity","Modifiers","Properties","Range","Requires Attunement","Save","Secondary Damage","Stealth","Target","Weight","data-Bundle"]]
+column_names = [i.lower().replace(" ", "_") for i in ["Item Type", "Subtype", "AC", "Category", "Damage", "Damage Type", "Duration", "Item Rarity", "Modifiers", "Properties", "Range", "Requires Attunement", "Save", "Secondary Damage", "Stealth", "Target", "Weight", "data-Bundle"]]
 
 # get item list and parse
 resp = requests.get(item_list_url)
