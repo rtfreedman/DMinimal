@@ -1,10 +1,6 @@
 <template>
   <v-card>
-    <v-toolbar
-      card
-      light
-      style="background-color: #ffd700"
-    >
+    <v-toolbar card light style="background-color: #ffd700">
       <h3>ABILITY SCORES</h3>
       <v-spacer></v-spacer>
       <v-btn icon flat>
@@ -95,7 +91,7 @@
               small
               color="primary"
               class="my-0"
-              @click="dispatchSetStat({ character, stat, value: character.abilityScores[stat] - 1 })"
+              @click="decrementStat(stat)"
             >
               <v-icon small>remove</v-icon>
             </v-btn>
@@ -108,7 +104,7 @@
               small
               flat
               class="my-0"
-              @click="dispatchSetStat({ character, stat, value: character.abilityScores[stat] + 1 })"
+              @click="incrementStat(stat)"
             >
               <v-icon small>add</v-icon>
             </v-btn>
@@ -125,7 +121,7 @@
               small
               class="my-0"
               color="primary"
-              @click="dispatchSetStatOffset({ character, stat, value: character.customAbilityOffsets[stat] - 1 })"
+              @click="decrementStatOffset(stat)"
             >
               <v-icon small>remove</v-icon>
             </v-btn>
@@ -138,7 +134,7 @@
               small
               class="my-0"
               flat
-              @click="dispatchSetStatOffset({ character, stat, value: character.customAbilityOffsets[stat] + 1 })"
+              @click="incrementStatOffset(stat)"
             >
               <v-icon small>add</v-icon>
             </v-btn>
@@ -201,7 +197,39 @@ export default {
   },
 
   methods: {
-    ...mapActions(['dispatchSetStat', 'dispatchSetStatOffset']),
+    ...mapActions(['characterAction']),
+
+    decrementStat(stat) {
+      this.characterAction({
+        character: this.character,
+        method: 'setStat',
+        args: [stat, this.character.abilityScores[stat] - 1],
+      })
+    },
+
+    incrementStat(stat) {
+      this.characterAction({
+        character: this.character,
+        method: 'setStat',
+        args: [stat, this.character.abilityScores[stat] + 1],
+      })
+    },
+
+    decrementStatOffset(stat) {
+      this.characterAction({
+        character: this.character,
+        method: 'setStatOffset',
+        args: [stat, this.character.customAbilityOffsets[stat] - 1],
+      })
+    },
+
+    incrementStatOffset(stat) {
+      this.characterAction({
+        character: this.character,
+        method: 'setStatOffset',
+        args: [stat, this.character.customAbilityOffsets[stat] + 1],
+      })
+    },
 
     rollStat(stat) {
       const rolls = []
@@ -211,10 +239,10 @@ export default {
       Vue.set(this.droppedDice, stat, 'mdi-dice-' + Math.min(...rolls))
       rolls.splice(rolls.indexOf(Math.min(...rolls)), 1)
       const value = rolls.reduce((acc, n) => acc + n)
-      this.dispatchSetStat({
+      this.characterAction({
         character: this.character,
-        stat,
-        value,
+        method: 'setStat',
+        args: [stat, value],
       })
       Vue.set(this.diceResult, stat, rolls.map(v => 'mdi-dice-' + v))
     },

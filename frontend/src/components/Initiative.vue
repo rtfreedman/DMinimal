@@ -22,7 +22,7 @@
       :items="initiativeRange"
       v-model="initiative"
       clearable
-      @change="dispatchSetInitiative({ character, initiative })"
+      @change="setInitiative({ character, initiative })"
       style="width: 120px; font-size: 28px; font-weight: bold;"
       hide-details
     />
@@ -46,11 +46,11 @@ export default {
   },
 
   methods: {
-    ...mapActions(['dispatchSetInitiative']),
+    ...mapActions(['setInitiative']),
 
     rollInitiative() {
       this.initiative = this.character.getModifier('DEX') + rollNdS(1, 20)
-      this.dispatchSetInitiative({
+      this.setInitiative({
         character: this.character,
         initiative: this.initiative,
       })

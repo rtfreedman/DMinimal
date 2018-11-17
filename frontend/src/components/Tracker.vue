@@ -1,13 +1,7 @@
 <template>
   <v-card>
-    <app-character-actions
-      :character="character"
-      @characterRemoved="$emit('characterRemoved')"
-    />
-    <app-character-info
-      class="mb-2"
-      :character="character"
-    />
+    <app-character-actions :character="character" @characterRemoved="$emit('characterRemoved')"/>
+    <app-character-info class="mb-2" :character="character"/>
     <v-layout mb-2>
       <app-initiative :character="character"/>
       <app-hit-points :character="character"/>
@@ -52,14 +46,11 @@
         :character="character"
         :characterClass="classUnderEdit"
         @close="showClassDialog = false"
-        @add="dispatchAddClass($event); showClassDialog = false"
-        @update="dispatchUpdateClass($event); showClassDialog = false"
+        @add="addClass($event); showClassDialog = false"
+        @update="updateClass($event); showClassDialog = false"
       />
     </v-dialog>
-    <v-dialog
-      v-if="spellClassIndex !== null"
-      v-model="showSpellDialog"
-    >
+    <v-dialog v-if="spellClassIndex !== null" v-model="showSpellDialog">
       <app-cast-spell-dialog
         :character="character"
         :spellClassIndex="spellClassIndex"
@@ -117,7 +108,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(['dispatchAddClass', 'dispatchUpdateClass']),
+    ...mapActions(['characterAction', 'updateClass']),
 
     editClass(targetClass) {
       this.showClassDialog = true
@@ -127,6 +118,14 @@ export default {
     castSpell(classIndex) {
       this.spellClassIndex = classIndex
       this.showSpellDialog = true
+    },
+
+    addClass({ className, subClassName, level }) {
+      this.characterAction({
+        character: this.character,
+        method: 'addClass',
+        args: [className, subClassName, level],
+      })
     },
   },
 

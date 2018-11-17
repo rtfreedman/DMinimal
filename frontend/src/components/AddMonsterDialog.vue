@@ -1,10 +1,6 @@
 <template>
   <v-card>
-    <v-toolbar
-      light
-      card
-      style="background-color: #ffd700"
-    >
+    <v-toolbar light card style="background-color: #ffd700">
       <h3>NEW Monster</h3>
       <v-spacer></v-spacer>
       <v-btn icon @click="$emit('close')">
@@ -35,10 +31,13 @@
           <v-layout class="text-xs-right">
             <v-flex xs6 py-1>{{ key }}</v-flex>
             <v-divider vertical class="mx-3"></v-divider>
-            <v-flex xs6 py-1 class="text-xs-left">{{ currentMonsterInfo[key] }}</v-flex>
+            <v-flex
+              xs6
+              py-1
+              class="text-xs-left"
+            >{{ currentMonsterInfo[key] }}</v-flex>
           </v-layout>
-          <v-layout class="text-xs-left">
-          </v-layout>
+          <v-layout class="text-xs-left"></v-layout>
         </v-layout>
       </v-layout>
       <!-- END GENERAL INFO -->
@@ -75,14 +74,15 @@
         column
         pa-3
       >
-        <v-expansion-panel light
+        <v-expansion-panel
+          light
           v-if="currentMonsterKeys.length > 1 && key !== 'Monster' && key !== 'Ability Scores' && typeof currentMonsterInfo[key] !== 'string' && typeof currentMonsterInfo[key] !== 'number'"
           v-for="key in currentMonsterKeys"
           :key="key"
         >
           <v-expansion-panel-content
             style="color: #303030; background-color: #ffd700;"
-            >
+          >
             <h3 slot="header">{{key}}</h3>
             <v-expansion-panel dark>
               <v-expansion-panel-content
@@ -91,7 +91,6 @@
                 :key="subkey"
               >
                 <h3 slot="header">{{subdict["Name"]}}</h3>
-                
                 <v-layout
                   v-for="(value, supersubkey) in subdict"
                   :key="supersubkey"
@@ -101,7 +100,11 @@
                   <v-layout class="text-xs-right">
                     <v-flex xs6 py-1>{{ supersubkey }}</v-flex>
                     <v-divider vertical class="mx-3"></v-divider>
-                    <v-flex xs6 py-1 class="text-xs-left">{{ value }}</v-flex>
+                    <v-flex
+                      xs6
+                      py-1
+                      class="text-xs-left"
+                    >{{ value }}</v-flex>
                   </v-layout>
                   <v-layout class="text-xs-left"/>
                 </v-layout>
@@ -127,9 +130,9 @@ export default {
     ]),
   },
   methods: {
-    ...mapActions(['dispatchRetrieveMonsterInfo']),
+    ...mapActions(['retrieveMonsterInfo']),
     handleSelect(name) {
-      this.dispatchRetrieveMonsterInfo({ name })
+      this.retrieveMonsterInfo({ name })
     },
     getModifier(val) {
       return Math.floor((val - 10) / 2)

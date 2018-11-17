@@ -41,13 +41,13 @@
                 <v-radio-group
                   style="max-width: 150px"
                   v-model="lawfulOrChaotic"
+                  @change="update"
                 >
                   <v-radio
                     v-for="(n, i) in [-1, 0, 1]"
                     :key="n"
                     :label="lawfulScale[i]"
                     :value="n"
-                    @change="update"
                   ></v-radio>
                 </v-radio-group>
                 <v-radio-group
@@ -109,16 +109,16 @@ export default {
   },
 
   methods: {
-    ...mapActions(['dispatchUpdateCharacterInfo']),
+    ...mapActions(['updateCharacterInfo']),
 
     update() {
-      this.dispatchUpdateCharacterInfo({
+      this.updateCharacterInfo({
         character: this.character,
         name: this.localName,
         lawful: this.lawfulOrChaotic,
         good: this.goodOrEvil,
-        race: this.race.name,
-        speed: this.race.speed,
+        race: this.race ? this.race.name : null,
+        speed: this.race ? this.race.speed : null,
       })
     },
   },

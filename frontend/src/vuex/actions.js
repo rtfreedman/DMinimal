@@ -4,203 +4,70 @@ import monsterAPI from '../api/monsters'
 
 function handleError(error) {
   console.error(error)
+  throw error
 }
 
 export default {
-  characterAction({ commit }, payload) {
-    commit('MUTATE_CHARACTER', payload)
+  // commit or retrieve state to DB
+
+  // "then save" is optimism that requires
+  // special handling when the API call fails
+
+  save({ state }) {
+    return stateAPI.save(state).catch(handleError)
   },
 
-  dispatchSave({ state }) {
-    stateAPI.save(state).catch(handleError)
-  },
-
-  dispatchRestore({ commit }, { gameId }) {
-    stateAPI
+  restore({ commit }, { gameId }) {
+    return stateAPI
       .restore(gameId)
       .then(data => {
-        commit('setState', data)
+        commit('SET_STATE', data)
       })
       .catch(handleError)
   },
 
-  // IN USE
+  // single character actions
 
-  dispatchRetrieveMonsterOptions({ commit }) {
-    monsterAPI
-      .getMonsters()
-      .then(data => commit('setMonsterOpts', { monsters: data.Monsters }))
-      .catch(handleError)
-  },
-
-  dispatchRetrieveMonsterInfo({ commit }, { name }) {
-    monsterAPI
-      .getMonster(name)
-      .then(data => commit('setMonsterInfo', data))
-      .catch(handleError)
-  },
-
-  dispatchRetrieveClassOptions({ commit }) {
-    magicAPI
-      .getClasses()
-      .then(data => {
-        commit('setClassOptions', {
-          classOptions: data.Classes,
-          magicClassOptions: data.MagicClasses,
-        })
-      })
-      .catch(handleError)
-  },
-
-  dispatchAddCharacter({ commit }, name) {
-    commit('addCharacter', name)
-    // then save
-    return new Promise(resolve => {
-      setImmediate(() => {
-        resolve()
-      })
-    })
-  },
-
-  dispatchRemoveCharacter({ commit }, id) {
-    commit('removeCharacter', id)
-    // then save
-    return new Promise(resolve => {
-      setImmediate(() => {
-        resolve()
-      })
-    })
-  },
-
-  dispatchAddMonster({ commit }, monster) {
-    commit('addMonster', monster)
-    // then save (?)
-    return new Promise(resolve => {
-      setImmediate(() => {
-        resolve()
-      })
-    })
-  },
-
-  dispatchGroupRest({ state, commit }) {
-    const deadCharacters = []
-    state.characters.forEach(character => {
-      if (!character.hitPoints) {
-        deadCharacters.push(character.name)
-      } else {
-        commit('mutateCharacter', {
-          character,
-          method: 'longRest',
-          args: [],
-        })
-      }
-    })
-    const deadCharactersString = deadCharacters.join(', ')
-    commit('showSnackbar', {
-      message: `The following characters are resting in peace: ${deadCharactersString}`,
-    })
+  characterAction({ commit }, payload) {
+    commit('MUTATE_CHARACTER', payload)
     // then save
   },
 
-  dispatchUpdateCharacterInfo({ commit }, payload) {
+  // single character actions requiring special handling
+
+  updateCharacterInfo({ commit }, payload) {
     const character = payload.character
     delete payload.character
-    commit('mutateCharacter', {
+    commit('MUTATE_CHARACTER', {
       character,
       method: 'updateInfo',
       args: [payload],
     })
-    commit('triggerChangeDetection')
+    commit('TRIGGER_CD')
     setImmediate(() => {
-      commit('triggerChangeDetection', true)
+      commit('TRIGGER_CD', true)
     })
     // then save
   },
 
-  dispatchLongRest({ commit }, character) {
-    commit('mutateCharacter', {
-      character,
-      method: 'longRest',
-      args: [],
-    })
-    // then save
-  },
-
-  dispatchShortRest({ commit }, { character, recoveredHitPoints }) {
-    commit('mutateCharacter', {
-      character,
-      method: 'shortRest',
-      args: [recoveredHitPoints],
-    })
-    // then save
-  },
-
-  dispatchConcentrate({ commit }, { character, spellName }) {
-    commit('mutateCharacter', {
-      character,
-      method: 'concentrateOn',
-      args: [spellName],
-    })
-    // then save
-  },
-
-  dispatchSetInitiative({ commit }, { character, initiative }) {
-    commit('mutateCharacter', {
+  setInitiative({ commit }, { character, initiative }) {
+    commit('MUTATE_CHARACTER', {
       character,
       method: 'setInitiative',
       args: [initiative],
     })
-    commit('triggerChangeDetection')
+    commit('TRIGGER_CD')
     setImmediate(() => {
-      commit('triggerChangeDetection', true)
+      commit('TRIGGER_CD', true)
     })
+    // then save
   },
 
-  dispatchSetArmorClass({ commit }, { character, armorClass }) {
-    commit('mutateCharacter', {
-      character,
-      method: 'setArmorClass',
-      args: [armorClass],
-    })
-  },
-
-  dispatchSetSpeed({ commit }, { character, speed }) {
-    commit('mutateCharacter', {
-      character,
-      method: 'setSpeed',
-      args: [speed],
-    })
-  },
-
-  dispatchSetStat({ commit }, { character, stat, value }) {
-    commit('mutateCharacter', {
-      character,
-      method: 'setStat',
-      args: [stat, value],
-    })
-  },
-
-  dispatchSetStatOffset({ commit }, { character, stat, value }) {
-    commit('mutateCharacter', {
-      character,
-      method: 'setStatOffset',
-      args: [stat, value],
-    })
-  },
-
-  dispatchAddClass({ commit }, { character, className, subClassName, level }) {
-    commit('mutateCharacter', {
-      character,
-      method: 'addClass',
-      args: [className, subClassName, level],
-    })
-  },
-
-  dispatchUpdateClass(
+  updateClass(
     { commit, dispatch },
     { character, existingClassName, className, subClassName, level },
   ) {
-    commit('mutateCharacter', {
+    commit('MUTATE_CHARACTER', {
       character,
       method: 'updateClass',
       args: [existingClassName, className, subClassName, level],
@@ -208,27 +75,106 @@ export default {
     const classIndex = character.classes.findIndex(
       c => c.className === className,
     )
-    dispatch('dispatchRetrieveSlots', {
+    dispatch('retrieveSlots', {
       character,
       classIndex,
       className,
       level,
     })
+    // then save
   },
 
-  dispatchRemoveClass({ commit }, { character, classIndex }) {
-    commit('mutateCharacter', {
-      character,
-      method: 'removeClass',
-      args: [classIndex],
+  // multi character actions
+
+  groupRest({ state, commit }) {
+    const deadCharacters = []
+    state.characters.forEach(character => {
+      if (!character.hitPoints) {
+        deadCharacters.push(character.name)
+      } else {
+        commit('MUTATE_CHARACTER', {
+          character,
+          method: 'longRest',
+          args: [],
+        })
+      }
+    })
+    const deadCharactersString = deadCharacters.join(', ')
+    commit('SHOW_SNACKBAR', {
+      message: `The following characters are resting in peace: ${deadCharactersString}`,
+    })
+    // then save
+  },
+
+  // add and remove characters
+
+  addCharacter({ commit }, name) {
+    commit('ADD_CHARACTER', name)
+    // then save
+    return new Promise(resolve => {
+      setImmediate(() => {
+        resolve()
+      })
     })
   },
 
-  dispatchRetrieveSpells({ commit }, { spellClass }) {
-    magicAPI
+  removeCharacter({ commit }, id) {
+    commit('REMOVE_CHARACTER', id)
+    // then save
+    return new Promise(resolve => {
+      setImmediate(() => {
+        resolve()
+      })
+    })
+  },
+
+  // classes
+
+  retrieveClassOptions({ commit }) {
+    return magicAPI
+      .getClasses()
+      .then(data => {
+        commit('SET_CLASS_OPTIONS', {
+          classOptions: data.Classes,
+          magicClassOptions: data.MagicClasses,
+        })
+      })
+      .catch(handleError)
+  },
+
+  // monsters
+
+  retrieveMonsterOptions({ commit }) {
+    return monsterAPI
+      .getMonsters()
+      .then(data => commit('SET_MONSTER_OPTIONS', { monsters: data.Monsters }))
+      .catch(handleError)
+  },
+
+  retrieveMonsterInfo({ commit }, { name }) {
+    return monsterAPI
+      .getMonster(name)
+      .then(data => commit('SET_MONSTER_INFO', data))
+      .catch(handleError)
+  },
+
+  addMonster({ commit }, monster) {
+    commit('ADD_MONSTER', monster)
+    // then save
+    return new Promise(resolve => {
+      setImmediate(() => {
+        resolve()
+      })
+    })
+  },
+
+  // spells
+
+  retrieveSpells({ commit }, { spellClass }) {
+    return magicAPI
       .getSpells(spellClass)
       .then(data => {
-        commit('setSpells', {
+        commit('SET_SPELLS', {
           spells: data,
           spellClass,
         })
@@ -236,44 +182,25 @@ export default {
       .catch(handleError)
   },
 
-  dispatchRetrieveSpellInfo({ commit }, { spell }) {
-    magicAPI
+  retrieveSpellInfo({ commit }, { spell }) {
+    return magicAPI
       .getSpell(spell)
       .then(data => {
-        commit('setSpellInfo', data)
+        commit('SET_SPELL_INFO', data)
       })
       .catch(handleError)
   },
 
-  dispatchRetrieveSlots(
-    { commit },
-    { character, classIndex, className, level },
-  ) {
-    magicAPI
+  retrieveSlots({ commit }, { character, classIndex, className, level }) {
+    return magicAPI
       .getSlots([{ class: className, level }])
       .then(data => {
-        commit('mutateCharacter', {
+        commit('MUTATE_CHARACTER', {
           character,
           method: 'setSlots',
           args: [classIndex, className, data.Slots],
         })
       })
       .catch(handleError)
-  },
-
-  dispatchSetSlot({ commit }, { character, classIndex, slot, value }) {
-    commit('mutateCharacter', {
-      character,
-      method: 'setSlot',
-      args: [classIndex, slot, value],
-    })
-  },
-
-  dispatchCastSpell({ commit }, { character, classIndex, slot, spellInfo }) {
-    commit('mutateCharacter', {
-      character,
-      method: 'castSpell',
-      args: [classIndex, slot, spellInfo],
-    })
   },
 }

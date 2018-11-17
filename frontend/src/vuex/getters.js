@@ -1,5 +1,9 @@
 export default {
   characters: state => state.characters,
+  trigger: state => {
+    const len = state.characters.length
+    return len !== 1 && state.characters[len - 1].id === state.characters[0].id
+  },
   monsters: state => state.monsters,
   currentMonsterInfo: state => state.currentMonsterInfo,
   currentMonsterKeys: state => Object.keys(state.currentMonsterInfo),
