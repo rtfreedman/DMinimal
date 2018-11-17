@@ -9,10 +9,6 @@ drop table if exists legendary_actions;
 drop table if exists special_abilities;
 drop table if exists actions;
 drop table if exists weapons cascade;
-drop table if exists armor cascade;
-drop table if exists adventuring_gear cascade;
-drop table if exists equipment_packs cascade;
-drop table if exists equipment_pack_items cascade;
 
 create table spells (id serial primary key,
 	range text,
@@ -103,40 +99,4 @@ CREATE TABLE weapons (
 	modifiers text[],
 	weight float,
 	description text
-);
-CREATE TABLE armor (
-	id serial PRIMARY KEY,
-	name text NOT NULL,
-	ac integer NOT NULL,
-	stealth text,
-	weight float NOT NULL,
-	description text	
-);
-CREATE TABLE adventuring_gear (
-	id serial PRIMARY KEY,
-	name text NOT NULL,
-	weight float,
-	save text,
-	target text,
-	duration text,
-	range integer[],
-	damage_type text,
-	damage_dice_type integer,
-	damage_dice_count integer,
-	rarity text,
-	subtype text,
-	properties text[],
-	description text
-);
-CREATE TABLE equipment_packs (
-	id serial PRIMARY KEY,
-	name text,
-	rarity text,
-	description text
-);
-CREATE TABLE equipment_pack_items (
-	id serial PRIMARY KEY,
-	equipment_pack_id integer REFERENCES equipment_packs,
-	adventuring_gear_id integer REFERENCES adventuring_gear,
-	count integer
 );
