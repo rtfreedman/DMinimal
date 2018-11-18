@@ -1,7 +1,9 @@
 <template>
   <v-layout column class="border-primary">
     <v-expansion-panel light :value="0">
-      <v-expansion-panel-content style="color: #303030; background-color: #ffd700;">
+      <v-expansion-panel-content
+        style="color: #303030; background-color: #ffd700;"
+      >
         <template slot="header">
           <h3>
             <span>LEVEL {{ characterClass.level}} {{ characterClass.className.toUpperCase() }}</span>
@@ -11,15 +13,28 @@
           </h3>
         </template>
         <!-- class options -->
-        <v-card flat dark class="text-xs-left" style="margin: 1px">
+        <v-card
+          flat
+          dark
+          class="text-xs-left"
+          style="margin: 1px"
+        >
           <v-card-text class="pt-0">
             <v-layout justify-end>
               <v-menu left offset-y>
-                <v-btn class="mr-0" icon color="primary" flat slot="activator">
+                <v-btn
+                  class="mr-0"
+                  icon
+                  color="primary"
+                  flat
+                  slot="activator"
+                >
                   <v-icon>menu</v-icon>
                 </v-btn>
                 <v-list>
-                  <v-list-tile @click="levelUp">
+                  <v-list-tile
+                    @click="levelUp({ character, classIndex })"
+                  >
                     <v-list-tile-action>
                       <v-icon>add</v-icon>
                     </v-list-tile-action>
@@ -36,7 +51,9 @@
                     :disabled="character.classes.length === 1"
                   >
                     <v-list-tile-action>
-                      <v-icon :color="character.classes.length === 1 ? '#999' : '#eee'">delete</v-icon>
+                      <v-icon
+                        :color="character.classes.length === 1 ? '#999' : '#eee'"
+                      >delete</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-title>REMOVE</v-list-tile-title>
                   </v-list-tile>
@@ -48,8 +65,17 @@
               <h3 class="text-xs-center my-1">CLASS ACTIONS</h3>
               <v-divider color="#ffd700"></v-divider>
               <v-layout justify-center>
-                <v-tooltip v-if="magicClassOptions.includes(characterClass.className)" bottom>
-                  <v-btn color="primary" flat slot="activator" icon @click="$emit('castSpell')">
+                <v-tooltip
+                  v-if="magicClassOptions.includes(characterClass.className)"
+                  bottom
+                >
+                  <v-btn
+                    color="primary"
+                    flat
+                    slot="activator"
+                    icon
+                    @click="$emit('castSpell')"
+                  >
                     <v-icon>mdi-auto-fix</v-icon>
                   </v-btn>
                   <span>CAST SPELL</span>
@@ -96,15 +122,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(['retrieveSlots', 'characterAction']),
-
-    levelUp() {
-      this.characterAction({
-        character: this.character,
-        method: 'levelUp',
-        args: [this.classIndex],
-      })
-    },
+    ...mapActions(['retrieveSlots', 'levelUp', 'characterAction']),
 
     castSpell() {
       // TBD

@@ -3,13 +3,23 @@
     <v-layout align-center>
       <h3>HIT POINTS</h3>
       <v-tooltip bottom>
-        <v-btn icon flat slot="activator" color="primary" @click="showHitPointDialog = true">
+        <v-btn
+          icon
+          flat
+          slot="activator"
+          color="primary"
+          @click="showHitPointDialog = true"
+        >
           <v-icon small>mdi-heart</v-icon>
         </v-btn>
         <span>ADJUST HIT POINTS</span>
       </v-tooltip>
     </v-layout>
-    <v-layout column class="border-primary" style="height: 50px; max-width: 120px">
+    <v-layout
+      column
+      class="border-primary"
+      style="height: 50px; max-width: 120px"
+    >
       <v-layout justify-center align-center>
         <v-text-field
           class="hp"
@@ -32,16 +42,32 @@
           <v-layout align-center justify-center fill-height>
             <v-tooltip top>
               <!-- TODO Replace with broken shield icon -->
-              <v-btn large icon flat slot="activator" @click="hurt">
+              <v-btn
+                large
+                icon
+                flat
+                slot="activator"
+                @click="hurt"
+              >
                 <v-icon>mdi-sword</v-icon>
               </v-btn>
               <span>Take Damage</span>
             </v-tooltip>
             <v-flex xs1>
-              <v-text-field single-line :rules="[mustBeNum, minNum]" v-model="offset"/>
+              <v-text-field
+                single-line
+                :rules="[mustBeNum, minNum]"
+                v-model="offset"
+              />
             </v-flex>
             <v-tooltip top>
-              <v-btn large icon flat slot="activator" @click="heal">
+              <v-btn
+                large
+                icon
+                flat
+                slot="activator"
+                @click="heal"
+              >
                 <v-icon>mdi-medical-bag</v-icon>
               </v-btn>
               <span>Heal</span>
@@ -49,7 +75,11 @@
           </v-layout>
         </v-card-text>
         <v-card-text>
-          <v-layout align-center justify-space-between fill-height>
+          <v-layout
+            align-center
+            justify-space-between
+            fill-height
+          >
             <h3>Current Health :</h3>
             <v-flex xs2>
               <v-text-field
@@ -77,13 +107,23 @@
         <v-card-text>
           <v-layout justify-end>
             <v-tooltip top>
-              <v-btn icon flat slot="activator" @click="getHealth(true)">
+              <v-btn
+                icon
+                flat
+                slot="activator"
+                @click="getHealth(true)"
+              >
                 <v-icon>mdi-dice-multiple</v-icon>
               </v-btn>
               <span>Roll Health</span>
             </v-tooltip>
             <v-tooltip top>
-              <v-btn icon flat slot="activator" @click="getHealth(false)">
+              <v-btn
+                icon
+                flat
+                slot="activator"
+                @click="getHealth(false)"
+              >
                 <v-icon>mdi-heart-half-full</v-icon>
               </v-btn>
               <span>Take Avg for Health</span>
@@ -114,14 +154,13 @@ export default {
         return this.character.hitPoints
       },
       set(value) {
-        console.log(value)
         if (parseInt(value) > parseInt(this.character.maxHitPoints)) {
           value = this.character.maxHitPoints
         }
         if (value < 0) {
           value = 0
         }
-        this.$store.commit('mutateCharacter', {
+        this.$store.commit('MUTATE_CHARACTER', {
           character: this.character,
           method: 'setHealth',
           args: [value],
@@ -133,7 +172,7 @@ export default {
         return this.character.maxHitPoints
       },
       set(value) {
-        this.$store.commit('mutateCharacter', {
+        this.$store.commit('MUTATE_CHARACTER', {
           character: this.character,
           method: 'setMaxHealth',
           args: [value],
@@ -212,7 +251,7 @@ export default {
         return
       }
       if (this.localHitPoints <= 0 && this.deathThrows < 3) {
-        this.$store.commit('mutateCharacter', {
+        this.$store.commit('MUTATE_CHARACTER', {
           character: this.character,
           method: 'dying',
           args: [],
@@ -224,7 +263,7 @@ export default {
         parseInt(this.offset) >=
         parseInt(this.localHitPoints) + parseInt(this.localMaxHitPoints)
       ) {
-        this.$store.commit('mutateCharacter', {
+        this.$store.commit('MUTATE_CHARACTER', {
           character: this.character,
           method: 'die',
           args: [],
@@ -256,7 +295,7 @@ export default {
       return true
     },
     resurrect() {
-      this.$store.commit('mutateCharacter', {
+      this.$store.commit('MUTATE_CHARACTER', {
         character: this.character,
         method: 'setHealth',
         args: [1],

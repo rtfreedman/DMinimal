@@ -1,7 +1,7 @@
 <template>
   <v-flex xs4>
     <v-layout column ma-3>
-      <v-layout  align-center>
+      <v-layout align-center>
         <v-slider
           v-model="lifeThrows"
           color="yellow"
@@ -21,7 +21,7 @@
           <v-icon v-if="lifeThrows === 3">mdi-lifebuoy</v-icon>
         </span>
       </v-layout>
-      <v-layout  align-center>
+      <v-layout align-center>
         <v-slider
           v-model="deathThrows"
           color="black"
@@ -55,8 +55,7 @@ export default {
         return this.character.deathThrows
       },
       set(val) {
-        console.log(val)
-        this.$store.commit('mutateCharacter', {
+        this.$store.commit('MUTATE_CHARACTER', {
           character: this.character,
           method: 'setDeathThrows',
           args: [val],
@@ -68,8 +67,7 @@ export default {
         return this.character.lifeThrows
       },
       set(val) {
-        console.log(val)
-        this.$store.commit('mutateCharacter', {
+        this.$store.commit('MUTATE_CHARACTER', {
           character: this.character,
           method: 'setLifeThrows',
           args: [val],
