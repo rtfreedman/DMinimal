@@ -16,14 +16,14 @@
       </v-tooltip>
     </v-layout>
     <v-autocomplete
-      class="border-primary align-center"
+      class="border-primary"
       solo
       flat
       :items="initiativeRange"
       v-model="initiative"
       clearable
       @change="setInitiative({ character, initiative })"
-      style="width: 120px; height: 60px; font-size: 28px; font-weight: bold;"
+      style="width: 120px; font-size: 28px; font-weight: bold;"
       hide-details
     />
   </v-layout>
