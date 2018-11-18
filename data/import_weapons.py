@@ -1,6 +1,7 @@
 import json
 import getpass
 import psycopg2
+import re
 
 # load json data in
 with open("data/item_data.json", "r") as f:
@@ -49,6 +50,17 @@ pw = getpass.getpass("Postgres Password: ")
 conn = psycopg2.connect(f'dbname=dnd port=5429 host=0.0.0.0 user=wizerd password={pw}')
 cursor = conn.cursor()
 
+# find the weapons with + modifiers
+# they have incomplete data so we find them and recreate them using the full weapon data
+weapons_with_modifiers = set()
+regex = re.compile(r"([\w\s]+)\s{1}\+\d{1}")
+for group, items in data.items():
+    for item, content in items.items():
+        if content.get("item_type") and "Weapon" in content["item_type"]:
+            matched = regex.match(item)
+            if matched:
+                weapons_with_modifiers.add(matched.group(1))
+
 # insert weapons
 for group, items in data.items():
     if group.startswith("Martial") or group.startswith("Simple"):
@@ -56,5 +68,16 @@ for group, items in data.items():
             sql_data = json_to_sql(item, content)
             fields = ",".join(sql_data.keys())
             cursor.execute(f"INSERT INTO weapons ({fields}) VALUES ({','.join(['%s'] * len(sql_data.keys()))})", (*sql_data.values(),))
+            
+            # Add the modified versions of items if they exist
+            if item in weapons_with_modifiers:
+                weapon_type = content["item_type"].split()[0]
+                existing_modifiers = sql_data.get("modifiers") or []
+                for n in range(1, 4):
+                    sql_data["name"] = item + f" +{n}"
+                    sql_data["modifiers"] = existing_modifiers + [f"{weapon_type} Attacks +{n}", f"{weapon_type} Damage +{n}"]
+                    fields = ",".join(sql_data.keys())
+                    cursor.execute(f"INSERT INTO weapons ({fields}) VALUES ({','.join(['%s'] * len(sql_data.keys()))})", (*sql_data.values(),))
+
 conn.commit()
 conn.close()
