@@ -1,7 +1,13 @@
 <template>
   <v-card>
-    <app-character-actions :character="character" @characterRemoved="$emit('characterRemoved')"/>
-    <app-character-info class="mb-2" :character="character"/>
+    <app-character-actions
+      :character="character"
+      @characterRemoved="$emit('characterRemoved')"
+    />
+    <app-character-info
+      class="mb-2"
+      :character="character"
+    />
     <v-layout mb-2>
       <app-initiative :character="character"/>
       <app-hit-points :character="character"/>
@@ -41,7 +47,10 @@
         class="mx-3 mb-3"
       />
     </v-layout>
-    <v-dialog v-model="showClassDialog">
+    <v-dialog
+      v-if="showClassDialog"
+      v-model="showClassDialog"
+    >
       <app-class-dialog
         :character="character"
         :characterClass="classUnderEdit"
@@ -50,7 +59,10 @@
         @update="updateClass($event); showClassDialog = false"
       />
     </v-dialog>
-    <v-dialog v-if="spellClassIndex !== null" v-model="showSpellDialog">
+    <v-dialog
+      v-if="spellClassIndex !== null"
+      v-model="showSpellDialog"
+    >
       <app-cast-spell-dialog
         :character="character"
         :spellClassIndex="spellClassIndex"
@@ -132,8 +144,8 @@ export default {
   watch: {
     showClassDialog(state) {
       if (!state) {
+        console.log('set')
         this.classUnderEdit = null
-        console.log('c', this.classUnderEdit)
       }
     },
 

@@ -84,9 +84,25 @@ export default {
     // then save
   },
 
+  levelUp({ commit, dispatch }, { character, classIndex }) {
+    commit('MUTATE_CHARACTER', {
+      character,
+      method: 'levelUp',
+      args: [classIndex],
+    })
+    const cls = character.classes[classIndex]
+    dispatch('retrieveSlots', {
+      character,
+      classIndex,
+      className: cls.className,
+      level: cls.level,
+    })
+    // then save
+  },
+
   // multi character actions
 
-  groupRest({ state, commit }) {
+  groupLongRest({ state, commit }) {
     const deadCharacters = []
     state.characters.forEach(character => {
       if (!character.hitPoints) {

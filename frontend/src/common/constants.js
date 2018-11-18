@@ -1,15 +1,16 @@
+// needs to remain in descending value order
 export const hitDice = {
   Barbarian: 12,
+  Fighter: 10,
+  Paladin: 10,
+  Ranger: 10,
   Bard: 8,
   Cleric: 8,
   Druid: 8,
-  Fighter: 10,
   Monk: 8,
-  Paladin: 10,
-  Ranger: 10,
   Rogue: 8,
-  Sorcerer: 6,
   Warlock: 8,
+  Sorcerer: 6,
   Wizard: 6,
 }
 export const chrClasses = ['Bard', 'Sorcerer', 'Paladin', 'Warlock']

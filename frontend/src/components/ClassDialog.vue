@@ -1,10 +1,6 @@
 <template>
   <v-card>
-    <v-toolbar
-      light
-      card
-      style="background-color: #ffd700"
-    >
+    <v-toolbar light card style="background-color: #ffd700">
       <h3>{{ !isEdit ? 'ADD' : 'EDIT' }} CHARACTER CLASS</h3>
       <v-spacer></v-spacer>
       <v-btn icon @click="$emit('close')">
@@ -100,6 +96,7 @@ export default {
         this.level = state.level
         this.isEdit = true
       } else {
+        console.log('set internal')
         this.className = ''
         this.subClassName = ''
         this.level = 1

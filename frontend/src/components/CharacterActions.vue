@@ -8,7 +8,7 @@
           icon
           flat
           slot="activator"
-          @click="longRest()"
+          @click="showLongRestDialog = true"
         >
           <v-icon>hotel</v-icon>
         </v-btn>
@@ -59,8 +59,18 @@
         <span>REMOVE CHARACTER</span>
       </v-tooltip>
     </v-toolbar>
+    <!-- long rest dialog -->
+    <v-dialog v-model="showLongRestDialog">
+      <app-long-rest-dialog
+        :character="character"
+        @close="showLongRestDialog = false"
+      />
+    </v-dialog>
     <!-- short rest dialog -->
-    <v-dialog v-model="showShortRestDialog">
+    <v-dialog
+      v-if="showShortRestDialog"
+      v-model="showShortRestDialog"
+    >
       <app-short-rest-dialog
         :character="character"
         @close="showShortRestDialog = false"
@@ -108,11 +118,13 @@
 import { mapGetters, mapActions } from 'vuex'
 import ShortRestDialog from './ShortRestDialog'
 import ConfirmDialog from './ConfirmDialog'
+import LongRestDialog from './LongRestDialog'
 
 export default {
   components: {
     'app-short-rest-dialog': ShortRestDialog,
     'app-confirm-dialog': ConfirmDialog,
+    'app-long-rest-dialog': LongRestDialog,
   },
 
   props: ['character'],
@@ -124,6 +136,7 @@ export default {
   data() {
     return {
       showConcentrationDialog: false,
+      showLongRestDialog: false,
       showShortRestDialog: false,
       showRemoveCharacterDialog: false,
     }
@@ -137,14 +150,6 @@ export default {
         character: this.character,
         method: 'concentrateOn',
         args: [''],
-      })
-    },
-
-    longRest() {
-      this.characterAction({
-        character: this.character,
-        method: 'longRest',
-        args: [],
       })
     },
 
