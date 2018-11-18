@@ -1,5 +1,5 @@
 <template>
-  <v-layout column style="max-width: 150px">
+  <v-layout column style="max-width: 200px">
     <v-layout align-center>
       <h3>HIT POINTS</h3>
       <v-tooltip bottom>
@@ -9,17 +9,25 @@
         <span>ADJUST HIT POINTS</span>
       </v-tooltip>
     </v-layout>
-    <v-layout column class="border-primary" style="height: 50px; max-width: 120px">
-      <v-layout justify-center align-center>
-        <v-text-field
-          class="hp"
-          solo
-          flat
-          height="10px"
-          :value="character.hitPoints"
-          v-model="localHitPoints"
-          type="number"
-        />
+    <v-layout column class="border-primary" style="height: 60px; max-width: 170px">
+      <v-layout justify-space-around align-center>
+        <v-flex xs4>
+          <v-layout justify-center align-start column>
+            <v-btn round flat small icon class="ma-0" @click="offset = 5; hurt()"><h5>-5</h5></v-btn>
+            <v-btn round flat small icon class="ma-0" @click="offset = 1; hurt()"><h5>-1</h5></v-btn>
+          </v-layout>
+        </v-flex>
+        <v-flex xs4>
+          <v-layout justify-center align-center>
+            <h1>{{localHitPoints}}/{{localMaxHitPoints}}</h1>
+          </v-layout>
+        </v-flex>
+        <v-flex xs4>
+          <v-layout justify-center align-end column>
+            <v-btn round flat small icon class="ma-0" @click="offset = 5; heal()"><h5>+5</h5></v-btn>
+            <v-btn round flat small icon class="ma-0" @click="offset = 1; heal()"><h5>+1</h5></v-btn>
+          </v-layout>
+        </v-flex>
       </v-layout>
     </v-layout>
     <!-- dialog -->
@@ -121,7 +129,7 @@ export default {
         if (value < 0) {
           value = 0
         }
-        this.$store.commit('mutateCharacter', {
+        this.$store.commit('MUTATE_CHARACTER', {
           character: this.character,
           method: 'setHealth',
           args: [value],
@@ -133,7 +141,7 @@ export default {
         return this.character.maxHitPoints
       },
       set(value) {
-        this.$store.commit('mutateCharacter', {
+        this.$store.commit('MUTATE_CHARACTER', {
           character: this.character,
           method: 'setMaxHealth',
           args: [value],
@@ -212,7 +220,7 @@ export default {
         return
       }
       if (this.localHitPoints <= 0 && this.deathThrows < 3) {
-        this.$store.commit('mutateCharacter', {
+        this.$store.commit('MUTATE_CHARACTER', {
           character: this.character,
           method: 'dying',
           args: [],
@@ -224,7 +232,7 @@ export default {
         parseInt(this.offset) >=
         parseInt(this.localHitPoints) + parseInt(this.localMaxHitPoints)
       ) {
-        this.$store.commit('mutateCharacter', {
+        this.$store.commit('MUTATE_CHARACTER', {
           character: this.character,
           method: 'die',
           args: [],
@@ -256,7 +264,7 @@ export default {
       return true
     },
     resurrect() {
-      this.$store.commit('mutateCharacter', {
+      this.$store.commit('MUTATE_CHARACTER', {
         character: this.character,
         method: 'setHealth',
         args: [1],
@@ -270,7 +278,6 @@ export default {
 
 <style lang="css" scoped>
 .hp {
-  margin-top: 28px;
   font-size: 2em;
   font-weight: bold;
 }
