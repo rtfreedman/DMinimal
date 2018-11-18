@@ -27,6 +27,7 @@ func RunAPI(port int, external bool) {
 	}
 	routes.SetupSpells(r)
 	routes.SetupMonsters(r)
+	routes.SetupWeapons(r)
 	fmt.Printf("Running API on port %d\n", port)
 	log.Fatal(srv.ListenAndServe())
 }

@@ -8,6 +8,7 @@ drop table if exists reactions;
 drop table if exists legendary_actions;
 drop table if exists special_abilities;
 drop table if exists actions;
+drop table if exists weapons cascade;
 
 create table spells (id serial primary key,
 	range text,
@@ -80,4 +81,20 @@ create table actions (attack_bonus integer,
 	description varchar,
 	monster varchar,
 	name varchar
+);
+CREATE TABLE weapons (
+	id serial PRIMARY KEY,
+	name text NOT NULL,
+	weapon_type text NOT NULL,
+	proficiency text NOT NULL,
+	damage text NOT NULL,
+	secondary_damage text DEFAULT '',
+	damage_type text DEFAULT 'No Damage',
+	save text DEFAULT '',
+	range integer[] DEFAULT '{}'::integer[],
+	rarity text DEFAULT 'Standard',
+	properties jsonb DEFAULT '{}'::jsonb,
+	modifiers text[] DEFAULT '{}'::text[],
+	weight real DEFAULT 0.0,
+	description text DEFAULT ''
 );
