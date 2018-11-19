@@ -5,7 +5,7 @@
       align-center
       justify-space-between
       class="border-primary text-xs-center"
-      style="width: 118px; height: 50px; font-size: 28px; font-weight: bold;"
+      style="width: 118px; height: 60px; font-size: 28px; font-weight: bold;"
     >
       <template v-if="character.speed !== null">
         <v-btn flat small icon @click="decrementSpeed">
