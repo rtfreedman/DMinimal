@@ -12,5 +12,10 @@ export default new Router({
       name: 'trackerList',
       component: () => import('./views/TrackerList'),
     },
+    {
+      path: '/character',
+      name: 'characterBuilder',
+      component: () => import('./views/CharacterBuilder'),
+    },
   ],
 })
