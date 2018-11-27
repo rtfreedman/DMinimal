@@ -6,3 +6,6 @@ backend/backend
 
 # postgres data
 pgdata
+
+# mongo data
+mongodb/data

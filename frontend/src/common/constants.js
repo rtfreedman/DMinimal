@@ -33,7 +33,77 @@ export const classes = [
 ]
 
 export const races = [
-  { name: 'Dragonborn', speed: 30 },
+  {
+    name: 'Dragonborn',
+    speed: 30,
+    abilityScoreBonus: {
+      STR: 2,
+      CHA: 1,
+    },
+    ancestryOptions: [
+      {
+        color: 'Black',
+        damageType: 'Acid',
+        area: '5 x 30 ft (line)',
+        save: 'DEX',
+      },
+      {
+        color: 'Blue',
+        damageType: 'Lightning',
+        area: '5 x 30 ft (line)',
+        save: 'DEX',
+      },
+      {
+        color: 'Brass',
+        damageType: 'Fire',
+        area: '5 x 30 ft (line)',
+        save: 'DEX',
+      },
+      {
+        color: 'Bronze',
+        damageType: 'Lightning',
+        area: '5 x 30 ft (line)',
+        save: 'DEX',
+      },
+      {
+        color: 'Copper',
+        damageType: 'Acid',
+        area: '5 x 30 ft (line)',
+        save: 'DEX',
+      },
+      {
+        color: 'Gold',
+        damageType: 'Fire',
+        area: '15 ft (cone)',
+        save: 'DEX',
+      },
+      {
+        color: 'Green',
+        damageType: 'Poison',
+        area: '15 ft (cone)',
+        save: 'CON',
+      },
+      {
+        color: 'Red',
+        damageType: 'Fire',
+        area: '15 ft (cone)',
+        save: 'DEX',
+      },
+      {
+        color: 'Silver',
+        damageType: 'Cold',
+        area: '15 ft (cone)',
+        save: 'CON',
+      },
+      {
+        color: 'White',
+        damageType: 'Cold',
+        area: '15 ft (cone)',
+        save: 'CON',
+      },
+    ],
+    languages: ['Common', 'Draconic']
+  },
   { name: 'Dwarf', speed: 25 },
   { name: 'Elf', speed: 30 },
   { name: 'Gnome', speed: 25 },

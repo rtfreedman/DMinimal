@@ -3,7 +3,7 @@
     <v-btn
       color="primary"
       flat
-      @click="showAddCharacterDialog = true"
+      to="/character"
       class="ml-0"
     >Add Character</v-btn>
     <v-btn

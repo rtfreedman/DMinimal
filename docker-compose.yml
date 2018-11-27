@@ -12,3 +12,10 @@ services:
       POSTGRES_PASSWORD: changeme
       POSTGRES_USER: wizerd
       POSTGRES_DB: dnd
+
+  obliviax:
+    container_name: obliviax
+    build:
+      context: mongodb
+    ports:
+    - 27042:27017
