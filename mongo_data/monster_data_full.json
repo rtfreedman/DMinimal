@@ -1,6 +1,6 @@
 {
-  "monsters": {
-    "Aboleth": {
+  "monsters": [
+    {
       "CHR": 18,
       "CON": 15,
       "DEX": 9,
@@ -60,6 +60,7 @@
           "name": "Psychic Drain (Costs 2 Actions)"
         }
       ],
+      "name": "Aboleth",
       "perception": 10,
       "saving_throws": "Con +6, Int +8, Wis +6",
       "senses": "darkvision 120 ft., passive perception 20",
@@ -86,7 +87,7 @@
       "subtype": "",
       "type": "aberration"
     },
-    "Acolyte": {
+    {
       "CHR": 11,
       "CON": 10,
       "DEX": 10,
@@ -111,6 +112,7 @@
       "hit_dice": "2d8",
       "hit_points": 9,
       "languages": "any one language (usually Common)",
+      "name": "Acolyte",
       "senses": "passive perception 12",
       "size": "Medium",
       "skills": "Medicine +4, Religion +2",
@@ -125,7 +127,7 @@
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Adult Black Dragon": {
+    {
       "CHR": 17,
       "CON": 21,
       "DEX": 14,
@@ -198,6 +200,7 @@
           "name": "Wing Attack (Costs 2 Actions)"
         }
       ],
+      "name": "Adult Black Dragon",
       "perception": 11,
       "saving_throws": "Dex +7, Con +10, Wis +6, Cha +8",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 21",
@@ -219,7 +222,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Adult Blue Dracolich": {
+    {
       "CHR": 19,
       "CON": 23,
       "DEX": 10,
@@ -292,6 +295,7 @@
           "name": "Wing Attack (Costs 2 Actions)"
         }
       ],
+      "name": "Adult Blue Dracolich",
       "perception": 12,
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 22",
       "size": "Huge",
@@ -311,7 +315,7 @@
       "subtype": "",
       "type": "undead"
     },
-    "Adult Blue Dragon": {
+    {
       "CHR": 19,
       "CON": 23,
       "DEX": 10,
@@ -384,6 +388,7 @@
           "name": "Wing Attack (Costs 2 Actions)"
         }
       ],
+      "name": "Adult Blue Dragon",
       "perception": 12,
       "saving_throws": "Dex +5, Con +11, Wis +7, Cha +9",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 22",
@@ -400,7 +405,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Adult Brass Dragon": {
+    {
       "CHR": 17,
       "CON": 21,
       "DEX": 10,
@@ -456,6 +461,7 @@
       "hit_dice": "15d12",
       "hit_points": 172,
       "languages": "Common, Draconic",
+      "name": "Adult Brass Dragon",
       "perception": 11,
       "saving_throws": "Dex +5, Con +10, Wis +6, Cha +8",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 21",
@@ -472,7 +478,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Adult Bronze Dragon": {
+    {
       "CHR": 19,
       "CON": 23,
       "DEX": 10,
@@ -545,6 +551,7 @@
           "name": "Wing Attack (Costs 2 Actions)"
         }
       ],
+      "name": "Adult Bronze Dragon",
       "perception": 12,
       "saving_throws": "Dex +5, Con +11, Wis +7, Cha +9",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 22",
@@ -566,7 +573,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Adult Copper Dragon": {
+    {
       "CHR": 17,
       "CON": 21,
       "DEX": 12,
@@ -639,6 +646,7 @@
           "name": "Wing Attack (Costs 2 Actions)"
         }
       ],
+      "name": "Adult Copper Dragon",
       "perception": 12,
       "saving_throws": "Dex +6, Con +10, Wis +7, Cha +8",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 22",
@@ -655,7 +663,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Adult Gold Dragon": {
+    {
       "CHR": 24,
       "CON": 25,
       "DEX": 14,
@@ -728,6 +736,7 @@
           "name": "Wing Attack (Costs 2 Actions)"
         }
       ],
+      "name": "Adult Gold Dragon",
       "perception": 14,
       "saving_throws": "Dex +8, Con +13, Wis +8, Cha +13",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 24",
@@ -749,7 +758,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Adult Green Dragon": {
+    {
       "CHR": 17,
       "CON": 21,
       "DEX": 12,
@@ -822,6 +831,7 @@
           "name": "Wing Attack (Costs 2 Actions)"
         }
       ],
+      "name": "Adult Green Dragon",
       "perception": 12,
       "saving_throws": "Dex +6, Con +10, Wis +7, Cha +8",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 22",
@@ -843,7 +853,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Adult Red Dragon": {
+    {
       "CHR": 21,
       "CON": 25,
       "DEX": 10,
@@ -922,6 +932,7 @@
           "name": "Wing Attack (Costs 2 Actions)"
         }
       ],
+      "name": "Adult Red Dragon",
       "perception": 13,
       "saving_throws": "Dex +6, Con +13, Wis +7, Cha +11",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 23",
@@ -938,7 +949,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Adult Silver Dragon": {
+    {
       "CHR": 21,
       "CON": 25,
       "DEX": 10,
@@ -1011,6 +1022,7 @@
           "name": "Wing Attack (Costs 2 Actions)"
         }
       ],
+      "name": "Adult Silver Dragon",
       "perception": 11,
       "saving_throws": "Dex +5, Con +12, Wis +6, Cha +10",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 21",
@@ -1027,7 +1039,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Adult White Dragon": {
+    {
       "CHR": 12,
       "CON": 22,
       "DEX": 10,
@@ -1100,6 +1112,7 @@
           "name": "Wing Attack (Costs 2 Actions)"
         }
       ],
+      "name": "Adult White Dragon",
       "perception": 11,
       "saving_throws": "Dex +5, Con +11, Wis +6, Cha +6",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 21",
@@ -1121,7 +1134,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Air Elemental": {
+    {
       "CHR": 6,
       "CON": 14,
       "DEX": 20,
@@ -1157,6 +1170,7 @@
       "hit_dice": "12d10",
       "hit_points": 90,
       "languages": "Auran",
+      "name": "Air Elemental",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Large",
       "special_abilities": [
@@ -1170,7 +1184,7 @@
       "subtype": "",
       "type": "elemental"
     },
-    "Ancient Black Dragon": {
+    {
       "CHR": 19,
       "CON": 25,
       "DEX": 14,
@@ -1242,6 +1256,7 @@
           "name": "Wing Attack (Costs 2 Actions)"
         }
       ],
+      "name": "Ancient Black Dragon",
       "perception": 16,
       "saving_throws": "Dex +9, Con +14, Wis +9, Cha +11",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 26",
@@ -1268,7 +1283,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Ancient Blue Dragon": {
+    {
       "CHR": 21,
       "CON": 27,
       "DEX": 10,
@@ -1341,6 +1356,7 @@
           "name": "Wing Attack (Costs 2 Actions)"
         }
       ],
+      "name": "Ancient Blue Dragon",
       "perception": 17,
       "saving_throws": "Dex +7, Con +15, Wis +10, Cha +12",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 27",
@@ -1350,7 +1366,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Ancient Brass Dragon": {
+    {
       "CHR": 19,
       "CON": 25,
       "DEX": 10,
@@ -1428,6 +1444,7 @@
           "name": "Wing Attack (Costs 2 Actions)"
         }
       ],
+      "name": "Ancient Brass Dragon",
       "perception": 14,
       "saving_throws": "Dex +6, Con +13, Wis +8, Cha +10",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 24",
@@ -1444,7 +1461,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Ancient Bronze Dragon": {
+    {
       "CHR": 21,
       "CON": 27,
       "DEX": 10,
@@ -1522,6 +1539,7 @@
           "name": "Wing Attack (Costs 2 Actions)"
         }
       ],
+      "name": "Ancient Bronze Dragon",
       "perception": 17,
       "saving_throws": "Dex +7, Con +15, Wis +10, Cha +12",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 27",
@@ -1543,7 +1561,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Ancient Copper Dragon": {
+    {
       "CHR": 19,
       "CON": 25,
       "DEX": 12,
@@ -1621,6 +1639,7 @@
           "name": "Wing Attack (Costs 2 Actions)"
         }
       ],
+      "name": "Ancient Copper Dragon",
       "perception": 17,
       "saving_throws": "Dex +8, Con +14, Wis +10, Cha +11",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 27",
@@ -1637,7 +1656,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Ancient Gold Dragon": {
+    {
       "CHR": 28,
       "CON": 29,
       "DEX": 14,
@@ -1715,6 +1734,7 @@
           "name": "Wing Attack (Costs 2 Actions)"
         }
       ],
+      "name": "Ancient Gold Dragon",
       "perception": 17,
       "saving_throws": "Dex +9, Con +16, Wis +10, Cha +16",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 27",
@@ -1736,7 +1756,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Ancient Green Dragon": {
+    {
       "CHR": 19,
       "CON": 25,
       "DEX": 12,
@@ -1809,6 +1829,7 @@
           "name": "Wing Attack (Costs 2 Actions)"
         }
       ],
+      "name": "Ancient Green Dragon",
       "perception": 17,
       "saving_throws": "Dex +8, Con +14, Wis +10, Cha +11",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 27",
@@ -1830,7 +1851,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Ancient Red Dragon": {
+    {
       "CHR": 23,
       "CON": 29,
       "DEX": 10,
@@ -1903,6 +1924,7 @@
           "name": "Wing Attack (Costs 2 Actions)"
         }
       ],
+      "name": "Ancient Red Dragon",
       "perception": 16,
       "saving_throws": "Dex +7, Con +16, Wis +9, Cha +13",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 26",
@@ -1919,7 +1941,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Ancient Silver Dragon": {
+    {
       "CHR": 23,
       "CON": 29,
       "DEX": 10,
@@ -1997,6 +2019,7 @@
           "name": "Wing Attack (Costs 2 Actions)"
         }
       ],
+      "name": "Ancient Silver Dragon",
       "perception": 16,
       "saving_throws": "Dex +7, Con +16, Wis +9, Cha +13",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 26",
@@ -2013,7 +2036,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Ancient White Dragon": {
+    {
       "CHR": 14,
       "CON": 26,
       "DEX": 10,
@@ -2069,6 +2092,7 @@
       "hit_dice": "18d20",
       "hit_points": 333,
       "languages": "Common, Draconic",
+      "name": "Ancient White Dragon",
       "perception": 13,
       "saving_throws": "Dex +6, Con +14, Wis +7, Cha +8",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 23",
@@ -2090,7 +2114,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Androsphinx": {
+    {
       "CHR": 23,
       "CON": 20,
       "DEX": 10,
@@ -2143,6 +2167,7 @@
           "name": "Cast a Spell (Costs 3 Actions)"
         }
       ],
+      "name": "Androsphinx",
       "perception": 10,
       "saving_throws": "Dex +6, Con +11, Int +9, Wis +10",
       "senses": "truesight 120 ft., passive perception 20",
@@ -2169,7 +2194,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Animated Armor": {
+    {
       "CHR": 1,
       "CON": 13,
       "DEX": 11,
@@ -2200,6 +2225,7 @@
       "hit_dice": "6d8",
       "hit_points": 33,
       "languages": "",
+      "name": "Animated Armor",
       "senses": "blindsight 60 ft. (blind beyond this radius), passive perception 6",
       "size": "Medium",
       "special_abilities": [
@@ -2218,7 +2244,7 @@
       "subtype": "",
       "type": "construct"
     },
-    "Ankheg": {
+    {
       "CHR": 6,
       "CON": 13,
       "DEX": 11,
@@ -2250,13 +2276,14 @@
       "hit_dice": "6d10",
       "hit_points": 39,
       "languages": "",
+      "name": "Ankheg",
       "senses": "darkvision 60 ft., tremorsense 60 ft., passive perception 11",
       "size": "Large",
       "speed": "30 ft., burrow 10 ft.",
       "subtype": "",
       "type": "monstrosity"
     },
-    "Ape": {
+    {
       "CHR": 7,
       "CON": 14,
       "DEX": 14,
@@ -2294,6 +2321,7 @@
       "hit_dice": "3d8",
       "hit_points": 19,
       "languages": "",
+      "name": "Ape",
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Medium",
@@ -2302,7 +2330,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Archmage": {
+    {
       "CHR": 16,
       "CON": 12,
       "DEX": 14,
@@ -2328,6 +2356,7 @@
       "hit_dice": "18d8",
       "hit_points": 99,
       "languages": "any six languages",
+      "name": "Archmage",
       "saving_throws": "Int +9, Wis +6",
       "senses": "passive perception 12",
       "size": "Medium",
@@ -2348,7 +2377,7 @@
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Assassin": {
+    {
       "CHR": 10,
       "CON": 14,
       "DEX": 16,
@@ -2386,6 +2415,7 @@
       "hit_dice": "12d8",
       "hit_points": 78,
       "languages": "Thieves' cant plus any two languages",
+      "name": "Assassin",
       "perception": 3,
       "saving_throws": "Dex +6, Int +4",
       "senses": "passive perception 13",
@@ -2412,7 +2442,7 @@
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Awakened Shrub": {
+    {
       "CHR": 6,
       "CON": 11,
       "DEX": 8,
@@ -2438,6 +2468,7 @@
       "hit_dice": "3d6",
       "hit_points": 10,
       "languages": "one language known by its creator",
+      "name": "Awakened Shrub",
       "senses": "passive perception 10",
       "size": "Small",
       "special_abilities": [
@@ -2451,7 +2482,7 @@
       "subtype": "",
       "type": "plant"
     },
-    "Awakened Tree": {
+    {
       "CHR": 7,
       "CON": 15,
       "DEX": 6,
@@ -2477,6 +2508,7 @@
       "hit_dice": "7d12",
       "hit_points": 59,
       "languages": "one language known by its creator",
+      "name": "Awakened Tree",
       "senses": "passive perception 10",
       "size": "Huge",
       "special_abilities": [
@@ -2490,7 +2522,7 @@
       "subtype": "",
       "type": "plant"
     },
-    "Axe Beak": {
+    {
       "CHR": 5,
       "CON": 12,
       "DEX": 12,
@@ -2516,13 +2548,14 @@
       "hit_dice": "3d10",
       "hit_points": 19,
       "languages": "",
+      "name": "Axe Beak",
       "senses": "passive perception 10",
       "size": "Large",
       "speed": "50 ft.",
       "subtype": "",
       "type": "beast"
     },
-    "Azer": {
+    {
       "CHR": 10,
       "CON": 15,
       "DEX": 12,
@@ -2548,6 +2581,7 @@
       "hit_dice": "6d8",
       "hit_points": 39,
       "languages": "Ignan",
+      "name": "Azer",
       "saving_throws": "Con +4",
       "senses": "passive perception 11",
       "size": "Medium",
@@ -2572,7 +2606,7 @@
       "subtype": "",
       "type": "elemental"
     },
-    "Baboon": {
+    {
       "CHR": 6,
       "CON": 11,
       "DEX": 14,
@@ -2598,6 +2632,7 @@
       "hit_dice": "1d6",
       "hit_points": 3,
       "languages": "",
+      "name": "Baboon",
       "senses": "passive perception 11",
       "size": "Small",
       "special_abilities": [
@@ -2611,7 +2646,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Badger": {
+    {
       "CHR": 5,
       "CON": 12,
       "DEX": 11,
@@ -2636,6 +2671,7 @@
       "hit_dice": "1d4",
       "hit_points": 3,
       "languages": "",
+      "name": "Badger",
       "senses": "darkvision 30 ft., passive perception 11",
       "size": "Tiny",
       "special_abilities": [
@@ -2649,7 +2685,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Balor": {
+    {
       "CHR": 22,
       "CON": 22,
       "DEX": 15,
@@ -2697,6 +2733,7 @@
       "hit_dice": "21d12",
       "hit_points": 262,
       "languages": "Abyssal, telepathy 120 ft.",
+      "name": "Balor",
       "saving_throws": "Str +14, Con +12, Wis +9, Cha +12",
       "senses": "truesight 120 ft., passive perception 13",
       "size": "Huge",
@@ -2726,7 +2763,7 @@
       "subtype": "demon",
       "type": "fiend"
     },
-    "Bandit": {
+    {
       "CHR": 10,
       "CON": 12,
       "DEX": 12,
@@ -2759,13 +2796,14 @@
       "hit_dice": "2d8",
       "hit_points": 11,
       "languages": "any one language (usually Common)",
+      "name": "Bandit",
       "senses": "passive perception 10",
       "size": "Medium",
       "speed": "30 ft.",
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Bandit Captain": {
+    {
       "CHR": 14,
       "CON": 14,
       "DEX": 16,
@@ -2803,6 +2841,7 @@
       "hit_dice": "10d8",
       "hit_points": 65,
       "languages": "any two languages",
+      "name": "Bandit Captain",
       "reactions": [
         {
           "attack_bonus": 0,
@@ -2818,7 +2857,7 @@
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Barbed Devil": {
+    {
       "CHR": 14,
       "CON": 18,
       "DEX": 17,
@@ -2862,6 +2901,7 @@
       "hit_dice": "13d8",
       "hit_points": 110,
       "languages": "Infernal, telepathy 120 ft.",
+      "name": "Barbed Devil",
       "perception": 8,
       "saving_throws": "Str +6, Con +7, Wis +5, Cha +5",
       "senses": "darkvision 120 ft., passive perception 18",
@@ -2888,7 +2928,7 @@
       "subtype": "devil",
       "type": "fiend"
     },
-    "Basilisk": {
+    {
       "CHR": 7,
       "CON": 15,
       "DEX": 8,
@@ -2914,6 +2954,7 @@
       "hit_dice": "8d8",
       "hit_points": 52,
       "languages": "",
+      "name": "Basilisk",
       "senses": "darkvision 60 ft., passive perception 9",
       "size": "Medium",
       "special_abilities": [
@@ -2927,7 +2968,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Bat": {
+    {
       "CHR": 4,
       "CON": 8,
       "DEX": 15,
@@ -2952,6 +2993,7 @@
       "hit_dice": "1d4",
       "hit_points": 1,
       "languages": "",
+      "name": "Bat",
       "senses": "blindsight 60 ft., passive perception 11",
       "size": "Tiny",
       "special_abilities": [
@@ -2970,7 +3012,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Bearded Devil": {
+    {
       "CHR": 11,
       "CON": 15,
       "DEX": 15,
@@ -3008,6 +3050,7 @@
       "hit_dice": "8d8",
       "hit_points": 52,
       "languages": "Infernal, telepathy 120 ft.",
+      "name": "Bearded Devil",
       "saving_throws": "Str +5, Con +4, Wis +2",
       "senses": "darkvision 120 ft., passive perception 10",
       "size": "Medium",
@@ -3032,7 +3075,7 @@
       "subtype": "devil",
       "type": "fiend"
     },
-    "Behir": {
+    {
       "CHR": 12,
       "CON": 18,
       "DEX": 16,
@@ -3082,6 +3125,7 @@
       "hit_dice": "16d12",
       "hit_points": 168,
       "languages": "Draconic",
+      "name": "Behir",
       "perception": 6,
       "senses": "darkvision 90 ft., passive perception 16",
       "size": "Huge",
@@ -3090,7 +3134,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Berserker": {
+    {
       "CHR": 9,
       "CON": 17,
       "DEX": 12,
@@ -3116,6 +3160,7 @@
       "hit_dice": "9d8",
       "hit_points": 67,
       "languages": "any one language (usually Common)",
+      "name": "Berserker",
       "senses": "passive perception 10",
       "size": "Medium",
       "special_abilities": [
@@ -3129,7 +3174,7 @@
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Black Bear": {
+    {
       "CHR": 7,
       "CON": 14,
       "DEX": 10,
@@ -3167,6 +3212,7 @@
       "hit_dice": "3d8",
       "hit_points": 19,
       "languages": "",
+      "name": "Black Bear",
       "senses": "passive perception 13",
       "size": "Medium",
       "special_abilities": [
@@ -3180,7 +3226,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Black Dragon Wyrmling": {
+    {
       "CHR": 13,
       "CON": 13,
       "DEX": 14,
@@ -3212,6 +3258,7 @@
       "hit_dice": "6d8",
       "hit_points": 33,
       "languages": "Draconic",
+      "name": "Black Dragon Wyrmling",
       "perception": 4,
       "saving_throws": "Dex +4, Con +3, Wis +2, Cha +3",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 14",
@@ -3228,7 +3275,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Black Pudding": {
+    {
       "CHR": 1,
       "CON": 16,
       "DEX": 5,
@@ -3254,6 +3301,7 @@
       "hit_dice": "10d10",
       "hit_points": 85,
       "languages": "",
+      "name": "Black Pudding",
       "reactions": [
         {
           "attack_bonus": 0,
@@ -3284,7 +3332,7 @@
       "subtype": "",
       "type": "ooze"
     },
-    "Blink Dog": {
+    {
       "CHR": 11,
       "CON": 12,
       "DEX": 17,
@@ -3315,6 +3363,7 @@
       "hit_dice": "4d8",
       "hit_points": 22,
       "languages": "Blink Dog, understands Sylvan but can't speak it",
+      "name": "Blink Dog",
       "perception": 3,
       "senses": "passive perception 10",
       "size": "Medium",
@@ -3330,7 +3379,7 @@
       "subtype": "",
       "type": "fey"
     },
-    "Blood Hawk": {
+    {
       "CHR": 5,
       "CON": 10,
       "DEX": 14,
@@ -3356,6 +3405,7 @@
       "hit_dice": "2d6",
       "hit_points": 7,
       "languages": "",
+      "name": "Blood Hawk",
       "perception": 4,
       "senses": "passive perception 14",
       "size": "Small",
@@ -3376,7 +3426,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Blue Dragon Wyrmling": {
+    {
       "CHR": 15,
       "CON": 15,
       "DEX": 10,
@@ -3408,6 +3458,7 @@
       "hit_dice": "8d8",
       "hit_points": 52,
       "languages": "Draconic",
+      "name": "Blue Dragon Wyrmling",
       "perception": 4,
       "saving_throws": "Dex +2, Con +4, Wis +2, Cha +4",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 14",
@@ -3417,7 +3468,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Boar": {
+    {
       "CHR": 5,
       "CON": 12,
       "DEX": 11,
@@ -3443,6 +3494,7 @@
       "hit_dice": "2d8",
       "hit_points": 11,
       "languages": "",
+      "name": "Boar",
       "senses": "passive perception 9",
       "size": "Medium",
       "special_abilities": [
@@ -3461,7 +3513,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Bone Devil": {
+    {
       "CHR": 16,
       "CON": 18,
       "DEX": 16,
@@ -3518,6 +3570,7 @@
       "hit_dice": "15d10",
       "hit_points": 142,
       "languages": "Infernal, telepathy 120 ft.",
+      "name": "Bone Devil",
       "saving_throws": "Int +5, Wis +6, Cha +7",
       "senses": "darkvision 120 ft., passive perception 9",
       "size": "Large",
@@ -3538,7 +3591,7 @@
       "subtype": "devil",
       "type": "fiend"
     },
-    "Brass Dragon Wyrmling": {
+    {
       "CHR": 13,
       "CON": 13,
       "DEX": 10,
@@ -3570,6 +3623,7 @@
       "hit_dice": "3d8",
       "hit_points": 16,
       "languages": "Draconic",
+      "name": "Brass Dragon Wyrmling",
       "perception": 4,
       "saving_throws": "Dex +2, Con +3, Wis +2, Cha +3",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 14",
@@ -3579,7 +3633,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Bronze Dragon Wyrmling": {
+    {
       "CHR": 15,
       "CON": 15,
       "DEX": 10,
@@ -3611,6 +3665,7 @@
       "hit_dice": "5d8",
       "hit_points": 32,
       "languages": "Draconic",
+      "name": "Bronze Dragon Wyrmling",
       "perception": 4,
       "saving_throws": "Dex +2, Con +4, Wis +2, Cha +4",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 14",
@@ -3627,7 +3682,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Brown Bear": {
+    {
       "CHR": 7,
       "CON": 16,
       "DEX": 10,
@@ -3665,6 +3720,7 @@
       "hit_dice": "4d10",
       "hit_points": 34,
       "languages": "",
+      "name": "Brown Bear",
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Large",
@@ -3680,7 +3736,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Bugbear": {
+    {
       "CHR": 9,
       "CON": 13,
       "DEX": 14,
@@ -3713,6 +3769,7 @@
       "hit_dice": "5d8",
       "hit_points": 27,
       "languages": "Common, Goblin",
+      "name": "Bugbear",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Medium",
       "skills": "Stealth +6, Survival +2",
@@ -3732,7 +3789,7 @@
       "subtype": "goblinoid",
       "type": "humanoid"
     },
-    "Bulette": {
+    {
       "CHR": 5,
       "CON": 21,
       "DEX": 11,
@@ -3763,6 +3820,7 @@
       "hit_dice": "9d10",
       "hit_points": 94,
       "languages": "",
+      "name": "Bulette",
       "perception": 6,
       "senses": "darkvision 60 ft., tremorsense 60 ft., passive perception 16",
       "size": "Large",
@@ -3778,7 +3836,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Camel": {
+    {
       "CHR": 5,
       "CON": 14,
       "DEX": 8,
@@ -3803,13 +3861,14 @@
       "hit_dice": "2d10",
       "hit_points": 15,
       "languages": "",
+      "name": "Camel",
       "senses": "passive perception 9",
       "size": "Large",
       "speed": "50 ft.",
       "subtype": "",
       "type": "beast"
     },
-    "Carrion Crawler": {
+    {
       "CHR": 5,
       "CON": 16,
       "DEX": 13,
@@ -3847,6 +3906,7 @@
       "hit_dice": "6d10",
       "hit_points": 51,
       "languages": "",
+      "name": "Carrion Crawler",
       "perception": 3,
       "senses": "darkvision 60 ft., passive perception 13",
       "size": "Large",
@@ -3866,7 +3926,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Cat": {
+    {
       "CHR": 7,
       "CON": 10,
       "DEX": 15,
@@ -3891,6 +3951,7 @@
       "hit_dice": "1d4",
       "hit_points": 2,
       "languages": "",
+      "name": "Cat",
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Tiny",
@@ -3906,7 +3967,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Cave Bear": {
+    {
       "CHR": 7,
       "CON": 16,
       "DEX": 10,
@@ -3944,6 +4005,7 @@
       "hit_dice": "5d10",
       "hit_points": 42,
       "languages": "",
+      "name": "Cave Bear",
       "perception": 3,
       "senses": "darkvision 60 ft., passive perception 13",
       "size": "Large",
@@ -3958,7 +4020,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Centaur": {
+    {
       "CHR": 11,
       "CON": 14,
       "DEX": 14,
@@ -4003,6 +4065,7 @@
       "hit_dice": "6d10",
       "hit_points": 45,
       "languages": "Elvish, Sylvan",
+      "name": "Centaur",
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Large",
@@ -4018,7 +4081,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Chain Devil": {
+    {
       "CHR": 14,
       "CON": 18,
       "DEX": 15,
@@ -4054,6 +4117,7 @@
       "hit_dice": "10d8",
       "hit_points": 85,
       "languages": "Infernal, telepathy 120 ft.",
+      "name": "Chain Devil",
       "reactions": [
         {
           "attack_bonus": 0,
@@ -4080,7 +4144,7 @@
       "subtype": "devil",
       "type": "fiend"
     },
-    "Chimera": {
+    {
       "CHR": 10,
       "CON": 19,
       "DEX": 11,
@@ -4131,6 +4195,7 @@
       "hit_dice": "12d10",
       "hit_points": 114,
       "languages": "understands Draconic but can't speak",
+      "name": "Chimera",
       "perception": 8,
       "senses": "darkvision 60 ft., passive perception 18",
       "size": "Large",
@@ -4139,7 +4204,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Chuul": {
+    {
       "CHR": 5,
       "CON": 16,
       "DEX": 10,
@@ -4175,6 +4240,7 @@
       "hit_dice": "11d10",
       "hit_points": 93,
       "languages": "understands Deep Speech but can't speak",
+      "name": "Chuul",
       "perception": 4,
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Large",
@@ -4195,7 +4261,7 @@
       "subtype": "",
       "type": "aberration"
     },
-    "Clay Golem": {
+    {
       "CHR": 1,
       "CON": 18,
       "DEX": 9,
@@ -4231,6 +4297,7 @@
       "hit_dice": "14d10",
       "hit_points": 133,
       "languages": "understands the languages of its creator but can't speak",
+      "name": "Clay Golem",
       "senses": "darkvision 60 ft., passive perception 9",
       "size": "Large",
       "special_abilities": [
@@ -4264,7 +4331,7 @@
       "subtype": "",
       "type": "construct"
     },
-    "Cloaker": {
+    {
       "CHR": 14,
       "CON": 12,
       "DEX": 15,
@@ -4312,6 +4379,7 @@
       "hit_dice": "12d10",
       "hit_points": 78,
       "languages": "Deep Speech, Undercommon",
+      "name": "Cloaker",
       "senses": "darkvision 60 ft., passive perception 11",
       "size": "Large",
       "skills": "Stealth +5",
@@ -4336,7 +4404,7 @@
       "subtype": "",
       "type": "aberration"
     },
-    "Cloud Giant": {
+    {
       "CHR": 16,
       "CON": 22,
       "DEX": 10,
@@ -4374,6 +4442,7 @@
       "hit_dice": "16d12",
       "hit_points": 200,
       "languages": "Common, Giant",
+      "name": "Cloud Giant",
       "perception": 7,
       "saving_throws": "Con +10, Wis +7, Cha +7",
       "senses": "passive perception 17",
@@ -4395,7 +4464,7 @@
       "subtype": "",
       "type": "giant"
     },
-    "Cockatrice": {
+    {
       "CHR": 5,
       "CON": 12,
       "DEX": 12,
@@ -4421,13 +4490,14 @@
       "hit_dice": "6d6",
       "hit_points": 27,
       "languages": "",
+      "name": "Cockatrice",
       "senses": "darkvision 60 ft., passive perception 11",
       "size": "Small",
       "speed": "20 ft., fly 40 ft.",
       "subtype": "",
       "type": "monstrosity"
     },
-    "Commoner": {
+    {
       "CHR": 10,
       "CON": 10,
       "DEX": 10,
@@ -4452,13 +4522,14 @@
       "hit_dice": "1d8",
       "hit_points": 4,
       "languages": "any one language (usually Common)",
+      "name": "Commoner",
       "senses": "passive perception 10",
       "size": "Medium",
       "speed": "30 ft.",
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Constrictor Snake": {
+    {
       "CHR": 3,
       "CON": 12,
       "DEX": 14,
@@ -4491,13 +4562,14 @@
       "hit_dice": "2d10",
       "hit_points": 13,
       "languages": "",
+      "name": "Constrictor Snake",
       "senses": "blindsight 10 ft., passive perception 10",
       "size": "Large",
       "speed": "30 ft., swim 30 ft.",
       "subtype": "",
       "type": "beast"
     },
-    "Copper Dragon Wyrmling": {
+    {
       "CHR": 13,
       "CON": 13,
       "DEX": 12,
@@ -4529,6 +4601,7 @@
       "hit_dice": "4d8",
       "hit_points": 22,
       "languages": "Draconic",
+      "name": "Copper Dragon Wyrmling",
       "perception": 4,
       "saving_throws": "Dex +3, Con +3, Wis +2, Cha +3",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 14",
@@ -4538,7 +4611,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Couatl": {
+    {
       "CHR": 18,
       "CON": 17,
       "DEX": 20,
@@ -4576,6 +4649,7 @@
       "hit_dice": "13d8",
       "hit_points": 97,
       "languages": "all, telepathy 120 ft.",
+      "name": "Couatl",
       "saving_throws": "Con +5, Wis +7, Cha +6",
       "senses": "truesight 120 ft., passive perception 15",
       "size": "Medium",
@@ -4600,7 +4674,7 @@
       "subtype": "",
       "type": "celestial"
     },
-    "Crab": {
+    {
       "CHR": 2,
       "CON": 10,
       "DEX": 11,
@@ -4625,6 +4699,7 @@
       "hit_dice": "1d4",
       "hit_points": 2,
       "languages": "",
+      "name": "Crab",
       "senses": "blindsight 30 ft., passive perception 9",
       "size": "Tiny",
       "skills": "Stealth +2",
@@ -4639,7 +4714,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Crocodile": {
+    {
       "CHR": 5,
       "CON": 13,
       "DEX": 10,
@@ -4665,6 +4740,7 @@
       "hit_dice": "3d10",
       "hit_points": 19,
       "languages": "",
+      "name": "Crocodile",
       "senses": "passive perception 10",
       "size": "Large",
       "skills": "Stealth +2",
@@ -4679,7 +4755,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Cult Fanatic": {
+    {
       "CHR": 14,
       "CON": 12,
       "DEX": 14,
@@ -4710,6 +4786,7 @@
       "hit_dice": "6d8",
       "hit_points": 22,
       "languages": "any one language (usually Common)",
+      "name": "Cult Fanatic",
       "senses": "passive perception 11",
       "size": "Medium",
       "skills": "Deception +4, Persuasion +4, Religion +2",
@@ -4729,7 +4806,7 @@
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Cultist": {
+    {
       "CHR": 10,
       "CON": 10,
       "DEX": 12,
@@ -4755,6 +4832,7 @@
       "hit_dice": "2d8",
       "hit_points": 9,
       "languages": "any one language (usually Common)",
+      "name": "Cultist",
       "senses": "passive perception 10",
       "size": "Medium",
       "skills": "Deception +2, Religion +2",
@@ -4769,7 +4847,7 @@
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Darkmantle": {
+    {
       "CHR": 5,
       "CON": 13,
       "DEX": 12,
@@ -4800,6 +4878,7 @@
       "hit_dice": "5d6",
       "hit_points": 22,
       "languages": "",
+      "name": "Darkmantle",
       "senses": "blindsight 60 ft., passive perception 10",
       "size": "Small",
       "skills": "Stealth +3",
@@ -4819,7 +4898,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Death Dog": {
+    {
       "CHR": 6,
       "CON": 14,
       "DEX": 14,
@@ -4850,6 +4929,7 @@
       "hit_dice": "6d8",
       "hit_points": 39,
       "languages": "",
+      "name": "Death Dog",
       "perception": 5,
       "senses": "darkvision 120 ft., passive perception 15",
       "size": "Medium",
@@ -4865,7 +4945,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Deep Gnome (Svirfneblin)": {
+    {
       "CHR": 9,
       "CON": 14,
       "DEX": 14,
@@ -4898,6 +4978,7 @@
       "hit_dice": "3d6",
       "hit_points": 16,
       "languages": "Gnomish, Terran, Undercommon",
+      "name": "Deep Gnome (Svirfneblin)",
       "perception": 2,
       "senses": "darkvision 120 ft., passive perception 12",
       "size": "Small",
@@ -4923,7 +5004,7 @@
       "subtype": "gnome",
       "type": "humanoid"
     },
-    "Deer": {
+    {
       "CHR": 5,
       "CON": 11,
       "DEX": 16,
@@ -4948,13 +5029,14 @@
       "hit_dice": "1d8",
       "hit_points": 4,
       "languages": "",
+      "name": "Deer",
       "senses": "passive perception 12",
       "size": "Medium",
       "speed": "50 ft.",
       "subtype": "",
       "type": "beast"
     },
-    "Deva": {
+    {
       "CHR": 20,
       "CON": 18,
       "DEX": 18,
@@ -4995,6 +5077,7 @@
       "hit_dice": "16d8",
       "hit_points": 136,
       "languages": "all, telepathy 120 ft.",
+      "name": "Deva",
       "perception": 9,
       "saving_throws": "Wis +9, Cha +9",
       "senses": "darkvision 120 ft., passive perception 19",
@@ -5021,7 +5104,7 @@
       "subtype": "",
       "type": "celestial"
     },
-    "Dire Wolf": {
+    {
       "CHR": 7,
       "CON": 15,
       "DEX": 15,
@@ -5047,6 +5130,7 @@
       "hit_dice": "5d10",
       "hit_points": 37,
       "languages": "",
+      "name": "Dire Wolf",
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Large",
@@ -5067,7 +5151,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Djinni": {
+    {
       "CHR": 20,
       "CON": 22,
       "DEX": 15,
@@ -5103,6 +5187,7 @@
       "hit_dice": "14d10",
       "hit_points": 161,
       "languages": "Auran",
+      "name": "Djinni",
       "saving_throws": "Dex +6, Wis +7, Cha +9",
       "senses": "darkvision 120 ft., passive perception 13",
       "size": "Large",
@@ -5127,7 +5212,7 @@
       "subtype": "",
       "type": "elemental"
     },
-    "Doppelganger": {
+    {
       "CHR": 14,
       "CON": 14,
       "DEX": 18,
@@ -5163,6 +5248,7 @@
       "hit_dice": "8d8",
       "hit_points": 52,
       "languages": "Common",
+      "name": "Doppelganger",
       "senses": "darkvision 60 ft., passive perception 11",
       "size": "Medium",
       "skills": "Deception +6, Insight +3",
@@ -5187,7 +5273,7 @@
       "subtype": "shapechanger",
       "type": "monstrosity"
     },
-    "Draft Horse": {
+    {
       "CHR": 7,
       "CON": 12,
       "DEX": 10,
@@ -5213,13 +5299,14 @@
       "hit_dice": "3d10",
       "hit_points": 19,
       "languages": "",
+      "name": "Draft Horse",
       "senses": "passive perception 10",
       "size": "Large",
       "speed": "40 ft.",
       "subtype": "",
       "type": "beast"
     },
-    "Dragon Turtle": {
+    {
       "CHR": 12,
       "CON": 20,
       "DEX": 10,
@@ -5270,6 +5357,7 @@
       "hit_dice": "22d20",
       "hit_points": 341,
       "languages": "Aquan, Draconic",
+      "name": "Dragon Turtle",
       "saving_throws": "Dex +6, Con +11, Wis +7",
       "senses": "darkvision 120 ft., passive perception 11",
       "size": "Gargantuan",
@@ -5284,7 +5372,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Dretch": {
+    {
       "CHR": 3,
       "CON": 12,
       "DEX": 11,
@@ -5325,13 +5413,14 @@
       "hit_dice": "4d6",
       "hit_points": 18,
       "languages": "Abyssal, telepathy 60 ft. (works only with creatures that understand Abyssal)",
+      "name": "Dretch",
       "senses": "darkvision 60 ft., passive perception 9",
       "size": "Small",
       "speed": "20 ft.",
       "subtype": "demon",
       "type": "fiend"
     },
-    "Drider": {
+    {
       "CHR": 12,
       "CON": 18,
       "DEX": 16,
@@ -5376,6 +5465,7 @@
       "hit_dice": "13d10",
       "hit_points": 123,
       "languages": "Elvish, Undercommon",
+      "name": "Drider",
       "perception": 5,
       "senses": "darkvision 120 ft., passive perception 15",
       "size": "Large",
@@ -5411,7 +5501,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Drow": {
+    {
       "CHR": 12,
       "CON": 10,
       "DEX": 14,
@@ -5444,6 +5534,7 @@
       "hit_dice": "3d8",
       "hit_points": 13,
       "languages": "Elvish, Undercommon",
+      "name": "Drow",
       "perception": 2,
       "senses": "darkvision 120 ft., passive perception 12",
       "size": "Medium",
@@ -5469,7 +5560,7 @@
       "subtype": "elf",
       "type": "humanoid"
     },
-    "Druid": {
+    {
       "CHR": 11,
       "CON": 13,
       "DEX": 12,
@@ -5494,6 +5585,7 @@
       "hit_dice": "5d8",
       "hit_points": 27,
       "languages": "Druidic plus any two languages",
+      "name": "Druid",
       "perception": 4,
       "senses": "passive perception 14",
       "size": "Medium",
@@ -5509,7 +5601,7 @@
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Dryad": {
+    {
       "CHR": 18,
       "CON": 11,
       "DEX": 12,
@@ -5539,6 +5631,7 @@
       "hit_dice": "5d8",
       "hit_points": 22,
       "languages": "Elvish, Sylvan",
+      "name": "Dryad",
       "perception": 4,
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Medium",
@@ -5569,7 +5662,7 @@
       "subtype": "",
       "type": "fey"
     },
-    "Duergar": {
+    {
       "CHR": 9,
       "CON": 14,
       "DEX": 11,
@@ -5612,6 +5705,7 @@
       "hit_dice": "4d8",
       "hit_points": 26,
       "languages": "Dwarvish, Undercommon",
+      "name": "Duergar",
       "senses": "darkvision 120 ft., passive perception 10",
       "size": "Medium",
       "special_abilities": [
@@ -5630,7 +5724,7 @@
       "subtype": "dwarf",
       "type": "humanoid"
     },
-    "Dust Mephit": {
+    {
       "CHR": 10,
       "CON": 10,
       "DEX": 14,
@@ -5666,6 +5760,7 @@
       "hit_dice": "5d6",
       "hit_points": 17,
       "languages": "Auran, Terran",
+      "name": "Dust Mephit",
       "perception": 2,
       "senses": "darkvision 60 ft., passive perception 12",
       "size": "Small",
@@ -5686,7 +5781,7 @@
       "subtype": "",
       "type": "elemental"
     },
-    "Eagle": {
+    {
       "CHR": 7,
       "CON": 10,
       "DEX": 15,
@@ -5712,6 +5807,7 @@
       "hit_dice": "1d6",
       "hit_points": 3,
       "languages": "",
+      "name": "Eagle",
       "perception": 4,
       "senses": "passive perception 14",
       "size": "Small",
@@ -5727,7 +5823,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Earth Elemental": {
+    {
       "CHR": 5,
       "CON": 20,
       "DEX": 8,
@@ -5758,6 +5854,7 @@
       "hit_dice": "12d10",
       "hit_points": 126,
       "languages": "Terran",
+      "name": "Earth Elemental",
       "senses": "darkvision 60 ft., tremorsense 60 ft., passive perception 10",
       "size": "Large",
       "special_abilities": [
@@ -5776,7 +5873,7 @@
       "subtype": "",
       "type": "elemental"
     },
-    "Efreeti": {
+    {
       "CHR": 16,
       "CON": 24,
       "DEX": 12,
@@ -5813,6 +5910,7 @@
       "hit_dice": "16d10",
       "hit_points": 200,
       "languages": "Ignan",
+      "name": "Efreeti",
       "saving_throws": "Int +7, Wis +6, Cha +7",
       "senses": "darkvision 120 ft., passive perception 12",
       "size": "Large",
@@ -5837,7 +5935,7 @@
       "subtype": "",
       "type": "elemental"
     },
-    "Elephant": {
+    {
       "CHR": 6,
       "CON": 17,
       "DEX": 9,
@@ -5870,6 +5968,7 @@
       "hit_dice": "8d12",
       "hit_points": 76,
       "languages": "",
+      "name": "Elephant",
       "senses": "passive perception 10",
       "size": "Huge",
       "special_abilities": [
@@ -5883,7 +5982,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Elk": {
+    {
       "CHR": 6,
       "CON": 12,
       "DEX": 10,
@@ -5912,6 +6011,7 @@
       "hit_dice": "2d10",
       "hit_points": 13,
       "languages": "",
+      "name": "Elk",
       "senses": "passive perception 10",
       "size": "Large",
       "special_abilities": [
@@ -5925,7 +6025,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Erinyes": {
+    {
       "CHR": 18,
       "CON": 18,
       "DEX": 16,
@@ -5968,6 +6068,7 @@
       "hit_dice": "18d8",
       "hit_points": 153,
       "languages": "Infernal, telepathy 120 ft.",
+      "name": "Erinyes",
       "reactions": [
         {
           "attack_bonus": 0,
@@ -5994,7 +6095,7 @@
       "subtype": "devil",
       "type": "fiend"
     },
-    "Ettercap": {
+    {
       "CHR": 8,
       "CON": 13,
       "DEX": 15,
@@ -6044,6 +6145,7 @@
       "hit_dice": "8d8",
       "hit_points": 44,
       "languages": "",
+      "name": "Ettercap",
       "perception": 3,
       "senses": "darkvision 60 ft., passive perception 13",
       "size": "Medium",
@@ -6069,7 +6171,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Ettin": {
+    {
       "CHR": 8,
       "CON": 17,
       "DEX": 8,
@@ -6107,6 +6209,7 @@
       "hit_dice": "10d10",
       "hit_points": 85,
       "languages": "Giant, Orc",
+      "name": "Ettin",
       "perception": 4,
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Large",
@@ -6127,7 +6230,7 @@
       "subtype": "",
       "type": "giant"
     },
-    "Fire Elemental": {
+    {
       "CHR": 7,
       "CON": 16,
       "DEX": 17,
@@ -6158,6 +6261,7 @@
       "hit_dice": "12d10",
       "hit_points": 102,
       "languages": "Ignan",
+      "name": "Fire Elemental",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Large",
       "special_abilities": [
@@ -6181,7 +6285,7 @@
       "subtype": "",
       "type": "elemental"
     },
-    "Fire Giant": {
+    {
       "CHR": 13,
       "CON": 23,
       "DEX": 9,
@@ -6219,6 +6323,7 @@
       "hit_dice": "13d12",
       "hit_points": 162,
       "languages": "Giant",
+      "name": "Fire Giant",
       "perception": 6,
       "saving_throws": "Dex +3, Con +10, Cha +5",
       "senses": "passive perception 16",
@@ -6228,7 +6333,7 @@
       "subtype": "",
       "type": "giant"
     },
-    "Flesh Golem": {
+    {
       "CHR": 5,
       "CON": 18,
       "DEX": 9,
@@ -6259,6 +6364,7 @@
       "hit_dice": "11d8",
       "hit_points": 93,
       "languages": "understands the languages of its creator but can't speak",
+      "name": "Flesh Golem",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Medium",
       "special_abilities": [
@@ -6297,7 +6403,7 @@
       "subtype": "",
       "type": "construct"
     },
-    "Flying Snake": {
+    {
       "CHR": 5,
       "CON": 11,
       "DEX": 18,
@@ -6322,6 +6428,7 @@
       "hit_dice": "2d4",
       "hit_points": 5,
       "languages": "",
+      "name": "Flying Snake",
       "senses": "blindsight 10 ft., passive perception 11",
       "size": "Tiny",
       "special_abilities": [
@@ -6335,7 +6442,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Flying Sword": {
+    {
       "CHR": 1,
       "CON": 11,
       "DEX": 15,
@@ -6361,6 +6468,7 @@
       "hit_dice": "5d6",
       "hit_points": 17,
       "languages": "",
+      "name": "Flying Sword",
       "saving_throws": "Dex +4",
       "senses": "blindsight 60 ft. (blind beyond this radius), passive perception 7",
       "size": "Small",
@@ -6380,7 +6488,7 @@
       "subtype": "",
       "type": "construct"
     },
-    "Frog": {
+    {
       "CHR": 3,
       "CON": 8,
       "DEX": 13,
@@ -6397,6 +6505,7 @@
       "hit_dice": "1d4",
       "hit_points": 1,
       "languages": "",
+      "name": "Frog",
       "perception": 1,
       "senses": "darkvision 30 ft., passive perception 11",
       "size": "Tiny",
@@ -6417,7 +6526,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Frost Giant": {
+    {
       "CHR": 12,
       "CON": 21,
       "DEX": 9,
@@ -6455,6 +6564,7 @@
       "hit_dice": "12d12",
       "hit_points": 138,
       "languages": "Giant",
+      "name": "Frost Giant",
       "perception": 3,
       "saving_throws": "Con +8, Wis +3, Cha +4",
       "senses": "passive perception 13",
@@ -6464,7 +6574,7 @@
       "subtype": "",
       "type": "giant"
     },
-    "Gargoyle": {
+    {
       "CHR": 7,
       "CON": 16,
       "DEX": 11,
@@ -6502,6 +6612,7 @@
       "hit_dice": "7d8",
       "hit_points": 52,
       "languages": "Terran",
+      "name": "Gargoyle",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Medium",
       "special_abilities": [
@@ -6515,7 +6626,7 @@
       "subtype": "",
       "type": "elemental"
     },
-    "Gelatinous Cube": {
+    {
       "CHR": 1,
       "CON": 20,
       "DEX": 3,
@@ -6545,6 +6656,7 @@
       "hit_dice": "8d10",
       "hit_points": 84,
       "languages": "",
+      "name": "Gelatinous Cube",
       "senses": "blindsight 60 ft. (blind beyond this radius), passive perception 8",
       "size": "Large",
       "special_abilities": [
@@ -6563,7 +6675,7 @@
       "subtype": "",
       "type": "ooze"
     },
-    "Ghast": {
+    {
       "CHR": 8,
       "CON": 10,
       "DEX": 17,
@@ -6596,6 +6708,7 @@
       "hit_dice": "8d8",
       "hit_points": 36,
       "languages": "Common",
+      "name": "Ghast",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Medium",
       "special_abilities": [
@@ -6614,7 +6727,7 @@
       "subtype": "",
       "type": "undead"
     },
-    "Ghost": {
+    {
       "CHR": 17,
       "CON": 10,
       "DEX": 13,
@@ -6655,6 +6768,7 @@
       "hit_dice": "10d8",
       "hit_points": 45,
       "languages": "any languages it knew in life",
+      "name": "Ghost",
       "senses": "darkvision 60 ft., passive perception 11",
       "size": "Medium",
       "special_abilities": [
@@ -6673,7 +6787,7 @@
       "subtype": "",
       "type": "undead"
     },
-    "Ghoul": {
+    {
       "CHR": 6,
       "CON": 10,
       "DEX": 15,
@@ -6704,13 +6818,14 @@
       "hit_dice": "5d8",
       "hit_points": 22,
       "languages": "Common",
+      "name": "Ghoul",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Medium",
       "speed": "30 ft.",
       "subtype": "",
       "type": "undead"
     },
-    "Giant Ape": {
+    {
       "CHR": 7,
       "CON": 18,
       "DEX": 14,
@@ -6748,6 +6863,7 @@
       "hit_dice": "15d12",
       "hit_points": 157,
       "languages": "",
+      "name": "Giant Ape",
       "perception": 4,
       "senses": "passive perception 14",
       "size": "Huge",
@@ -6756,7 +6872,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Badger": {
+    {
       "CHR": 5,
       "CON": 15,
       "DEX": 10,
@@ -6794,6 +6910,7 @@
       "hit_dice": "2d8",
       "hit_points": 13,
       "languages": "",
+      "name": "Giant Badger",
       "senses": "darkvision 30 ft., passive perception 11",
       "size": "Medium",
       "special_abilities": [
@@ -6807,7 +6924,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Bat": {
+    {
       "CHR": 6,
       "CON": 11,
       "DEX": 16,
@@ -6833,6 +6950,7 @@
       "hit_dice": "4d10",
       "hit_points": 22,
       "languages": "",
+      "name": "Giant Bat",
       "senses": "blindsight 60 ft., passive perception 11",
       "size": "Large",
       "special_abilities": [
@@ -6851,7 +6969,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Boar": {
+    {
       "CHR": 5,
       "CON": 16,
       "DEX": 10,
@@ -6877,6 +6995,7 @@
       "hit_dice": "5d10",
       "hit_points": 42,
       "languages": "",
+      "name": "Giant Boar",
       "senses": "passive perception 8",
       "size": "Large",
       "special_abilities": [
@@ -6895,7 +7014,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Centipede": {
+    {
       "CHR": 3,
       "CON": 12,
       "DEX": 14,
@@ -6921,13 +7040,14 @@
       "hit_dice": "1d6",
       "hit_points": 4,
       "languages": "",
+      "name": "Giant Centipede",
       "senses": "blindsight 30 ft., passive perception 8",
       "size": "Small",
       "speed": "30 ft., climb 30 ft.",
       "subtype": "",
       "type": "beast"
     },
-    "Giant Constrictor Snake": {
+    {
       "CHR": 3,
       "CON": 12,
       "DEX": 14,
@@ -6960,6 +7080,7 @@
       "hit_dice": "8d12",
       "hit_points": 60,
       "languages": "",
+      "name": "Giant Constrictor Snake",
       "perception": 2,
       "senses": "blindsight 10 ft., passive perception 12",
       "size": "Huge",
@@ -6968,7 +7089,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Crab": {
+    {
       "CHR": 3,
       "CON": 11,
       "DEX": 15,
@@ -6994,6 +7115,7 @@
       "hit_dice": "3d8",
       "hit_points": 13,
       "languages": "",
+      "name": "Giant Crab",
       "senses": "blindsight 30 ft., passive perception 9",
       "size": "Medium",
       "skills": "Stealth +4",
@@ -7008,7 +7130,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Crocodile": {
+    {
       "CHR": 7,
       "CON": 17,
       "DEX": 9,
@@ -7046,6 +7168,7 @@
       "hit_dice": "9d12",
       "hit_points": 85,
       "languages": "",
+      "name": "Giant Crocodile",
       "senses": "passive perception 10",
       "size": "Huge",
       "skills": "Stealth +5",
@@ -7060,7 +7183,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Eagle": {
+    {
       "CHR": 10,
       "CON": 13,
       "DEX": 17,
@@ -7098,6 +7221,7 @@
       "hit_dice": "4d10",
       "hit_points": 26,
       "languages": "Giant Eagle, understands Common and Auran but can't speak",
+      "name": "Giant Eagle",
       "perception": 4,
       "senses": "passive perception 14",
       "size": "Large",
@@ -7113,7 +7237,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Elk": {
+    {
       "CHR": 10,
       "CON": 14,
       "DEX": 16,
@@ -7146,6 +7270,7 @@
       "hit_dice": "5d12",
       "hit_points": 42,
       "languages": "Giant Elk, understands Common, Elvish, and Sylvan but can't speak",
+      "name": "Giant Elk",
       "perception": 4,
       "senses": "passive perception 14",
       "size": "Huge",
@@ -7161,7 +7286,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Fire Beetle": {
+    {
       "CHR": 3,
       "CON": 12,
       "DEX": 10,
@@ -7187,6 +7312,7 @@
       "hit_dice": "1d6",
       "hit_points": 4,
       "languages": "",
+      "name": "Giant Fire Beetle",
       "senses": "blindsight 30 ft., passive perception 8",
       "size": "Small",
       "special_abilities": [
@@ -7200,7 +7326,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Frog": {
+    {
       "CHR": 3,
       "CON": 11,
       "DEX": 13,
@@ -7231,6 +7357,7 @@
       "hit_dice": "4d8",
       "hit_points": 18,
       "languages": "",
+      "name": "Giant Frog",
       "perception": 2,
       "senses": "darkvision 30 ft., passive perception 12",
       "size": "Medium",
@@ -7251,7 +7378,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Goat": {
+    {
       "CHR": 6,
       "CON": 12,
       "DEX": 11,
@@ -7277,6 +7404,7 @@
       "hit_dice": "3d10",
       "hit_points": 19,
       "languages": "",
+      "name": "Giant Goat",
       "senses": "passive perception 11",
       "size": "Large",
       "special_abilities": [
@@ -7295,7 +7423,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Hyena": {
+    {
       "CHR": 7,
       "CON": 14,
       "DEX": 14,
@@ -7321,6 +7449,7 @@
       "hit_dice": "6d10",
       "hit_points": 45,
       "languages": "",
+      "name": "Giant Hyena",
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Large",
@@ -7336,7 +7465,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Lizard": {
+    {
       "CHR": 5,
       "CON": 13,
       "DEX": 12,
@@ -7362,6 +7491,7 @@
       "hit_dice": "3d10",
       "hit_points": 19,
       "languages": "",
+      "name": "Giant Lizard",
       "senses": "darkvision 30 ft., passive perception 10",
       "size": "Large",
       "special_abilities": [
@@ -7380,7 +7510,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Octopus": {
+    {
       "CHR": 4,
       "CON": 13,
       "DEX": 13,
@@ -7411,6 +7541,7 @@
       "hit_dice": "8d10",
       "hit_points": 52,
       "languages": "",
+      "name": "Giant Octopus",
       "perception": 4,
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Large",
@@ -7436,7 +7567,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Owl": {
+    {
       "CHR": 10,
       "CON": 12,
       "DEX": 15,
@@ -7462,6 +7593,7 @@
       "hit_dice": "3d10",
       "hit_points": 19,
       "languages": "Giant Owl, understands Common, Elvish, and Sylvan but can't speak",
+      "name": "Giant Owl",
       "perception": 5,
       "senses": "darkvision 120 ft., passive perception 15",
       "size": "Large",
@@ -7482,7 +7614,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Poisonous Snake": {
+    {
       "CHR": 3,
       "CON": 13,
       "DEX": 18,
@@ -7508,6 +7640,7 @@
       "hit_dice": "2d8",
       "hit_points": 11,
       "languages": "",
+      "name": "Giant Poisonous Snake",
       "perception": 2,
       "senses": "blindsight 10 ft., passive perception 12",
       "size": "Medium",
@@ -7516,7 +7649,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Rat": {
+    {
       "CHR": 4,
       "CON": 11,
       "DEX": 15,
@@ -7542,6 +7675,7 @@
       "hit_dice": "2d6",
       "hit_points": 7,
       "languages": "",
+      "name": "Giant Rat",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Small",
       "special_abilities": [
@@ -7560,7 +7694,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Rat (Diseased)": {
+    {
       "CHR": 4,
       "CON": 11,
       "DEX": 15,
@@ -7586,13 +7720,14 @@
       "hit_dice": "2d6",
       "hit_points": 7,
       "languages": "",
+      "name": "Giant Rat (Diseased)",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Small",
       "speed": "30 ft.",
       "subtype": "",
       "type": "beast"
     },
-    "Giant Scorpion": {
+    {
       "CHR": 3,
       "CON": 15,
       "DEX": 13,
@@ -7630,13 +7765,14 @@
       "hit_dice": "7d10",
       "hit_points": 52,
       "languages": "",
+      "name": "Giant Scorpion",
       "senses": "blindsight 60 ft., passive perception 9",
       "size": "Large",
       "speed": "40 ft.",
       "subtype": "",
       "type": "beast"
     },
-    "Giant Sea Horse": {
+    {
       "CHR": 5,
       "CON": 11,
       "DEX": 15,
@@ -7662,6 +7798,7 @@
       "hit_dice": "3d10",
       "hit_points": 16,
       "languages": "",
+      "name": "Giant Sea Horse",
       "senses": "passive perception 11",
       "size": "Large",
       "special_abilities": [
@@ -7680,7 +7817,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Shark": {
+    {
       "CHR": 5,
       "CON": 21,
       "DEX": 11,
@@ -7706,6 +7843,7 @@
       "hit_dice": "11d12",
       "hit_points": 126,
       "languages": "",
+      "name": "Giant Shark",
       "perception": 3,
       "senses": "blindsight 60 ft., passive perception 13",
       "size": "Huge",
@@ -7726,7 +7864,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Spider": {
+    {
       "CHR": 4,
       "CON": 12,
       "DEX": 16,
@@ -7757,6 +7895,7 @@
       "hit_dice": "4d10",
       "hit_points": 26,
       "languages": "",
+      "name": "Giant Spider",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 10",
       "size": "Large",
       "skills": "Stealth +7",
@@ -7781,7 +7920,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Toad": {
+    {
       "CHR": 3,
       "CON": 13,
       "DEX": 13,
@@ -7812,6 +7951,7 @@
       "hit_dice": "6d10",
       "hit_points": 39,
       "languages": "",
+      "name": "Giant Toad",
       "senses": "darkvision 30 ft., passive perception 10",
       "size": "Large",
       "special_abilities": [
@@ -7830,7 +7970,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Vulture": {
+    {
       "CHR": 7,
       "CON": 15,
       "DEX": 10,
@@ -7868,6 +8008,7 @@
       "hit_dice": "3d10",
       "hit_points": 22,
       "languages": "understands Common but can't speak",
+      "name": "Giant Vulture",
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Large",
@@ -7888,7 +8029,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Wasp": {
+    {
       "CHR": 3,
       "CON": 10,
       "DEX": 14,
@@ -7914,13 +8055,14 @@
       "hit_dice": "3d8",
       "hit_points": 13,
       "languages": "",
+      "name": "Giant Wasp",
       "senses": "passive perception 10",
       "size": "Medium",
       "speed": "10 ft., fly 50 ft., swim 50 ft.",
       "subtype": "",
       "type": "beast"
     },
-    "Giant Weasel": {
+    {
       "CHR": 5,
       "CON": 10,
       "DEX": 16,
@@ -7946,6 +8088,7 @@
       "hit_dice": "2d8",
       "hit_points": 9,
       "languages": "",
+      "name": "Giant Weasel",
       "perception": 3,
       "senses": "darkvision 60 ft., passive perception 13",
       "size": "Medium",
@@ -7961,7 +8104,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Giant Wolf Spider": {
+    {
       "CHR": 4,
       "CON": 13,
       "DEX": 16,
@@ -7987,6 +8130,7 @@
       "hit_dice": "2d8",
       "hit_points": 11,
       "languages": "",
+      "name": "Giant Wolf Spider",
       "perception": 3,
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 13",
       "size": "Medium",
@@ -8012,7 +8156,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Gibbering Mouther": {
+    {
       "CHR": 6,
       "CON": 16,
       "DEX": 8,
@@ -8047,6 +8191,7 @@
       "hit_dice": "9d8",
       "hit_points": 67,
       "languages": "",
+      "name": "Gibbering Mouther",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Medium",
       "special_abilities": [
@@ -8065,7 +8210,7 @@
       "subtype": "",
       "type": "aberration"
     },
-    "Glabrezu": {
+    {
       "CHR": 16,
       "CON": 21,
       "DEX": 15,
@@ -8108,6 +8253,7 @@
       "hit_dice": "15d10",
       "hit_points": 157,
       "languages": "Abyssal, telepathy 120 ft.",
+      "name": "Glabrezu",
       "saving_throws": "Str +9, Con +9, Wis +7, Cha +7",
       "senses": "truesight 120 ft., passive perception 13",
       "size": "Large",
@@ -8127,7 +8273,7 @@
       "subtype": "demon",
       "type": "fiend"
     },
-    "Gladiator": {
+    {
       "CHR": 15,
       "CON": 16,
       "DEX": 15,
@@ -8165,6 +8311,7 @@
       "hit_dice": "15d8",
       "hit_points": 112,
       "languages": "any one language (usually Common)",
+      "name": "Gladiator",
       "reactions": [
         {
           "attack_bonus": 0,
@@ -8192,7 +8339,7 @@
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Gnoll": {
+    {
       "CHR": 7,
       "CON": 11,
       "DEX": 12,
@@ -8232,6 +8379,7 @@
       "hit_dice": "5d8",
       "hit_points": 22,
       "languages": "Gnoll",
+      "name": "Gnoll",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Medium",
       "special_abilities": [
@@ -8245,7 +8393,7 @@
       "subtype": "gnoll",
       "type": "humanoid"
     },
-    "Goat": {
+    {
       "CHR": 5,
       "CON": 11,
       "DEX": 10,
@@ -8271,6 +8419,7 @@
       "hit_dice": "1d8",
       "hit_points": 4,
       "languages": "",
+      "name": "Goat",
       "senses": "passive perception 10",
       "size": "Medium",
       "special_abilities": [
@@ -8289,7 +8438,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Goblin": {
+    {
       "CHR": 8,
       "CON": 10,
       "DEX": 14,
@@ -8322,6 +8471,7 @@
       "hit_dice": "2d6",
       "hit_points": 7,
       "languages": "Common, Goblin",
+      "name": "Goblin",
       "senses": "darkvision 60 ft., passive perception 9",
       "size": "Small",
       "skills": "Stealth +6",
@@ -8336,7 +8486,7 @@
       "subtype": "goblinoid",
       "type": "humanoid"
     },
-    "Gold Dragon Wyrmling": {
+    {
       "CHR": 16,
       "CON": 17,
       "DEX": 14,
@@ -8368,6 +8518,7 @@
       "hit_dice": "8d8",
       "hit_points": 60,
       "languages": "Draconic",
+      "name": "Gold Dragon Wyrmling",
       "perception": 4,
       "saving_throws": "Dex +4, Con +5, Wis +2, Cha +5",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 14",
@@ -8384,7 +8535,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Gorgon": {
+    {
       "CHR": 7,
       "CON": 18,
       "DEX": 11,
@@ -8422,6 +8573,7 @@
       "hit_dice": "12d10",
       "hit_points": 114,
       "languages": "",
+      "name": "Gorgon",
       "perception": 4,
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Large",
@@ -8437,7 +8589,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Gray Ooze": {
+    {
       "CHR": 2,
       "CON": 16,
       "DEX": 6,
@@ -8463,6 +8615,7 @@
       "hit_dice": "3d8",
       "hit_points": 22,
       "languages": "",
+      "name": "Gray Ooze",
       "senses": "blindsight 60 ft. (blind beyond this radius), passive perception 8",
       "size": "Medium",
       "skills": "Stealth +2",
@@ -8487,7 +8640,7 @@
       "subtype": "",
       "type": "ooze"
     },
-    "Green Dragon Wyrmling": {
+    {
       "CHR": 13,
       "CON": 13,
       "DEX": 12,
@@ -8519,6 +8672,7 @@
       "hit_dice": "7d8",
       "hit_points": 38,
       "languages": "Draconic",
+      "name": "Green Dragon Wyrmling",
       "perception": 4,
       "saving_throws": "Dex +3, Con +3, Wis +2, Cha +3",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 14",
@@ -8535,7 +8689,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Green Hag": {
+    {
       "CHR": 14,
       "CON": 16,
       "DEX": 12,
@@ -8571,6 +8725,7 @@
       "hit_dice": "11d8",
       "hit_points": 82,
       "languages": "Common, Draconic, Sylvan",
+      "name": "Green Hag",
       "perception": 4,
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Medium",
@@ -8611,7 +8766,7 @@
       "subtype": "",
       "type": "fey"
     },
-    "Grick": {
+    {
       "CHR": 5,
       "CON": 11,
       "DEX": 14,
@@ -8649,6 +8804,7 @@
       "hit_dice": "6d8",
       "hit_points": 27,
       "languages": "",
+      "name": "Grick",
       "senses": "darkvision 60 ft., passive perception 12",
       "size": "Medium",
       "special_abilities": [
@@ -8662,7 +8818,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Griffon": {
+    {
       "CHR": 8,
       "CON": 16,
       "DEX": 15,
@@ -8700,6 +8856,7 @@
       "hit_dice": "7d10",
       "hit_points": 59,
       "languages": "",
+      "name": "Griffon",
       "perception": 5,
       "senses": "darkvision 60 ft., passive perception 15",
       "size": "Large",
@@ -8715,7 +8872,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Grimlock": {
+    {
       "CHR": 6,
       "CON": 12,
       "DEX": 12,
@@ -8741,6 +8898,7 @@
       "hit_dice": "2d8",
       "hit_points": 11,
       "languages": "Undercommon",
+      "name": "Grimlock",
       "perception": 3,
       "senses": "blindsight 30 ft. or 10 ft. while deafened (blind beyond this radius), passive perception 13",
       "size": "Medium",
@@ -8766,7 +8924,7 @@
       "subtype": "grimlock",
       "type": "humanoid"
     },
-    "Guard": {
+    {
       "CHR": 10,
       "CON": 12,
       "DEX": 12,
@@ -8792,6 +8950,7 @@
       "hit_dice": "2d8",
       "hit_points": 11,
       "languages": "any one language (usually Common)",
+      "name": "Guard",
       "perception": 2,
       "senses": "passive perception 12",
       "size": "Medium",
@@ -8800,7 +8959,7 @@
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Guardian Naga": {
+    {
       "CHR": 18,
       "CON": 16,
       "DEX": 18,
@@ -8832,6 +8991,7 @@
       "hit_dice": "15d10",
       "hit_points": 127,
       "languages": "Celestial, Common",
+      "name": "Guardian Naga",
       "saving_throws": "Dex +8, Con +7, Int +7, Wis +8, Cha +8",
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Large",
@@ -8851,7 +9011,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Gynosphinx": {
+    {
       "CHR": 18,
       "CON": 16,
       "DEX": 15,
@@ -8899,6 +9059,7 @@
           "name": "Cast a Spell (Costs 3 Actions)"
         }
       ],
+      "name": "Gynosphinx",
       "perception": 8,
       "senses": "truesight 120 ft., passive perception 18",
       "size": "Large",
@@ -8924,7 +9085,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Half-Red Dragon Veteran": {
+    {
       "CHR": 10,
       "CON": 14,
       "DEX": 13,
@@ -8975,6 +9136,7 @@
       "hit_dice": "10d8",
       "hit_points": 65,
       "languages": "Common, Draconic",
+      "name": "Half-Red Dragon Veteran",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 12",
       "size": "Medium",
       "skills": "Athletics +5, Perception +2",
@@ -8982,7 +9144,7 @@
       "subtype": "human",
       "type": "humanoid"
     },
-    "Harpy": {
+    {
       "CHR": 13,
       "CON": 12,
       "DEX": 13,
@@ -9025,13 +9187,14 @@
       "hit_dice": "7d8",
       "hit_points": 38,
       "languages": "Common",
+      "name": "Harpy",
       "senses": "passive perception 10",
       "size": "Medium",
       "speed": "20 ft., fly 40 ft.",
       "subtype": "",
       "type": "monstrosity"
     },
-    "Hawk": {
+    {
       "CHR": 6,
       "CON": 8,
       "DEX": 16,
@@ -9056,6 +9219,7 @@
       "hit_dice": "1d4",
       "hit_points": 1,
       "languages": "",
+      "name": "Hawk",
       "perception": 4,
       "senses": "passive perception 14",
       "size": "Tiny",
@@ -9071,7 +9235,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Hell Hound": {
+    {
       "CHR": 6,
       "CON": 14,
       "DEX": 12,
@@ -9103,6 +9267,7 @@
       "hit_dice": "7d8",
       "hit_points": 45,
       "languages": "understands Infernal but can't speak it",
+      "name": "Hell Hound",
       "perception": 5,
       "senses": "darkvision 60 ft., passive perception 15",
       "size": "Medium",
@@ -9123,7 +9288,7 @@
       "subtype": "",
       "type": "fiend"
     },
-    "Hezrou": {
+    {
       "CHR": 13,
       "CON": 20,
       "DEX": 17,
@@ -9166,6 +9331,7 @@
       "hit_dice": "13d10",
       "hit_points": 136,
       "languages": "Abyssal, telepathy 120 ft.",
+      "name": "Hezrou",
       "saving_throws": "Str +7, Con +8, Wis +4",
       "senses": "darkvision 120 ft., passive perception 11",
       "size": "Large",
@@ -9185,7 +9351,7 @@
       "subtype": "demon",
       "type": "fiend"
     },
-    "Hill Giant": {
+    {
       "CHR": 6,
       "CON": 19,
       "DEX": 8,
@@ -9223,6 +9389,7 @@
       "hit_dice": "10d12",
       "hit_points": 105,
       "languages": "Giant",
+      "name": "Hill Giant",
       "perception": 2,
       "senses": "passive perception 12",
       "size": "Huge",
@@ -9231,7 +9398,7 @@
       "subtype": "",
       "type": "giant"
     },
-    "Hippogriff": {
+    {
       "CHR": 8,
       "CON": 13,
       "DEX": 13,
@@ -9269,6 +9436,7 @@
       "hit_dice": "3d10",
       "hit_points": 19,
       "languages": "",
+      "name": "Hippogriff",
       "perception": 5,
       "senses": "passive perception 15",
       "size": "Large",
@@ -9284,7 +9452,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Hobgoblin": {
+    {
       "CHR": 9,
       "CON": 12,
       "DEX": 12,
@@ -9317,6 +9485,7 @@
       "hit_dice": "2d8",
       "hit_points": 11,
       "languages": "Common, Goblin",
+      "name": "Hobgoblin",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Medium",
       "special_abilities": [
@@ -9330,7 +9499,7 @@
       "subtype": "goblinoid",
       "type": "humanoid"
     },
-    "Homunculus": {
+    {
       "CHR": 7,
       "CON": 11,
       "DEX": 15,
@@ -9355,6 +9524,7 @@
       "hit_dice": "2d4",
       "hit_points": 5,
       "languages": "understands the languages of its creator but can't speak",
+      "name": "Homunculus",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Tiny",
       "special_abilities": [
@@ -9368,7 +9538,7 @@
       "subtype": "",
       "type": "construct"
     },
-    "Horned Devil": {
+    {
       "CHR": 17,
       "CON": 21,
       "DEX": 17,
@@ -9412,6 +9582,7 @@
       "hit_dice": "17d10",
       "hit_points": 148,
       "languages": "Infernal, telepathy 120 ft.",
+      "name": "Horned Devil",
       "saving_throws": "Str +10, Dex +7, Wis +7, Cha +7",
       "senses": "darkvision 120 ft., passive perception 13",
       "size": "Large",
@@ -9431,7 +9602,7 @@
       "subtype": "devil",
       "type": "fiend"
     },
-    "Hunter Shark": {
+    {
       "CHR": 4,
       "CON": 15,
       "DEX": 13,
@@ -9457,6 +9628,7 @@
       "hit_dice": "6d10",
       "hit_points": 45,
       "languages": "",
+      "name": "Hunter Shark",
       "perception": 2,
       "senses": "darkvision 30 ft., passive perception 12",
       "size": "Large",
@@ -9477,7 +9649,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Hydra": {
+    {
       "CHR": 7,
       "CON": 20,
       "DEX": 12,
@@ -9508,6 +9680,7 @@
       "hit_dice": "15d12",
       "hit_points": 172,
       "languages": "",
+      "name": "Hydra",
       "perception": 6,
       "senses": "darkvision 60 ft., passive perception 16",
       "size": "Huge",
@@ -9538,7 +9711,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Hyena": {
+    {
       "CHR": 5,
       "CON": 12,
       "DEX": 13,
@@ -9563,6 +9736,7 @@
       "hit_dice": "1d8",
       "hit_points": 5,
       "languages": "",
+      "name": "Hyena",
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Medium",
@@ -9578,7 +9752,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Ice Devil": {
+    {
       "CHR": 18,
       "CON": 18,
       "DEX": 14,
@@ -9628,6 +9802,7 @@
       "hit_dice": "19d10",
       "hit_points": 180,
       "languages": "Infernal, telepathy 120 ft.",
+      "name": "Ice Devil",
       "saving_throws": "Dex +7, Con +9, Wis +7, Cha +9",
       "senses": "blindsight 60 ft., darkvision 120 ft., passive perception 12",
       "size": "Large",
@@ -9647,7 +9822,7 @@
       "subtype": "devil",
       "type": "fiend"
     },
-    "Ice Mephit": {
+    {
       "CHR": 12,
       "CON": 10,
       "DEX": 13,
@@ -9683,6 +9858,7 @@
       "hit_dice": "6d6",
       "hit_points": 21,
       "languages": "Aquan, Auran",
+      "name": "Ice Mephit",
       "perception": 2,
       "senses": "darkvision 60 ft., passive perception 12",
       "size": "Small",
@@ -9708,7 +9884,7 @@
       "subtype": "",
       "type": "elemental"
     },
-    "Imp": {
+    {
       "CHR": 14,
       "CON": 13,
       "DEX": 17,
@@ -9739,6 +9915,7 @@
       "hit_dice": "3d4",
       "hit_points": 10,
       "languages": "Infernal, Common",
+      "name": "Imp",
       "senses": "darkvision 120 ft., passive perception 11",
       "size": "Tiny",
       "skills": "Deception +4, Insight +3, Persuasion +4, Stealth +5",
@@ -9768,7 +9945,7 @@
       "subtype": "devil",
       "type": "fiend"
     },
-    "Invisible Stalker": {
+    {
       "CHR": 11,
       "CON": 14,
       "DEX": 19,
@@ -9799,6 +9976,7 @@
       "hit_dice": "16d8",
       "hit_points": 104,
       "languages": "Auran, understands Common but doesn't speak it",
+      "name": "Invisible Stalker",
       "perception": 8,
       "senses": "darkvision 60 ft., passive perception 18",
       "size": "Medium",
@@ -9819,7 +9997,7 @@
       "subtype": "",
       "type": "elemental"
     },
-    "Iron Golem": {
+    {
       "CHR": 1,
       "CON": 20,
       "DEX": 9,
@@ -9863,6 +10041,7 @@
       "hit_dice": "20d10",
       "hit_points": 210,
       "languages": "understands the languages of its creator but can't speak",
+      "name": "Iron Golem",
       "senses": "darkvision 120 ft., passive perception 10",
       "size": "Large",
       "special_abilities": [
@@ -9891,7 +10070,7 @@
       "subtype": "",
       "type": "construct"
     },
-    "Jackal": {
+    {
       "CHR": 6,
       "CON": 11,
       "DEX": 15,
@@ -9917,6 +10096,7 @@
       "hit_dice": "1d6",
       "hit_points": 3,
       "languages": "",
+      "name": "Jackal",
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Small",
@@ -9937,7 +10117,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Killer Whale": {
+    {
       "CHR": 7,
       "CON": 13,
       "DEX": 10,
@@ -9961,6 +10141,7 @@
       "hit_dice": "12d12",
       "hit_points": 90,
       "languages": "",
+      "name": "Killer Whale",
       "perception": 3,
       "senses": "blindsight 120 ft., passive perception 13",
       "size": "Huge",
@@ -9986,7 +10167,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Knight": {
+    {
       "CHR": 15,
       "CON": 14,
       "DEX": 11,
@@ -10028,6 +10209,7 @@
       "hit_dice": "8d8",
       "hit_points": 52,
       "languages": "any one language (usually Common)",
+      "name": "Knight",
       "reactions": [
         {
           "attack_bonus": 0,
@@ -10049,7 +10231,7 @@
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Kobold": {
+    {
       "CHR": 8,
       "CON": 9,
       "DEX": 15,
@@ -10082,6 +10264,7 @@
       "hit_dice": "2d6",
       "hit_points": 5,
       "languages": "Common, Draconic",
+      "name": "Kobold",
       "senses": "darkvision 60 ft., passive perception 8",
       "size": "Small",
       "special_abilities": [
@@ -10100,7 +10283,7 @@
       "subtype": "kobold",
       "type": "humanoid"
     },
-    "Kraken": {
+    {
       "CHR": 20,
       "CON": 25,
       "DEX": 11,
@@ -10166,6 +10349,7 @@
           "name": "Ink Cloud (Costs 3 Actions)"
         }
       ],
+      "name": "Kraken",
       "saving_throws": "Str +17, Dex +7, Con +14, Int +13, Wis +11",
       "senses": "truesight 120 ft., passive perception 14",
       "size": "Gargantuan",
@@ -10190,7 +10374,7 @@
       "subtype": "titan",
       "type": "monstrosity"
     },
-    "Lamia": {
+    {
       "CHR": 16,
       "CON": 15,
       "DEX": 13,
@@ -10233,6 +10417,7 @@
       "hit_dice": "13d10",
       "hit_points": 97,
       "languages": "Abyssal, Common",
+      "name": "Lamia",
       "senses": "darkvision 60 ft., passive perception 12",
       "size": "Large",
       "skills": "Deception +7, Insight +4, Stealth +3",
@@ -10247,7 +10432,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Lemure": {
+    {
       "CHR": 3,
       "CON": 11,
       "DEX": 5,
@@ -10272,6 +10457,7 @@
       "hit_dice": "3d8",
       "hit_points": 13,
       "languages": "understands infernal but can't speak",
+      "name": "Lemure",
       "senses": "darkvision 120 ft., passive perception 10",
       "size": "Medium",
       "special_abilities": [
@@ -10290,7 +10476,7 @@
       "subtype": "devil",
       "type": "fiend"
     },
-    "Lich": {
+    {
       "CHR": 16,
       "CON": 16,
       "DEX": 16,
@@ -10337,6 +10523,7 @@
           "name": "Disrupt Life (Costs 3 Actions)"
         }
       ],
+      "name": "Lich",
       "perception": 9,
       "saving_throws": "Con +10, Int +12, Wis +9",
       "senses": "truesight 120 ft., passive perception 19",
@@ -10368,7 +10555,7 @@
       "subtype": "",
       "type": "undead"
     },
-    "Lion": {
+    {
       "CHR": 8,
       "CON": 13,
       "DEX": 15,
@@ -10401,6 +10588,7 @@
       "hit_dice": "4d10",
       "hit_points": 26,
       "languages": "",
+      "name": "Lion",
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Large",
@@ -10431,7 +10619,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Lizard": {
+    {
       "CHR": 3,
       "CON": 10,
       "DEX": 11,
@@ -10456,13 +10644,14 @@
       "hit_dice": "1d4",
       "hit_points": 2,
       "languages": "",
+      "name": "Lizard",
       "senses": "darkvision 30 ft., passive perception 9",
       "size": "Tiny",
       "speed": "20 ft., climb 20 ft.",
       "subtype": "",
       "type": "beast"
     },
-    "Lizardfolk": {
+    {
       "CHR": 7,
       "CON": 13,
       "DEX": 10,
@@ -10514,6 +10703,7 @@
       "hit_dice": "4d8",
       "hit_points": 22,
       "languages": "Draconic",
+      "name": "Lizardfolk",
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Medium",
@@ -10529,7 +10719,7 @@
       "subtype": "lizardfolk",
       "type": "humanoid"
     },
-    "Mage": {
+    {
       "CHR": 11,
       "CON": 11,
       "DEX": 14,
@@ -10555,6 +10745,7 @@
       "hit_dice": "9d8",
       "hit_points": 40,
       "languages": "any four languages",
+      "name": "Mage",
       "saving_throws": "Int +6, Wis +4",
       "senses": "passive perception 11",
       "size": "Medium",
@@ -10570,7 +10761,7 @@
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Magma Mephit": {
+    {
       "CHR": 10,
       "CON": 12,
       "DEX": 12,
@@ -10606,6 +10797,7 @@
       "hit_dice": "5d6",
       "hit_points": 22,
       "languages": "Ignan, Terran",
+      "name": "Magma Mephit",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Small",
       "skills": "Stealth +3",
@@ -10630,7 +10822,7 @@
       "subtype": "",
       "type": "elemental"
     },
-    "Magmin": {
+    {
       "CHR": 10,
       "CON": 12,
       "DEX": 15,
@@ -10655,6 +10847,7 @@
       "hit_dice": "2d6",
       "hit_points": 9,
       "languages": "Ignan",
+      "name": "Magmin",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Small",
       "special_abilities": [
@@ -10673,7 +10866,7 @@
       "subtype": "",
       "type": "elemental"
     },
-    "Mammoth": {
+    {
       "CHR": 6,
       "CON": 21,
       "DEX": 9,
@@ -10706,6 +10899,7 @@
       "hit_dice": "11d12",
       "hit_points": 126,
       "languages": "",
+      "name": "Mammoth",
       "senses": "passive perception 10",
       "size": "Huge",
       "special_abilities": [
@@ -10719,7 +10913,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Manticore": {
+    {
       "CHR": 8,
       "CON": 17,
       "DEX": 16,
@@ -10764,6 +10958,7 @@
       "hit_dice": "8d10",
       "hit_points": 68,
       "languages": "",
+      "name": "Manticore",
       "senses": "darkvision 60 ft., passive perception 11",
       "size": "Large",
       "special_abilities": [
@@ -10777,7 +10972,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Marilith": {
+    {
       "CHR": 20,
       "CON": 20,
       "DEX": 20,
@@ -10825,6 +11020,7 @@
       "hit_dice": "18d10",
       "hit_points": 189,
       "languages": "Abyssal, telepathy 120 ft.",
+      "name": "Marilith",
       "reactions": [
         {
           "attack_bonus": 0,
@@ -10856,7 +11052,7 @@
       "subtype": "demon",
       "type": "fiend"
     },
-    "Mastiff": {
+    {
       "CHR": 7,
       "CON": 12,
       "DEX": 14,
@@ -10882,6 +11078,7 @@
       "hit_dice": "1d8",
       "hit_points": 5,
       "languages": "",
+      "name": "Mastiff",
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Medium",
@@ -10897,7 +11094,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Medusa": {
+    {
       "CHR": 15,
       "CON": 16,
       "DEX": 15,
@@ -10941,6 +11138,7 @@
       "hit_dice": "17d8",
       "hit_points": 127,
       "languages": "Common",
+      "name": "Medusa",
       "perception": 4,
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Medium",
@@ -10956,7 +11154,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Merfolk": {
+    {
       "CHR": 12,
       "CON": 12,
       "DEX": 13,
@@ -10981,6 +11179,7 @@
       "hit_dice": "2d8",
       "hit_points": 11,
       "languages": "Aquan, Common",
+      "name": "Merfolk",
       "perception": 2,
       "senses": "passive perception 12",
       "size": "Medium",
@@ -10996,7 +11195,7 @@
       "subtype": "merfolk",
       "type": "humanoid"
     },
-    "Merrow": {
+    {
       "CHR": 9,
       "CON": 15,
       "DEX": 10,
@@ -11041,6 +11240,7 @@
       "hit_dice": "6d10",
       "hit_points": 45,
       "languages": "Abyssal, Aquan",
+      "name": "Merrow",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Large",
       "special_abilities": [
@@ -11054,7 +11254,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Mimic": {
+    {
       "CHR": 8,
       "CON": 15,
       "DEX": 12,
@@ -11087,6 +11287,7 @@
       "hit_dice": "9d8",
       "hit_points": 58,
       "languages": "",
+      "name": "Mimic",
       "senses": "darkvision 60 ft., passive perception 11",
       "size": "Medium",
       "skills": "Stealth +5",
@@ -11116,7 +11317,7 @@
       "subtype": "shapechanger",
       "type": "monstrosity"
     },
-    "Minotaur": {
+    {
       "CHR": 9,
       "CON": 16,
       "DEX": 11,
@@ -11149,6 +11350,7 @@
       "hit_dice": "9d10",
       "hit_points": 76,
       "languages": "Abyssal",
+      "name": "Minotaur",
       "perception": 7,
       "senses": "darkvision 60 ft., passive perception 17",
       "size": "Large",
@@ -11174,7 +11376,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Minotaur Skeleton": {
+    {
       "CHR": 5,
       "CON": 15,
       "DEX": 11,
@@ -11207,6 +11409,7 @@
       "hit_dice": "9d10",
       "hit_points": 67,
       "languages": "understands Abyssal but can't speak",
+      "name": "Minotaur Skeleton",
       "senses": "darkvision 60 ft., passive perception 9",
       "size": "Large",
       "special_abilities": [
@@ -11220,7 +11423,7 @@
       "subtype": "",
       "type": "undead"
     },
-    "Mule": {
+    {
       "CHR": 5,
       "CON": 13,
       "DEX": 10,
@@ -11246,6 +11449,7 @@
       "hit_dice": "2d8",
       "hit_points": 11,
       "languages": "",
+      "name": "Mule",
       "senses": "passive perception 10",
       "size": "Medium",
       "special_abilities": [
@@ -11264,7 +11468,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Mummy": {
+    {
       "CHR": 12,
       "CON": 15,
       "DEX": 8,
@@ -11300,6 +11504,7 @@
       "hit_dice": "9d8",
       "hit_points": 58,
       "languages": "the languages it knew in life",
+      "name": "Mummy",
       "saving_throws": "Wis +2",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Medium",
@@ -11307,7 +11512,7 @@
       "subtype": "",
       "type": "undead"
     },
-    "Mummy Lord": {
+    {
       "CHR": 16,
       "CON": 17,
       "DEX": 10,
@@ -11370,6 +11575,7 @@
           "name": "Whirlwind of Sand (Costs 2 Actions)"
         }
       ],
+      "name": "Mummy Lord",
       "saving_throws": "Con +8, Int +5, Wis +9, Cha +8",
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Medium",
@@ -11395,7 +11601,7 @@
       "subtype": "",
       "type": "undead"
     },
-    "Nalfeshnee": {
+    {
       "CHR": 15,
       "CON": 22,
       "DEX": 10,
@@ -11448,6 +11654,7 @@
       "hit_dice": "16d10",
       "hit_points": 184,
       "languages": "Abyssal, telepathy 120 ft.",
+      "name": "Nalfeshnee",
       "saving_throws": "Con +11, Int +9, Wis +6, Cha +7",
       "senses": "truesight 120 ft., passive perception 11",
       "size": "Large",
@@ -11462,7 +11669,7 @@
       "subtype": "demon",
       "type": "fiend"
     },
-    "Night Hag": {
+    {
       "CHR": 16,
       "CON": 16,
       "DEX": 15,
@@ -11503,6 +11710,7 @@
       "hit_dice": "15d8",
       "hit_points": 112,
       "languages": "Abyssal, Common, Infernal, Primordial",
+      "name": "Night Hag",
       "perception": 6,
       "senses": "darkvision 120 ft., passive perception 16",
       "size": "Medium",
@@ -11543,7 +11751,7 @@
       "subtype": "",
       "type": "fiend"
     },
-    "Nightmare": {
+    {
       "CHR": 15,
       "CON": 16,
       "DEX": 15,
@@ -11574,6 +11782,7 @@
       "hit_dice": "8d10",
       "hit_points": 68,
       "languages": "understands Abyssal, Common, and Infernal but can't speak",
+      "name": "Nightmare",
       "senses": "passive perception 11",
       "size": "Large",
       "special_abilities": [
@@ -11592,7 +11801,7 @@
       "subtype": "",
       "type": "fiend"
     },
-    "Noble": {
+    {
       "CHR": 16,
       "CON": 11,
       "DEX": 12,
@@ -11618,6 +11827,7 @@
       "hit_dice": "2d8",
       "hit_points": 9,
       "languages": "any two languages",
+      "name": "Noble",
       "reactions": [
         {
           "attack_bonus": 0,
@@ -11632,7 +11842,7 @@
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Ochre Jelly": {
+    {
       "CHR": 1,
       "CON": 14,
       "DEX": 6,
@@ -11658,6 +11868,7 @@
       "hit_dice": "6d10",
       "hit_points": 45,
       "languages": "",
+      "name": "Ochre Jelly",
       "reactions": [
         {
           "attack_bonus": 0,
@@ -11683,7 +11894,7 @@
       "subtype": "",
       "type": "ooze"
     },
-    "Octopus": {
+    {
       "CHR": 4,
       "CON": 11,
       "DEX": 15,
@@ -11713,6 +11924,7 @@
       "hit_dice": "1d6",
       "hit_points": 3,
       "languages": "",
+      "name": "Octopus",
       "perception": 2,
       "senses": "darkvision 30 ft., passive perception 12",
       "size": "Small",
@@ -11738,7 +11950,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Ogre": {
+    {
       "CHR": 7,
       "CON": 16,
       "DEX": 8,
@@ -11771,13 +11983,14 @@
       "hit_dice": "7d10",
       "hit_points": 59,
       "languages": "Common, Giant",
+      "name": "Ogre",
       "senses": "darkvision 60 ft., passive perception 8",
       "size": "Large",
       "speed": "40 ft.",
       "subtype": "",
       "type": "giant"
     },
-    "Ogre Zombie": {
+    {
       "CHR": 5,
       "CON": 18,
       "DEX": 6,
@@ -11803,6 +12016,7 @@
       "hit_dice": "9d10",
       "hit_points": 85,
       "languages": "understands Common and Giant but can't speak",
+      "name": "Ogre Zombie",
       "saving_throws": "Wis +0",
       "senses": "darkvision 60 ft., passive perception 8",
       "size": "Large",
@@ -11817,7 +12031,7 @@
       "subtype": "",
       "type": "undead"
     },
-    "Oni": {
+    {
       "CHR": 15,
       "CON": 16,
       "DEX": 11,
@@ -11860,6 +12074,7 @@
       "hit_dice": "13d10",
       "hit_points": 110,
       "languages": "Common, Giant",
+      "name": "Oni",
       "perception": 4,
       "saving_throws": "Dex +3, Con +6, Wis +4, Cha +5",
       "senses": "darkvision 60 ft., passive perception 14",
@@ -11886,7 +12101,7 @@
       "subtype": "",
       "type": "giant"
     },
-    "Orc": {
+    {
       "CHR": 10,
       "CON": 16,
       "DEX": 12,
@@ -11919,6 +12134,7 @@
       "hit_dice": "2d8",
       "hit_points": 15,
       "languages": "Common, Orc",
+      "name": "Orc",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Medium",
       "skills": "Intimidation +2",
@@ -11933,7 +12149,7 @@
       "subtype": "orc",
       "type": "humanoid"
     },
-    "Otyugh": {
+    {
       "CHR": 6,
       "CON": 19,
       "DEX": 11,
@@ -11976,6 +12192,7 @@
       "hit_dice": "12d10",
       "hit_points": 114,
       "languages": "Otyugh",
+      "name": "Otyugh",
       "saving_throws": "Con +7",
       "senses": "darkvision 120 ft., passive perception 11",
       "size": "Large",
@@ -11990,7 +12207,7 @@
       "subtype": "",
       "type": "aberration"
     },
-    "Owl": {
+    {
       "CHR": 7,
       "CON": 8,
       "DEX": 13,
@@ -12015,6 +12232,7 @@
       "hit_dice": "1d4",
       "hit_points": 1,
       "languages": "",
+      "name": "Owl",
       "perception": 3,
       "senses": "darkvision 120 ft., passive perception 13",
       "size": "Tiny",
@@ -12035,7 +12253,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Owlbear": {
+    {
       "CHR": 7,
       "CON": 17,
       "DEX": 12,
@@ -12073,6 +12291,7 @@
       "hit_dice": "7d10",
       "hit_points": 59,
       "languages": "",
+      "name": "Owlbear",
       "perception": 3,
       "senses": "darkvision 60 ft., passive perception 13",
       "size": "Large",
@@ -12088,7 +12307,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Panther": {
+    {
       "CHR": 7,
       "CON": 10,
       "DEX": 15,
@@ -12121,6 +12340,7 @@
       "hit_dice": "3d8",
       "hit_points": 13,
       "languages": "",
+      "name": "Panther",
       "perception": 4,
       "senses": "passive perception 14",
       "size": "Medium",
@@ -12141,7 +12361,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Pegasus": {
+    {
       "CHR": 13,
       "CON": 16,
       "DEX": 15,
@@ -12167,6 +12387,7 @@
       "hit_dice": "7d10",
       "hit_points": 59,
       "languages": "understands Celestial, Common, Elvish, and Sylvan but can't speak",
+      "name": "Pegasus",
       "perception": 6,
       "saving_throws": "Dex +4, Wis +4, Cha +3",
       "senses": "passive perception 16",
@@ -12176,7 +12397,7 @@
       "subtype": "",
       "type": "celestial"
     },
-    "Phase Spider": {
+    {
       "CHR": 6,
       "CON": 12,
       "DEX": 15,
@@ -12202,6 +12423,7 @@
       "hit_dice": "5d10",
       "hit_points": 32,
       "languages": "",
+      "name": "Phase Spider",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Large",
       "skills": "Stealth +6",
@@ -12226,7 +12448,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Pit Fiend": {
+    {
       "CHR": 24,
       "CON": 24,
       "DEX": 14,
@@ -12278,6 +12500,7 @@
       "hit_dice": "24d10",
       "hit_points": 300,
       "languages": "Infernal, telepathy 120 ft.",
+      "name": "Pit Fiend",
       "saving_throws": "Dex +8, Con +13, Wis +10",
       "senses": "truesight 120 ft., passive perception 14",
       "size": "Large",
@@ -12307,7 +12530,7 @@
       "subtype": "devil",
       "type": "fiend"
     },
-    "Planetar": {
+    {
       "CHR": 25,
       "CON": 24,
       "DEX": 20,
@@ -12343,6 +12566,7 @@
       "hit_dice": "16d10",
       "hit_points": 200,
       "languages": "all, telepathy 120 ft.",
+      "name": "Planetar",
       "perception": 11,
       "saving_throws": "Con +12, Wis +11, Cha +12",
       "senses": "truesight 120 ft., passive perception 21",
@@ -12374,7 +12598,7 @@
       "subtype": "",
       "type": "celestial"
     },
-    "Plesiosaurus": {
+    {
       "CHR": 5,
       "CON": 16,
       "DEX": 15,
@@ -12400,6 +12624,7 @@
       "hit_dice": "8d10",
       "hit_points": 68,
       "languages": "",
+      "name": "Plesiosaurus",
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Large",
@@ -12415,7 +12640,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Poisonous Snake": {
+    {
       "CHR": 3,
       "CON": 11,
       "DEX": 16,
@@ -12440,13 +12665,14 @@
       "hit_dice": "1d4",
       "hit_points": 2,
       "languages": "",
+      "name": "Poisonous Snake",
       "senses": "blindsight 10 ft., passive perception 10",
       "size": "Tiny",
       "speed": "30 ft., swim 30 ft.",
       "subtype": "",
       "type": "beast"
     },
-    "Polar Bear": {
+    {
       "CHR": 7,
       "CON": 16,
       "DEX": 10,
@@ -12484,6 +12710,7 @@
       "hit_dice": "5d10",
       "hit_points": 42,
       "languages": "",
+      "name": "Polar Bear",
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Large",
@@ -12499,7 +12726,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Pony": {
+    {
       "CHR": 7,
       "CON": 13,
       "DEX": 10,
@@ -12525,13 +12752,14 @@
       "hit_dice": "2d8",
       "hit_points": 11,
       "languages": "",
+      "name": "Pony",
       "senses": "passive perception 10",
       "size": "Medium",
       "speed": "40 ft.",
       "subtype": "",
       "type": "beast"
     },
-    "Priest": {
+    {
       "CHR": 13,
       "CON": 12,
       "DEX": 10,
@@ -12556,6 +12784,7 @@
       "hit_dice": "5d8",
       "hit_points": 27,
       "languages": "any two languages",
+      "name": "Priest",
       "senses": "passive perception 13",
       "size": "Medium",
       "skills": "Medicine +7, Persuasion +3, Religion +4",
@@ -12575,7 +12804,7 @@
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Pseudodragon": {
+    {
       "CHR": 10,
       "CON": 13,
       "DEX": 15,
@@ -12608,6 +12837,7 @@
       "hit_dice": "2d4",
       "hit_points": 7,
       "languages": "understands Common and Draconic but can't speak",
+      "name": "Pseudodragon",
       "perception": 3,
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 13",
       "size": "Tiny",
@@ -12638,7 +12868,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Purple Worm": {
+    {
       "CHR": 4,
       "CON": 22,
       "DEX": 7,
@@ -12676,6 +12906,7 @@
       "hit_dice": "15d20",
       "hit_points": 247,
       "languages": "",
+      "name": "Purple Worm",
       "saving_throws": "Con +11, Wis +4",
       "senses": "blindsight 30 ft., tremorsense 60 ft., passive perception 9",
       "size": "Gargantuan",
@@ -12690,7 +12921,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Quasit": {
+    {
       "CHR": 10,
       "CON": 10,
       "DEX": 17,
@@ -12726,6 +12957,7 @@
       "hit_dice": "3d4",
       "hit_points": 7,
       "languages": "Abyssal, Common",
+      "name": "Quasit",
       "senses": "darkvision 120 ft., passive perception 10",
       "size": "Tiny",
       "skills": "Stealth +5",
@@ -12750,7 +12982,7 @@
       "subtype": "demon",
       "type": "fiend"
     },
-    "Quipper": {
+    {
       "CHR": 2,
       "CON": 9,
       "DEX": 16,
@@ -12775,6 +13007,7 @@
       "hit_dice": "1d4",
       "hit_points": 1,
       "languages": "",
+      "name": "Quipper",
       "senses": "darkvision 60 ft., passive perception 8",
       "size": "Tiny",
       "special_abilities": [
@@ -12793,7 +13026,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Rakshasa": {
+    {
       "CHR": 20,
       "CON": 18,
       "DEX": 17,
@@ -12824,6 +13057,7 @@
       "hit_dice": "13d8",
       "hit_points": 110,
       "languages": "Common, Infernal",
+      "name": "Rakshasa",
       "senses": "darkvision 60 ft., passive perception 13",
       "size": "Medium",
       "skills": "Deception +10, Insight +8",
@@ -12843,7 +13077,7 @@
       "subtype": "",
       "type": "fiend"
     },
-    "Rat": {
+    {
       "CHR": 4,
       "CON": 9,
       "DEX": 11,
@@ -12868,6 +13102,7 @@
       "hit_dice": "1d4",
       "hit_points": 1,
       "languages": "",
+      "name": "Rat",
       "senses": "darkvision 30 ft., passive perception 10",
       "size": "Tiny",
       "special_abilities": [
@@ -12881,7 +13116,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Raven": {
+    {
       "CHR": 6,
       "CON": 8,
       "DEX": 14,
@@ -12905,6 +13140,7 @@
       "hit_dice": "1d4",
       "hit_points": 1,
       "languages": "",
+      "name": "Raven",
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Tiny",
@@ -12920,7 +13156,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Red Dragon Wyrmling": {
+    {
       "CHR": 15,
       "CON": 17,
       "DEX": 10,
@@ -12952,6 +13188,7 @@
       "hit_dice": "10d8",
       "hit_points": 75,
       "languages": "Draconic",
+      "name": "Red Dragon Wyrmling",
       "perception": 4,
       "saving_throws": "Dex +2, Con +5, Wis +2, Cha +4",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 14",
@@ -12961,7 +13198,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Reef Shark": {
+    {
       "CHR": 4,
       "CON": 13,
       "DEX": 13,
@@ -12987,6 +13224,7 @@
       "hit_dice": "4d8",
       "hit_points": 22,
       "languages": "",
+      "name": "Reef Shark",
       "perception": 2,
       "senses": "blindsight 30 ft., passive perception 12",
       "size": "Medium",
@@ -13007,7 +13245,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Remorhaz": {
+    {
       "CHR": 5,
       "CON": 21,
       "DEX": 13,
@@ -13038,6 +13276,7 @@
       "hit_dice": "17d12",
       "hit_points": 195,
       "languages": "",
+      "name": "Remorhaz",
       "senses": "darkvision 60 ft., tremorsense 60 ft., passive perception 10",
       "size": "Huge",
       "special_abilities": [
@@ -13051,7 +13290,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Rhinoceros": {
+    {
       "CHR": 6,
       "CON": 15,
       "DEX": 8,
@@ -13077,6 +13316,7 @@
       "hit_dice": "6d10",
       "hit_points": 45,
       "languages": "",
+      "name": "Rhinoceros",
       "senses": "passive perception 11",
       "size": "Large",
       "special_abilities": [
@@ -13090,7 +13330,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Riding Horse": {
+    {
       "CHR": 7,
       "CON": 12,
       "DEX": 10,
@@ -13116,13 +13356,14 @@
       "hit_dice": "2d10",
       "hit_points": 13,
       "languages": "",
+      "name": "Riding Horse",
       "senses": "passive perception 10",
       "size": "Large",
       "speed": "60 ft.",
       "subtype": "",
       "type": "beast"
     },
-    "Roc": {
+    {
       "CHR": 9,
       "CON": 20,
       "DEX": 10,
@@ -13160,6 +13401,7 @@
       "hit_dice": "16d20",
       "hit_points": 248,
       "languages": "",
+      "name": "Roc",
       "perception": 4,
       "saving_throws": "Dex +4, Con +9, Wis +4, Cha +3",
       "senses": "passive perception 14",
@@ -13176,7 +13418,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Roper": {
+    {
       "CHR": 6,
       "CON": 17,
       "DEX": 8,
@@ -13217,6 +13459,7 @@
       "hit_dice": "11d10",
       "hit_points": 93,
       "languages": "",
+      "name": "Roper",
       "perception": 6,
       "senses": "darkvision 60 ft., passive perception 16",
       "size": "Large",
@@ -13242,7 +13485,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Rug of Smothering": {
+    {
       "CHR": 1,
       "CON": 10,
       "DEX": 14,
@@ -13268,6 +13511,7 @@
       "hit_dice": "6d10",
       "hit_points": 33,
       "languages": "",
+      "name": "Rug of Smothering",
       "senses": "blindsight 60 ft. (blind beyond this radius), passive perception 6",
       "size": "Large",
       "special_abilities": [
@@ -13291,7 +13535,7 @@
       "subtype": "",
       "type": "construct"
     },
-    "Rust Monster": {
+    {
       "CHR": 6,
       "CON": 13,
       "DEX": 12,
@@ -13322,6 +13566,7 @@
       "hit_dice": "5d8",
       "hit_points": 27,
       "languages": "",
+      "name": "Rust Monster",
       "senses": "darkvision 60 ft., passive perception 11",
       "size": "Medium",
       "special_abilities": [
@@ -13340,7 +13585,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Saber-Toothed Tiger": {
+    {
       "CHR": 8,
       "CON": 15,
       "DEX": 14,
@@ -13373,6 +13618,7 @@
       "hit_dice": "7d10",
       "hit_points": 52,
       "languages": "",
+      "name": "Saber-Toothed Tiger",
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Large",
@@ -13393,7 +13639,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Sahuagin": {
+    {
       "CHR": 9,
       "CON": 12,
       "DEX": 11,
@@ -13438,6 +13684,7 @@
       "hit_dice": "4d8",
       "hit_points": 22,
       "languages": "Sahuagin",
+      "name": "Sahuagin",
       "perception": 5,
       "senses": "darkvision 120 ft., passive perception 15",
       "size": "Medium",
@@ -13463,7 +13710,7 @@
       "subtype": "sahuagin",
       "type": "humanoid"
     },
-    "Salamander": {
+    {
       "CHR": 12,
       "CON": 15,
       "DEX": 14,
@@ -13501,6 +13748,7 @@
       "hit_dice": "12d10",
       "hit_points": 90,
       "languages": "Ignan",
+      "name": "Salamander",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Large",
       "special_abilities": [
@@ -13519,7 +13767,7 @@
       "subtype": "",
       "type": "elemental"
     },
-    "Satyr": {
+    {
       "CHR": 14,
       "CON": 11,
       "DEX": 16,
@@ -13564,6 +13812,7 @@
       "hit_dice": "7d8",
       "hit_points": 31,
       "languages": "Common, Elvish, Sylvan",
+      "name": "Satyr",
       "perception": 2,
       "senses": "passive perception 12",
       "size": "Medium",
@@ -13579,7 +13828,7 @@
       "subtype": "",
       "type": "fey"
     },
-    "Scorpion": {
+    {
       "CHR": 2,
       "CON": 8,
       "DEX": 11,
@@ -13604,13 +13853,14 @@
       "hit_dice": "1d4",
       "hit_points": 1,
       "languages": "",
+      "name": "Scorpion",
       "senses": "blindsight 10 ft., passive perception 9",
       "size": "Tiny",
       "speed": "10 ft.",
       "subtype": "",
       "type": "beast"
     },
-    "Scout": {
+    {
       "CHR": 11,
       "CON": 12,
       "DEX": 14,
@@ -13648,6 +13898,7 @@
       "hit_dice": "3d8",
       "hit_points": 16,
       "languages": "any one language (usually Common)",
+      "name": "Scout",
       "perception": 5,
       "senses": "passive perception 15",
       "size": "Medium",
@@ -13663,7 +13914,7 @@
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Sea Hag": {
+    {
       "CHR": 13,
       "CON": 16,
       "DEX": 13,
@@ -13699,6 +13950,7 @@
       "hit_dice": "7d8",
       "hit_points": 52,
       "languages": "Aquan, Common, Giant",
+      "name": "Sea Hag",
       "senses": "darkvision 60 ft., passive perception 11",
       "size": "Medium",
       "special_abilities": [
@@ -13732,7 +13984,7 @@
       "subtype": "",
       "type": "fey"
     },
-    "Sea Horse": {
+    {
       "CHR": 2,
       "CON": 8,
       "DEX": 12,
@@ -13749,6 +14001,7 @@
       "hit_dice": "1d4",
       "hit_points": 1,
       "languages": "",
+      "name": "Sea Horse",
       "senses": "passive perception 10",
       "size": "Tiny",
       "special_abilities": [
@@ -13762,7 +14015,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Shadow": {
+    {
       "CHR": 8,
       "CON": 13,
       "DEX": 14,
@@ -13788,6 +14041,7 @@
       "hit_dice": "3d8",
       "hit_points": 16,
       "languages": "",
+      "name": "Shadow",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Medium",
       "skills": "Stealth +4",
@@ -13812,7 +14066,7 @@
       "subtype": "",
       "type": "undead"
     },
-    "Shambling Mound": {
+    {
       "CHR": 5,
       "CON": 16,
       "DEX": 8,
@@ -13848,6 +14102,7 @@
       "hit_dice": "16d10",
       "hit_points": 136,
       "languages": "",
+      "name": "Shambling Mound",
       "senses": "blindsight 60 ft. (blind beyond this radius), passive perception 10",
       "size": "Large",
       "skills": "Stealth +2",
@@ -13862,7 +14117,7 @@
       "subtype": "",
       "type": "plant"
     },
-    "Shield Guardian": {
+    {
       "CHR": 3,
       "CON": 18,
       "DEX": 8,
@@ -13893,6 +14148,7 @@
       "hit_dice": "15d10",
       "hit_points": 142,
       "languages": "understands commands given in any language but can't speak",
+      "name": "Shield Guardian",
       "reactions": [
         {
           "attack_bonus": 0,
@@ -13923,7 +14179,7 @@
       "subtype": "",
       "type": "construct"
     },
-    "Shrieker": {
+    {
       "CHR": 1,
       "CON": 10,
       "DEX": 1,
@@ -13947,6 +14203,7 @@
       "hit_dice": "3d8",
       "hit_points": 13,
       "languages": "",
+      "name": "Shrieker",
       "senses": "blindsight 30 ft. (blind beyond this radius), passive perception 6",
       "size": "Medium",
       "special_abilities": [
@@ -13960,7 +14217,7 @@
       "subtype": "",
       "type": "plant"
     },
-    "Silver Dragon Wyrmling": {
+    {
       "CHR": 15,
       "CON": 17,
       "DEX": 10,
@@ -13992,6 +14249,7 @@
       "hit_dice": "6d8",
       "hit_points": 45,
       "languages": "Draconic",
+      "name": "Silver Dragon Wyrmling",
       "perception": 4,
       "saving_throws": "Dex +2, Con +5, Wis +2, Cha +4",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 14",
@@ -14001,7 +14259,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Skeleton": {
+    {
       "CHR": 5,
       "CON": 15,
       "DEX": 14,
@@ -14034,13 +14292,14 @@
       "hit_dice": "2d8",
       "hit_points": 13,
       "languages": "understands all languages it spoke in life but can't speak",
+      "name": "Skeleton",
       "senses": "darkvision 60 ft., passive perception 9",
       "size": "Medium",
       "speed": "30 ft.",
       "subtype": "",
       "type": "undead"
     },
-    "Solar": {
+    {
       "CHR": 30,
       "CON": 26,
       "DEX": 22,
@@ -14105,6 +14364,7 @@
           "name": "Blinding Gaze (Costs 3 Actions)"
         }
       ],
+      "name": "Solar",
       "perception": 14,
       "saving_throws": "Int +14, Wis +14, Cha +17",
       "senses": "truesight 120 ft., passive perception 24",
@@ -14136,7 +14396,7 @@
       "subtype": "",
       "type": "celestial"
     },
-    "Specter": {
+    {
       "CHR": 11,
       "CON": 11,
       "DEX": 14,
@@ -14161,6 +14421,7 @@
       "hit_dice": "5d8",
       "hit_points": 22,
       "languages": "understands all languages it knew in life but can't speak",
+      "name": "Specter",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Medium",
       "special_abilities": [
@@ -14179,7 +14440,7 @@
       "subtype": "",
       "type": "undead"
     },
-    "Spider": {
+    {
       "CHR": 2,
       "CON": 8,
       "DEX": 14,
@@ -14204,6 +14465,7 @@
       "hit_dice": "1d4",
       "hit_points": 1,
       "languages": "",
+      "name": "Spider",
       "senses": "darkvision 30 ft., passive perception 12",
       "size": "Tiny",
       "skills": "Stealth +4",
@@ -14228,7 +14490,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Spirit Naga": {
+    {
       "CHR": 16,
       "CON": 14,
       "DEX": 17,
@@ -14254,6 +14516,7 @@
       "hit_dice": "10d10",
       "hit_points": 75,
       "languages": "Abyssal, Common",
+      "name": "Spirit Naga",
       "saving_throws": "Dex +6, Con +5, Wis +5, Cha +6",
       "senses": "darkvision 60 ft., passive perception 12",
       "size": "Large",
@@ -14273,7 +14536,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Sprite": {
+    {
       "CHR": 11,
       "CON": 10,
       "DEX": 18,
@@ -14314,6 +14577,7 @@
       "hit_dice": "1d4",
       "hit_points": 2,
       "languages": "Common, Elvish, Sylvan",
+      "name": "Sprite",
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Tiny",
@@ -14322,7 +14586,7 @@
       "subtype": "",
       "type": "fey"
     },
-    "Spy": {
+    {
       "CHR": 16,
       "CON": 10,
       "DEX": 15,
@@ -14360,6 +14624,7 @@
       "hit_dice": "6d8",
       "hit_points": 27,
       "languages": "any two languages",
+      "name": "Spy",
       "perception": 6,
       "senses": "passive perception 16",
       "size": "Medium",
@@ -14380,7 +14645,7 @@
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Steam Mephit": {
+    {
       "CHR": 12,
       "CON": 10,
       "DEX": 11,
@@ -14415,6 +14680,7 @@
       "hit_dice": "6d6",
       "hit_points": 21,
       "languages": "Aquan, Ignan",
+      "name": "Steam Mephit",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Small",
       "special_abilities": [
@@ -14433,7 +14699,7 @@
       "subtype": "",
       "type": "elemental"
     },
-    "Stirge": {
+    {
       "CHR": 6,
       "CON": 11,
       "DEX": 16,
@@ -14459,13 +14725,14 @@
       "hit_dice": "1d4",
       "hit_points": 2,
       "languages": "",
+      "name": "Stirge",
       "senses": "darkvision 60 ft., passive perception 9",
       "size": "Tiny",
       "speed": "10 ft., fly 40 ft.",
       "subtype": "",
       "type": "beast"
     },
-    "Stone Giant": {
+    {
       "CHR": 9,
       "CON": 20,
       "DEX": 15,
@@ -14503,6 +14770,7 @@
       "hit_dice": "11d12",
       "hit_points": 126,
       "languages": "Giant",
+      "name": "Stone Giant",
       "perception": 4,
       "reactions": [
         {
@@ -14526,7 +14794,7 @@
       "subtype": "",
       "type": "giant"
     },
-    "Stone Golem": {
+    {
       "CHR": 1,
       "CON": 20,
       "DEX": 9,
@@ -14562,6 +14830,7 @@
       "hit_dice": "17d10",
       "hit_points": 178,
       "languages": "understands the languages of its creator but can't speak",
+      "name": "Stone Golem",
       "senses": "darkvision 120 ft., passive perception 10",
       "size": "Large",
       "special_abilities": [
@@ -14585,7 +14854,7 @@
       "subtype": "",
       "type": "construct"
     },
-    "Storm Giant": {
+    {
       "CHR": 18,
       "CON": 20,
       "DEX": 14,
@@ -14629,6 +14898,7 @@
       "hit_dice": "20d12",
       "hit_points": 230,
       "languages": "Common, Giant",
+      "name": "Storm Giant",
       "perception": 9,
       "saving_throws": "Str +14, Con +10, Wis +9, Cha +9",
       "senses": "passive perception 19",
@@ -14650,7 +14920,7 @@
       "subtype": "",
       "type": "giant"
     },
-    "Succubus/Incubus": {
+    {
       "CHR": 20,
       "CON": 13,
       "DEX": 17,
@@ -14693,6 +14963,7 @@
       "hit_dice": "12d8",
       "hit_points": 66,
       "languages": "Abyssal, Common, Infernal, telepathy 60 ft.",
+      "name": "Succubus/Incubus",
       "perception": 5,
       "senses": "darkvision 60 ft., passive perception 15",
       "size": "Medium",
@@ -14712,7 +14983,7 @@
       "subtype": "shapechanger",
       "type": "fiend"
     },
-    "Swarm of Bats": {
+    {
       "CHR": 4,
       "CON": 10,
       "DEX": 15,
@@ -14737,6 +15008,7 @@
       "hit_dice": "5d8",
       "hit_points": 22,
       "languages": "",
+      "name": "Swarm of Bats",
       "senses": "blindsight 60 ft., passive perception 11",
       "size": "Medium",
       "special_abilities": [
@@ -14760,7 +15032,7 @@
       "subtype": "",
       "type": "swarm of Tiny beasts"
     },
-    "Swarm of Beetles": {
+    {
       "CHR": 1,
       "CON": 10,
       "DEX": 13,
@@ -14785,6 +15057,7 @@
       "hit_dice": "5d8",
       "hit_points": 22,
       "languages": "",
+      "name": "Swarm of Beetles",
       "senses": "blindsight 10 ft., passive perception 8",
       "size": "Medium",
       "special_abilities": [
@@ -14798,7 +15071,7 @@
       "subtype": "",
       "type": "swarm of Tiny beasts"
     },
-    "Swarm of Centipedes": {
+    {
       "CHR": 1,
       "CON": 10,
       "DEX": 13,
@@ -14823,6 +15096,7 @@
       "hit_dice": "5d8",
       "hit_points": 22,
       "languages": "",
+      "name": "Swarm of Centipedes",
       "senses": "blindsight 10 ft., passive perception 8",
       "size": "Medium",
       "special_abilities": [
@@ -14836,7 +15110,7 @@
       "subtype": "",
       "type": "swarm of Tiny beasts"
     },
-    "Swarm of Insects": {
+    {
       "CHR": 1,
       "CON": 10,
       "DEX": 13,
@@ -14861,6 +15135,7 @@
       "hit_dice": "5d8",
       "hit_points": 22,
       "languages": "",
+      "name": "Swarm of Insects",
       "senses": "blindsight 10 ft., passive perception 8",
       "size": "Medium",
       "special_abilities": [
@@ -14874,7 +15149,7 @@
       "subtype": "",
       "type": "swarm of Tiny beasts"
     },
-    "Swarm of Poisonous Snakes": {
+    {
       "CHR": 3,
       "CON": 11,
       "DEX": 18,
@@ -14899,6 +15174,7 @@
       "hit_dice": "8d8",
       "hit_points": 36,
       "languages": "",
+      "name": "Swarm of Poisonous Snakes",
       "senses": "blindsight 10 ft., passive perception 10",
       "size": "Medium",
       "special_abilities": [
@@ -14912,7 +15188,7 @@
       "subtype": "",
       "type": "swarm of Tiny beasts"
     },
-    "Swarm of Quippers": {
+    {
       "CHR": 2,
       "CON": 9,
       "DEX": 16,
@@ -14937,6 +15213,7 @@
       "hit_dice": "8d8",
       "hit_points": 28,
       "languages": "",
+      "name": "Swarm of Quippers",
       "senses": "darkvision 60 ft., passive perception 8",
       "size": "Medium",
       "special_abilities": [
@@ -14960,7 +15237,7 @@
       "subtype": "",
       "type": "swarm of Tiny beasts"
     },
-    "Swarm of Rats": {
+    {
       "CHR": 3,
       "CON": 9,
       "DEX": 11,
@@ -14985,6 +15262,7 @@
       "hit_dice": "7d8",
       "hit_points": 24,
       "languages": "",
+      "name": "Swarm of Rats",
       "senses": "darkvision 30 ft., passive perception 10",
       "size": "Medium",
       "special_abilities": [
@@ -15003,7 +15281,7 @@
       "subtype": "",
       "type": "swarm of Tiny beasts"
     },
-    "Swarm of Ravens": {
+    {
       "CHR": 6,
       "CON": 8,
       "DEX": 14,
@@ -15028,6 +15306,7 @@
       "hit_dice": "7d8",
       "hit_points": 24,
       "languages": "",
+      "name": "Swarm of Ravens",
       "senses": "passive perception 15",
       "size": "Medium",
       "special_abilities": [
@@ -15041,7 +15320,7 @@
       "subtype": "",
       "type": "swarm of Tiny beasts"
     },
-    "Swarm of Spiders": {
+    {
       "CHR": 1,
       "CON": 10,
       "DEX": 13,
@@ -15066,6 +15345,7 @@
       "hit_dice": "5d8",
       "hit_points": 22,
       "languages": "",
+      "name": "Swarm of Spiders",
       "senses": "blindsight 10 ft., passive perception 8",
       "size": "Medium",
       "special_abilities": [
@@ -15094,7 +15374,7 @@
       "subtype": "",
       "type": "swarm of Tiny beasts"
     },
-    "Swarm of Wasps": {
+    {
       "CHR": 1,
       "CON": 10,
       "DEX": 13,
@@ -15119,6 +15399,7 @@
       "hit_dice": "5d8",
       "hit_points": 22,
       "languages": "",
+      "name": "Swarm of Wasps",
       "senses": "blindsight 10 ft., passive perception 8",
       "size": "Medium",
       "special_abilities": [
@@ -15132,7 +15413,7 @@
       "subtype": "",
       "type": "swarm of Tiny beasts"
     },
-    "Tarrasque": {
+    {
       "CHR": 11,
       "CON": 30,
       "DEX": 11,
@@ -15211,6 +15492,7 @@
           "name": "Chomp (Costs 2 Actions)"
         }
       ],
+      "name": "Tarrasque",
       "saving_throws": "Int +5, Wis +9, Cha +9",
       "senses": "blindsight 120 ft., passive perception 10",
       "size": "Gargantuan",
@@ -15240,7 +15522,7 @@
       "subtype": "titan",
       "type": "monstrosity"
     },
-    "Thug": {
+    {
       "CHR": 11,
       "CON": 14,
       "DEX": 11,
@@ -15277,6 +15559,7 @@
       "hit_dice": "5d8",
       "hit_points": 32,
       "languages": "any one language (usually Common)",
+      "name": "Thug",
       "senses": "passive perception 10",
       "size": "Medium",
       "skills": "Intimidation +2",
@@ -15291,7 +15574,7 @@
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Tiger": {
+    {
       "CHR": 8,
       "CON": 14,
       "DEX": 15,
@@ -15322,6 +15605,7 @@
       "hit_dice": "5d10",
       "hit_points": 37,
       "languages": "",
+      "name": "Tiger",
       "perception": 3,
       "senses": "darkvision 60 ft., passive perception 13",
       "size": "Large",
@@ -15342,7 +15626,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Treant": {
+    {
       "CHR": 12,
       "CON": 21,
       "DEX": 8,
@@ -15385,6 +15669,7 @@
       "hit_dice": "12d12",
       "hit_points": 138,
       "languages": "Common, Druidic, Elvish, Sylvan",
+      "name": "Treant",
       "senses": "passive perception 13",
       "size": "Huge",
       "special_abilities": [
@@ -15403,7 +15688,7 @@
       "subtype": "",
       "type": "plant"
     },
-    "Tribal Warrior": {
+    {
       "CHR": 8,
       "CON": 12,
       "DEX": 11,
@@ -15429,6 +15714,7 @@
       "hit_dice": "2d8",
       "hit_points": 11,
       "languages": "any one language",
+      "name": "Tribal Warrior",
       "senses": "passive perception 10",
       "size": "Medium",
       "special_abilities": [
@@ -15442,7 +15728,7 @@
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Triceratops": {
+    {
       "CHR": 5,
       "CON": 17,
       "DEX": 9,
@@ -15475,6 +15761,7 @@
       "hit_dice": "10d12",
       "hit_points": 95,
       "languages": "",
+      "name": "Triceratops",
       "senses": "passive perception 10",
       "size": "Huge",
       "special_abilities": [
@@ -15488,7 +15775,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Troll": {
+    {
       "CHR": 7,
       "CON": 20,
       "DEX": 13,
@@ -15526,6 +15813,7 @@
       "hit_dice": "8d10",
       "hit_points": 84,
       "languages": "Giant",
+      "name": "Troll",
       "perception": 2,
       "senses": "darkvision 60 ft., passive perception 12",
       "size": "Large",
@@ -15551,7 +15839,7 @@
       "subtype": "",
       "type": "giant"
     },
-    "Tyrannosaurus Rex": {
+    {
       "CHR": 9,
       "CON": 19,
       "DEX": 10,
@@ -15589,6 +15877,7 @@
       "hit_dice": "13d12",
       "hit_points": 136,
       "languages": "",
+      "name": "Tyrannosaurus Rex",
       "perception": 4,
       "senses": "passive perception 14",
       "size": "Huge",
@@ -15597,7 +15886,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Unicorn": {
+    {
       "CHR": 16,
       "CON": 15,
       "DEX": 14,
@@ -15662,6 +15951,7 @@
           "name": "Heal Self (Costs 3 Actions)"
         }
       ],
+      "name": "Unicorn",
       "senses": "darkvision 60 ft., passive perception 13",
       "size": "Large",
       "special_abilities": [
@@ -15690,7 +15980,7 @@
       "subtype": "",
       "type": "celestial"
     },
-    "Vampire": {
+    {
       "CHR": 18,
       "CON": 18,
       "DEX": 18,
@@ -15755,6 +16045,7 @@
           "name": "Bite (Costs 2 Actions)"
         }
       ],
+      "name": "Vampire",
       "perception": 7,
       "saving_throws": "Dex +9, Wis +7, Cha +9",
       "senses": "darkvision 120 ft., passive perception 17",
@@ -15796,7 +16087,7 @@
       "subtype": "shapechanger",
       "type": "undead"
     },
-    "Vampire Spawn": {
+    {
       "CHR": 12,
       "CON": 16,
       "DEX": 16,
@@ -15832,6 +16123,7 @@
       "hit_dice": "11d8",
       "hit_points": 82,
       "languages": "the languages it knew in life",
+      "name": "Vampire Spawn",
       "perception": 3,
       "saving_throws": "Dex +6, Wis +3",
       "senses": "darkvision 60 ft., passive perception 13",
@@ -15858,7 +16150,7 @@
       "subtype": "",
       "type": "undead"
     },
-    "Veteran": {
+    {
       "CHR": 10,
       "CON": 14,
       "DEX": 13,
@@ -15903,6 +16195,7 @@
       "hit_dice": "9d8",
       "hit_points": 58,
       "languages": "any one language (usually Common)",
+      "name": "Veteran",
       "perception": 2,
       "senses": "passive perception 12",
       "size": "Medium",
@@ -15911,7 +16204,7 @@
       "subtype": "any race",
       "type": "humanoid"
     },
-    "Violet Fungus": {
+    {
       "CHR": 1,
       "CON": 10,
       "DEX": 1,
@@ -15941,6 +16234,7 @@
       "hit_dice": "4d8",
       "hit_points": 18,
       "languages": "",
+      "name": "Violet Fungus",
       "senses": "blindsight 30 ft. (blind beyond this radius), passive perception 6",
       "size": "Medium",
       "special_abilities": [
@@ -15954,7 +16248,7 @@
       "subtype": "",
       "type": "plant"
     },
-    "Vrock": {
+    {
       "CHR": 8,
       "CON": 18,
       "DEX": 15,
@@ -16007,6 +16301,7 @@
       "hit_dice": "11d10",
       "hit_points": 104,
       "languages": "Abyssal, telepathy 120 ft.",
+      "name": "Vrock",
       "saving_throws": "Dex +5, Wis +4, Cha +2",
       "senses": "darkvision 120 ft., passive perception 11",
       "size": "Large",
@@ -16021,7 +16316,7 @@
       "subtype": "demon",
       "type": "fiend"
     },
-    "Vulture": {
+    {
       "CHR": 4,
       "CON": 13,
       "DEX": 10,
@@ -16046,6 +16341,7 @@
       "hit_dice": "1d8",
       "hit_points": 5,
       "languages": "",
+      "name": "Vulture",
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Medium",
@@ -16066,7 +16362,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Warhorse": {
+    {
       "CHR": 7,
       "CON": 13,
       "DEX": 12,
@@ -16092,6 +16388,7 @@
       "hit_dice": "3d10",
       "hit_points": 19,
       "languages": "",
+      "name": "Warhorse",
       "senses": "passive perception 11",
       "size": "Large",
       "special_abilities": [
@@ -16105,7 +16402,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Warhorse Skeleton": {
+    {
       "CHR": 5,
       "CON": 15,
       "DEX": 12,
@@ -16131,13 +16428,14 @@
       "hit_dice": "3d10",
       "hit_points": 22,
       "languages": "",
+      "name": "Warhorse Skeleton",
       "senses": "darkvision 60 ft., passive perception 9",
       "size": "Large",
       "speed": "60 ft.",
       "subtype": "",
       "type": "undead"
     },
-    "Water Elemental": {
+    {
       "CHR": 8,
       "CON": 18,
       "DEX": 14,
@@ -16173,6 +16471,7 @@
       "hit_dice": "12d10",
       "hit_points": 114,
       "languages": "Aquan",
+      "name": "Water Elemental",
       "senses": "darkvision 60 ft., passive perception 10",
       "size": "Large",
       "special_abilities": [
@@ -16191,7 +16490,7 @@
       "subtype": "",
       "type": "elemental"
     },
-    "Weasel": {
+    {
       "CHR": 3,
       "CON": 8,
       "DEX": 16,
@@ -16216,6 +16515,7 @@
       "hit_dice": "1d4",
       "hit_points": 1,
       "languages": "",
+      "name": "Weasel",
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Tiny",
@@ -16231,7 +16531,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Werebear": {
+    {
       "CHR": 12,
       "CON": 17,
       "DEX": 10,
@@ -16276,6 +16576,7 @@
       "hit_dice": "18d8",
       "hit_points": 135,
       "languages": "Common (can't speak in bear form)",
+      "name": "Werebear",
       "perception": 7,
       "senses": "passive perception 17",
       "size": "Medium",
@@ -16296,7 +16597,7 @@
       "subtype": "human",
       "type": "humanoid"
     },
-    "Wereboar": {
+    {
       "CHR": 8,
       "CON": 15,
       "DEX": 10,
@@ -16334,6 +16635,7 @@
       "hit_dice": "12d8",
       "hit_points": 78,
       "languages": "Common (can't speak in boar form)",
+      "name": "Wereboar",
       "perception": 2,
       "senses": "passive perception 12",
       "size": "Medium",
@@ -16359,7 +16661,7 @@
       "subtype": "human",
       "type": "humanoid"
     },
-    "Wererat": {
+    {
       "CHR": 8,
       "CON": 12,
       "DEX": 15,
@@ -16404,6 +16706,7 @@
       "hit_dice": "6d8",
       "hit_points": 33,
       "languages": "Common (can't speak in rat form)",
+      "name": "Wererat",
       "perception": 2,
       "senses": "darkvision 60 ft. (rat form only), passive perception 12",
       "size": "Medium",
@@ -16424,7 +16727,7 @@
       "subtype": "human",
       "type": "humanoid"
     },
-    "Weretiger": {
+    {
       "CHR": 11,
       "CON": 16,
       "DEX": 15,
@@ -16476,6 +16779,7 @@
       "hit_dice": "16d8",
       "hit_points": 120,
       "languages": "Common (can't speak in tiger form)",
+      "name": "Weretiger",
       "perception": 5,
       "senses": "darkvision 60 ft., passive perception 15",
       "size": "Medium",
@@ -16501,7 +16805,7 @@
       "subtype": "human",
       "type": "humanoid"
     },
-    "Werewolf": {
+    {
       "CHR": 10,
       "CON": 14,
       "DEX": 13,
@@ -16546,6 +16850,7 @@
       "hit_dice": "9d8",
       "hit_points": 58,
       "languages": "Common (can't speak in wolf form)",
+      "name": "Werewolf",
       "perception": 4,
       "senses": "passive perception 14",
       "size": "Medium",
@@ -16566,7 +16871,7 @@
       "subtype": "human",
       "type": "humanoid"
     },
-    "White Dragon Wyrmling": {
+    {
       "CHR": 11,
       "CON": 14,
       "DEX": 10,
@@ -16598,6 +16903,7 @@
       "hit_dice": "5d8",
       "hit_points": 32,
       "languages": "Draconic",
+      "name": "White Dragon Wyrmling",
       "perception": 4,
       "saving_throws": "Dex +2, Con +4, Wis +2, Cha +2",
       "senses": "blindsight 10 ft., darkvision 60 ft., passive perception 14",
@@ -16607,7 +16913,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Wight": {
+    {
       "CHR": 15,
       "CON": 16,
       "DEX": 14,
@@ -16652,6 +16958,7 @@
       "hit_dice": "6d8",
       "hit_points": 45,
       "languages": "the languages it knew in life",
+      "name": "Wight",
       "perception": 3,
       "senses": "darkvision 60 ft., passive perception 13",
       "size": "Medium",
@@ -16667,7 +16974,7 @@
       "subtype": "",
       "type": "undead"
     },
-    "Will-o'-Wisp": {
+    {
       "CHR": 11,
       "CON": 10,
       "DEX": 28,
@@ -16697,6 +17004,7 @@
       "hit_dice": "9d4",
       "hit_points": 22,
       "languages": "the languages it knew in life",
+      "name": "Will-o'-Wisp",
       "senses": "darkvision 120 ft., passive perception 12",
       "size": "Tiny",
       "special_abilities": [
@@ -16725,7 +17033,7 @@
       "subtype": "",
       "type": "undead"
     },
-    "Winter Wolf": {
+    {
       "CHR": 8,
       "CON": 14,
       "DEX": 13,
@@ -16757,6 +17065,7 @@
       "hit_dice": "10d10",
       "hit_points": 75,
       "languages": "Common, Giant, Winter Wolf",
+      "name": "Winter Wolf",
       "perception": 5,
       "senses": "passive perception 15",
       "size": "Large",
@@ -16782,7 +17091,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Wolf": {
+    {
       "CHR": 6,
       "CON": 12,
       "DEX": 15,
@@ -16808,6 +17117,7 @@
       "hit_dice": "2d8",
       "hit_points": 11,
       "languages": "",
+      "name": "Wolf",
       "perception": 3,
       "senses": "passive perception 13",
       "size": "Medium",
@@ -16828,7 +17138,7 @@
       "subtype": "",
       "type": "beast"
     },
-    "Worg": {
+    {
       "CHR": 8,
       "CON": 13,
       "DEX": 13,
@@ -16854,6 +17164,7 @@
       "hit_dice": "4d10",
       "hit_points": 26,
       "languages": "Goblin, Worg",
+      "name": "Worg",
       "perception": 4,
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Large",
@@ -16869,7 +17180,7 @@
       "subtype": "",
       "type": "monstrosity"
     },
-    "Wraith": {
+    {
       "CHR": 15,
       "CON": 16,
       "DEX": 16,
@@ -16900,6 +17211,7 @@
       "hit_dice": "9d8",
       "hit_points": 67,
       "languages": "the languages it knew in life",
+      "name": "Wraith",
       "senses": "darkvision 60 ft., passive perception 12",
       "size": "Medium",
       "special_abilities": [
@@ -16918,7 +17230,7 @@
       "subtype": "",
       "type": "undead"
     },
-    "Wyvern": {
+    {
       "CHR": 6,
       "CON": 16,
       "DEX": 10,
@@ -16963,6 +17275,7 @@
       "hit_dice": "13d10",
       "hit_points": 110,
       "languages": "",
+      "name": "Wyvern",
       "perception": 4,
       "senses": "darkvision 60 ft., passive perception 14",
       "size": "Large",
@@ -16971,7 +17284,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Xorn": {
+    {
       "CHR": 11,
       "CON": 22,
       "DEX": 10,
@@ -17009,6 +17322,7 @@
       "hit_dice": "7d8",
       "hit_points": 73,
       "languages": "Terran",
+      "name": "Xorn",
       "perception": 6,
       "senses": "darkvision 60 ft., tremorsense 60 ft., passive perception 16",
       "size": "Medium",
@@ -17034,7 +17348,7 @@
       "subtype": "",
       "type": "elemental"
     },
-    "Young Black Dragon": {
+    {
       "CHR": 15,
       "CON": 17,
       "DEX": 14,
@@ -17078,6 +17392,7 @@
       "hit_dice": "15d10",
       "hit_points": 127,
       "languages": "Common, Draconic",
+      "name": "Young Black Dragon",
       "perception": 6,
       "saving_throws": "Dex +5, Con +6, Wis +3, Cha +5",
       "senses": "blindsight 30 ft., darkvision 120 ft., passive perception 16",
@@ -17094,7 +17409,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Young Blue Dragon": {
+    {
       "CHR": 17,
       "CON": 19,
       "DEX": 10,
@@ -17138,6 +17453,7 @@
       "hit_dice": "16d10",
       "hit_points": 152,
       "languages": "Common, Draconic",
+      "name": "Young Blue Dragon",
       "perception": 9,
       "saving_throws": "Dex +4, Con +8, Wis +5, Cha +7",
       "senses": "blindsight 30 ft., darkvision 120 ft., passive perception 19",
@@ -17147,7 +17463,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Young Brass Dragon": {
+    {
       "CHR": 15,
       "CON": 17,
       "DEX": 10,
@@ -17191,6 +17507,7 @@
       "hit_dice": "13d10",
       "hit_points": 110,
       "languages": "Common, Draconic",
+      "name": "Young Brass Dragon",
       "perception": 6,
       "saving_throws": "Dex +3, Con +6, Wis +3, Cha +5",
       "senses": "blindsight 30 ft., darkvision 120 ft., passive perception 16",
@@ -17200,7 +17517,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Young Bronze Dragon": {
+    {
       "CHR": 17,
       "CON": 19,
       "DEX": 10,
@@ -17244,6 +17561,7 @@
       "hit_dice": "15d10",
       "hit_points": 142,
       "languages": "Common, Draconic",
+      "name": "Young Bronze Dragon",
       "perception": 7,
       "saving_throws": "Dex +3, Con +7, Wis +4, Cha +6",
       "senses": "blindsight 30 ft., darkvision 120 ft., passive perception 17",
@@ -17260,7 +17578,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Young Copper Dragon": {
+    {
       "CHR": 15,
       "CON": 17,
       "DEX": 12,
@@ -17304,6 +17622,7 @@
       "hit_dice": "14d10",
       "hit_points": 119,
       "languages": "Common, Draconic",
+      "name": "Young Copper Dragon",
       "perception": 7,
       "saving_throws": "Dex +4, Con +6, Wis +4, Cha +5",
       "senses": "blindsight 30 ft., darkvision 120 ft., passive perception 17",
@@ -17313,7 +17632,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Young Gold Dragon": {
+    {
       "CHR": 20,
       "CON": 21,
       "DEX": 14,
@@ -17357,6 +17676,7 @@
       "hit_dice": "17d10",
       "hit_points": 178,
       "languages": "Common, Draconic",
+      "name": "Young Gold Dragon",
       "perception": 9,
       "saving_throws": "Dex +6, Con +9, Wis +5, Cha +9",
       "senses": "blindsight 30 ft., darkvision 120 ft., passive perception 19",
@@ -17373,7 +17693,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Young Green Dragon": {
+    {
       "CHR": 15,
       "CON": 17,
       "DEX": 12,
@@ -17417,6 +17737,7 @@
       "hit_dice": "16d10",
       "hit_points": 136,
       "languages": "Common, Draconic",
+      "name": "Young Green Dragon",
       "perception": 7,
       "saving_throws": "Dex +4, Con +6, Wis +4, Cha +5",
       "senses": "blindsight 30 ft., darkvision 120 ft., passive perception 17",
@@ -17433,7 +17754,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Young Red Dragon": {
+    {
       "CHR": 19,
       "CON": 21,
       "DEX": 10,
@@ -17477,6 +17798,7 @@
       "hit_dice": "17d10",
       "hit_points": 178,
       "languages": "Common, Draconic",
+      "name": "Young Red Dragon",
       "perception": 8,
       "saving_throws": "Dex +4, Con +9, Wis +4, Cha +8",
       "senses": "blindsight 30 ft., darkvision 120 ft., passive perception 18",
@@ -17486,7 +17808,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Young Silver Dragon": {
+    {
       "CHR": 19,
       "CON": 21,
       "DEX": 10,
@@ -17530,6 +17852,7 @@
       "hit_dice": "16d10",
       "hit_points": 168,
       "languages": "Common, Draconic",
+      "name": "Young Silver Dragon",
       "perception": 8,
       "saving_throws": "Dex +4, Con +9, Wis +4, Cha +8",
       "senses": "blindsight 30 ft., darkvision 120 ft., passive perception 18",
@@ -17539,7 +17862,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Young White Dragon": {
+    {
       "CHR": 12,
       "CON": 18,
       "DEX": 10,
@@ -17583,6 +17906,7 @@
       "hit_dice": "14d10",
       "hit_points": 133,
       "languages": "Common, Draconic",
+      "name": "Young White Dragon",
       "perception": 6,
       "saving_throws": "Dex +3, Con +7, Wis +3, Cha +4",
       "senses": "blindsight 30 ft., darkvision 120 ft., passive perception 16",
@@ -17599,7 +17923,7 @@
       "subtype": "",
       "type": "dragon"
     },
-    "Zombie": {
+    {
       "CHR": 5,
       "CON": 16,
       "DEX": 6,
@@ -17625,6 +17949,7 @@
       "hit_dice": "3d8",
       "hit_points": 22,
       "languages": "understands all languages it spoke in life but can't speak",
+      "name": "Zombie",
       "saving_throws": "Wis +0",
       "senses": "darkvision 60 ft., passive perception 8",
       "size": "Medium",
@@ -17639,5 +17964,5 @@
       "subtype": "",
       "type": "undead"
     }
-  }
+  ]
 }
