@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  Ashardalon:
-    container_name: Ashardalon
+  ashardalon:
+    container_name: ashardalon
     image: postgres
     ports:
     - 5429:5432

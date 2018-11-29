@@ -6,7 +6,7 @@ docker-compose up -d --build
 echo "Waiting to let container finish startup tasks before accessing..."
 OUTPUT=""; 
 while [ `echo $OUTPUT | grep -c accepting` = 0 ]; do 
-  OUTPUT=`docker exec -it Ashardalon pg_isready`;
+  OUTPUT=`docker exec -it ashardalon pg_isready`;
   sleep 1 
 done
 echo "Creating postgres tables..."
