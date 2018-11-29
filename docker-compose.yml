@@ -13,9 +13,20 @@ services:
       POSTGRES_USER: wizerd
       POSTGRES_DB: dnd
 
-  obliviax:
-    container_name: obliviax
-    build:
-      context: mongodb
+  # obliviax:
+  #   container_name: obliviax
+  #   build:
+  #     context: mongodb
+  #   ports:
+  #   - 27042:27017
+
+  gruumsh:
+    container_name: gruumsh
+    image: mongo
+    volumes:
+    - ./mongodb/data/db:/data/db
     ports:
-    - 27042:27017
+    - 27041:27017
+    # environment:
+    #   MONGO_INITDB_ROOT_PASSWORD: changeme
+    #   MONGO_INITDB_ROOT_USERNAME: wizerd
