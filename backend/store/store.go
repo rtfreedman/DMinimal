@@ -96,63 +96,60 @@ func GetSpellsByClass(class string) (spells []Spell, err error) {
 	return
 }
 
-// Actions of a monster
-type Actions struct {
-}
-
-// Reactions of a monster
-type Reactions struct {
-}
-
-// SpecialAbilities of a monster
-type SpecialAbilities struct {
-}
-
-// LegendaryActions of a monster
-type LegendaryActions struct {
+// AlternateAction represents the actions, reactions, specialabilities, or legendaryactions of a monster
+type AlternateAction struct {
+	AttackBonus string `json:"attackBonus,omitempty"`
+	DamageDice  string `json:"damageDice,omitempty"`
+	DamageBonus string `json:"damageBonus,omitempty"`
+	Name        string `json:"name,omitempty"`
+	Description string `json:"description,omitempty"`
 }
 
 // Monster represents a monster object from the DB
 type Monster struct {
-	Reactions             []Reactions        `json:"reactions,omitempty"`
-	WIS                   int                `json:"WIS,omitempty"`
-	INT                   int                `json:"INT,omitempty"`
-	LegendaryActions      []LegendaryActions `json:"legendaryActions,omitempty"`
-	ArmorClass            int                `json:"armorClass,omitempty"`
-	SpecialAbilities      []SpecialAbilities `json:"specialAbilities,omitempty"`
-	Languages             string             `json:"languages,omitempty"`
-	Actions               []Actions          `json:"actions,omitempty"`
-	STR                   int                `json:"STR,omitempty"`
-	HitPoints             int                `json:"hitPoints,omitempty"`
-	DamageResistances     string             `json:"damageResistances,omitempty"`
-	DEX                   int                `json:"DEX,omitempty"`
-	CHR                   int                `json:"CHR,omitempty"`
-	TypeString            string             `json:"type,omitempty"`
-	Perception            int                `json:"perception,omitempty"`
-	Subtype               string             `json:"subtype,omitempty"`
-	DamageVulnerabilities string             `json:"damageVulnerabilities,omitempty"`
-	HitDice               string             `json:"hitDice,omitempty"`
-	Name                  string             `json:"name,omitempty"`
-	Alignment             string             `json:"alignment,omitempty"`
-	Skills                string             `json:"skills,omitempty"`
-	ConditionImmunities   string             `json:"conditionImmunities,omitempty"`
-	CON                   int                `json:"CON,omitempty"`
-	ChallengeRating       int                `json:"challengeRating,omitempty"`
-	DamageImmunities      string             `json:"damageImmunities,omitempty"`
-	Size                  string             `json:"size,omitempty"`
-	Senses                string             `json:"senses,omitempty"`
-	SavingThrows          string             `json:"savingThrows,omitempty"`
-	Speed                 string             `json:"speed,omitempty"`
+	Reactions             []AlternateAction `json:"reactions,omitempty"`
+	WIS                   int               `json:"WIS,omitempty"`
+	INT                   int               `json:"INT,omitempty"`
+	LegendaryActions      []AlternateAction `json:"legendaryActions,omitempty"`
+	ArmorClass            int               `json:"armorClass,omitempty"`
+	SpecialAbilities      []AlternateAction `json:"specialAbilities,omitempty"`
+	Languages             string            `json:"languages,omitempty"`
+	Actions               []AlternateAction `json:"actions,omitempty"`
+	STR                   int               `json:"STR,omitempty"`
+	HitPoints             int               `json:"hitPoints,omitempty"`
+	DamageResistances     string            `json:"damageResistances,omitempty"`
+	DEX                   int               `json:"DEX,omitempty"`
+	CHR                   int               `json:"CHR,omitempty"`
+	TypeString            string            `json:"type,omitempty"`
+	Perception            int               `json:"perception,omitempty"`
+	Subtype               string            `json:"subtype,omitempty"`
+	DamageVulnerabilities string            `json:"damageVulnerabilities,omitempty"`
+	HitDice               string            `json:"hitDice,omitempty"`
+	Name                  string            `json:"name,omitempty"`
+	Alignment             string            `json:"alignment,omitempty"`
+	Skills                string            `json:"skills,omitempty"`
+	ConditionImmunities   string            `json:"conditionImmunities,omitempty"`
+	CON                   int               `json:"CON,omitempty"`
+	ChallengeRating       int               `json:"challengeRating,omitempty"`
+	DamageImmunities      string            `json:"damageImmunities,omitempty"`
+	Size                  string            `json:"size,omitempty"`
+	Senses                string            `json:"senses,omitempty"`
+	SavingThrows          string            `json:"savingThrows,omitempty"`
+	Speed                 string            `json:"speed,omitempty"`
 }
 
 // GetMonsters returns a list of monster names
 func GetMonsters() (monsterNames []string) {
-	// TODO
+	// TODO: cached monsternames
 	return
 }
 
 // GetMonster returns a monster object by name name
-func GetMonster(name string) (monster Monster) {
-	// TODO
+func GetMonster(name string) (monster Monster, err error) {
+	monstersDB := db.Collection("monsters")
+	// filter
+	filter := bson.NewDocument(bson.EC.String("name", name))
+	result := monstersDB.FindOne(nil, filter)
+	err = result.Decode(&monster)
 	return
 }
