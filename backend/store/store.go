@@ -12,6 +12,7 @@ import (
 )
 
 var db *mongo.Database
+var cachedMonsterList []string
 
 func getPassword() string {
 	fmt.Print("Postgres Password: ")
@@ -41,13 +42,24 @@ func configDB(ctx context.Context, hasAuth bool, userName string, host string, p
 
 func init() {
 	ctx := context.Background()
-	ctx, cancel := context.WithCancel(ctx)
-	defer cancel()
 	fmt.Println("Initiating mongo driver...")
 	var err error
 	db, err = configDB(ctx, false, "", "127.0.0.1", "27041", "dnddb")
 	if err != nil {
 		log.Fatal(err.Error())
+	}
+	monstersDB := db.Collection("monsters")
+	filter := bson.NewDocument()
+	cursor, err := monstersDB.Find(ctx, filter)
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+	for cursor.Next(ctx) {
+		var tmpMonster Monster
+		if err := cursor.Decode(&tmpMonster); err != nil {
+			log.Fatal(err.Error())
+		}
+		cachedMonsterList = append(cachedMonsterList, tmpMonster.Name)
 	}
 }
 
@@ -138,10 +150,28 @@ type Monster struct {
 	Speed                 string            `json:"speed,omitempty"`
 }
 
-// GetMonsters returns a list of monster names
-func GetMonsters() (monsterNames []string) {
-	// TODO: cached monsternames
+// UpdateMonsterList updates the cached monster list from the db
+func UpdateMonsterList() (err error) {
+	ctx := context.Background()
+	monstersDB := db.Collection("monsters")
+	filter := bson.NewDocument()
+	cursor, err := monstersDB.Find(ctx, filter)
+	if err != nil {
+		return
+	}
+	for cursor.Next(ctx) {
+		var tmpMonster Monster
+		if err = cursor.Decode(&tmpMonster); err != nil {
+			return
+		}
+		cachedMonsterList = append(cachedMonsterList, tmpMonster.Name)
+	}
 	return
+}
+
+// GetMonsters returns a list of monster names
+func GetMonsters() []string {
+	return cachedMonsterList
 }
 
 // GetMonster returns a monster object by name name
