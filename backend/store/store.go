@@ -49,7 +49,7 @@ func init() {
 		log.Fatal(err.Error())
 	}
 	monstersDB := db.Collection("monsters")
-	filter := bson.NewDocument()
+	filter := bson.M{}
 	cursor, err := monstersDB.Find(ctx, filter)
 	if err != nil {
 		log.Fatal(err.Error())
@@ -82,7 +82,7 @@ type Spell struct {
 func GetSpellByName(name string) (spell Spell, err error) {
 	spellsDB := db.Collection("spells")
 	// filter
-	filter := bson.NewDocument(bson.EC.String("name", name))
+	filter := bson.M{"name": name}
 	result := spellsDB.FindOne(nil, filter)
 	err = result.Decode(&spell)
 	return
@@ -92,7 +92,7 @@ func GetSpellByName(name string) (spell Spell, err error) {
 func GetSpellsByClass(class string) (spells []Spell, err error) {
 	spellsDB := db.Collection("spells")
 	// filter
-	filter := bson.NewDocument(bson.EC.String("classes", class))
+	filter := bson.M{"classes": class}
 	cursor, err := spellsDB.Find(nil, filter)
 	if err != nil {
 		return
@@ -154,7 +154,7 @@ type Monster struct {
 func UpdateMonsterList() (err error) {
 	ctx := context.Background()
 	monstersDB := db.Collection("monsters")
-	filter := bson.NewDocument()
+	filter := bson.M{}
 	cursor, err := monstersDB.Find(ctx, filter)
 	if err != nil {
 		return
@@ -178,7 +178,7 @@ func GetMonsters() []string {
 func GetMonster(name string) (monster Monster, err error) {
 	monstersDB := db.Collection("monsters")
 	// filter
-	filter := bson.NewDocument(bson.EC.String("name", name))
+	filter := bson.M{"name": name}
 	result := monstersDB.FindOne(nil, filter)
 	err = result.Decode(&monster)
 	return
