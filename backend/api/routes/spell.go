@@ -4,7 +4,6 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/rtfreedman/DMinimal/backend/routines"
 	"github.com/rtfreedman/DMinimal/backend/store"
 	"github.com/rtfreedman/DMinimal/backend/util"
 )
@@ -47,7 +46,7 @@ func getSpellList(w http.ResponseWriter, r *http.Request) {
 }
 
 func getSpellSlots(w http.ResponseWriter, r *http.Request) {
-	req := map[string][]routines.Class{}
+	req := map[string][]store.Class{}
 	err := util.ReadJSONRequestBody(r, &req)
 	if err != nil {
 		util.WriteError("Malformed JSON input into getSpellSlots API endpoint", w)
@@ -65,6 +64,6 @@ func getSpellSlots(w http.ResponseWriter, r *http.Request) {
 
 func getClasses(w http.ResponseWriter, r *http.Request) {
 	classes := map[string][]string{}
-	classes["Classes"], classes["MagicClasses"] = routines.GetClassNames()
+	classes["Classes"], classes["MagicClasses"] = store.GetClassNames()
 	util.WriteJSONResponse("getClasses", classes, w)
 }
