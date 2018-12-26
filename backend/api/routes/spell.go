@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/rtfreedman/DMinimal/backend/routines"
+	"github.com/rtfreedman/DMinimal/backend/store"
 	"github.com/rtfreedman/DMinimal/backend/util"
 )
 
@@ -22,12 +22,12 @@ func getSpellInformation(w http.ResponseWriter, r *http.Request) {
 		util.WriteError("No spellname supplied", w)
 		return
 	}
-	si, err := routines.GetSpellInfo(vars["spellname"])
+	spell, err := store.GetSpellByName(vars["spellname"])
 	if err != nil {
 		util.WriteError(err.Error(), w)
 		return
 	}
-	util.WriteJSONResponse("getSpellInformation", si, w)
+	util.WriteJSONResponse("getSpellInformation", spell, w)
 }
 
 func getSpellList(w http.ResponseWriter, r *http.Request) {
@@ -36,7 +36,7 @@ func getSpellList(w http.ResponseWriter, r *http.Request) {
 		util.WriteError("No spellname supplied", w)
 		return
 	}
-	spellOpts, err := routines.SpellList(vars["class"])
+	spellOpts, err := store.GetSpellsByClass(vars["class"])
 	if err != nil {
 		util.WriteError(err.Error(), w)
 		return
@@ -46,7 +46,7 @@ func getSpellList(w http.ResponseWriter, r *http.Request) {
 }
 
 func getSpellSlots(w http.ResponseWriter, r *http.Request) {
-	req := map[string][]routines.Class{}
+	req := map[string][]store.Class{}
 	err := util.ReadJSONRequestBody(r, &req)
 	if err != nil {
 		util.WriteError("Malformed JSON input into getSpellSlots API endpoint", w)
@@ -64,6 +64,6 @@ func getSpellSlots(w http.ResponseWriter, r *http.Request) {
 
 func getClasses(w http.ResponseWriter, r *http.Request) {
 	classes := map[string][]string{}
-	classes["Classes"], classes["MagicClasses"] = routines.GetClassNames()
+	classes["Classes"], classes["MagicClasses"] = store.GetClassNames()
 	util.WriteJSONResponse("getClasses", classes, w)
 }

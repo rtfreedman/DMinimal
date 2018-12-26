@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/rtfreedman/DMinimal/backend/routines"
+	"github.com/rtfreedman/DMinimal/backend/store"
 	"github.com/rtfreedman/DMinimal/backend/util"
 )
 
@@ -15,11 +15,7 @@ func SetupMonsters(r *mux.Router) {
 }
 
 func getMonstersList(w http.ResponseWriter, r *http.Request) {
-	monsters, err := routines.GetMonsters()
-	if err != nil {
-		util.WriteError("Could not get monster list", w)
-		return
-	}
+	monsters := store.GetMonsters()
 	util.WriteJSONResponse("getMonsters", map[string]interface{}{
 		"Monsters": monsters,
 	}, w)
@@ -31,10 +27,19 @@ func getMonsterInfo(w http.ResponseWriter, r *http.Request) {
 		util.WriteError("No monster supplied", w)
 		return
 	}
-	mi, err := routines.GetMonsterInfo(vars["monster"])
+	monster, err := store.GetMonster(vars["monster"])
 	if err != nil {
 		util.WriteError(err.Error(), w)
 		return
 	}
-	util.WriteJSONResponse("getMonsterInfo", mi, w)
+	util.WriteJSONResponse("getMonsterInfo", monster, w)
+}
+
+func updateMonsterCache(w http.ResponseWriter, r *http.Request) {
+	// TODO auth admin only
+	err := store.UpdateMonsterList()
+	if err != nil {
+		util.WriteError(err.Error(), w)
+		return
+	}
 }
